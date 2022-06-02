@@ -79,7 +79,9 @@ setup(
         'xlrd',
         'requests',
 	    'pyxlsb',
-        'wget'
+        'wget',
+        'geojson',
+        'shapely'
     ],
     extras_require={
         'dev': [
