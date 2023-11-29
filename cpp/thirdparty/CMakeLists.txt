@@ -1,62 +1,48 @@
 # Versions of the bundled libraries
 # If you like to upgrade, just change the number
-set(MEMILIO_EIGEN_VERSION "3.3.9")
 set(MEMILIO_SPDLOG_VERSION "1.11.0")
+set(MEMILIO_EIGEN_VERSION "3.3.9")
 set(MEMILIO_JSONCPP_VERSION "1.9.5")
+set(MEMILIO_BOOST_VERSION "1.75.0")
+include(FetchContent)
+#TODO: There can be a heavy reduction in setup if we set some things right here
 set(MEMILIO_RANDOM123_VERSION "v1.14.0")
 
 # ## SPDLOG
+MESSAGE(STATUS "Searching for SPDLOG and downloading if not found")
+FetchContent_Declare(
+    spdlog
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+    GIT_TAG v${MEMILIO_SPDLOG_VERSION}
+    GIT_SHALLOW TRUE
+    GIT_PROGRESS TRUE
+    FIND_PACKAGE_ARGS ${MEMILIO_SPDLOG_VERSION}
+)
+
 set(SPDLOG_INSTALL ON)
 
-if(MEMILIO_USE_BUNDLED_SPDLOG)
-    message(STATUS "Downloading Spdlog library")
+FetchContent_MakeAvailable(spdlog)
 
-    include(FetchContent)
-    FetchContent_Declare(
-        spdlog
-        GIT_REPOSITORY https://github.com/gabime/spdlog.git
-        GIT_TAG v${MEMILIO_SPDLOG_VERSION}
-    )
-    FetchContent_GetProperties(spdlog)
-
-    if(NOT spdlog_POPULATED)
-        FetchContent_Populate(spdlog)
-        add_subdirectory(${spdlog_SOURCE_DIR} ${spdlog_BINARY_DIR} EXCLUDE_FROM_ALL)
-    endif()
-
-else()
-    find_package(spdlog REQUIRED)
-endif()
 
 # ## EIGEN
-if(MEMILIO_USE_BUNDLED_EIGEN)
-    message(STATUS "Downloading Eigen library")
+MESSAGE(STATUS "Searching for Eigen and downloading if not found")
+FetchContent_Declare(eigen
+    GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+    GIT_TAG ${MEMILIO_EIGEN_VERSION}
+    GIT_SHALLOW TRUE
+    GIT_PROGRESS TRUE
+    # FIND_PACKAGE_ARGS ${MEMILIO_EIGEN_VERSION} NAMES eigen NO_MODULE
+)
 
-    include(FetchContent)
-    FetchContent_Declare(eigen
-        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-        GIT_TAG ${MEMILIO_EIGEN_VERSION})
-    FetchContent_GetProperties(eigen)
-
-    if(NOT eigen_POPULATED)
-        FetchContent_Populate(eigen)
-    endif()
-
-    add_library(eigen INTERFACE)
-    target_include_directories(eigen INTERFACE ${eigen_SOURCE_DIR})
-    add_library(Eigen3::Eigen ALIAS eigen)
-else()
-    find_package(Eigen3 ${MEMILIO_EIGEN_VERSION} REQUIRED NO_MODULE)
-endif()
+FetchContent_MakeAvailable(eigen)
+add_library(Eigen3::Eigen ALIAS eigen)
 
 # ## BOOST
-if(MEMILIO_USE_BUNDLED_BOOST)
-    include(BuildBoost)
-else()
-    find_package(Boost REQUIRED COMPONENTS outcome optional filesystem)
-endif(MEMILIO_USE_BUNDLED_BOOST)
+MESSAGE(STATUS "Searching for Boost and downloading if not found")
+include(CMake/thirdparty/BuildBoost)
 
 # ## HDF5
+MESSAGE(STATUS "Looking for HDF5")
 find_package(HDF5 COMPONENTS C)
 
 if(HDF5_FOUND)
@@ -66,42 +52,29 @@ else()
 endif()
 
 # ## JSONCPP
-if(MEMILIO_USE_BUNDLED_JSONCPP)
-    message(STATUS "Downloading jsoncpp library")
+MESSAGE(STATUS "Searching for Jsoncpp and downloading if not found")
 
-    include(FetchContent)
-    FetchContent_Declare(
-        jsoncpp
-        URL https://github.com/open-source-parsers/jsoncpp/archive/${MEMILIO_JSONCPP_VERSION}.tar.gz
-    )
-    FetchContent_GetProperties(jsoncpp)
 
-    if(NOT jsoncpp_POPULATED)
-        FetchContent_Populate(jsoncpp)
+include(FetchContent)
+FetchContent_Declare(
+    jsoncpp
+    URL https://github.com/open-source-parsers/jsoncpp/archive/${MEMILIO_JSONCPP_VERSION}.tar.gz
+)
 
-        # set jsoncpp configurations
-        set(JSONCPP_WITH_TESTS "Compile and (for jsoncpp_check) run JsonCpp test executables" OFF)
-        set(JSONCPP_WITH_POST_BUILD_UNITTEST "Automatically run unit-tests as a post build step" ON)
-
-        add_subdirectory(${jsoncpp_SOURCE_DIR} ${jsoncpp_BINARY_DIR} EXCLUDE_FROM_ALL)
-
-        # unset global cache variables to avoid clashes with our code
-        unset(BUILD_OBJECT_LIBS CACHE)
-        unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
-        unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
-        unset(CMAKE_PDB_OUTPUT_DIRECTORY CACHE)
-        unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY CACHE)
-    endif()
-
-    if(BUILD_SHARED_LIBS)
-        add_library(JsonCpp::JsonCpp ALIAS jsoncpp_lib)
-    else()
-        add_library(JsonCpp::JsonCpp ALIAS jsoncpp_static)
-    endif()
+set(JSONCPP_WITH_TESTS "Compile and (for jsoncpp_check) run JsonCpp test executables" OFF)
+set(JSONCPP_WITH_POST_BUILD_UNITTEST "Automatically run unit-tests as a post build step" ON)
+FetchContent_MakeAvailable(jsoncpp)
+# unset global cache variables to avoid clashes with our code
+unset(BUILD_OBJECT_LIBS CACHE)
+unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
+unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
+unset(CMAKE_PDB_OUTPUT_DIRECTORY CACHE)
+unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY CACHE)
+if(BUILD_SHARED_LIBS)
+    add_library(JsonCpp::JsonCpp ALIAS jsoncpp_lib)
 else()
-    find_package(jsoncpp CONFIG)
+    add_library(JsonCpp::JsonCpp ALIAS jsoncpp_static)
 endif()
-
 if(TARGET JsonCpp::JsonCpp)
     set(MEMILIO_HAS_JSONCPP ON)
 else()
@@ -110,6 +83,8 @@ else()
         to the directory containing the jsoncppConfig.cmake file to build with JsonCpp.")
 endif()
 
+
+## MPI
 if (MEMILIO_ENABLE_MPI)
     find_package(MPI REQUIRED COMPONENTS CXX)
 endif()
