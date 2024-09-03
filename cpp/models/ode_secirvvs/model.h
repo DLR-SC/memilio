@@ -243,7 +243,10 @@ public:
                         pop[INSPICj] + pop[ISyPICj] + pop[SIIj] + pop[EIIj] + pop[INSIIj] + pop[ISyIIj] + pop[ISevIIj] +
                         pop[ICrIIj] + pop[INSIICj] + pop[ISyIICj];
 
-                FP divNj = 1.0 / Nj; // precompute 1.0/Nj
+                FP divNj = 0.0;
+                if (Nj > 1e-12) {
+                    divNj = 1.0 / Nj; // precompute 1.0/Nj
+                }
 
                 FP ext_inf_force_dummy = cont_freq_eff * divNj *
                                          params.template get<TransmissionProbabilityOnContact<FP>>()[(AgeGroup)i] *
@@ -908,6 +911,19 @@ auto test_commuters(Simulation<FP, Base>& sim, Eigen::Ref<Vector<FP>> mobile_pop
         mobile_population[ISyIIi] *= nondetection;
         mobile_population[INSIIi] *= nondetection;
     }
+}
+
+template <typename FP>
+auto get_contact_pattern(Model<FP>& model)
+{
+    auto& contact_pattern = model.parameters.template get<ContactPatterns<FP>>();
+    return contact_pattern;
+}
+
+template <typename FP, typename CP>
+void set_contact_pattern(Model<FP>& model, CP contact_pattern)
+{
+    model.parameters.template get<ContactPatterns<FP>>() = contact_pattern;
 }
 
 } // namespace osecirvvs
