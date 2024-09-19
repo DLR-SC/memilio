@@ -22,7 +22,6 @@ import datetime
 import os
 import memilio.simulation as mio
 import memilio.simulation.osecir as osecir
-import memilio.plot.createGIF as mp
 from memilio.simulation import AgeGroup
 
 from enum import Enum
@@ -153,11 +152,20 @@ class Simulation:
         self.set_covid_parameters(model_new_params, parameters)
         for i in range(graph.num_nodes):
             graph.get_node(i).property.parameters = model_new_params.parameters
-        study = osecir.ParameterStudy(
+        study = osecir.ParameterStudyFlow(
             graph, t0, days_to_simulate, 0.5, 1)
         ensemble = study.run()
-        result = interpolate_simulation_result(ensemble[0])
-        return result
+        # TODO: Implement interpolation for Flow & Compartmental Results in C++
+        results = {}
+        for i in range(graph.num_nodes):
+            results[ensemble[0].get_node(i).id] = {
+                "flows": interpolate_simulation_result(
+                    ensemble[0].get_node(i).property.flows),
+                "result": interpolate_simulation_result(
+                    ensemble[0].get_node(i).property.result)
+            }
+
+        return results
 
     def run(self, days_to_simulate, parameters, num_runs):
         mio.set_log_level(mio.LogLevel.Warning)

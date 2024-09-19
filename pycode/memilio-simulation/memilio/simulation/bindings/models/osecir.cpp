@@ -147,7 +147,10 @@ enum class ContactLocation
     Count,
 };
 
-using MobilityGraph = mio::Graph<mio::SimulationNode<mio::osecir::Simulation<>>, mio::MobilityEdge<double>>;
+using MobilityGraph     = mio::Graph<mio::SimulationNode<mio::osecir::Simulation<>>, mio::MobilityEdge<double>>;
+using MobilityGraphFlow = mio::Graph<
+    mio::SimulationNode<mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>,
+    mio::MobilityEdge<double>>;
 
 } // namespace
 
@@ -163,6 +166,8 @@ inline std::string pretty_name<mio::osecir::InfectionState>()
 } // namespace pymio
 
 PYBIND11_MAKE_OPAQUE(std::vector<MobilityGraph>);
+
+PYBIND11_MAKE_OPAQUE(std::vector<MobilityGraphFlow>);
 
 PYBIND11_MODULE(_simulation_osecir, m)
 {
@@ -213,27 +218,37 @@ PYBIND11_MODULE(_simulation_osecir, m)
         .def(py::init<int>(), py::arg("num_agegroups"));
 
     pymio::bind_Simulation<mio::osecir::Simulation<>>(m, "Simulation");
-    pymio::bind_Flow_Simulation<mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>(m, "FlowSimulation");
+    pymio::bind_Flow_Simulation<
+        mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>(m, "FlowSimulation");
 
-    m.def(
-        "simulate", &mio::osecir::simulate<double>, "Simulates an ODE SECIHURD model from t0 to tmax.", 
-        py::arg("t0"), py::arg("tmax"), py::arg("dt"), py::arg("model"), py::arg("integrator") = py::none());
+    m.def("simulate", &mio::osecir::simulate<double>, "Simulates an ODE SECIHURD model from t0 to tmax.", py::arg("t0"),
+          py::arg("tmax"), py::arg("dt"), py::arg("model"), py::arg("integrator") = py::none());
 
-    m.def(
-        "simulate_flows", &mio::osecir::simulate_flows<double>, "Simulates an ODE SECIHURD model with flows from t0 to tmax.", 
-        py::arg("t0"), py::arg("tmax"), py::arg("dt"), py::arg("model"), py::arg("integrator") = py::none());
+    m.def("simulate_flows", &mio::osecir::simulate_flows<double>,
+          "Simulates an ODE SECIHURD model with flows from t0 to tmax.", py::arg("t0"), py::arg("tmax"), py::arg("dt"),
+          py::arg("model"), py::arg("integrator") = py::none());
 
     pymio::bind_ModelNode<mio::osecir::Model<double>>(m, "ModelNode");
     pymio::bind_SimulationNode<mio::osecir::Simulation<>>(m, "SimulationNode");
+    pymio::bind_SimulationNode<
+        mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>(m,
+                                                                                                  "SimulationNodeFlow");
     pymio::bind_ModelGraph<mio::osecir::Model<double>>(m, "ModelGraph");
     pymio::bind_MobilityGraph<mio::osecir::Simulation<>>(m, "MobilityGraph");
     pymio::bind_GraphSimulation<MobilityGraph>(m, "MobilitySimulation");
+
+    pymio::bind_MobilityGraph<mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>(
+        m, "MobilityGraphFlow");
+    pymio::bind_GraphSimulation<MobilityGraphFlow>(m, "MobilitySimulationFlow");
 
     //normally, std::vector is bound to any python iterable, but this doesn't work for move-only elements
     //Bound the vector as a custom type that serves as output of ParameterStudy::run and input to
     //interpolate_ensemble_results
     py::bind_vector<std::vector<MobilityGraph>>(m, "EnsembleGraphResults");
+    py::bind_vector<std::vector<MobilityGraphFlow>>(m, "EnsembleGraphResultsFlow");
     bind_ParameterStudy<mio::osecir::Simulation<>>(m, "ParameterStudy");
+    bind_ParameterStudy<mio::osecir::Simulation<double, mio::FlowSimulation<double, mio::osecir::Model<double>>>>(
+        m, "ParameterStudyFlow");
 
     m.def("set_params_distributions_normal", &mio::osecir::set_params_distributions_normal<double>, py::arg("model"),
           py::arg("t0"), py::arg("tmax"), py::arg("dev_rel"));
@@ -276,7 +291,7 @@ PYBIND11_MODULE(_simulation_osecir, m)
            mio::Graph<mio::osecir::Model<double>, mio::MobilityParameters<double>>& params_graph,
            size_t contact_locations_size) {
             auto mobile_comp = {mio::osecir::InfectionState::Susceptible, mio::osecir::InfectionState::Exposed,
-                                   mio::osecir::InfectionState::InfectedNoSymptoms,
+                                mio::osecir::InfectionState::InfectedNoSymptoms,
                                 mio::osecir::InfectionState::InfectedSymptoms, mio::osecir::InfectionState::Recovered};
             auto weights     = std::vector<ScalarType>{0., 0., 1.0, 1.0, 0.33, 0., 0.};
             auto result = mio::set_edges<ContactLocation, mio::osecir::Model<double>, mio::MobilityParameters<double>,
