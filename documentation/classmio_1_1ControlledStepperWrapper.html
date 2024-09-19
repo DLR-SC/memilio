@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Creates and manages an instance of a boost::numeric::odeint::controlled_runge_kutta integrator, wrapped as <a class="el" href="classmio_1_1IntegratorCore.html">mio::IntegratorCore</a>.  
+<p>This is an adaptive <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>.  
  <a href="classmio_1_1ControlledStepperWrapper.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="stepper__wrapper_8h_source.html">stepper_wrapper.h</a>&gt;</code></p>
@@ -164,7 +164,8 @@ Static Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename FP, template&lt; class State, class Value, class Deriv, class Time, class Algebra, class Operations, class Resizer &gt; class ControlledStepper&gt;<br />
 class mio::ControlledStepperWrapper&lt; FP, ControlledStepper &gt;</h3>
 
-<p>Creates and manages an instance of a boost::numeric::odeint::controlled_runge_kutta integrator, wrapped as <a class="el" href="classmio_1_1IntegratorCore.html">mio::IntegratorCore</a>. </p>
+<p>This is an adaptive <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>. </p>
+<p>It creates and manages an instance of a boost::numeric::odeint::controlled_runge_kutta integrator, wrapped as <a class="el" href="classmio_1_1IntegratorCore.html">mio::IntegratorCore</a>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a879b7211bf7cd494462aeeb99ee94670"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a879b7211bf7cd494462aeeb99ee94670">&#9670;&nbsp;</a></span>Stepper</h2>
@@ -435,10 +436,10 @@ template&lt;typename FP , template&lt; class State, class Value, class Deriv, cl
 <p>Make a single integration step on a system of ODEs and adapt the step size dt. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">yt</td><td>Value of y at t_{k}, y(t_{k}). </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>Current time step t_{k} for some k. Will be set to t_{k+1} in [t_{k} + dt_min, t_{k} + dt]. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">yt</td><td>Value of y at t, y(t). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>Current time. Will be set to t' in [t+dt_min, t+dt]. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">dt</td><td>Current time step size h=dt. Overwritten by an estimated optimal step size for the next step. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ytp1</td><td>The approximated value of y(t_{k+1}). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ytp1</td><td>The approximated value of y(t'). </td></tr>
   </table>
   </dd>
 </dl>

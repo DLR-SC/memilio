@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-16 08:07:28</td>
+            <td class="headerValue">2024-09-19 14:35:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -194,18 +194,18 @@
 <a name="132"><span class="lineNum">     132 </span>            :      * @brief Get the type of this Location.</a>
 <a name="133"><span class="lineNum">     133 </span>            :      * @return The #LocationType of the Location.</a>
 <a name="134"><span class="lineNum">     134 </span>            :      */</a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">       2518 :     LocationType get_type() const</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">       2481 :     LocationType get_type() const</span></a>
 <a name="136"><span class="lineNum">     136 </span>            :     {</a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       2518 :         return m_type;</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       2481 :         return m_type;</span></a>
 <a name="138"><span class="lineNum">     138 </span>            :     }</a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span>            :     /**</a>
 <a name="141"><span class="lineNum">     141 </span>            :      * @brief Get the location's identifier in a Model.</a>
 <a name="142"><span class="lineNum">     142 </span>            :      * @return The location's LocationId by value.</a>
 <a name="143"><span class="lineNum">     143 </span>            :      */</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">       5718 :     LocationId get_id() const</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">       5695 :     LocationId get_id() const</span></a>
 <a name="145"><span class="lineNum">     145 </span>            :     {</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       5718 :         return m_id;</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       5695 :         return m_id;</span></a>
 <a name="147"><span class="lineNum">     147 </span>            :     }</a>
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <a name="149"><span class="lineNum">     149 </span>            :     /**</a>
@@ -228,9 +228,9 @@
 <a name="166"><span class="lineNum">     166 </span>            :      * @brief Get the Cell%s of this Location.</a>
 <a name="167"><span class="lineNum">     167 </span>            :      * @return The vector of all Cell%s of the Location.</a>
 <a name="168"><span class="lineNum">     168 </span>            :      */</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">       1034 :     const std::vector&lt;Cell&gt;&amp; get_cells() const</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">       1033 :     const std::vector&lt;Cell&gt;&amp; get_cells() const</span></a>
 <a name="170"><span class="lineNum">     170 </span>            :     {</a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">       1034 :         return m_cells;</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">       1033 :         return m_cells;</span></a>
 <a name="172"><span class="lineNum">     172 </span>            :     }</a>
 <a name="173"><span class="lineNum">     173 </span>            : </a>
 <a name="174"><span class="lineNum">     174 </span>            :     /**</a>
@@ -269,10 +269,10 @@
 <a name="207"><span class="lineNum">     207 </span>            :      * @param[in] cell_idx The index of the Cell.</a>
 <a name="208"><span class="lineNum">     208 </span>            :      * @return The CellCapacity of the Cell.</a>
 <a name="209"><span class="lineNum">     209 </span>            :      */</a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineCov">         25 :     CellCapacity get_capacity(uint32_t cell_idx = 0) const</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">         24 :     CellCapacity get_capacity(uint32_t cell_idx = 0) const</span></a>
 <a name="211"><span class="lineNum">     211 </span>            :     {</a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         25 :         assert(cell_idx &lt; m_cells.size() &amp;&amp; &quot;Given cell index is too large.&quot;);</span></a>
-<a name="213"><span class="lineNum">     213 </span><span class="lineCov">         25 :         return m_cells[cell_idx].m_capacity;</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         24 :         assert(cell_idx &lt; m_cells.size() &amp;&amp; &quot;Given cell index is too large.&quot;);</span></a>
+<a name="213"><span class="lineNum">     213 </span><span class="lineCov">         24 :         return m_cells[cell_idx].m_capacity;</span></a>
 <a name="214"><span class="lineNum">     214 </span>            :     }</a>
 <a name="215"><span class="lineNum">     215 </span>            : </a>
 <a name="216"><span class="lineNum">     216 </span>            :     /**</a>
@@ -280,9 +280,9 @@
 <a name="218"><span class="lineNum">     218 </span>            :      * If true requires e.g. Mask%s when entering a Location.</a>
 <a name="219"><span class="lineNum">     219 </span>            :      * @return True if NPIs are active at this Location.</a>
 <a name="220"><span class="lineNum">     220 </span>            :      */</a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineCov">         36 :     bool get_npi_active() const</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">         35 :     bool get_npi_active() const</span></a>
 <a name="222"><span class="lineNum">     222 </span>            :     {</a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         36 :         return m_npi_active;</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         35 :         return m_npi_active;</span></a>
 <a name="224"><span class="lineNum">     224 </span>            :     }</a>
 <a name="225"><span class="lineNum">     225 </span>            : </a>
 <a name="226"><span class="lineNum">     226 </span>            :     /**</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-16 08:07:28</td>
+            <td class="headerValue">2024-09-19 14:35:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">25</td>
@@ -149,17 +149,17 @@
 <a name="87"><span class="lineNum">      87 </span><span class="lineCov">         45 :     m_infections.push_back(std::move(inf));</span></a>
 <a name="88"><span class="lineNum">      88 </span><span class="lineCov">         45 : }</span></a>
 <a name="89"><span class="lineNum">      89 </span>            : </a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">      13663 : LocationId Person::get_location() const</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">      13660 : LocationId Person::get_location() const</span></a>
 <a name="91"><span class="lineNum">      91 </span>            : {</a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">      13663 :     return m_location;</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">      13660 :     return m_location;</span></a>
 <a name="93"><span class="lineNum">      93 </span>            : }</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         37 : void Person::set_location(LocationType type, LocationId id)</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         36 : void Person::set_location(LocationType type, LocationId id)</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : {</a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         37 :     m_location         = id;</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         37 :     m_location_type    = type;</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         37 :     m_time_at_location = TimeSpan(0);</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         37 : }</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         36 :     m_location         = id;</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         36 :     m_location_type    = type;</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         36 :     m_time_at_location = TimeSpan(0);</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         36 : }</span></a>
 <a name="101"><span class="lineNum">     101 </span>            : </a>
 <a name="102"><span class="lineNum">     102 </span><span class="lineCov">         90 : const Infection&amp; Person::get_infection() const</span></a>
 <a name="103"><span class="lineNum">     103 </span>            : {</a>
@@ -176,9 +176,9 @@
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">        312 :     m_assigned_locations[static_cast&lt;uint32_t&gt;(type)] = id;</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">        312 : }</span></a>
 <a name="116"><span class="lineNum">     116 </span>            : </a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        955 : LocationId Person::get_assigned_location(LocationType type) const</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        954 : LocationId Person::get_assigned_location(LocationType type) const</span></a>
 <a name="118"><span class="lineNum">     118 </span>            : {</a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">        955 :     return m_assigned_locations[static_cast&lt;uint32_t&gt;(type)];</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">        954 :     return m_assigned_locations[static_cast&lt;uint32_t&gt;(type)];</span></a>
 <a name="120"><span class="lineNum">     120 </span>            : }</a>
 <a name="121"><span class="lineNum">     121 </span>            : </a>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">          7 : bool Person::goes_to_work(TimePoint t, const Parameters&amp; params) const</span></a>
@@ -195,13 +195,13 @@
 <a name="133"><span class="lineNum">     133 </span><span class="lineCov">         52 :     return minimum_goto_work_time + seconds(seconds_after_minimum);</span></a>
 <a name="134"><span class="lineNum">     134 </span>            : }</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         80 : TimeSpan Person::get_go_to_school_time(const Parameters&amp; params) const</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         82 : TimeSpan Person::get_go_to_school_time(const Parameters&amp; params) const</span></a>
 <a name="137"><span class="lineNum">     137 </span>            : {</a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         80 :     TimeSpan minimum_goto_school_time = params.get&lt;GotoSchoolTimeMinimum&gt;()[m_age];</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">         80 :     TimeSpan maximum_goto_school_time = params.get&lt;GotoSchoolTimeMaximum&gt;()[m_age];</span></a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         80 :     int timeSlots                     = (maximum_goto_school_time.seconds() - minimum_goto_school_time.seconds());</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         80 :     int seconds_after_minimum         = int(timeSlots * m_random_goto_school_hour);</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">        160 :     return minimum_goto_school_time + seconds(seconds_after_minimum);</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         82 :     TimeSpan minimum_goto_school_time = params.get&lt;GotoSchoolTimeMinimum&gt;()[m_age];</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">         82 :     TimeSpan maximum_goto_school_time = params.get&lt;GotoSchoolTimeMaximum&gt;()[m_age];</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         82 :     int timeSlots                     = (maximum_goto_school_time.seconds() - minimum_goto_school_time.seconds());</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         82 :     int seconds_after_minimum         = int(timeSlots * m_random_goto_school_hour);</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">        164 :     return minimum_goto_school_time + seconds(seconds_after_minimum);</span></a>
 <a name="143"><span class="lineNum">     143 </span>            : }</a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">          9 : bool Person::goes_to_school(TimePoint t, const Parameters&amp; params) const</span></a>
@@ -247,9 +247,9 @@
 <a name="185"><span class="lineNum">     185 </span><span class="lineCov">       1197 :     return m_person_id;</span></a>
 <a name="186"><span class="lineNum">     186 </span>            : }</a>
 <a name="187"><span class="lineNum">     187 </span>            : </a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">       1077 : std::vector&lt;uint32_t&gt;&amp; Person::get_cells()</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">       1076 : std::vector&lt;uint32_t&gt;&amp; Person::get_cells()</span></a>
 <a name="189"><span class="lineNum">     189 </span>            : {</a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">       1077 :     return m_cells;</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">       1076 :     return m_cells;</span></a>
 <a name="191"><span class="lineNum">     191 </span>            : }</a>
 <a name="192"><span class="lineNum">     192 </span>            : </a>
 <a name="193"><span class="lineNum">     193 </span><span class="lineCov">         90 : const std::vector&lt;uint32_t&gt;&amp; Person::get_cells() const</span></a>
@@ -267,11 +267,11 @@
 <a name="205"><span class="lineNum">     205 </span>            :     }</a>
 <a name="206"><span class="lineNum">     206 </span>            : }</a>
 <a name="207"><span class="lineNum">     207 </span>            : </a>
-<a name="208"><span class="lineNum">     208 </span><span class="lineCov">         34 : bool Person::apply_mask_intervention(PersonalRandomNumberGenerator&amp; rng, const Location&amp; target)</span></a>
+<a name="208"><span class="lineNum">     208 </span><span class="lineCov">         33 : bool Person::apply_mask_intervention(PersonalRandomNumberGenerator&amp; rng, const Location&amp; target)</span></a>
 <a name="209"><span class="lineNum">     209 </span>            : {</a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineCov">         34 :     if (target.get_npi_active() == false) {</span></a>
-<a name="211"><span class="lineNum">     211 </span><span class="lineCov">         32 :         m_wears_mask = false;</span></a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         32 :         if (get_mask_compliance(target.get_type()) &gt; 0.) {</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">         33 :     if (target.get_npi_active() == false) {</span></a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">         31 :         m_wears_mask = false;</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         31 :         if (get_mask_compliance(target.get_type()) &gt; 0.) {</span></a>
 <a name="213"><span class="lineNum">     213 </span>            :             // draw if the person wears a mask even if not required</a>
 <a name="214"><span class="lineNum">     214 </span><span class="lineCov">          1 :             ScalarType wear_mask = UniformDistribution&lt;double&gt;::get_instance()(rng);</span></a>
 <a name="215"><span class="lineNum">     215 </span><span class="lineCov">          1 :             if (wear_mask &lt; get_mask_compliance(target.get_type())) {</span></a>
@@ -296,7 +296,7 @@
 <a name="234"><span class="lineNum">     234 </span>            :             }</a>
 <a name="235"><span class="lineNum">     235 </span>            :         }</a>
 <a name="236"><span class="lineNum">     236 </span>            :     }</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">         33 :     return true;</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">         32 :     return true;</span></a>
 <a name="238"><span class="lineNum">     238 </span>            : }</a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
 <a name="240"><span class="lineNum">     240 </span><span class="lineCov">        224 : std::pair&lt;ExposureType, TimePoint&gt; Person::get_latest_protection() const</span></a>
