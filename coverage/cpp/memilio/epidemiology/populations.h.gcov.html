@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-19 14:35:28</td>
+            <td class="headerValue">2024-09-26 14:48:18</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">83</td>
-            <td class="headerCovTableEntry">90</td>
-            <td class="headerCovTableEntryHi">92.2 %</td>
+            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntry">93</td>
+            <td class="headerCovTableEntryHi">92.5 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -119,10 +119,10 @@
 <a name="57"><span class="lineNum">      57 </span>            : </a>
 <a name="58"><span class="lineNum">      58 </span>            :     template &lt;class... Ts,</a>
 <a name="59"><span class="lineNum">      59 </span>            :               typename std::enable_if_t&lt;std::is_constructible&lt;UncertainValue&lt;FP&gt;, Ts...&gt;::value&gt;* = nullptr&gt;</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        147 :     explicit Populations(Index const&amp; sizes, Ts... args)</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        147 :         : Base(sizes, args...)</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        151 :     explicit Populations(Index const&amp; sizes, Ts... args)</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        151 :         : Base(sizes, args...)</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        147 :     }</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        151 :     }</span></a>
 <a name="64"><span class="lineNum">      64 </span>            : </a>
 <a name="65"><span class="lineNum">      65 </span>            :     /**</a>
 <a name="66"><span class="lineNum">      66 </span>            :      * @brief get_num_compartments returns the number of compartments</a>
@@ -131,9 +131,9 @@
 <a name="69"><span class="lineNum">      69 </span>            :      *</a>
 <a name="70"><span class="lineNum">      70 </span>            :      * @return number of compartments</a>
 <a name="71"><span class="lineNum">      71 </span>            :      */</a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        935 :     size_t get_num_compartments() const</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        983 :     size_t get_num_compartments() const</span></a>
 <a name="73"><span class="lineNum">      73 </span>            :     {</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        935 :         return this-&gt;numel();</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        983 :         return this-&gt;numel();</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :     }</a>
 <a name="76"><span class="lineNum">      76 </span>            : </a>
 <a name="77"><span class="lineNum">      77 </span>            :     /**</a>
@@ -141,9 +141,9 @@
 <a name="79"><span class="lineNum">      79 </span>            :      * as initial conditions for the ODE solver</a>
 <a name="80"><span class="lineNum">      80 </span>            :      * @return Eigen::VectorXd  of populations</a>
 <a name="81"><span class="lineNum">      81 </span>            :      */</a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">        166 :     inline Vector&lt;FP&gt; get_compartments() const</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">        170 :     inline Vector&lt;FP&gt; get_compartments() const</span></a>
 <a name="83"><span class="lineNum">      83 </span>            :     {</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">        166 :         return this-&gt;array().template cast&lt;FP&gt;();</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">        170 :         return this-&gt;array().template cast&lt;FP&gt;();</span></a>
 <a name="85"><span class="lineNum">      85 </span>            :     }</a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            :     /**</a>
@@ -161,10 +161,10 @@
 <a name="99"><span class="lineNum">      99 </span>            :      * @return the population of compartment</a>
 <a name="100"><span class="lineNum">     100 </span>            :      */</a>
 <a name="101"><span class="lineNum">     101 </span>            :     template &lt;class Arr&gt;</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">     112140 :     decltype(auto) get_from(Arr&amp;&amp; y, Index const&amp; cats) const</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">     109199 :     decltype(auto) get_from(Arr&amp;&amp; y, Index const&amp; cats) const</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :     {</a>
 <a name="104"><span class="lineNum">     104 </span>            :         static_assert(std::is_lvalue_reference&lt;Arr&gt;::value, &quot;get_from is disabled for temporary arrays.&quot;);</a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">     112140 :         return y[this-&gt;get_flat_index(cats)];</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">     109199 :         return y[this-&gt;get_flat_index(cats)];</span></a>
 <a name="106"><span class="lineNum">     106 </span>            :     }</a>
 <a name="107"><span class="lineNum">     107 </span>            : </a>
 <a name="108"><span class="lineNum">     108 </span>            :     /**</a>
@@ -174,10 +174,10 @@
 <a name="112"><span class="lineNum">     112 </span>            :      * @return total population of the group</a>
 <a name="113"><span class="lineNum">     113 </span>            :      */</a>
 <a name="114"><span class="lineNum">     114 </span>            :     template &lt;class T&gt;</a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">        818 :     ScalarType get_group_total(mio::Index&lt;T&gt; group_idx) const</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">        826 :     ScalarType get_group_total(mio::Index&lt;T&gt; group_idx) const</span></a>
 <a name="116"><span class="lineNum">     116 </span>            :     {</a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        818 :         auto const s = this-&gt;template slice&lt;T&gt;({(size_t)group_idx, 1});</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       1636 :         return std::accumulate(s.begin(), s.end(), 0.);</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        826 :         auto const s = this-&gt;template slice&lt;T&gt;({(size_t)group_idx, 1});</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       1652 :         return std::accumulate(s.begin(), s.end(), 0.);</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :     }</a>
 <a name="120"><span class="lineNum">     120 </span>            : </a>
 <a name="121"><span class="lineNum">     121 </span>            :     /**</a>
@@ -213,9 +213,9 @@
 <a name="151"><span class="lineNum">     151 </span>            :      * @brief get_total returns the total population of all compartments</a>
 <a name="152"><span class="lineNum">     152 </span>            :      * @return total population</a>
 <a name="153"><span class="lineNum">     153 </span>            :      */</a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">        170 :     ScalarType get_total() const</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">        174 :     ScalarType get_total() const</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :     {</a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">        170 :         return this-&gt;array().template cast&lt;ScalarType&gt;().sum();</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">        174 :         return this-&gt;array().template cast&lt;ScalarType&gt;().sum();</span></a>
 <a name="157"><span class="lineNum">     157 </span>            :     }</a>
 <a name="158"><span class="lineNum">     158 </span>            : </a>
 <a name="159"><span class="lineNum">     159 </span>            :     /**</a>
@@ -251,13 +251,13 @@
 <a name="189"><span class="lineNum">     189 </span>            :      *</a>
 <a name="190"><span class="lineNum">     190 </span>            :      * @param value the new value for the total population</a>
 <a name="191"><span class="lineNum">     191 </span>            :      */</a>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         14 :     void set_total(ScalarType value)</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         18 :     void set_total(ScalarType value)</span></a>
 <a name="193"><span class="lineNum">     193 </span>            :     {</a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         14 :         double current_population = get_total();</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">         14 :         if (fabs(current_population) &lt; 1e-12) {</span></a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          7 :             double ysize = double(this-&gt;array().size());</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">        875 :             for (size_t i = 0; i &lt; this-&gt;get_num_compartments(); i++) {</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">        868 :                 this-&gt;array()[(Eigen::Index)i] = value / ysize;</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         18 :         double current_population = get_total();</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">         18 :         if (fabs(current_population) &lt; 1e-12) {</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">         11 :             double ysize = double(this-&gt;array().size());</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">        923 :             for (size_t i = 0; i &lt; this-&gt;get_num_compartments(); i++) {</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">        912 :                 this-&gt;array()[(Eigen::Index)i] = value / ysize;</span></a>
 <a name="199"><span class="lineNum">     199 </span>            :             }</a>
 <a name="200"><span class="lineNum">     200 </span>            :         }</a>
 <a name="201"><span class="lineNum">     201 </span>            :         else {</a>
@@ -265,7 +265,7 @@
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">         46 :                 this-&gt;array()[(Eigen::Index)i] *= value / current_population;</span></a>
 <a name="204"><span class="lineNum">     204 </span>            :             }</a>
 <a name="205"><span class="lineNum">     205 </span>            :         }</a>
-<a name="206"><span class="lineNum">     206 </span><span class="lineCov">         14 :     }</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">         18 :     }</span></a>
 <a name="207"><span class="lineNum">     207 </span>            : </a>
 <a name="208"><span class="lineNum">     208 </span>            :     /**</a>
 <a name="209"><span class="lineNum">     209 </span>            :      * @brief set_difference_from_total takes a total population as input and sets the compartment</a>

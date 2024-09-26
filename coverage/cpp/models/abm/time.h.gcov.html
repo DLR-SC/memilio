@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-19 14:35:28</td>
+            <td class="headerValue">2024-09-26 14:48:18</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">36</td>
@@ -103,10 +103,10 @@
 <a name="41"><span class="lineNum">      41 </span>            :      * @brief Creates a TimeSpan that represents a number of seconds.</a>
 <a name="42"><span class="lineNum">      42 </span>            :      * @param[in] seconds The number of seconds.</a>
 <a name="43"><span class="lineNum">      43 </span>            :      */</a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">       2395 :     explicit TimeSpan(int seconds)</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">       2395 :         : m_seconds(seconds)</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">       2387 :     explicit TimeSpan(int seconds)</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">       2387 :         : m_seconds(seconds)</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     {</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       2395 :     }</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       2387 :     }</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : </a>
 <a name="49"><span class="lineNum">      49 </span>            :     /**</a>
 <a name="50"><span class="lineNum">      50 </span>            :      * @brief Length of time in days.</a>
@@ -127,9 +127,9 @@
 <a name="65"><span class="lineNum">      65 </span>            :     /**</a>
 <a name="66"><span class="lineNum">      66 </span>            :      * @brief Length of time in seconds.</a>
 <a name="67"><span class="lineNum">      67 </span>            :      */</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       1541 :     int seconds() const</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       1533 :     int seconds() const</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :     {</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       1541 :         return m_seconds;</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       1533 :         return m_seconds;</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :     }</a>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
 <a name="73"><span class="lineNum">      73 </span>            :     /**</a>
@@ -224,10 +224,10 @@
 <a name="162"><span class="lineNum">     162 </span>            :      * @brief Creates a TimePoint from a specified number of seconds.</a>
 <a name="163"><span class="lineNum">     163 </span>            :      * @param[in] seconds The number of seconds after the epoch.</a>
 <a name="164"><span class="lineNum">     164 </span>            :      */</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       3305 :     explicit TimePoint(int seconds)</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       3305 :         : m_seconds(seconds)</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       3297 :     explicit TimePoint(int seconds)</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       3297 :         : m_seconds(seconds)</span></a>
 <a name="167"><span class="lineNum">     167 </span>            :     {</a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">       3305 :     }</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">       3297 :     }</span></a>
 <a name="169"><span class="lineNum">     169 </span>            : </a>
 <a name="170"><span class="lineNum">     170 </span>            :     /**</a>
 <a name="171"><span class="lineNum">     171 </span>            :      * @brief Time since the epoch in days.</a>
@@ -303,9 +303,9 @@
 <a name="241"><span class="lineNum">     241 </span>            :     {</a>
 <a name="242"><span class="lineNum">     242 </span><span class="lineCov">         96 :         return m_seconds &lt;= other.m_seconds;</span></a>
 <a name="243"><span class="lineNum">     243 </span>            :     }</a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">       3126 :     bool operator&gt;(const TimePoint&amp; other) const</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">       3548 :     bool operator&gt;(const TimePoint&amp; other) const</span></a>
 <a name="245"><span class="lineNum">     245 </span>            :     {</a>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       3126 :         return m_seconds &gt; other.m_seconds;</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       3548 :         return m_seconds &gt; other.m_seconds;</span></a>
 <a name="247"><span class="lineNum">     247 </span>            :     }</a>
 <a name="248"><span class="lineNum">     248 </span><span class="lineCov">        270 :     bool operator&gt;=(const TimePoint&amp; other) const</span></a>
 <a name="249"><span class="lineNum">     249 </span>            :     {</a>
@@ -317,18 +317,18 @@
 <a name="255"><span class="lineNum">     255 </span>            :      * @brief Add or subtract a TimeSpan.</a>
 <a name="256"><span class="lineNum">     256 </span>            :      * @{</a>
 <a name="257"><span class="lineNum">     257 </span>            :      */</a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        685 :     TimePoint operator+(const TimeSpan&amp; s) const</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        681 :     TimePoint operator+(const TimeSpan&amp; s) const</span></a>
 <a name="259"><span class="lineNum">     259 </span>            :     {</a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">        685 :         return TimePoint{m_seconds + s.seconds()};</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">        681 :         return TimePoint{m_seconds + s.seconds()};</span></a>
 <a name="261"><span class="lineNum">     261 </span>            :     }</a>
 <a name="262"><span class="lineNum">     262 </span><span class="lineCov">         75 :     TimePoint&amp; operator+=(const TimeSpan&amp; s)</span></a>
 <a name="263"><span class="lineNum">     263 </span>            :     {</a>
 <a name="264"><span class="lineNum">     264 </span><span class="lineCov">         75 :         m_seconds += s.seconds();</span></a>
 <a name="265"><span class="lineNum">     265 </span><span class="lineCov">         75 :         return *this;</span></a>
 <a name="266"><span class="lineNum">     266 </span>            :     }</a>
-<a name="267"><span class="lineNum">     267 </span><span class="lineCov">        127 :     TimePoint operator-(const TimeSpan&amp; s) const</span></a>
+<a name="267"><span class="lineNum">     267 </span><span class="lineCov">        123 :     TimePoint operator-(const TimeSpan&amp; s) const</span></a>
 <a name="268"><span class="lineNum">     268 </span>            :     {</a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">        127 :         return TimePoint{m_seconds - s.seconds()};</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">        123 :         return TimePoint{m_seconds - s.seconds()};</span></a>
 <a name="270"><span class="lineNum">     270 </span>            :     }</a>
 <a name="271"><span class="lineNum">     271 </span>            :     TimePoint&amp; operator-=(const TimeSpan&amp; s)</a>
 <a name="272"><span class="lineNum">     272 </span>            :     {</a>
@@ -386,9 +386,9 @@
 <a name="324"><span class="lineNum">     324 </span><span class="lineCov">        274 :     return TimeSpan(days * 24 * 60 * 60);</span></a>
 <a name="325"><span class="lineNum">     325 </span>            : }</a>
 <a name="326"><span class="lineNum">     326 </span>            : </a>
-<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        180 : inline TimeSpan days(double days)</span></a>
+<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        172 : inline TimeSpan days(double days)</span></a>
 <a name="328"><span class="lineNum">     328 </span>            : {</a>
-<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        180 :     return TimeSpan((int)(days * 24 * 60 * 60));</span></a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        172 :     return TimeSpan((int)(days * 24 * 60 * 60));</span></a>
 <a name="330"><span class="lineNum">     330 </span>            : }</a>
 <a name="331"><span class="lineNum">     331 </span>            : </a>
 <a name="332"><span class="lineNum">     332 </span>            : } // namespace abm</a>

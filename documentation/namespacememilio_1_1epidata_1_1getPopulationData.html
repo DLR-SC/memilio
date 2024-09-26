@@ -79,30 +79,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a96f0f7f59f1f85f6be39df0b4dda66b4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a96f0f7f59f1f85f6be39df0b4dda66b4">assign_population_data</a> (df_pop_raw, counties, age_cols, idCounty_idx)</td></tr>
 <tr class="memdesc:a96f0f7f59f1f85f6be39df0b4dda66b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns population data of all counties of old dataframe in new created dataframe.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a96f0f7f59f1f85f6be39df0b4dda66b4">More...</a><br /></td></tr>
 <tr class="separator:a96f0f7f59f1f85f6be39df0b4dda66b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accc736527433b698581555f574c07cc2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#accc736527433b698581555f574c07cc2">export_population_dataframe</a> (pd.DataFrame df_pop, str directory, str file_format, bool merge_eisenach)</td></tr>
-<tr class="memdesc:accc736527433b698581555f574c07cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes population dataframe into directory with new column names and age groups.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#accc736527433b698581555f574c07cc2">More...</a><br /></td></tr>
-<tr class="separator:accc736527433b698581555f574c07cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad02fa2ead7ff9bb03e18dde8388acab0"><td class="memItemLeft" align="right" valign="top">pd.DataFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#ad02fa2ead7ff9bb03e18dde8388acab0">fetch_population_data</a> (bool read_data=dd.defaultDict['read_data'], str out_folder=dd.defaultDict['out_folder'], **kwargs)</td></tr>
-<tr class="memdesc:ad02fa2ead7ff9bb03e18dde8388acab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads or reads the population data.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#ad02fa2ead7ff9bb03e18dde8388acab0">More...</a><br /></td></tr>
-<tr class="separator:ad02fa2ead7ff9bb03e18dde8388acab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b2fa7945aa8a370b691b0d5cae4b1de"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a4b2fa7945aa8a370b691b0d5cae4b1de">get_population_data</a> (bool read_data=dd.defaultDict['read_data'], str file_format=dd.defaultDict['file_format'], str out_folder=dd.defaultDict['out_folder'], bool merge_eisenach=True, **kwargs)</td></tr>
-<tr class="memdesc:a4b2fa7945aa8a370b691b0d5cae4b1de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download age-stratified population data for the German counties.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a4b2fa7945aa8a370b691b0d5cae4b1de">More...</a><br /></td></tr>
-<tr class="separator:a4b2fa7945aa8a370b691b0d5cae4b1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e071ebf1fec57c874b7e11ecefc9eb8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a8e071ebf1fec57c874b7e11ecefc9eb8">export_population_dataframe</a> (pd.DataFrame df_pop, str directory, str file_format, bool merge_eisenach, ref_year)</td></tr>
+<tr class="memdesc:a8e071ebf1fec57c874b7e11ecefc9eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes population dataframe into directory with new column names and age groups.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a8e071ebf1fec57c874b7e11ecefc9eb8">More...</a><br /></td></tr>
+<tr class="separator:a8e071ebf1fec57c874b7e11ecefc9eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f049c78e1e54b82495817accc451669"><td class="memItemLeft" align="right" valign="top">pd.DataFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a5f049c78e1e54b82495817accc451669">fetch_population_data</a> (bool read_data=dd.defaultDict['read_data'], str out_folder=dd.defaultDict['out_folder'], ref_year=None, **kwargs)</td></tr>
+<tr class="memdesc:a5f049c78e1e54b82495817accc451669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads or reads the population data.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a5f049c78e1e54b82495817accc451669">More...</a><br /></td></tr>
+<tr class="separator:a5f049c78e1e54b82495817accc451669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad046e0ca18854bcfca38755f537251de"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#ad046e0ca18854bcfca38755f537251de">get_population_data</a> (bool read_data=dd.defaultDict['read_data'], str file_format=dd.defaultDict['file_format'], str out_folder=dd.defaultDict['out_folder'], bool merge_eisenach=True, ref_year=None, **kwargs)</td></tr>
+<tr class="memdesc:ad046e0ca18854bcfca38755f537251de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download age-stratified population data for the German counties.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#ad046e0ca18854bcfca38755f537251de">More...</a><br /></td></tr>
+<tr class="separator:ad046e0ca18854bcfca38755f537251de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c78642cd90d33be2bff3e1f842ecaf2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a9c78642cd90d33be2bff3e1f842ecaf2">main</a> ()</td></tr>
 <tr class="memdesc:a9c78642cd90d33be2bff3e1f842ecaf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main program entry.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a9c78642cd90d33be2bff3e1f842ecaf2">More...</a><br /></td></tr>
 <tr class="separator:a9c78642cd90d33be2bff3e1f842ecaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab05ea405957d7044094c63fea6a502e1"><td class="memItemLeft" align="right" valign="top">pd.DataFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#ab05ea405957d7044094c63fea6a502e1">preprocess_population_data</a> (pd.DataFrame df_pop_raw, bool merge_eisenach=True)</td></tr>
 <tr class="memdesc:ab05ea405957d7044094c63fea6a502e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processing of the downloaded data.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#ab05ea405957d7044094c63fea6a502e1">More...</a><br /></td></tr>
 <tr class="separator:ab05ea405957d7044094c63fea6a502e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cb671f6e7b2c10e1c240726622361ee"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a1cb671f6e7b2c10e1c240726622361ee">read_population_data</a> ()</td></tr>
-<tr class="memdesc:a1cb671f6e7b2c10e1c240726622361ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads Population data from regionalstatistik.de.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a1cb671f6e7b2c10e1c240726622361ee">More...</a><br /></td></tr>
-<tr class="separator:a1cb671f6e7b2c10e1c240726622361ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87733ad1c1c9658a177cc4898c59899e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a87733ad1c1c9658a177cc4898c59899e">read_population_data</a> (ref_year)</td></tr>
+<tr class="memdesc:a87733ad1c1c9658a177cc4898c59899e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads Population data from regionalstatistik.de.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a87733ad1c1c9658a177cc4898c59899e">More...</a><br /></td></tr>
+<tr class="separator:a87733ad1c1c9658a177cc4898c59899e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3788e37bd5d5adcec9958d6e780769d1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a3788e37bd5d5adcec9958d6e780769d1">test_total_population</a> (df_pop, age_cols)</td></tr>
 <tr class="memdesc:a3788e37bd5d5adcec9958d6e780769d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if total population matches expectation.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a3788e37bd5d5adcec9958d6e780769d1">More...</a><br /></td></tr>
 <tr class="separator:a3788e37bd5d5adcec9958d6e780769d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b238c623f52717a3558effb2a28b795"><td class="memItemLeft" align="right" valign="top">None or pd.DataFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a5b238c623f52717a3558effb2a28b795">write_population_data</a> (pd.DataFrame df_pop, str out_folder=dd.defaultDict['out_folder'], str file_format=dd.defaultDict['file_format'], bool merge_eisenach=True)</td></tr>
-<tr class="memdesc:a5b238c623f52717a3558effb2a28b795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the population data into json files Three kinds of structuring of the data are done.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a5b238c623f52717a3558effb2a28b795">More...</a><br /></td></tr>
-<tr class="separator:a5b238c623f52717a3558effb2a28b795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bef38c40ff79a5286798716473d9838"><td class="memItemLeft" align="right" valign="top">None or pd.DataFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememilio_1_1epidata_1_1getPopulationData.html#a2bef38c40ff79a5286798716473d9838">write_population_data</a> (pd.DataFrame df_pop, str out_folder=dd.defaultDict['out_folder'], str file_format=dd.defaultDict['file_format'], bool merge_eisenach=True, ref_year=None)</td></tr>
+<tr class="memdesc:a2bef38c40ff79a5286798716473d9838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the population data into json files Three kinds of structuring of the data are done.  <a href="namespacememilio_1_1epidata_1_1getPopulationData.html#a2bef38c40ff79a5286798716473d9838">More...</a><br /></td></tr>
+<tr class="separator:a2bef38c40ff79a5286798716473d9838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -164,8 +164,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="accc736527433b698581555f574c07cc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accc736527433b698581555f574c07cc2">&#9670;&nbsp;</a></span>export_population_dataframe()</h2>
+<a id="a8e071ebf1fec57c874b7e11ecefc9eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e071ebf1fec57c874b7e11ecefc9eb8">&#9670;&nbsp;</a></span>export_population_dataframe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +192,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>merge_eisenach</em>&#160;</td>
+          <td class="paramname"><em>merge_eisenach</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ref_year</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -209,6 +215,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">directory</td><td>Directory where data is written to. </td></tr>
     <tr><td class="paramname">file_format</td><td>File format which is used for writing the data. </td></tr>
     <tr><td class="paramname">merge_eisenach</td><td>Defines whether the counties 'Wartburgkreis' and 'Eisenach' are listed separately or combined as one entity 'Wartburgkreis'. </td></tr>
+    <tr><td class="paramname">ref_year</td><td>None or year (jjjj) convertible to str. Reference year. </td></tr>
   </table>
   </dd>
 </dl>
@@ -216,8 +223,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad02fa2ead7ff9bb03e18dde8388acab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad02fa2ead7ff9bb03e18dde8388acab0">&#9670;&nbsp;</a></span>fetch_population_data()</h2>
+<a id="a5f049c78e1e54b82495817accc451669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f049c78e1e54b82495817accc451669">&#9670;&nbsp;</a></span>fetch_population_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,6 +240,12 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">str &#160;</td>
           <td class="paramname"><em>out_folder</em> = <code>dd.defaultDict['out_folder']</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ref_year</em> = <code>None</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -254,6 +267,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">read_data</td><td>False or True. Defines if data is read from file or downloaded. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
     <tr><td class="paramname">out_folder</td><td>Path to folder where data is written in folder out_folder/Germany. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
+    <tr><td class="paramname">ref_year</td><td>[Default: None] or year (jjjj) convertible to str. Reference year. </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,8 +275,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a4b2fa7945aa8a370b691b0d5cae4b1de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b2fa7945aa8a370b691b0d5cae4b1de">&#9670;&nbsp;</a></span>get_population_data()</h2>
+<a id="ad046e0ca18854bcfca38755f537251de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad046e0ca18854bcfca38755f537251de">&#9670;&nbsp;</a></span>get_population_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,6 +308,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ref_year</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">**&#160;</td>
           <td class="paramname"><em>kwargs</em>&#160;</td>
         </tr>
@@ -317,6 +337,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">file_format</td><td>File format which is used for writing the data. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
     <tr><td class="paramname">out_folder</td><td>Path to folder where data is written in folder out_folder/Germany. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
     <tr><td class="paramname">merge_eisenach</td><td>[Default: True] or False. Defines whether the counties 'Wartburgkreis' and 'Eisenach' are listed separately or combined as one entity 'Wartburgkreis'. </td></tr>
+    <tr><td class="paramname">ref_year</td><td>[Default: None] or year (jjjj) convertible to str. Reference year. </td></tr>
     <tr><td class="paramname">username</td><td>str. Username to sign in at regionalstatistik.de. </td></tr>
     <tr><td class="paramname">password</td><td>str. Password to sign in at regionalstatistik.de. </td></tr>
   </table>
@@ -386,8 +407,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1cb671f6e7b2c10e1c240726622361ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cb671f6e7b2c10e1c240726622361ee">&#9670;&nbsp;</a></span>read_population_data()</h2>
+<a id="a87733ad1c1c9658a177cc4898c59899e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87733ad1c1c9658a177cc4898c59899e">&#9670;&nbsp;</a></span>read_population_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,14 +416,21 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">def memilio.epidata.getPopulationData.read_population_data </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ref_year</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Reads Population data from regionalstatistik.de. </p>
-<p>A request is made to regionalstatistik.de and the StringIO is read in as a csv into the dataframe format. </p><dl class="section return"><dt>Returns</dt><dd>DataFrame </dd></dl>
+<p>A request is made to regionalstatistik.de and the StringIO is read in as a csv into the dataframe format. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref_year</td><td>[Default: None] or year (jjjj) convertible to str. Reference year. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>DataFrame </dd></dl>
 
 </div>
 </div>
@@ -443,8 +471,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b238c623f52717a3558effb2a28b795"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b238c623f52717a3558effb2a28b795">&#9670;&nbsp;</a></span>write_population_data()</h2>
+<a id="a2bef38c40ff79a5286798716473d9838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bef38c40ff79a5286798716473d9838">&#9670;&nbsp;</a></span>write_population_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,7 +499,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool &#160;</td>
-          <td class="paramname"><em>merge_eisenach</em> = <code>True</code>&#160;</td>
+          <td class="paramname"><em>merge_eisenach</em> = <code>True</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ref_year</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -488,7 +522,8 @@ Variables</h2></td></tr>
     <tr><td class="paramname">df_pop</td><td>pd.DataFrame. A Dataframe containing processed population data </td></tr>
     <tr><td class="paramname">file_format</td><td>str. File format which is used for writing the data. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
     <tr><td class="paramname">out_folder</td><td>str. Folder where data is written to. Default defined in <a class="el" href="namespacememilio_1_1epidata_1_1defaultDict.html">defaultDict</a>. </td></tr>
-    <tr><td class="paramname">merge_eisenach</td><td>[Default: True] or False. Defines whether the counties 'Wartburgkreis' and 'Eisenach' are listed separately or combined as one entity 'Wartburgkreis'.</td></tr>
+    <tr><td class="paramname">merge_eisenach</td><td>[Default: True] or False. Defines whether the counties 'Wartburgkreis' and 'Eisenach' are listed separately or combined as one entity 'Wartburgkreis'. </td></tr>
+    <tr><td class="paramname">ref_year</td><td>[Default: None] or year (jjjj) convertible to str. Reference year.</td></tr>
   </table>
   </dd>
 </dl>
