@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-26 14:48:18</td>
+            <td class="headerValue">2024-09-27 09:08:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -117,17 +117,17 @@
 <a name="55"><span class="lineNum">      55 </span>            :      * @param[in] origin Location where the person starts the Trip.</a>
 <a name="56"><span class="lineNum">      56 </span>            :      * @param[in] input_cells The index of the Cell%s the Person changes to.</a>
 <a name="57"><span class="lineNum">      57 </span>            :      */</a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         18 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig, TransportMode mode_of_transport,</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         23 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig, TransportMode mode_of_transport,</span></a>
 <a name="59"><span class="lineNum">      59 </span>            :          ActivityType type_of_activity, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         18 :         : person_id(id)</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         18 :         , time(mio::abm::TimePoint(time_new.time_since_midnight().seconds()))</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         18 :         , destination(dest)</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         18 :         , origin(orig)</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         18 :         , cells(input_cells)</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">         18 :         , trip_mode(mode_of_transport)</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         18 :         , activity_type(type_of_activity)</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         23 :         : person_id(id)</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         23 :         , time(mio::abm::TimePoint(time_new.time_since_midnight().seconds()))</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         23 :         , destination(dest)</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         23 :         , origin(orig)</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         23 :         , cells(input_cells)</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">         23 :         , trip_mode(mode_of_transport)</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         23 :         , activity_type(type_of_activity)</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :     {</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">         18 :     }</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">         23 :     }</span></a>
 <a name="69"><span class="lineNum">      69 </span>            : </a>
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">         10 :     Trip(PersonId id, TimePoint time_new, LocationId dest, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</span></a>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">         10 :         : Trip(id, time_new, dest, dest, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
@@ -135,12 +135,12 @@
 <a name="73"><span class="lineNum">      73 </span>            :     {</a>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">         10 :     }</span></a>
 <a name="75"><span class="lineNum">      75 </span>            : </a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          8 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig,</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         13 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig,</span></a>
 <a name="77"><span class="lineNum">      77 </span>            :          const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          8 :         : Trip(id, time_new, dest, orig, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          8 :                input_cells)</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         13 :         : Trip(id, time_new, dest, orig, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         13 :                input_cells)</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     {</a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">          8 :     }</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">         13 :     }</span></a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            :     /**</a>
 <a name="84"><span class="lineNum">      84 </span>            :      * @brief Compare two Trip%s.</a>
@@ -224,10 +224,10 @@
 <a name="162"><span class="lineNum">     162 </span>            :     /**</a>
 <a name="163"><span class="lineNum">     163 </span>            :      * @brief Increment the current index to select the next Trip.</a>
 <a name="164"><span class="lineNum">     164 </span>            :      */</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         16 :     void increase_index()</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         21 :     void increase_index()</span></a>
 <a name="166"><span class="lineNum">     166 </span>            :     {</a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         16 :         m_current_index++;</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         16 :     }</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         21 :         m_current_index++;</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         21 :     }</span></a>
 <a name="169"><span class="lineNum">     169 </span>            : </a>
 <a name="170"><span class="lineNum">     170 </span>            :     /**</a>
 <a name="171"><span class="lineNum">     171 </span>            :      * @brief Reset the current index to 0.</a>
@@ -241,17 +241,17 @@
 <a name="179"><span class="lineNum">     179 </span>            :      * @brief Get the length of the TripList.</a>
 <a name="180"><span class="lineNum">     180 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
 <a name="181"><span class="lineNum">     181 </span>            :      */</a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         82 :     size_t num_trips(bool weekend = false) const</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         84 :     size_t num_trips(bool weekend = false) const</span></a>
 <a name="183"><span class="lineNum">     183 </span>            :     {</a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">         82 :         return weekend ? m_trips_weekend.size() : m_trips_weekday.size();</span></a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineCov">         84 :         return weekend ? m_trips_weekend.size() : m_trips_weekday.size();</span></a>
 <a name="185"><span class="lineNum">     185 </span>            :     }</a>
 <a name="186"><span class="lineNum">     186 </span>            : </a>
 <a name="187"><span class="lineNum">     187 </span>            :     /**</a>
 <a name="188"><span class="lineNum">     188 </span>            :      * @brief Get the current index.</a>
 <a name="189"><span class="lineNum">     189 </span>            :      */</a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">         45 :     uint32_t get_current_index() const</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">        105 :     uint32_t get_current_index() const</span></a>
 <a name="191"><span class="lineNum">     191 </span>            :     {</a>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         45 :         return m_current_index;</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">        105 :         return m_current_index;</span></a>
 <a name="193"><span class="lineNum">     193 </span>            :     }</a>
 <a name="194"><span class="lineNum">     194 </span>            : </a>
 <a name="195"><span class="lineNum">     195 </span>            : private:</a>

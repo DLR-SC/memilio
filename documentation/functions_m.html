@@ -128,6 +128,9 @@ $(function() {
 : <a class="el" href="classmio_1_1osecir_1_1Parameters.html#a15a12a39501e63e61fcaf175e96a9bbe">mio::osecir::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#ada613ddaa9cf1b703480a333ac384926">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 </li>
+<li>m_compliance
+: <a class="el" href="classmio_1_1abm_1_1Person.html#aff6c2fb86cdb4c4dfc75c78a591e6058">mio::abm::Person</a>
+</li>
 <li>m_cont_freq
 : <a class="el" href="classmio_1_1UncertainContactMatrix.html#a11513413214b20077d49c772175ca5c0">mio::UncertainContactMatrix&lt; FP &gt;</a>
 </li>
@@ -264,6 +267,9 @@ $(function() {
 <li>m_has_locations
 : <a class="el" href="classmio_1_1abm_1_1Model.html#ac8bf36d684b5ef01f3f5263311197fc2">mio::abm::Model</a>
 </li>
+<li>m_home_isolation_start
+: <a class="el" href="classmio_1_1abm_1_1Person.html#a64f58fb08eff6fa2a9a4845029f41c67">mio::abm::Person</a>
+</li>
 <li>m_household_list
 : <a class="el" href="classmio_1_1abm_1_1HouseholdGroup.html#aa31e2e1af0d39b12fe83b08d88e9ddea">mio::abm::HouseholdGroup</a>
 </li>
@@ -367,9 +373,6 @@ $(function() {
 <li>m_mask
 : <a class="el" href="classmio_1_1abm_1_1Person.html#aad2290085b52ae4d36f8a146e4654f9e">mio::abm::Person</a>
 </li>
-<li>m_mask_compliance
-: <a class="el" href="classmio_1_1abm_1_1Person.html#af47cc7f919aaeb10fc37c649a9ece75b">mio::abm::Person</a>
-</li>
 <li>m_matrices
 : <a class="el" href="classmio_1_1DampingMatrixExpressionGroup.html#a81d7d7e3b17ef3e73bae500e51344b78">mio::DampingMatrixExpressionGroup&lt; E &gt;</a>
 , <a class="el" href="classmio_1_1DampingSampling.html#ae41448a650a2bde7953cbca02a6582da">mio::DampingSampling&lt; FP &gt;</a>
@@ -414,9 +417,6 @@ $(function() {
 </li>
 <li>m_nodes
 : <a class="el" href="classmio_1_1Graph.html#a46413b09f2053efcf83a9bd77635186f">mio::Graph&lt; NodePropertyT, EdgePropertyT &gt;</a>
-</li>
-<li>m_npi_active
-: <a class="el" href="classmio_1_1abm_1_1Location.html#af57907e2e23e75a2741b8f9f00dbae48">mio::abm::Location</a>
 </li>
 <li>m_num_groups
 : <a class="el" href="classmio_1_1abm_1_1Parameters.html#a6931638421c31db5449804713bdd9ef1">mio::abm::Parameters</a>
@@ -470,9 +470,6 @@ $(function() {
 </li>
 <li>m_quantile
 : <a class="el" href="classmio_1_1ParameterDistributionNormal.html#a06be7d9c981c0eb24419a73bb11b46c2">mio::ParameterDistributionNormal</a>
-</li>
-<li>m_quarantine_start
-: <a class="el" href="classmio_1_1abm_1_1Person.html#aa4999e75982673846129a1ff2fe78030">mio::abm::Person</a>
 </li>
 <li>m_random_goto_school_hour
 : <a class="el" href="classmio_1_1abm_1_1Person.html#a156ae247c742f903c9d4f4e653eda325">mio::abm::Person</a>
@@ -629,8 +626,8 @@ $(function() {
 <li>m_time_at_location
 : <a class="el" href="classmio_1_1abm_1_1Person.html#ae13805c3bd695fe55b91cb2dd08dc3c7">mio::abm::Person</a>
 </li>
-<li>m_time_used
-: <a class="el" href="classmio_1_1abm_1_1Mask.html#acf0a14ecf835683565b1748d7b8f1946">mio::abm::Mask</a>
+<li>m_time_first_usage
+: <a class="el" href="classmio_1_1abm_1_1Mask.html#a67afff92045f9cabc05a87de6ffced70">mio::abm::Mask</a>
 </li>
 <li>m_tmax
 : <a class="el" href="classmio_1_1ParameterStudy.html#af279fc512e5491c2ed2e0005cf17fa45">mio::ParameterStudy&lt; S &gt;</a>
@@ -692,9 +689,6 @@ $(function() {
 <li>m_virus_variant
 : <a class="el" href="classmio_1_1abm_1_1Infection.html#a606e9843af3132b59480f8a3a663377b">mio::abm::Infection</a>
 </li>
-<li>m_wears_mask
-: <a class="el" href="classmio_1_1abm_1_1Person.html#afe466f123ccb1cee377f9f9c257c6e52">mio::abm::Person</a>
-</li>
 <li>m_y
 : <a class="el" href="classmio_1_1CustomIndexArray.html#a15115bc9de38c55f075cd80e7a383f59">mio::CustomIndexArray&lt; Typ, Tags &gt;</a>
 </li>
@@ -711,7 +705,7 @@ $(function() {
 : <a class="el" href="classmio_1_1UncertainContactMatrix.html#a087a8019a89be2291e3e00f31d4415cf">mio::UncertainContactMatrix&lt; FP &gt;</a>
 </li>
 <li>Mask()
-: <a class="el" href="classmio_1_1abm_1_1Mask.html#a48b19c157528c5b9590633e9e19168c4">mio::abm::Mask</a>
+: <a class="el" href="classmio_1_1abm_1_1Mask.html#ade6c03c4b7542c20d0802a9800bd7b60">mio::abm::Mask</a>
 </li>
 <li>Matrix
 : <a class="el" href="classmio_1_1ColumnVectorShape.html#aa717c3384a3bcd63ad74962a83421a40">mio::ColumnVectorShape</a>
@@ -722,12 +716,10 @@ $(function() {
 , <a class="el" href="structmio_1_1details_1_1TimeSeriesIterTraits.html#a69228a93aa25f11dd80f4027121dc043">mio::details::TimeSeriesIterTraits&lt; FP, IsConst &gt;</a>
 , <a class="el" href="classmio_1_1RectMatrixShape.html#a01bb164e894c059bd4217d09d70717b9">mio::RectMatrixShape</a>
 , <a class="el" href="classmio_1_1SquareMatrixShape.html#aaf11777e984949cb224ee1cd0ddbfda9">mio::SquareMatrixShape</a>
+, <a class="el" href="classmio_1_1TimeSeries.html#a8ced5fe4230be54a753c9ce8671ae1f6">mio::TimeSeries&lt; FP &gt;</a>
 </li>
 <li>matrix()
-: <a class="el" href="classmio_1_1TimeSeries.html#a15864c9cc3c4abc01153f9f004d5aed1">mio::TimeSeries&lt; FP &gt;</a>
-</li>
-<li>Matrix
-: <a class="el" href="classmio_1_1TimeSeries.html#a8ced5fe4230be54a753c9ce8671ae1f6">mio::TimeSeries&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1TimeSeries.html#ac6bea94a213508d4893637dd1270f7b8">mio::TimeSeries&lt; FP &gt;</a>
 </li>
 <li>MatrixPtr
 : <a class="el" href="classmio_1_1details_1_1TimeSeriesIteratorBase.html#a77675532232ff83d08398a499b038d11">mio::details::TimeSeriesIteratorBase&lt; Derived, FP, IsConstIter, ValueType, ReferenceType &gt;</a>

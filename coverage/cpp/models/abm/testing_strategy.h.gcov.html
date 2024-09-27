@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-26 14:48:18</td>
+            <td class="headerValue">2024-09-27 09:08:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -235,7 +235,7 @@
 <a name="173"><span class="lineNum">     173 </span>            :      * @brief Create a TestingStrategy.</a>
 <a name="174"><span class="lineNum">     174 </span>            :      * @param[in] testing_schemes Vector of TestingSchemes that are checked for testing.</a>
 <a name="175"><span class="lineNum">     175 </span>            :      */</a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">         21 :     TestingStrategy() = default;</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">         23 :     TestingStrategy() = default;</span></a>
 <a name="177"><span class="lineNum">     177 </span>            :     explicit TestingStrategy(const std::vector&lt;LocalStrategy&gt;&amp; location_to_schemes_map);</a>
 <a name="178"><span class="lineNum">     178 </span>            : </a>
 <a name="179"><span class="lineNum">     179 </span>            :     /**</a>
@@ -253,10 +253,10 @@
 <a name="191"><span class="lineNum">     191 </span>            :      * @param[in] loc_type LocationId key for TestingScheme to be added.</a>
 <a name="192"><span class="lineNum">     192 </span>            :      * @param[in] scheme TestingScheme to be added.</a>
 <a name="193"><span class="lineNum">     193 </span>            :      */</a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">          4 :     void add_testing_scheme(const LocationType&amp; loc_type, const TestingScheme&amp; scheme)</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">          6 :     void add_testing_scheme(const LocationType&amp; loc_type, const TestingScheme&amp; scheme)</span></a>
 <a name="195"><span class="lineNum">     195 </span>            :     {</a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          4 :         add_testing_scheme(loc_type, LocationId::invalid_id(), scheme);</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">          4 :     }</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          6 :         add_testing_scheme(loc_type, LocationId::invalid_id(), scheme);</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">          6 :     }</span></a>
 <a name="198"><span class="lineNum">     198 </span>            : </a>
 <a name="199"><span class="lineNum">     199 </span>            :     /**</a>
 <a name="200"><span class="lineNum">     200 </span>            :      * @brief Remove a TestingScheme from the set of schemes that are checked for testing at a certain Location.</a>
