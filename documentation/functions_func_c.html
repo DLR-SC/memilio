@@ -123,7 +123,7 @@ $(function() {
 , <a class="el" href="structad_1_1operations_1_1ad__sub__pa.html#a33088b4029a9b760158a1efa477e6ad2">ad::operations::ad_sub_pa&lt; AD_TAPE_REAL &gt;</a>
 </li>
 <li>calculate_compartments()
-: <a class="el" href="classmio_1_1lsecir_1_1Model.html#ab2e6b73b08ae8091b50b1943709ad091">mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</a>
+: <a class="el" href="classmio_1_1lsecir_1_1Model.html#ad0b749fcc1028077b7568c21d0cab265">mio::lsecir::Model&lt; LctStates &gt;</a>
 </li>
 <li>calculate_EIR()
 : <a class="el" href="classmio_1_1iseir_1_1Model.html#a0d75663e7cef40916f0b18e1d3b41e86">mio::iseir::Model&lt; FP &gt;</a>
@@ -160,7 +160,9 @@ $(function() {
 , <a class="el" href="structmio_1_1CompartmentalModel.html#a19c74cdb58685cef3e410e77fb2c246f">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
 , <a class="el" href="classmio_1_1isecir_1_1Model.html#a31ac84e9be3c2fa27d9e4915daa2f744">mio::isecir::Model</a>
 , <a class="el" href="classmio_1_1isecir_1_1Parameters.html#a775719389e8ddae007b81ccf70170750">mio::isecir::Parameters</a>
+, <a class="el" href="classmio_1_1LctPopulations.html#a766431dcebef4866413d960f3cf9378c">mio::LctPopulations&lt; FP, LctStates &gt;</a>
 , <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a852c237fa4a6db465e65320ccf731f8c">mio::lsecir::Initializer&lt; Model &gt;</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Model.html#abcacbdaf2178c680cf67df0e068478da">mio::lsecir::Model&lt; LctStates &gt;</a>
 , <a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a187425a98f4c1a3879efe126530c9dfc">mio::lsecir::Parameters</a>
 , <a class="el" href="classmio_1_1oseair_1_1Parameters.html#a91241f3a9fb8eaef856bc8d77c9efce6">mio::oseair::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecir_1_1Parameters.html#abf9329e0969cd3b20d2ff4068cc9e4a0">mio::osecir::Parameters&lt; FP &gt;</a>
@@ -171,6 +173,9 @@ $(function() {
 , <a class="el" href="classmio_1_1sseirvv_1_1Parameters.html#a6ebe66d39b73d6c1eea4c28887ff4be7">mio::sseirvv::Parameters</a>
 , <a class="el" href="classmio_1_1ssir_1_1Parameters.html#aba598baeb18ac0b03334a31f30d213b3">mio::ssir::Parameters</a>
 , <a class="el" href="classmio_1_1ssirs_1_1Parameters.html#a9d72436a56c563065c38f4eac1ea241b">mio::ssirs::Parameters</a>
+</li>
+<li>check_constraints_impl()
+: <a class="el" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">mio::lsecir::Model&lt; LctStates &gt;</a>
 </li>
 <li>check_quantiles()
 : <a class="el" href="classmio_1_1ParameterDistributionNormal.html#af22fc03ea104ed1ccfa38a4be6785f6e">mio::ParameterDistributionNormal</a>
@@ -216,8 +221,11 @@ $(function() {
 <li>CompartmentalModel()
 : <a class="el" href="structmio_1_1CompartmentalModel.html#a2d4aa09703feae3927c4655b0cfbbe62">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
 </li>
+<li>compress_vector()
+: <a class="el" href="classmio_1_1lsecir_1_1Model.html#ad5f3649b23d5dea8d2398ef235b7abb3">mio::lsecir::Model&lt; LctStates &gt;</a>
+</li>
 <li>compute_compartment()
-: <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ada318ef3d78514d617159dad3202be67">mio::lsecir::Initializer&lt; Model &gt;</a>
+: <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a3d3dcd62f53ad2acbee1e98aa1f8c3ae">mio::lsecir::Initializer&lt; Model &gt;</a>
 </li>
 <li>compute_compartment_from_flows()
 : <a class="el" href="classmio_1_1isecir_1_1Model.html#affa8f3510cb2af19a98ba7462a012cfc">mio::isecir::Model</a>
@@ -232,7 +240,10 @@ $(function() {
 : <a class="el" href="classmio_1_1isecir_1_1Model.html#a30d7fd6262353820a642c5a0ee96a38f">mio::isecir::Model</a>
 </li>
 <li>compute_initialization_vector()
-: <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ad04d13d2a8f487142673836e9e1f8f68">mio::lsecir::Initializer&lt; Model &gt;</a>
+: <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a9ec8a94b0ae0c8d9324a7019721bbaef">mio::lsecir::Initializer&lt; Model &gt;</a>
+</li>
+<li>compute_initialization_vector_impl()
+: <a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a5d58233c658f498f9b7170673f780e80">mio::lsecir::Initializer&lt; Model &gt;</a>
 </li>
 <li>compute_population_results()
 : <a class="el" href="classmio_1_1FlowSimulation.html#a663f28bec1f3f9c26fff46a1bb594e57">mio::FlowSimulation&lt; FP, M &gt;</a>

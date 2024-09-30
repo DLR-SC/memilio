@@ -140,6 +140,9 @@ $(function() {
 <li>m_core
 : <a class="el" href="classmio_1_1OdeIntegrator.html#a6987f2818debd266b73bf47d02eff77d">mio::OdeIntegrator&lt; FP &gt;</a>
 </li>
+<li>m_count
+: <a class="el" href="classmio_1_1LctPopulations.html#ac48b7eecd78515aeaea0efe1417f8501">mio::LctPopulations&lt; FP, LctStates &gt;</a>
+</li>
 <li>m_counter
 : <a class="el" href="classmio_1_1abm_1_1PersonalRandomNumberGenerator.html#a7701e6c37ba49342c252fddb10c179e7">mio::abm::PersonalRandomNumberGenerator</a>
 </li>
@@ -420,6 +423,7 @@ $(function() {
 </li>
 <li>m_num_groups
 : <a class="el" href="classmio_1_1abm_1_1Parameters.html#a6931638421c31db5449804713bdd9ef1">mio::abm::Parameters</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html#aec191c9f556639febf365e661f9f772e">mio::lsecir::Parameters</a>
 , <a class="el" href="classmio_1_1osecir_1_1Parameters.html#a43d52973740a5a024db5ebde232dd931">mio::osecir::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#ae7bef8e535fee2fb0fde9656662c4684">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1oseir_1_1Parameters.html#ae842fa842914b9aa3b4649848a44a13b">mio::oseir::Parameters&lt; FP &gt;</a>
@@ -691,6 +695,7 @@ $(function() {
 </li>
 <li>m_y
 : <a class="el" href="classmio_1_1CustomIndexArray.html#a15115bc9de38c55f075cd80e7a383f59">mio::CustomIndexArray&lt; Typ, Tags &gt;</a>
+, <a class="el" href="classmio_1_1LctPopulations.html#a4fc9933ffb905a5a7dde80b3d0a11d57">mio::LctPopulations&lt; FP, LctStates &gt;</a>
 </li>
 <li>m_yt
 : <a class="el" href="classmio_1_1ControlledStepperWrapper.html#a4d3d07acefce1c1ccfa29997e495ab29">mio::ControlledStepperWrapper&lt; FP, ControlledStepper &gt;</a>
@@ -734,7 +739,7 @@ $(function() {
 , <a class="el" href="classmio_1_1IOStatus.html#a21a9087e95e1bed0c733a8a23ce711fe">mio::IOStatus</a>
 </li>
 <li>MobilityEdge()
-: <a class="el" href="classmio_1_1MobilityEdge.html#a6d3b66afbf6276572ecee4a99143006d">mio::MobilityEdge&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1MobilityEdge.html#a83c8e91086b7bd8d40e51d4e2c7762cd">mio::MobilityEdge&lt; FP &gt;</a>
 </li>
 <li>MobilityEdgeStochastic()
 : <a class="el" href="classmio_1_1MobilityEdgeStochastic.html#afe12ce8fd54d651f490195c3ad1a507a">mio::MobilityEdgeStochastic</a>
@@ -746,16 +751,16 @@ $(function() {
 : <a class="el" href="classmio_1_1MobilityParametersStochastic.html#a7c515fb9a6621c920c24e466e9291659">mio::MobilityParametersStochastic</a>
 </li>
 <li>Model()
-: <a class="el" href="classmio_1_1abm_1_1Model.html#af89e34598cb79c176cf3f7dbf23c25e5">mio::abm::Model</a>
+: <a class="el" href="classmio_1_1abm_1_1Model.html#a07fda2aa2b64a552295afb4277a7d406">mio::abm::Model</a>
 , <a class="el" href="classmio_1_1FlowSimulation.html#a8612936f7e9f85bf3ba072a20598e59d">mio::FlowSimulation&lt; FP, M &gt;</a>
 , <a class="el" href="classmio_1_1isecir_1_1Model.html#a5552b1cfa2077bfb2097d502a706d37f">mio::isecir::Model</a>
 , <a class="el" href="classmio_1_1iseir_1_1Model.html#af2becba5aef6ccdbc6589b2a6af879a9">mio::iseir::Model&lt; FP &gt;</a>
-, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a1fbb54c12631465240cf4b3e665a87fd">mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a932154e66bb7c46a8d9b7d97c89f81bf">mio::lsecir::Model&lt; LctStates &gt;</a>
 , <a class="el" href="classmio_1_1oseair_1_1Model.html#a8faf9bb21d6528c8744ec9ce93bcb126">mio::oseair::Model&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecir_1_1Model.html#a1445034246cfd1f116a402d2ee43d500">mio::osecir::Model&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Model.html#a362c6f5b886248fee56d6b21b177f087">mio::osecirvvs::Model&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1oseir_1_1Model.html#aafd2437b5be79a463e86d245494b49a0">mio::oseir::Model&lt; FP &gt;</a>
-, <a class="el" href="classmio_1_1osir_1_1Model.html#a5144c5364cd0c8ffc4a4f824c112fa00">mio::osir::Model&lt; FP &gt;</a>
+, <a class="el" href="classmio_1_1osir_1_1Model.html#aa959ce2dd54ff8d774e8db32698fd94e">mio::osir::Model&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1Simulation.html#a5afc88cdb7f1f72b7c62c6a2bf497556">mio::Simulation&lt; FP, M &gt;</a>
 , <a class="el" href="classmio_1_1sseirvv_1_1Model.html#ad56642ca2ff3590bb9ab29464767aba7">mio::sseirvv::Model</a>
 , <a class="el" href="classmio_1_1ssir_1_1Model.html#a82a8d849a7f4282a0d49fd2052053666">mio::ssir::Model</a>

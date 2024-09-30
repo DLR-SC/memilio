@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MEmilio: mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt; Class Template Reference</title>
+<title>MEmilio: mio::lsecir::Model&lt; LctStates &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,9 +69,11 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classmio_1_1lsecir_1_1Model-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt; Class Template Reference</div>  </div>
+<div class="title">mio::lsecir::Model&lt; LctStates &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -80,45 +82,47 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="lct__secir_2model_8h_source.html">model.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;:</div>
+Inheritance diagram for mio::lsecir::Model&lt; LctStates &gt;:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classmio_1_1lsecir_1_1Model.png" usemap="#mio::lsecir::Model_3C_20NumExposed_2C_20NumInfectedNoSymptoms_2C_20NumInfectedSymptoms_2C_20NumInfectedSevere_2C_20NumInfectedCritical_20_3E_map" alt=""/>
-  <map id="mio::lsecir::Model_3C_20NumExposed_2C_20NumInfectedNoSymptoms_2C_20NumInfectedSymptoms_2C_20NumInfectedSevere_2C_20NumInfectedCritical_20_3E_map" name="mio::lsecir::Model_3C_20NumExposed_2C_20NumInfectedNoSymptoms_2C_20NumInfectedSymptoms_2C_20NumInfectedSevere_2C_20NumInfectedCritical_20_3E_map">
-<area href="structmio_1_1CompartmentalModel.html" alt="mio::CompartmentalModel&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;, mio::Populations&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt; &gt;, Parameters &gt;" shape="rect" coords="0,0,2219,24"/>
+  <img src="classmio_1_1lsecir_1_1Model.png" usemap="#mio::lsecir::Model_3C_20LctStates_20_3E_map" alt=""/>
+  <map id="mio::lsecir::Model_3C_20LctStates_20_3E_map" name="mio::lsecir::Model_3C_20LctStates_20_3E_map">
+<area href="structmio_1_1CompartmentalModel.html" alt="mio::CompartmentalModel&lt; ScalarType, InfectionState, LctPopulations&lt; ScalarType, LctStates... &gt;, Parameters &gt;" shape="rect" coords="0,0,654,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a70f32fcc7e3c1b1ed2fe419160b94861"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a70f32fcc7e3c1b1ed2fe419160b94861">Base</a> = <a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a>, <a class="el" href="classmio_1_1Populations.html">mio::Populations</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a> &gt;, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html">Parameters</a> &gt;</td></tr>
-<tr class="separator:a70f32fcc7e3c1b1ed2fe419160b94861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317ebd354e298a750604c24485892561"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a> = <a class="el" href="classmio_1_1LctInfectionState.html">LctInfectionState</a>&lt; <a class="el" href="namespacemio_1_1lsecir.html#a3aeb01ac3e9ac9c367ca6f0efaf7ba2b">InfectionState</a>, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;</td></tr>
-<tr class="separator:a317ebd354e298a750604c24485892561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b6bb5f689311e58dabc1fa6ffce0da4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> = Params</td></tr>
-<tr class="separator:a3b6bb5f689311e58dabc1fa6ffce0da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3243f778e26359da601d1ac84b81732d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a3243f778e26359da601d1ac84b81732d">Populations</a> = Pop</td></tr>
-<tr class="separator:a3243f778e26359da601d1ac84b81732d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;, mio::Populations&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt; &gt;, Parameters &gt;</a></td></tr>
-<tr class="memitem:a973ddbd8f1eaa1470df89e50524cd4fa inherit pub_types_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a973ddbd8f1eaa1470df89e50524cd4fa">Compartments</a> = <a class="el" href="classmio_1_1LctInfectionState.html">LctInfectionState</a>&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;</td></tr>
+<tr class="memitem:af91475a79305da402d440f3bcd7856b7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#af91475a79305da402d440f3bcd7856b7">Base</a> = <a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="namespacemio_1_1lsecir.html#a3aeb01ac3e9ac9c367ca6f0efaf7ba2b">InfectionState</a>, <a class="el" href="classmio_1_1LctPopulations.html">LctPopulations</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, LctStates... &gt;, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html">Parameters</a> &gt;</td></tr>
+<tr class="separator:af91475a79305da402d440f3bcd7856b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b9b964c2f331597cf55340169d84d68"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a9b9b964c2f331597cf55340169d84d68">LctStatesGroups</a> = <a class="el" href="structmio_1_1TypeList.html">TypeList</a>&lt; LctStates... &gt;</td></tr>
+<tr class="separator:a9b9b964c2f331597cf55340169d84d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_types_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, InfectionState, LctPopulations&lt; ScalarType, LctStates... &gt;, Parameters &gt;</a></td></tr>
+<tr class="memitem:a973ddbd8f1eaa1470df89e50524cd4fa inherit pub_types_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a973ddbd8f1eaa1470df89e50524cd4fa">Compartments</a> = InfectionState</td></tr>
 <tr class="separator:a973ddbd8f1eaa1470df89e50524cd4fa inherit pub_types_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b6bb5f689311e58dabc1fa6ffce0da4 inherit pub_types_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> = Parameters</td></tr>
 <tr class="separator:a3b6bb5f689311e58dabc1fa6ffce0da4 inherit pub_types_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3243f778e26359da601d1ac84b81732d inherit pub_types_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a> = <a class="el" href="classmio_1_1Populations.html">mio::Populations</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="classmio_1_1LctInfectionState.html">LctInfectionState</a>&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt; &gt;</td></tr>
+<tr class="memitem:a3243f778e26359da601d1ac84b81732d inherit pub_types_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a> = <a class="el" href="classmio_1_1LctPopulations.html">LctPopulations</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, LctStates... &gt;</td></tr>
 <tr class="separator:a3243f778e26359da601d1ac84b81732d inherit pub_types_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2e6b73b08ae8091b50b1943709ad091"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#ab2e6b73b08ae8091b50b1943709ad091">calculate_compartments</a> (const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;subcompartments_ts) const</td></tr>
-<tr class="memdesc:ab2e6b73b08ae8091b50b1943709ad091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cumulates a simulation result with subcompartments to produce a result that divides the population only into the infection states defined in InfectionState.  <a href="classmio_1_1lsecir_1_1Model.html#ab2e6b73b08ae8091b50b1943709ad091">More...</a><br /></td></tr>
-<tr class="separator:ab2e6b73b08ae8091b50b1943709ad091"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5af1eb0af621ed4684fbfbbcc454d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#afb5af1eb0af621ed4684fbfbbcc454d2">get_derivatives</a> (Eigen::Ref&lt; const Eigen::VectorXd &gt; pop, Eigen::Ref&lt; const Eigen::VectorXd &gt; y, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> t, Eigen::Ref&lt; Eigen::VectorXd &gt; dydt) const override</td></tr>
-<tr class="memdesc:afb5af1eb0af621ed4684fbfbbcc454d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the right-hand-side f of the LCT dydt = f(y, t).  <a href="classmio_1_1lsecir_1_1Model.html#afb5af1eb0af621ed4684fbfbbcc454d2">More...</a><br /></td></tr>
-<tr class="separator:afb5af1eb0af621ed4684fbfbbcc454d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fbb54c12631465240cf4b3e665a87fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a1fbb54c12631465240cf4b3e665a87fd">Model</a> ()</td></tr>
-<tr class="memdesc:a1fbb54c12631465240cf4b3e665a87fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classmio_1_1lsecir_1_1Model.html#a1fbb54c12631465240cf4b3e665a87fd">More...</a><br /></td></tr>
-<tr class="separator:a1fbb54c12631465240cf4b3e665a87fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;, mio::Populations&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt; &gt;, Parameters &gt;</a></td></tr>
+<tr class="memitem:ad0b749fcc1028077b7568c21d0cab265"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#ad0b749fcc1028077b7568c21d0cab265">calculate_compartments</a> (const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;subcompartments_ts) const</td></tr>
+<tr class="memdesc:ad0b749fcc1028077b7568c21d0cab265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cumulates a simulation result with subcompartments to produce a result that divides the population only into the infection states defined in InfectionState.  <a href="classmio_1_1lsecir_1_1Model.html#ad0b749fcc1028077b7568c21d0cab265">More...</a><br /></td></tr>
+<tr class="separator:ad0b749fcc1028077b7568c21d0cab265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcacbdaf2178c680cf67df0e068478da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#abcacbdaf2178c680cf67df0e068478da">check_constraints</a> () const</td></tr>
+<tr class="memdesc:abcacbdaf2178c680cf67df0e068478da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that the model satisfies all constraints (e.g.  <a href="classmio_1_1lsecir_1_1Model.html#abcacbdaf2178c680cf67df0e068478da">More...</a><br /></td></tr>
+<tr class="separator:abcacbdaf2178c680cf67df0e068478da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66281858b1a32145c4712ed527b0347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#ab66281858b1a32145c4712ed527b0347">get_derivatives</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; y, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; dydt) const override</td></tr>
+<tr class="memdesc:ab66281858b1a32145c4712ed527b0347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the right-hand-side f of the ODE dydt = f(y, t).  <a href="classmio_1_1lsecir_1_1Model.html#ab66281858b1a32145c4712ed527b0347">More...</a><br /></td></tr>
+<tr class="separator:ab66281858b1a32145c4712ed527b0347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa379322c4041672cb4485098c4c39d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a9fa379322c4041672cb4485098c4c39d">Model</a> ()</td></tr>
+<tr class="memdesc:a9fa379322c4041672cb4485098c4c39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classmio_1_1lsecir_1_1Model.html#a9fa379322c4041672cb4485098c4c39d">More...</a><br /></td></tr>
+<tr class="separator:a9fa379322c4041672cb4485098c4c39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932154e66bb7c46a8d9b7d97c89f81bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a932154e66bb7c46a8d9b7d97c89f81bf">Model</a> (const <a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a> &amp;pop, const <a class="el" href="structmio_1_1CompartmentalModel.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> &amp;params)</td></tr>
+<tr class="memdesc:a932154e66bb7c46a8d9b7d97c89f81bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor using <a class="el" href="classmio_1_1Populations.html" title="A class template for compartment populations.">Populations</a> and <a class="el" href="classmio_1_1ParameterSet.html" title="a set of parameters defined at compile time">ParameterSet</a>.  <a href="classmio_1_1lsecir_1_1Model.html#a932154e66bb7c46a8d9b7d97c89f81bf">More...</a><br /></td></tr>
+<tr class="separator:a932154e66bb7c46a8d9b7d97c89f81bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, InfectionState, LctPopulations&lt; ScalarType, LctStates... &gt;, Parameters &gt;</a></td></tr>
 <tr class="memitem:a17bf61095e82eab7b45653472a8fb936 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a17bf61095e82eab7b45653472a8fb936">apply_constraints</a> ()</td></tr>
 <tr class="memdesc:a17bf61095e82eab7b45653472a8fb936 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the model satisfies all constraints.  <a href="structmio_1_1CompartmentalModel.html#a17bf61095e82eab7b45653472a8fb936">More...</a><br /></td></tr>
 <tr class="separator:a17bf61095e82eab7b45653472a8fb936 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,8 +139,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#aa07d380d2202e3a4f069d2471043a5b8">eval_right_hand_side</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; y, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; dydt) const</td></tr>
 <tr class="memdesc:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function evaluates the right-hand-side f of the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#aa07d380d2202e3a4f069d2471043a5b8">More...</a><br /></td></tr>
 <tr class="separator:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5780b6b980eac58267ab333632d4256b inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a5780b6b980eac58267ab333632d4256b">get_derivatives</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;) const</td></tr>
-<tr class="separator:a5780b6b980eac58267ab333632d4256b inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#ac7a04c5b2c7b6e2c61b25f3eefdb24eb">get_initial_values</a> () const</td></tr>
 <tr class="memdesc:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the initial conditions for the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#ac7a04c5b2c7b6e2c61b25f3eefdb24eb">More...</a><br /></td></tr>
 <tr class="separator:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,88 +149,76 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7ae58c4edcf77a0f2d5c0728b9cae02 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#ad7ae58c4edcf77a0f2d5c0728b9cae02">~CompartmentalModel</a> ()=default</td></tr>
 <tr class="separator:ad7ae58c4edcf77a0f2d5c0728b9cae02 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a04209f83145f8657a2da1448ba7405bd"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a> = sizeof...(LctStates)</td></tr>
+<tr class="separator:a04209f83145f8657a2da1448ba7405bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4c070109d1ab4ccce2f1cbfb54213bb5"><td class="memTemplParams" colspan="2">template&lt;size_t Group = 0&gt; </td></tr>
+<tr class="memitem:a4c070109d1ab4ccce2f1cbfb54213bb5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">check_constraints_impl</a> () const</td></tr>
+<tr class="memdesc:a4c070109d1ab4ccce2f1cbfb54213bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether LctState of a group satisfies all constraints.  <a href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">More...</a><br /></td></tr>
+<tr class="separator:a4c070109d1ab4ccce2f1cbfb54213bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f3649b23d5dea8d2398ef235b7abb3"><td class="memTemplParams" colspan="2">template&lt;size_t Group = 0&gt; </td></tr>
+<tr class="memitem:ad5f3649b23d5dea8d2398ef235b7abb3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#ad5f3649b23d5dea8d2398ef235b7abb3">compress_vector</a> (const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;subcompartments, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;compartments) const</td></tr>
+<tr class="memdesc:ad5f3649b23d5dea8d2398ef235b7abb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a vector with subcompartments in a vector without subcompartments by summing up subcompartment values.  <a href="classmio_1_1lsecir_1_1Model.html#ad5f3649b23d5dea8d2398ef235b7abb3">More...</a><br /></td></tr>
+<tr class="separator:ad5f3649b23d5dea8d2398ef235b7abb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649f402444bbd710502d377be6290cd6"><td class="memTemplParams" colspan="2">template&lt;size_t Group = 0&gt; </td></tr>
+<tr class="memitem:a649f402444bbd710502d377be6290cd6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a649f402444bbd710502d377be6290cd6">get_derivatives_impl</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; y, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; dydt) const</td></tr>
+<tr class="memdesc:a649f402444bbd710502d377be6290cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the right-hand-side f of the ODE dydt = f(y, t) recursively for each group.  <a href="classmio_1_1lsecir_1_1Model.html#a649f402444bbd710502d377be6290cd6">More...</a><br /></td></tr>
+<tr class="separator:a649f402444bbd710502d377be6290cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151b41ffb161d5cf714872f0dde6ecc3"><td class="memTemplParams" colspan="2">template&lt;size_t Group1, size_t Group2 = 0&gt; </td></tr>
+<tr class="memitem:a151b41ffb161d5cf714872f0dde6ecc3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Model.html#a151b41ffb161d5cf714872f0dde6ecc3">interact</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; y, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt; dydt) const</td></tr>
+<tr class="memdesc:a151b41ffb161d5cf714872f0dde6ecc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the derivative of the Susceptible compartment for Group1.  <a href="classmio_1_1lsecir_1_1Model.html#a151b41ffb161d5cf714872f0dde6ecc3">More...</a><br /></td></tr>
+<tr class="separator:a151b41ffb161d5cf714872f0dde6ecc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_attribs_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt;, mio::Populations&lt; ScalarType, LctInfectionState&lt; InfectionState, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1 &gt; &gt;, Parameters &gt;</a></td></tr>
+<tr class="inherit_header pub_attribs_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; ScalarType, InfectionState, LctPopulations&lt; ScalarType, LctStates... &gt;, Parameters &gt;</a></td></tr>
 <tr class="memitem:a93b7ee010bf6468231f65e03f3889020 inherit pub_attribs_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1CompartmentalModel.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a93b7ee010bf6468231f65e03f3889020">parameters</a></td></tr>
 <tr class="separator:a93b7ee010bf6468231f65e03f3889020 inherit pub_attribs_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18bd88af7f23550ef0f625921058e527 inherit pub_attribs_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a18bd88af7f23550ef0f625921058e527">populations</a></td></tr>
 <tr class="separator:a18bd88af7f23550ef0f625921058e527 inherit pub_attribs_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt;<br />
-class mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</h3>
+<div class="textblock"><h3>template&lt;class... LctStates&gt;<br />
+class mio::lsecir::Model&lt; LctStates &gt;</h3>
 
 <p>Class that defines an LCT-SECIR model. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">NumExposed</td><td>The number of subcompartents used for the Exposed compartment. </td></tr>
-    <tr><td class="paramname">NumInfectedNoSymptoms</td><td>The number of subcompartents used for the InfectedNoSymptoms compartment. </td></tr>
-    <tr><td class="paramname">NumInfectedSymptoms</td><td>The number of subcompartents used for the InfectedSymptoms compartment. </td></tr>
-    <tr><td class="paramname">NumInfectedSevere</td><td>The number of subcompartents used for the InfectedSevere compartment. </td></tr>
-    <tr><td class="paramname">NumInfectedCritical</td><td>The number of subcompartents used for the InfectedCritical compartment. </td></tr>
+    <tr><td class="paramname">LctStates</td><td>The LCT model can work with any number of LctStates, where each LctState corresponds to a group, e.g. one <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. The purpose of the LctStates is to define the number of subcompartments for each InfectionState. If you do not want to divide the population into groups, just use one LctState. If you want to divide the population according to more than one category, e.g. sex and age, you have to specify one LctState for each pair of groups, e.g. for (female, A00-A04), (female, A05-A14) etc. This is because the number of subcompartments can be different for each group. Therefore, the number of LctStates also determines the number of groups. </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a70f32fcc7e3c1b1ed2fe419160b94861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70f32fcc7e3c1b1ed2fe419160b94861">&#9670;&nbsp;</a></span>Base</h2>
+<a id="af91475a79305da402d440f3bcd7856b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91475a79305da402d440f3bcd7856b7">&#9670;&nbsp;</a></span>Base</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
+template&lt;class... LctStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#a70f32fcc7e3c1b1ed2fe419160b94861">Base</a> =  <a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a>, <a class="el" href="classmio_1_1Populations.html">mio::Populations</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a>&gt;, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html">Parameters</a>&gt;</td>
+          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#af91475a79305da402d440f3bcd7856b7">Base</a> =  <a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="namespacemio_1_1lsecir.html#a3aeb01ac3e9ac9c367ca6f0efaf7ba2b">InfectionState</a>, <a class="el" href="classmio_1_1LctPopulations.html">LctPopulations</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, LctStates...&gt;, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html">Parameters</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a317ebd354e298a750604c24485892561"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a317ebd354e298a750604c24485892561">&#9670;&nbsp;</a></span>LctState</h2>
+<a id="a9b9b964c2f331597cf55340169d84d68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b9b964c2f331597cf55340169d84d68">&#9670;&nbsp;</a></span>LctStatesGroups</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
+template&lt;class... LctStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">LctState</a> =  <a class="el" href="classmio_1_1LctInfectionState.html">LctInfectionState</a>&lt;<a class="el" href="namespacemio_1_1lsecir.html#a3aeb01ac3e9ac9c367ca6f0efaf7ba2b">InfectionState</a>, 1, NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical, 1, 1&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3b6bb5f689311e58dabc1fa6ffce0da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b6bb5f689311e58dabc1fa6ffce0da4">&#9670;&nbsp;</a></span>ParameterSet</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel</a>&lt; FP, Comp, Pop, Params &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> =  Params</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3243f778e26359da601d1ac84b81732d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3243f778e26359da601d1ac84b81732d">&#9670;&nbsp;</a></span>Populations</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel</a>&lt; FP, Comp, Pop, Params &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#a3243f778e26359da601d1ac84b81732d">Populations</a> =  Pop</td>
+          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html#a9b9b964c2f331597cf55340169d84d68">LctStatesGroups</a> =  <a class="el" href="structmio_1_1TypeList.html">TypeList</a>&lt;LctStates...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -236,16 +226,16 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1fbb54c12631465240cf4b3e665a87fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fbb54c12631465240cf4b3e665a87fd">&#9670;&nbsp;</a></span>Model()</h2>
+<a id="a9fa379322c4041672cb4485098c4c39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fa379322c4041672cb4485098c4c39d">&#9670;&nbsp;</a></span>Model() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
+template&lt;class... LctStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> </td>
+          <td class="memname"><a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -257,17 +247,56 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab2e6b73b08ae8091b50b1943709ad091"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2e6b73b08ae8091b50b1943709ad091">&#9670;&nbsp;</a></span>calculate_compartments()</h2>
+<a id="a932154e66bb7c46a8d9b7d97c89f81bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932154e66bb7c46a8d9b7d97c89f81bf">&#9670;&nbsp;</a></span>Model() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
+template&lt;class... LctStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;::calculate_compartments </td>
+          <td class="memname"><a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::<a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a> &amp;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmio_1_1CompartmentalModel.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor using <a class="el" href="classmio_1_1Populations.html" title="A class template for compartment populations.">Populations</a> and <a class="el" href="classmio_1_1ParameterSet.html" title="a set of parameters defined at compile time">ParameterSet</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pop</td><td>An instance of the <a class="el" href="classmio_1_1Populations.html" title="A class template for compartment populations.">Populations</a> class. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td><a class="el" href="classmio_1_1lsecir_1_1Parameters.html" title="Parameters of an LCT-SECIR model.">Parameters</a> used to be used in the simulation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad0b749fcc1028077b7568c21d0cab265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0b749fcc1028077b7568c21d0cab265">&#9670;&nbsp;</a></span>calculate_compartments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::calculate_compartments </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>subcompartments_ts</em></td><td>)</td>
@@ -277,7 +306,7 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
 </div><div class="memdoc">
 
 <p>Cumulates a simulation result with subcompartments to produce a result that divides the population only into the infection states defined in InfectionState. </p>
-<p>If the model is used for simulation, we will get a result in form of a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with infection states divided in subcompartments. The function calculates a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> without subcompartmens from another <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with subcompartments. This is done by summing up the numbers in the subcompartments. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>If the model is used for simulation, we will get a result in form of a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with infection states divided in subcompartments. The function calculates a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> without subcompartments from another <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with subcompartments. This is done by summing up the numbers in the subcompartments. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">subcompartments_ts</td><td>Result of a simulation with the model. </td></tr>
   </table>
@@ -287,27 +316,144 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
 
 </div>
 </div>
-<a id="afb5af1eb0af621ed4684fbfbbcc454d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb5af1eb0af621ed4684fbfbbcc454d2">&#9670;&nbsp;</a></span>get_derivatives()</h2>
+<a id="abcacbdaf2178c680cf67df0e068478da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcacbdaf2178c680cf67df0e068478da">&#9670;&nbsp;</a></span>check_constraints()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedSymptoms, size_t NumInfectedSevere, size_t NumInfectedCritical&gt; </div>
+template&lt;class... LctStates&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::check_constraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks that the model satisfies all constraints (e.g. </p>
+<p>parameter or population constraints). </p><dl class="section return"><dt>Returns</dt><dd>Returns true if one or more constraints are not satisfied, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4c070109d1ab4ccce2f1cbfb54213bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c070109d1ab4ccce2f1cbfb54213bb5">&#9670;&nbsp;</a></span>check_constraints_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<div class="memtemplate">
+template&lt;size_t Group = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;::get_derivatives </td>
+          <td class="memname">bool <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::check_constraints_impl </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorXd &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether LctState of a group satisfies all constraints. </p>
+<p>Recursively, it checks that all groups satisfy the constraints.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">group</td><td>The group for which the constraints should be checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if one or more constraints are not satisfied, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ad5f3649b23d5dea8d2398ef235b7abb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5f3649b23d5dea8d2398ef235b7abb3">&#9670;&nbsp;</a></span>compress_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<div class="memtemplate">
+template&lt;size_t Group = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::compress_vector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>subcompartments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>compartments</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a vector with subcompartments in a vector without subcompartments by summing up subcompartment values. </p>
+<p>This is done recursively for each group which corresponds to a slice of the vector.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">group</td><td>The group specifying the slice of the vector being considered. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">subcompartments</td><td>The vector that should be converted. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">compartments</td><td>Reference to the vector where the output is stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab66281858b1a32145c4712ed527b0347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66281858b1a32145c4712ed527b0347">&#9670;&nbsp;</a></span>get_derivatives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::get_derivatives </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
           <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorXd &gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
@@ -319,7 +465,7 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorXd &gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
           <td class="paramname"><em>dydt</em>&#160;</td>
         </tr>
         <tr>
@@ -330,21 +476,188 @@ template&lt;size_t NumExposed, size_t NumInfectedNoSymptoms, size_t NumInfectedS
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Evaluates the right-hand-side f of the LCT dydt = f(y, t). </p>
-<p>The LCT-SECIR model is defined through ordinary differential equations of the form dydt = f(y, t). y is a vector containing number of individuals for each (sub-) compartment. This function evaluates the right-hand-side f of the ODE and can be used in an ODE solver. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Evaluates the right-hand-side f of the ODE dydt = f(y, t). </p>
+<p>The LCT-SECIR model is defined through ordinary differential equations of the form dydt = f(y, t). y is a vector containing the number of individuals for each (sub-) compartment. This function evaluates the right-hand-side f of the ODE and can be used in an ODE solver. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pop</td><td>the current state of the population in the geographic unit we are considering </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>the current state of the model (or a subpopulation) as a flat array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>the current time </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dydt</td><td>a reference to the calculated output </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pop</td><td>The current state of the population in the geographic unit we are considering. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The current state of the model (or a subpopulation) as a flat array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>The current time. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dydt</td><td>A reference to the calculated output. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented from <a class="el" href="structmio_1_1CompartmentalModel.html#a5780b6b980eac58267ab333632d4256b">mio::CompartmentalModel&lt; ScalarType, InfectionState, LctPopulations&lt; ScalarType, LctStates... &gt;, Parameters &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a649f402444bbd710502d377be6290cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649f402444bbd710502d377be6290cd6">&#9670;&nbsp;</a></span>get_derivatives_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<div class="memtemplate">
+template&lt;size_t Group = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::get_derivatives_impl </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>dydt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluates the right-hand-side f of the ODE dydt = f(y, t) recursively for each group. </p>
+<p>See also the function get_derivative. For each group, one slice of the output vector is calculated. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">group</td><td>The group specifying the slice of the vector being considered. <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pop</td><td>The current state of the population in the geographic unit we are considering. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The current state of the model (or a subpopulation) as a flat array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>The current time. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dydt</td><td>A reference to the calculated output. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a151b41ffb161d5cf714872f0dde6ecc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a151b41ffb161d5cf714872f0dde6ecc3">&#9670;&nbsp;</a></span>interact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<div class="memtemplate">
+template&lt;size_t Group1, size_t Group2 = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::interact </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>dydt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the derivative of the Susceptible compartment for Group1. </p>
+<p>This is done recursively by calculating the interaction terms with each group. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Group1</td><td>The group for which the derivative of the Susceptible compartment should be calculated. </td></tr>
+    <tr><td class="paramname">Group2</td><td>The group that Group1 interacts with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pop</td><td>The current state of the population in the geographic unit we are considering. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>The current state of the model (or a subpopulation) as a flat array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>The current time. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dydt</td><td>A reference to the calculated output. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a04209f83145f8657a2da1448ba7405bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04209f83145f8657a2da1448ba7405bd">&#9670;&nbsp;</a></span>num_groups</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... LctStates&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a>&lt; LctStates &gt;::num_groups = sizeof...(LctStates)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

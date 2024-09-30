@@ -104,7 +104,7 @@ $(function() {
 </li>
 <li>get_cells()
 : <a class="el" href="classmio_1_1abm_1_1Location.html#a259fdf63985e692e0a7ab39f99af43cd">mio::abm::Location</a>
-, <a class="el" href="classmio_1_1abm_1_1Person.html#ae38125bf5f40e45768dd5ffabd10c0fb">mio::abm::Person</a>
+, <a class="el" href="classmio_1_1abm_1_1Person.html#a39d8c167652e62e338e994bf65a9afb4">mio::abm::Person</a>
 </li>
 <li>get_checkpoint_memory_size()
 : <a class="el" href="structad_1_1internal_1_1blob__tape.html#ab362115c7d5bce393ada571b7a0f2b21">ad::internal::blob_tape&lt; AD_TAPE_REAL, AD_ADJOINT_REAL &gt;</a>
@@ -121,7 +121,8 @@ $(function() {
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#ad658de7dacdcb00bddba8c531ae9b59a">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 </li>
 <li>get_compartments()
-: <a class="el" href="classmio_1_1Populations.html#abb71c87802e5438d66e50f92427aad6c">mio::Populations&lt; FP, Categories &gt;</a>
+: <a class="el" href="classmio_1_1LctPopulations.html#a64691080670b2312683fb4a4f5003d50">mio::LctPopulations&lt; FP, LctStates &gt;</a>
+, <a class="el" href="classmio_1_1Populations.html#abb71c87802e5438d66e50f92427aad6c">mio::Populations&lt; FP, Categories &gt;</a>
 </li>
 <li>get_compliance()
 : <a class="el" href="classmio_1_1abm_1_1Person.html#ac76d9826b9a3b3e5631c592bdf130792">mio::abm::Person</a>
@@ -133,7 +134,7 @@ $(function() {
 : <a class="el" href="classmio_1_1TimeSeries.html#a47f37939ed12314817b824be7a1e39d5">mio::TimeSeries&lt; FP &gt;</a>
 </li>
 <li>get_cont_freq_mat()
-: <a class="el" href="classmio_1_1UncertainContactMatrix.html#a26b2bbb985cc4e8ddd4539c9be868da7">mio::UncertainContactMatrix&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1UncertainContactMatrix.html#a5be9962219d5401f967254e38503bdde">mio::UncertainContactMatrix&lt; FP &gt;</a>
 </li>
 <li>get_counter()
 : <a class="el" href="classmio_1_1abm_1_1PersonalRandomNumberGenerator.html#a7e13be66d99b95c5462da495b3cfb90f">mio::abm::PersonalRandomNumberGenerator</a>
@@ -198,21 +199,21 @@ $(function() {
 , <a class="el" href="structmio_1_1iseir_1_1InfectiousTime.html#aa2490f0bcd6ef13b6c7aedf7e2ae822e">mio::iseir::InfectiousTime</a>
 , <a class="el" href="structmio_1_1iseir_1_1LatencyTime.html#ac74c30f50c5e54a72bd42427afad91c7">mio::iseir::LatencyTime</a>
 , <a class="el" href="structmio_1_1iseir_1_1TransmissionRisk.html#acef3a85f1a90a6afcc6c7ff2e715e224">mio::iseir::TransmissionRisk</a>
-, <a class="el" href="structmio_1_1lsecir_1_1ContactPatterns.html#a6518d70d7c11cccc5721dedd7125eab8">mio::lsecir::ContactPatterns</a>
-, <a class="el" href="structmio_1_1lsecir_1_1CriticalPerSevere.html#a35c27af9e2380c0795e03e47db129b18">mio::lsecir::CriticalPerSevere</a>
-, <a class="el" href="structmio_1_1lsecir_1_1DeathsPerCritical.html#ae3570ee1723a936293b6e64197516f4a">mio::lsecir::DeathsPerCritical</a>
-, <a class="el" href="structmio_1_1lsecir_1_1RecoveredPerInfectedNoSymptoms.html#a550c1f6969ecbb16bca2693ad27c2e6b">mio::lsecir::RecoveredPerInfectedNoSymptoms</a>
-, <a class="el" href="structmio_1_1lsecir_1_1RelativeTransmissionNoSymptoms.html#a630c898ea310a89d0df8cae2fb294dfe">mio::lsecir::RelativeTransmissionNoSymptoms</a>
-, <a class="el" href="structmio_1_1lsecir_1_1RiskOfInfectionFromSymptomatic.html#ae20b256b3c1093f57c11b4c3ed37b2cd">mio::lsecir::RiskOfInfectionFromSymptomatic</a>
-, <a class="el" href="structmio_1_1lsecir_1_1Seasonality.html#a694ee4723cdc7dd2d34d1d5c0d58f0a7">mio::lsecir::Seasonality</a>
-, <a class="el" href="structmio_1_1lsecir_1_1SeverePerInfectedSymptoms.html#a02868ac5f74f9d83ea0966335867df22">mio::lsecir::SeverePerInfectedSymptoms</a>
-, <a class="el" href="structmio_1_1lsecir_1_1StartDay.html#abcb10505c49482ad0996be02bf5673a2">mio::lsecir::StartDay</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TimeExposed.html#ae65a4247be4bcf1555ac2ee3d64936fc">mio::lsecir::TimeExposed</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedCritical.html#a413cf7d85b6a26bb5829cfbe6bc08a28">mio::lsecir::TimeInfectedCritical</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedNoSymptoms.html#a8ac588ecfb2060869c8a489fd6755a6c">mio::lsecir::TimeInfectedNoSymptoms</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedSevere.html#af750484f93c269a894e58c69f2589026">mio::lsecir::TimeInfectedSevere</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedSymptoms.html#aebd5f2ae6a4d27f6888b42bb556a3dae">mio::lsecir::TimeInfectedSymptoms</a>
-, <a class="el" href="structmio_1_1lsecir_1_1TransmissionProbabilityOnContact.html#a75cad943b18518b2daa715c9976087b7">mio::lsecir::TransmissionProbabilityOnContact</a>
+, <a class="el" href="structmio_1_1lsecir_1_1ContactPatterns.html#a8d7475448791ef99a326ffddae58e67b">mio::lsecir::ContactPatterns</a>
+, <a class="el" href="structmio_1_1lsecir_1_1CriticalPerSevere.html#ad215c3d81e7175e8d5dfa54f6d24e416">mio::lsecir::CriticalPerSevere</a>
+, <a class="el" href="structmio_1_1lsecir_1_1DeathsPerCritical.html#ab5bf63835abc8807ebad9f4bb50e46fb">mio::lsecir::DeathsPerCritical</a>
+, <a class="el" href="structmio_1_1lsecir_1_1RecoveredPerInfectedNoSymptoms.html#a983bdcce69a48ae885d84752e222debc">mio::lsecir::RecoveredPerInfectedNoSymptoms</a>
+, <a class="el" href="structmio_1_1lsecir_1_1RelativeTransmissionNoSymptoms.html#ac2e689710385aee110fcd95c49c3fa79">mio::lsecir::RelativeTransmissionNoSymptoms</a>
+, <a class="el" href="structmio_1_1lsecir_1_1RiskOfInfectionFromSymptomatic.html#a5332cd02690dbfc412b8057e1fe6a8a3">mio::lsecir::RiskOfInfectionFromSymptomatic</a>
+, <a class="el" href="structmio_1_1lsecir_1_1Seasonality.html#a3037a0baa1f2e4f7f2cfb5cc80d863f1">mio::lsecir::Seasonality</a>
+, <a class="el" href="structmio_1_1lsecir_1_1SeverePerInfectedSymptoms.html#ac02287dc1b12d524ab3e1d99ab3b2ae0">mio::lsecir::SeverePerInfectedSymptoms</a>
+, <a class="el" href="structmio_1_1lsecir_1_1StartDay.html#af496e3fe8800e94b02d63f38accce0f7">mio::lsecir::StartDay</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TimeExposed.html#a5b040f0b5c549e4282f29bc813c337d9">mio::lsecir::TimeExposed</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedCritical.html#a8b65a8f27aa74b115e6c36fa49a18e33">mio::lsecir::TimeInfectedCritical</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedNoSymptoms.html#a01e7989ce9d2ed2d9962b6c1157565a0">mio::lsecir::TimeInfectedNoSymptoms</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedSevere.html#a2c8d03e79b846c86e545e6f8c065b899">mio::lsecir::TimeInfectedSevere</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TimeInfectedSymptoms.html#acb453b40c2a83feb78627966772c3423">mio::lsecir::TimeInfectedSymptoms</a>
+, <a class="el" href="structmio_1_1lsecir_1_1TransmissionProbabilityOnContact.html#a937769bb831b5880b992ac14a8a1804d">mio::lsecir::TransmissionProbabilityOnContact</a>
 , <a class="el" href="structmio_1_1oseair_1_1DeathRate.html#aa40df5268f12429bd62400762db6e203">mio::oseair::DeathRate&lt; FP &gt;</a>
 , <a class="el" href="structmio_1_1oseair_1_1Quarantined.html#a4456220186e53ada37bcaf5ad7c622dd">mio::oseair::Quarantined&lt; FP &gt;</a>
 , <a class="el" href="structmio_1_1oseair_1_1RecoveryRate.html#a2fd6927bf9e1c7ba59e8e640875a2058">mio::oseair::RecoveryRate&lt; FP &gt;</a>
@@ -285,7 +286,7 @@ $(function() {
 , <a class="el" href="structmio_1_1osir_1_1ContactPatterns.html#af7d49074a335c346d00dee5461ec3267">mio::osir::ContactPatterns&lt; FP &gt;</a>
 , <a class="el" href="structmio_1_1osir_1_1TimeInfected.html#a1eebe3a7f0fe1801434bb19c5958a174">mio::osir::TimeInfected&lt; FP &gt;</a>
 , <a class="el" href="structmio_1_1osir_1_1TransmissionProbabilityOnContact.html#ac0c5ec400f35d0de27edcda0505d86a6">mio::osir::TransmissionProbabilityOnContact&lt; FP &gt;</a>
-, <a class="el" href="structmio_1_1ParameterTagTraits.html#a2cbd8479915c6812b4d8f83a0b77c9f5">mio::ParameterTagTraits&lt; Tag &gt;</a>
+, <a class="el" href="structmio_1_1ParameterTagTraits.html#a99b1b869ce30d502c96af6edc5f34de7">mio::ParameterTagTraits&lt; Tag &gt;</a>
 , <a class="el" href="structmio_1_1sseirvv_1_1ContactPatterns.html#adf23b516a2bf80b70ccca6e539a5e8bd">mio::sseirvv::ContactPatterns</a>
 , <a class="el" href="structmio_1_1sseirvv_1_1TimeExposedV1.html#a6f9b5efc3be49bbc5c20d60b2647da16">mio::sseirvv::TimeExposedV1</a>
 , <a class="el" href="structmio_1_1sseirvv_1_1TimeExposedV2.html#ab872702b1fb78a2553c4d616928d21ec">mio::sseirvv::TimeExposedV2</a>
@@ -304,9 +305,12 @@ $(function() {
 <li>get_derivatives()
 : <a class="el" href="structmio_1_1CompartmentalModel.html#a5780b6b980eac58267ab333632d4256b">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
 , <a class="el" href="classmio_1_1FlowModel.html#afd86d828980d49e176746f778e58ad36">mio::FlowModel&lt; FP, Comp, Pop, Params, Flows &gt;</a>
-, <a class="el" href="classmio_1_1lsecir_1_1Model.html#afb5af1eb0af621ed4684fbfbbcc454d2">mio::lsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Model.html#ab66281858b1a32145c4712ed527b0347">mio::lsecir::Model&lt; LctStates &gt;</a>
 , <a class="el" href="classmio_1_1oseair_1_1Model.html#a991f856328a53587f8ddfe8851c971d6">mio::oseair::Model&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osir_1_1Model.html#a53d514c7f0d2496b29e171e174e6750e">mio::osir::Model&lt; FP &gt;</a>
+</li>
+<li>get_derivatives_impl()
+: <a class="el" href="classmio_1_1lsecir_1_1Model.html#a649f402444bbd710502d377be6290cd6">mio::lsecir::Model&lt; LctStates &gt;</a>
 </li>
 <li>get_distribution()
 : <a class="el" href="classmio_1_1UncertainValue.html#ac97966449ca772d77f931f0aa52f767e">mio::UncertainValue&lt; FP &gt;</a>
@@ -336,11 +340,14 @@ $(function() {
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#ae9e673c9deb98077b1936321ff4add07">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 </li>
 <li>get_end_dynamic_npis()
-: <a class="el" href="classmio_1_1osecir_1_1Parameters.html#a598ce65d30851679b4ab1ca0e309dbbe">mio::osecir::Parameters&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1osecir_1_1Parameters.html#a7b5eecdb9015b66551a6efe865d8d234">mio::osecir::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#a255ad53843ded2412d32d25ecba8b546">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 </li>
 <li>get_first_index()
 : <a class="el" href="classmio_1_1LctInfectionState.html#a533f05ed8c43947afb0c06184dc767d0">mio::LctInfectionState&lt; InfectionStates, Ns &gt;</a>
+</li>
+<li>get_first_index_of_group()
+: <a class="el" href="classmio_1_1LctPopulations.html#a50175d3687b21dc8c312e6f11d537083">mio::LctPopulations&lt; FP, LctStates &gt;</a>
 </li>
 <li>get_flat_flow_index()
 : <a class="el" href="classmio_1_1FlowModel.html#a6ef70f16732bf3dd1eb54bd46084fe7f">mio::FlowModel&lt; FP, Comp, Pop, Params, Flows &gt;</a>
@@ -377,7 +384,8 @@ $(function() {
 : <a class="el" href="classmio_1_1GraphSimulationBase.html#aadcd242c74675d60b328e6635cc51f99">mio::GraphSimulationBase&lt; Graph, edge_f &gt;</a>
 </li>
 <li>get_group_total()
-: <a class="el" href="classmio_1_1Populations.html#a7a68cc6adf0e362910c724021b859048">mio::Populations&lt; FP, Categories &gt;</a>
+: <a class="el" href="classmio_1_1LctPopulations.html#a31c9d4cee31d4d49c7d104d83e06c09d">mio::LctPopulations&lt; FP, LctStates &gt;</a>
+, <a class="el" href="classmio_1_1Populations.html#a7a68cc6adf0e362910c724021b859048">mio::Populations&lt; FP, Categories &gt;</a>
 </li>
 <li>get_group_weights()
 : <a class="el" href="classmio_1_1DampingSampling.html#a36c430baa898acbb5ff5cafadf2aad0a">mio::DampingSampling&lt; FP &gt;</a>
@@ -424,7 +432,7 @@ $(function() {
 : <a class="el" href="classmio_1_1SimulationNode.html#a41b2f30e6abc50886d72f603c2808318">mio::SimulationNode&lt; Sim &gt;</a>
 </li>
 <li>get_last_time()
-: <a class="el" href="classmio_1_1TimeSeries.html#abc8de9c1e567b7d48aece86339f40c5d">mio::TimeSeries&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1TimeSeries.html#a56defa7d3d877f3e2e7753ecf953bf9e">mio::TimeSeries&lt; FP &gt;</a>
 </li>
 <li>get_last_transport_mode()
 : <a class="el" href="classmio_1_1abm_1_1Person.html#a52660728b77ca94c80fe3f743752c63b">mio::abm::Person</a>
@@ -466,7 +474,7 @@ $(function() {
 <li>get_matrix_at()
 : <a class="el" href="classmio_1_1DampingMatrixExpression.html#af74a38484002e53600df8daa2e7bca71">mio::DampingMatrixExpression&lt; D &gt;</a>
 , <a class="el" href="classmio_1_1DampingMatrixExpressionGroup.html#a9cece421e7b8db6a1e2160af7159e5f4">mio::DampingMatrixExpressionGroup&lt; E &gt;</a>
-, <a class="el" href="classmio_1_1Dampings.html#a9d1a1fb478a67e32484212123c8803a0">mio::Dampings&lt; D &gt;</a>
+, <a class="el" href="classmio_1_1Dampings.html#a748dc3c8db190735a423d1c6f87c16c2">mio::Dampings&lt; D &gt;</a>
 </li>
 <li>get_matrix_indices()
 : <a class="el" href="classmio_1_1DampingSampling.html#a2d50c7d5bfb4dc8e9d5a27677dee2747">mio::DampingSampling&lt; FP &gt;</a>
@@ -495,10 +503,10 @@ $(function() {
 : <a class="el" href="classmio_1_1DampingMatrixExpression.html#a7fb83eccf000276cf5e2ab82b427c667">mio::DampingMatrixExpression&lt; D &gt;</a>
 </li>
 <li>get_model()
-: <a class="el" href="classmio_1_1abm_1_1Simulation.html#a4f67060f99b98a772ef297c50f411519">mio::abm::Simulation</a>
-, <a class="el" href="classmio_1_1isecir_1_1Simulation.html#af82090f0d50efd0f9ccad58e23ee503b">mio::isecir::Simulation</a>
-, <a class="el" href="classmio_1_1ParameterStudy.html#aa858277fb0559ce82720af4abdb7d51c">mio::ParameterStudy&lt; S &gt;</a>
-, <a class="el" href="classmio_1_1Simulation.html#a59d2952fad5ce032b03872191413614d">mio::Simulation&lt; FP, M &gt;</a>
+: <a class="el" href="classmio_1_1abm_1_1Simulation.html#a5ecbc1027765fa38b1f99616447e7771">mio::abm::Simulation</a>
+, <a class="el" href="classmio_1_1isecir_1_1Simulation.html#a750bdbeb1097d74e97fbbfe7556c28ab">mio::isecir::Simulation</a>
+, <a class="el" href="classmio_1_1ParameterStudy.html#abe75b079b64fa2ac6267c69d00f15e8a">mio::ParameterStudy&lt; S &gt;</a>
+, <a class="el" href="classmio_1_1Simulation.html#a95978e3a64521f80664918bfae8fe3b0">mio::Simulation&lt; FP, M &gt;</a>
 </li>
 <li>get_model_graph()
 : <a class="el" href="classmio_1_1ParameterStudy.html#a4996481e80a27fab456190f87feb575c">mio::ParameterStudy&lt; S &gt;</a>
@@ -510,7 +518,8 @@ $(function() {
 : <a class="el" href="classmio_1_1abm_1_1TripList.html#a380c9050d951c30079e9b8100d88fad9">mio::abm::TripList</a>
 </li>
 <li>get_num_compartments()
-: <a class="el" href="classmio_1_1Populations.html#a3e153caf44ceecc90f32a05cb885e292">mio::Populations&lt; FP, Categories &gt;</a>
+: <a class="el" href="classmio_1_1LctPopulations.html#a8dbf5b8ad2061f175bbd68717b53a164">mio::LctPopulations&lt; FP, LctStates &gt;</a>
+, <a class="el" href="classmio_1_1Populations.html#a3e153caf44ceecc90f32a05cb885e292">mio::Populations&lt; FP, Categories &gt;</a>
 </li>
 <li>get_num_dampings()
 : <a class="el" href="classmio_1_1Dampings.html#a814450cd02c906bdabbfe858294f8295">mio::Dampings&lt; D &gt;</a>
@@ -522,6 +531,7 @@ $(function() {
 : <a class="el" href="classmio_1_1abm_1_1Parameters.html#a7c729e8724104d41ff8e520f370698a4">mio::abm::Parameters</a>
 , <a class="el" href="classmio_1_1ContactMatrix.html#adb4987a1bf94c51e7e10dcc653b42867">mio::ContactMatrix</a>
 , <a class="el" href="classmio_1_1ContactMatrixGroup.html#aa914db65d6e2499bafcc930e2bf01b29">mio::ContactMatrixGroup</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a04cd6d0002372be22c572d14d112f380">mio::lsecir::Parameters</a>
 , <a class="el" href="classmio_1_1osecir_1_1Parameters.html#a5a97c53c05116aa27b6261b92166971d">mio::osecir::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#ad3f443b7a37ded8cf9c5c066c7cd364a">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1oseir_1_1Parameters.html#a2da87ada50e765704d22590440a1ad88">mio::oseir::Parameters&lt; FP &gt;</a>
@@ -601,9 +611,9 @@ $(function() {
 : <a class="el" href="classmio_1_1abm_1_1Location.html#a89be8bc2e68dcd8aa414adac5dd42dcf">mio::abm::Location</a>
 </li>
 <li>get_result()
-: <a class="el" href="classmio_1_1isecir_1_1Simulation.html#a8e8caaceaebcaeb1403f8befe4e12c50">mio::isecir::Simulation</a>
+: <a class="el" href="classmio_1_1isecir_1_1Simulation.html#ac27909b8c5f6357d8f23381a8b2f7634">mio::isecir::Simulation</a>
 , <a class="el" href="classmio_1_1Simulation.html#aff5afd5a143ead11f6d32f8d773018d7">mio::Simulation&lt; FP, M &gt;</a>
-, <a class="el" href="classmio_1_1SimulationNode.html#a16d7a4782c40095c99c6b63ac89bc4b1">mio::SimulationNode&lt; Sim &gt;</a>
+, <a class="el" href="classmio_1_1SimulationNode.html#a491ed8a4bffa37a3f230b37f6019a742">mio::SimulationNode&lt; Sim &gt;</a>
 </li>
 <li>get_reverse_times()
 : <a class="el" href="classmio_1_1TimeSeries.html#a77401a64cb4e12e7d00a0584f3312390">mio::TimeSeries&lt; FP &gt;</a>
@@ -627,7 +637,7 @@ $(function() {
 , <a class="el" href="structmio_1_1StateAgeFunctionWrapper.html#a23da55daefb554aedbb31bfb0626cfb8">mio::StateAgeFunctionWrapper</a>
 </li>
 <li>get_school_holiday_damping()
-: <a class="el" href="classmio_1_1UncertainContactMatrix.html#a1e5b6e2b2c073f16e98af542c65a133e">mio::UncertainContactMatrix&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1UncertainContactMatrix.html#a8d1c806e8b42f969190795688e2af60e">mio::UncertainContactMatrix&lt; FP &gt;</a>
 </li>
 <li>get_school_holidays()
 : <a class="el" href="classmio_1_1UncertainContactMatrix.html#a41a10c706d6acfb0252df1a4f682ffa6">mio::UncertainContactMatrix&lt; FP &gt;</a>
@@ -653,7 +663,7 @@ $(function() {
 : <a class="el" href="classmio_1_1ParameterDistributionNormal.html#a5800006339c75cfd1321fba605240a60">mio::ParameterDistributionNormal</a>
 </li>
 <li>get_start_commuter_detection()
-: <a class="el" href="classmio_1_1osecir_1_1Parameters.html#af91e3bebb46ca3222c9891f89e840f2c">mio::osecir::Parameters&lt; FP &gt;</a>
+: <a class="el" href="classmio_1_1osecir_1_1Parameters.html#af12e1d9c6364af96a1d97824e02aad0b">mio::osecir::Parameters&lt; FP &gt;</a>
 , <a class="el" href="classmio_1_1osecirvvs_1_1Parameters.html#a89118f73d1be5bfa8278360fb8944ddd">mio::osecirvvs::Parameters&lt; FP &gt;</a>
 </li>
 <li>get_start_date()
@@ -708,7 +718,7 @@ $(function() {
 : <a class="el" href="classmio_1_1abm_1_1Simulation.html#a45ae091ffc0fae8df80fc11f894fb776">mio::abm::Simulation</a>
 , <a class="el" href="classmio_1_1Damping.html#a5faa866d18d5951e3e3828fb5b9ad82d">mio::Damping&lt; S &gt;</a>
 , <a class="el" href="classmio_1_1DampingSampling.html#af7396aa0b7f4595f0eb2f747d57870cf">mio::DampingSampling&lt; FP &gt;</a>
-, <a class="el" href="classmio_1_1TimeSeries.html#ab0dad4e80982a297ee617e894799d6df">mio::TimeSeries&lt; FP &gt;</a>
+, <a class="el" href="classmio_1_1TimeSeries.html#acf2f630071341a845af2265b4027aaea">mio::TimeSeries&lt; FP &gt;</a>
 </li>
 <li>get_time_at_location()
 : <a class="el" href="classmio_1_1abm_1_1Person.html#a4ca7cc745687a2febe4dd767d5f46da9">mio::abm::Person</a>
@@ -726,7 +736,8 @@ $(function() {
 : <a class="el" href="classmio_1_1ParameterStudy.html#aa3f6d156a8220d07c57ca6e2a35c146e">mio::ParameterStudy&lt; S &gt;</a>
 </li>
 <li>get_total()
-: <a class="el" href="classmio_1_1Populations.html#a06f5d38cc752bf25a7e133fca8cdf641">mio::Populations&lt; FP, Categories &gt;</a>
+: <a class="el" href="classmio_1_1LctPopulations.html#a3ab35814eebda5ef57e4dd36c5b5d8f4">mio::LctPopulations&lt; FP, LctStates &gt;</a>
+, <a class="el" href="classmio_1_1Populations.html#a06f5d38cc752bf25a7e133fca8cdf641">mio::Populations&lt; FP, Categories &gt;</a>
 </li>
 <li>get_total_number_of_households()
 : <a class="el" href="classmio_1_1abm_1_1HouseholdGroup.html#a1c50c143f03966ae2079eb173920fa52">mio::abm::HouseholdGroup</a>

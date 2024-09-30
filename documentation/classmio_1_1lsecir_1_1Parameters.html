@@ -70,6 +70,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classmio_1_1lsecir_1_1Parameters-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">mio::lsecir::Parameters Class Reference</div>  </div>
@@ -93,11 +94,13 @@ Inheritance diagram for mio::lsecir::Parameters:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a187425a98f4c1a3879efe126530c9dfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a187425a98f4c1a3879efe126530c9dfc">check_constraints</a> () const</td></tr>
-<tr class="memdesc:a187425a98f4c1a3879efe126530c9dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether all <a class="el" href="classmio_1_1lsecir_1_1Parameters.html" title="Parameters of an LCT-SECIR model.">Parameters</a> satisfy their corresponding constraints and throws errors, if they do not.  <a href="classmio_1_1lsecir_1_1Parameters.html#a187425a98f4c1a3879efe126530c9dfc">More...</a><br /></td></tr>
+<tr class="memdesc:a187425a98f4c1a3879efe126530c9dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether all parameters satisfy their corresponding constraints and throws errors, if they do not.  <a href="classmio_1_1lsecir_1_1Parameters.html#a187425a98f4c1a3879efe126530c9dfc">More...</a><br /></td></tr>
 <tr class="separator:a187425a98f4c1a3879efe126530c9dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8700184c80ecc0a54e9b0854fef2bd75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a8700184c80ecc0a54e9b0854fef2bd75">Parameters</a> ()</td></tr>
-<tr class="memdesc:a8700184c80ecc0a54e9b0854fef2bd75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classmio_1_1lsecir_1_1Parameters.html#a8700184c80ecc0a54e9b0854fef2bd75">More...</a><br /></td></tr>
-<tr class="separator:a8700184c80ecc0a54e9b0854fef2bd75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04cd6d0002372be22c572d14d112f380"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a04cd6d0002372be22c572d14d112f380">get_num_groups</a> () const</td></tr>
+<tr class="separator:a04cd6d0002372be22c572d14d112f380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf6cde33258815de330073b3123cbe6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#a3bf6cde33258815de330073b3123cbe6">Parameters</a> (size_t num_groups)</td></tr>
+<tr class="memdesc:a3bf6cde33258815de330073b3123cbe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classmio_1_1lsecir_1_1Parameters.html#a3bf6cde33258815de330073b3123cbe6">More...</a><br /></td></tr>
+<tr class="separator:a3bf6cde33258815de330073b3123cbe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classmio_1_1ParameterSet"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classmio_1_1ParameterSet')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classmio_1_1ParameterSet.html">mio::ParameterSet&lt; Tags &gt;</a></td></tr>
 <tr class="memitem:adde2986ef82600cd703d3b2c54040e54 inherit pub_methods_classmio_1_1ParameterSet"><td class="memTemplParams" colspan="2">template&lt;class Tag &gt; </td></tr>
 <tr class="memitem:adde2986ef82600cd703d3b2c54040e54 inherit pub_methods_classmio_1_1ParameterSet"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1ParameterTagTraits.html">ParameterTagTraits</a>&lt; <a class="el" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">Tag</a> &gt;::Type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1ParameterSet.html#adde2986ef82600cd703d3b2c54040e54">get</a> ()</td></tr>
@@ -159,12 +162,17 @@ Static Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aad14665ca967b41ad2a025211342ddce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#aad14665ca967b41ad2a025211342ddce">Parameters</a> (<a class="el" href="namespacemio_1_1lsecir.html#ae8fb1d532027380b056fa8b53abbd899">ParametersBase</a> &amp;&amp;base)</td></tr>
 <tr class="separator:aad14665ca967b41ad2a025211342ddce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aec191c9f556639febf365e661f9f772e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Parameters.html#aec191c9f556639febf365e661f9f772e">m_num_groups</a></td></tr>
+<tr class="separator:aec191c9f556639febf365e661f9f772e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classmio_1_1lsecir_1_1Parameters.html" title="Parameters of an LCT-SECIR model.">Parameters</a> of an LCT-SECIR model. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8700184c80ecc0a54e9b0854fef2bd75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8700184c80ecc0a54e9b0854fef2bd75">&#9670;&nbsp;</a></span>Parameters() <span class="overload">[1/2]</span></h2>
+<a id="a3bf6cde33258815de330073b3123cbe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf6cde33258815de330073b3123cbe6">&#9670;&nbsp;</a></span>Parameters() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,13 +180,20 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">mio::lsecir::Parameters::Parameters </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num_groups</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Default constructor. </p>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_groups</td><td>The number of groups considered in the LCT model. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -224,7 +239,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>checks whether all <a class="el" href="classmio_1_1lsecir_1_1Parameters.html" title="Parameters of an LCT-SECIR model.">Parameters</a> satisfy their corresponding constraints and throws errors, if they do not. </p>
+<p>Checks whether all parameters satisfy their corresponding constraints and throws errors, if they do not. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) are not satisfied, otherwise false. </dd></dl>
 
 </div>
@@ -257,6 +272,46 @@ template&lt;class IOContext &gt; </div>
 
 <p>deserialize an object of this class. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemio.html#a1eecf99ef3a231d628f968aeb2136865" title="Restores an object from the data stored in an IO context.">mio::deserialize</a> </dd></dl>
+
+</div>
+</div>
+<a id="a04cd6d0002372be22c572d14d112f380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04cd6d0002372be22c572d14d112f380">&#9670;&nbsp;</a></span>get_num_groups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t mio::lsecir::Parameters::get_num_groups </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aec191c9f556639febf365e661f9f772e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec191c9f556639febf365e661f9f772e">&#9670;&nbsp;</a></span>m_num_groups</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t mio::lsecir::Parameters::m_num_groups</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

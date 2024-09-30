@@ -77,25 +77,23 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class that can be used to compute an initialization vector out of flows for a LCT <a class="el" href="classmio_1_1lsecir_1_1Model.html" title="Class that defines an LCT-SECIR model.">Model</a>.  
+<p>Class that can be used to compute an initialization vector out of flows for an LCT <a class="el" href="classmio_1_1lsecir_1_1Model.html" title="Class that defines an LCT-SECIR model.">Model</a> with division in groups.  
  <a href="classmio_1_1lsecir_1_1Initializer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="initializer__flows_8h_source.html">initializer_flows.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a58c9da55beea7fcb60ec522c6568615c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a58c9da55beea7fcb60ec522c6568615c">InfectionState</a> = typename LctState::InfectionState</td></tr>
-<tr class="separator:a58c9da55beea7fcb60ec522c6568615c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9dc688ad6d5ab777846e3ba5f4c9527"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ab9dc688ad6d5ab777846e3ba5f4c9527">LctState</a> = typename <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">Model::LctState</a></td></tr>
-<tr class="separator:ab9dc688ad6d5ab777846e3ba5f4c9527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab75a5a2a4ce21ab34a2a57bd88332736"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ab75a5a2a4ce21ab34a2a57bd88332736">LctStatesGroups</a> = typename <a class="el" href="classmio_1_1lsecir_1_1Model.html#a9b9b964c2f331597cf55340169d84d68">Model::LctStatesGroups</a></td></tr>
+<tr class="separator:ab75a5a2a4ce21ab34a2a57bd88332736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad04d13d2a8f487142673836e9e1f8f68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ad04d13d2a8f487142673836e9e1f8f68">compute_initialization_vector</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> total_population, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> deaths, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> total_confirmed_cases)</td></tr>
-<tr class="memdesc:ad04d13d2a8f487142673836e9e1f8f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core function of <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a>.  <a href="classmio_1_1lsecir_1_1Initializer.html#ad04d13d2a8f487142673836e9e1f8f68">More...</a><br /></td></tr>
-<tr class="separator:ad04d13d2a8f487142673836e9e1f8f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec8a94b0ae0c8d9324a7019721bbaef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a9ec8a94b0ae0c8d9324a7019721bbaef">compute_initialization_vector</a> (<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;total_population, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;deaths, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;total_confirmed_cases)</td></tr>
+<tr class="memdesc:a9ec8a94b0ae0c8d9324a7019721bbaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core function of <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a>.  <a href="classmio_1_1lsecir_1_1Initializer.html#a9ec8a94b0ae0c8d9324a7019721bbaef">More...</a><br /></td></tr>
+<tr class="separator:a9ec8a94b0ae0c8d9324a7019721bbaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7339eede32a8fde22538b9a904d9a3f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a7339eede32a8fde22538b9a904d9a3f5">Initializer</a> (<a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&amp;flows, <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &amp;model)</td></tr>
-<tr class="memdesc:a7339eede32a8fde22538b9a904d9a3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a> object.  <a href="classmio_1_1lsecir_1_1Initializer.html#a7339eede32a8fde22538b9a904d9a3f5">More...</a><br /></td></tr>
+<tr class="memdesc:a7339eede32a8fde22538b9a904d9a3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a> object.  <a href="classmio_1_1lsecir_1_1Initializer.html#a7339eede32a8fde22538b9a904d9a3f5">More...</a><br /></td></tr>
 <tr class="separator:a7339eede32a8fde22538b9a904d9a3f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6479e857c7b41987964308db1a8f7343"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a6479e857c7b41987964308db1a8f7343">set_tol_for_support_max</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> new_tol)</td></tr>
 <tr class="memdesc:a6479e857c7b41987964308db1a8f7343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the tolerance used to calculate the maximum support of <a class="el" href="structmio_1_1ErlangDensity.html" title="Class that defines the probability density function corresponding to the Erlang distribution with the...">ErlangDensity</a>s.  <a href="classmio_1_1lsecir_1_1Initializer.html#a6479e857c7b41987964308db1a8f7343">More...</a><br /></td></tr>
@@ -104,12 +102,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a852c237fa4a6db465e65320ccf731f8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a852c237fa4a6db465e65320ccf731f8c">check_constraints</a> () const</td></tr>
-<tr class="memdesc:a852c237fa4a6db465e65320ccf731f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints of the <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a> including checks for the model.  <a href="classmio_1_1lsecir_1_1Initializer.html#a852c237fa4a6db465e65320ccf731f8c">More...</a><br /></td></tr>
+<tr class="memdesc:a852c237fa4a6db465e65320ccf731f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints of the <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a> including checks for the model.  <a href="classmio_1_1lsecir_1_1Initializer.html#a852c237fa4a6db465e65320ccf731f8c">More...</a><br /></td></tr>
 <tr class="separator:a852c237fa4a6db465e65320ccf731f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada318ef3d78514d617159dad3202be67"><td class="memTemplParams" colspan="2">template&lt;InfectionState State&gt; </td></tr>
-<tr class="memitem:ada318ef3d78514d617159dad3202be67"><td class="memTemplItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ada318ef3d78514d617159dad3202be67">compute_compartment</a> (Eigen::Index idx_incoming_flow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> transition_rate) const</td></tr>
-<tr class="memdesc:ada318ef3d78514d617159dad3202be67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a vector with the number of people in each subcompartment for one InfectionState.  <a href="classmio_1_1lsecir_1_1Initializer.html#ada318ef3d78514d617159dad3202be67">More...</a><br /></td></tr>
-<tr class="separator:ada318ef3d78514d617159dad3202be67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d3dcd62f53ad2acbee1e98aa1f8c3ae"><td class="memTemplParams" colspan="2">template&lt;InfectionState State, size_t Group&gt; </td></tr>
+<tr class="memitem:a3d3dcd62f53ad2acbee1e98aa1f8c3ae"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a3d3dcd62f53ad2acbee1e98aa1f8c3ae">compute_compartment</a> (<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;init, Eigen::Index idx_incoming_flow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> transition_rate) const</td></tr>
+<tr class="memdesc:a3d3dcd62f53ad2acbee1e98aa1f8c3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a slice of the initial value vector for each subcompartment of one InfectionState for a specified group.  <a href="classmio_1_1lsecir_1_1Initializer.html#a3d3dcd62f53ad2acbee1e98aa1f8c3ae">More...</a><br /></td></tr>
+<tr class="separator:a3d3dcd62f53ad2acbee1e98aa1f8c3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d58233c658f498f9b7170673f780e80"><td class="memTemplParams" colspan="2">template&lt;size_t Group = 0&gt; </td></tr>
+<tr class="memitem:a5d58233c658f498f9b7170673f780e80"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a5d58233c658f498f9b7170673f780e80">compute_initialization_vector_impl</a> (<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;init, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;total_population, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;deaths, <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;total_confirmed_cases)</td></tr>
+<tr class="memdesc:a5d58233c658f498f9b7170673f780e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the calculation of the initial value vector slice that corresponds to a specified group.  <a href="classmio_1_1lsecir_1_1Initializer.html#a5d58233c658f498f9b7170673f780e80">More...</a><br /></td></tr>
+<tr class="separator:a5d58233c658f498f9b7170673f780e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -130,7 +132,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Model&gt;<br />
 class mio::lsecir::Initializer&lt; Model &gt;</h3>
 
-<p>Class that can be used to compute an initialization vector out of flows for a LCT <a class="el" href="classmio_1_1lsecir_1_1Model.html" title="Class that defines an LCT-SECIR model.">Model</a>. </p>
+<p>Class that can be used to compute an initialization vector out of flows for an LCT <a class="el" href="classmio_1_1lsecir_1_1Model.html" title="Class that defines an LCT-SECIR model.">Model</a> with division in groups. </p>
 <p>The initialization method is based on the fact that the LCT model is a special case of an IDE model with special choices of stay time distributions (so-called Erlang distributions). Accordingly, the method for calculating initial values for the compartments from given flows/transitions is taken from the IDE-SECIR model. We cannot use the functionality of the IDE model directly, as we have to calculate a division into sub-compartments and not only the sizes of the compartments. See also the IDE-SECIR model for the general method and for a better understanding of flows/transitions.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -139,8 +141,8 @@ class mio::lsecir::Initializer&lt; Model &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a58c9da55beea7fcb60ec522c6568615c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58c9da55beea7fcb60ec522c6568615c">&#9670;&nbsp;</a></span>InfectionState</h2>
+<a id="ab75a5a2a4ce21ab34a2a57bd88332736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75a5a2a4ce21ab34a2a57bd88332736">&#9670;&nbsp;</a></span>LctStatesGroups</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,23 +150,7 @@ class mio::lsecir::Initializer&lt; Model &gt;</h3>
 template&lt;typename Model &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::<a class="el" href="classmio_1_1lsecir_1_1Initializer.html#a58c9da55beea7fcb60ec522c6568615c">InfectionState</a> =  typename LctState::InfectionState</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab9dc688ad6d5ab777846e3ba5f4c9527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9dc688ad6d5ab777846e3ba5f4c9527">&#9670;&nbsp;</a></span>LctState</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Model &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::<a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ab9dc688ad6d5ab777846e3ba5f4c9527">LctState</a> =  typename <a class="el" href="classmio_1_1lsecir_1_1Model.html#a317ebd354e298a750604c24485892561">Model::LctState</a></td>
+          <td class="memname">using <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::<a class="el" href="classmio_1_1lsecir_1_1Initializer.html#ab75a5a2a4ce21ab34a2a57bd88332736">LctStatesGroups</a> =  typename <a class="el" href="classmio_1_1lsecir_1_1Model.html#a9b9b964c2f331597cf55340169d84d68">Model::LctStatesGroups</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -200,10 +186,10 @@ template&lt;typename Model &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a new <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a> object. </p>
+<p>Constructs a new <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">flows</td><td>Initalizing <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with flows fitting to these defined in InfectionTransition. Timesteps should be equidistant and the values should be non-negative. The time history has to be long enough so that it is possible to calculate the initial vector. The length of the required time history depends on the Erlang densities used to compute the initial vector. An error is thrown if this condition is violated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flows</td><td>Initializing <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with flows fitting to these defined in InfectionTransition. For each group of m_model, <a class="el" href="namespacemio_1_1lsecir.html#ace6ebab70fcac54c24785bad380e28d6ae93f994f01c537c4e2f7d8528c3eb5e9">InfectionTransition::Count</a> entries are required. Timesteps should be equidistant and the values should be non-negative. The time history has to be long enough so that it is possible to calculate the initial vector. The length of the required time history depends on the Erlang densities used to compute the initial vector. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">model</td><td>The LCT-SECIR model for which the initialization should be performed. </td></tr>
   </table>
   </dd>
@@ -237,27 +223,33 @@ template&lt;typename Model &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks constraints of the <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a> including checks for the model. </p>
+<p>Checks constraints of the <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a> including checks for the model. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) are not satisfied, otherwise false. </dd></dl>
 
 </div>
 </div>
-<a id="ada318ef3d78514d617159dad3202be67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada318ef3d78514d617159dad3202be67">&#9670;&nbsp;</a></span>compute_compartment()</h2>
+<a id="a3d3dcd62f53ad2acbee1e98aa1f8c3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3dcd62f53ad2acbee1e98aa1f8c3ae">&#9670;&nbsp;</a></span>compute_compartment()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Model &gt; </div>
 <div class="memtemplate">
-template&lt;InfectionState State&gt; </div>
+template&lt;InfectionState State, size_t Group&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::VectorXd <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::compute_compartment </td>
+          <td class="memname">bool <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::compute_compartment </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">Eigen::Index&#160;</td>
           <td class="paramname"><em>idx_incoming_flow</em>, </td>
         </tr>
@@ -280,27 +272,28 @@ template&lt;InfectionState State&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Computes a vector with the number of people in each subcompartment for one InfectionState. </p>
-<p>This function is used in compute_initialization_vector.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">idx_incoming_flow</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> of the flow which is relevant for the calculation, so the flow to the InfectionState. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">transition_rate</td><td>Specifies the transition rate of the InfectionState. Is equal to 1 / (expected Time in the InfectionState). </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Computes a slice of the initial value vector for each subcompartment of one InfectionState for a specified group. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">State</td><td>The InfectionState for which the partial result should be calculated. </td></tr>
+    <tr><td class="paramname">Group</td><td>The group for which the corresponding slice of the initial value vector is calculated. </td></tr>
+    <tr><td class="paramname">State</td><td>The InfectionState for which the corresponding slice of the initial value vector is calculated </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector with a possible initialization for the subcompartments of the InfectionState State. Subcompartment is set to -1 if calculation was not possible. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">init</td><td>The initial value vector under consideration. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idx_incoming_flow</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> of the flow which is relevant for the calculation, so the flow to the InfectionState. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">transition_rate</td><td>Specifies the transition rate of the InfectionState. 'This is equal to 1 / (expected time in the InfectionState).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) of the computed slice of the initial value vector are not satisfied, otherwise false. </dd></dl>
 
 </div>
 </div>
-<a id="ad04d13d2a8f487142673836e9e1f8f68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad04d13d2a8f487142673836e9e1f8f68">&#9670;&nbsp;</a></span>compute_initialization_vector()</h2>
+<a id="a9ec8a94b0ae0c8d9324a7019721bbaef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec8a94b0ae0c8d9324a7019721bbaef">&#9670;&nbsp;</a></span>compute_initialization_vector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,19 +303,19 @@ template&lt;typename Model &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::compute_initialization_vector </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>total_population</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>deaths</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>total_confirmed_cases</em>&#160;</td>
         </tr>
         <tr>
@@ -333,8 +326,8 @@ template&lt;typename Model &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Core function of <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for a LCT Model.">Initializer</a>. </p>
-<p>Computes a vector that can be used for the initalization of an LCT model with the number of persons for each subcompartment. The initial value vector is updated in the model.</p>
+<p>Core function of <a class="el" href="classmio_1_1lsecir_1_1Initializer.html" title="Class that can be used to compute an initialization vector out of flows for an LCT Model with divisio...">Initializer</a>. </p>
+<p>Computes a vector that can be used for the initialization of an LCT model stratified by groups with the number of persons for each subcompartment for each group. The initial value vector is updated in the model.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">total_population</td><td>The total size of the considered population. </td></tr>
@@ -343,7 +336,78 @@ template&lt;typename Model &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) of the model or the initial flows are not satisfied, otherwise false. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) of the model, the initial flows or the computed initial value vector are not satisfied, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a5d58233c658f498f9b7170673f780e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d58233c658f498f9b7170673f780e80">&#9670;&nbsp;</a></span>compute_initialization_vector_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Model &gt; </div>
+<div class="memtemplate">
+template&lt;size_t Group = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmio_1_1lsecir_1_1Initializer.html">mio::lsecir::Initializer</a>&lt; <a class="el" href="classmio_1_1lsecir_1_1Model.html">Model</a> &gt;::compute_initialization_vector_impl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>total_population</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>deaths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>total_confirmed_cases</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementation of the calculation of the initial value vector slice that corresponds to a specified group. </p>
+<p>Computes a vector that can be used for the initialization of an LCT model stratified by groups with the number of persons for each subcompartment. The groups are calculated recursively.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Group</td><td>The group for which the corresponding slice of the initial value vector is calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">init</td><td>The initial value vector under consideration. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">total_population</td><td>The total size of the considered population. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deaths</td><td>Number of deceased people from the disease at time 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">total_confirmed_cases</td><td>Total number of confirmed cases at time 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if one (or more) constraint(s) of the computed initial value vector are not satisfied, otherwise false. </dd></dl>
 
 </div>
 </div>

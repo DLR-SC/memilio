@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-27 09:08:11</td>
+            <td class="headerValue">2024-09-30 08:12:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -102,17 +102,17 @@
 <a name="40"><span class="lineNum">      40 </span>            :  * @param yright function value at right boundary</a>
 <a name="41"><span class="lineNum">      41 </span>            :  * @return double cosine-smoothed evaluation of discrete step function</a>
 <a name="42"><span class="lineNum">      42 </span>            :  */</a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">     237718 : inline double smoother_cosine(double x, double xleft, double xright, double yleft, double yright)</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">     234319 : inline double smoother_cosine(double x, double xleft, double xright, double yleft, double yright)</span></a>
 <a name="44"><span class="lineNum">      44 </span>            : {</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     237718 :     if (x &lt;= xleft) {</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">     148219 :         return yleft;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     234319 :     if (x &lt;= xleft) {</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">     147180 :         return yleft;</span></a>
 <a name="47"><span class="lineNum">      47 </span>            :     }</a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      89499 :     if (x &gt;= xright) {</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      43021 :         return yright;</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      87139 :     if (x &gt;= xright) {</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      41734 :         return yright;</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :     }</a>
 <a name="51"><span class="lineNum">      51 </span>            : </a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      46478 :     return 0.5 * (yleft - yright) * std::cos(3.14159265358979323846 / (xright - xleft) * (x - xleft)) +</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      46478 :            0.5 * (yleft + yright);</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      45405 :     return 0.5 * (yleft - yright) * std::cos(3.14159265358979323846 / (xright - xleft) * (x - xleft)) +</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      45405 :            0.5 * (yleft + yright);</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : }</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <a name="56"><span class="lineNum">      56 </span>            : /**</a>
@@ -125,12 +125,12 @@
 <a name="63"><span class="lineNum">      63 </span>            :  * @return a matrix expression with yij = smoother_cosine(x, xleft, xright, yleftij, yrightij)</a>
 <a name="64"><span class="lineNum">      64 </span>            :  */</a>
 <a name="65"><span class="lineNum">      65 </span>            : template &lt;class LeftExpr, class RightExpr&gt;</a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">     131751 : auto smoother_cosine(double x, double xleft, double xright, const Eigen::MatrixBase&lt;LeftExpr&gt;&amp; yleft_expr,</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">     130704 : auto smoother_cosine(double x, double xleft, double xright, const Eigen::MatrixBase&lt;LeftExpr&gt;&amp; yleft_expr,</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :                      const Eigen::MatrixBase&lt;RightExpr&gt;&amp; yright_expr)</a>
 <a name="68"><span class="lineNum">      68 </span>            : {</a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">     395406 :     return yleft_expr.binaryExpr(yright_expr, [=](auto yleft, auto yright) {</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">     131940 :         return smoother_cosine(x, xleft, xright, yleft, yright);</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     263484 :     });</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">     392265 :     return yleft_expr.binaryExpr(yright_expr, [=](auto yleft, auto yright) {</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">     130893 :         return smoother_cosine(x, xleft, xright, yleft, yright);</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     261390 :     });</span></a>
 <a name="72"><span class="lineNum">      72 </span>            : }</a>
 <a name="73"><span class="lineNum">      73 </span>            : </a>
 <a name="74"><span class="lineNum">      74 </span>            : } // namespace mio</a>
