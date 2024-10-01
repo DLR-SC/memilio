@@ -121,6 +121,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a21dc62481c194f9923fbcc4343e6a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a7a21dc62481c194f9923fbcc4343e6a2">set_tol_for_support_max</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> new_tol)</td></tr>
 <tr class="memdesc:a7a21dc62481c194f9923fbcc4343e6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the tolerance used to calculate the maximum support of the <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>.  <a href="classmio_1_1isecir_1_1Model.html#a7a21dc62481c194f9923fbcc4343e6a2">More...</a><br /></td></tr>
 <tr class="separator:a7a21dc62481c194f9923fbcc4343e6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a110730b0d8679c1e8139a778829aa842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a110730b0d8679c1e8139a778829aa842">set_transitiondistributions_derivative</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
+<tr class="memdesc:a110730b0d8679c1e8139a778829aa842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the vector m_transitiondistributions_derivative that contains the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for all necessary time points.  <a href="classmio_1_1isecir_1_1Model.html#a110730b0d8679c1e8139a778829aa842">More...</a><br /></td></tr>
+<tr class="separator:a110730b0d8679c1e8139a778829aa842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3852261d2bb6175ded1bdb851b1f7e98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a3852261d2bb6175ded1bdb851b1f7e98">set_transitiondistributions_in_forceofinfection</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
+<tr class="memdesc:a3852261d2bb6175ded1bdb851b1f7e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the vector m_transitiondistributions_in_forceofinfection.  <a href="classmio_1_1isecir_1_1Model.html#a3852261d2bb6175ded1bdb851b1f7e98">More...</a><br /></td></tr>
+<tr class="separator:a3852261d2bb6175ded1bdb851b1f7e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dcdee6a10ad6e93afaa67b05fce9a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a1dcdee6a10ad6e93afaa67b05fce9a1c">set_transitiondistributions_support_max</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
+<tr class="memdesc:a1dcdee6a10ad6e93afaa67b05fce9a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the vector m_transitiondistributions_support_max that contains the support_max for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>.  <a href="classmio_1_1isecir_1_1Model.html#a1dcdee6a10ad6e93afaa67b05fce9a1c">More...</a><br /></td></tr>
+<tr class="separator:a1dcdee6a10ad6e93afaa67b05fce9a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd3d00e0db0910b3e1826236bed8a0f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#acd3d00e0db0910b3e1826236bed8a0f7">update_compartments</a> ()</td></tr>
 <tr class="memdesc:acd3d00e0db0910b3e1826236bed8a0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the values of all compartments except Susceptible at initialization.  <a href="classmio_1_1isecir_1_1Model.html#acd3d00e0db0910b3e1826236bed8a0f7">More...</a><br /></td></tr>
 <tr class="separator:acd3d00e0db0910b3e1826236bed8a0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +174,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a16e97568761d0af6818194a93f1b51c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a16e97568761d0af6818194a93f1b51c7">m_tol</a> {1e-10}</td></tr>
 <tr class="memdesc:a16e97568761d0af6818194a93f1b51c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tolerance used to calculate the maximum support of the <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>.  <a href="classmio_1_1isecir_1_1Model.html#a16e97568761d0af6818194a93f1b51c7">More...</a><br /></td></tr>
 <tr class="separator:a16e97568761d0af6818194a93f1b51c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82f1687dcf6979cc16c139a92288200"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#af82f1687dcf6979cc16c139a92288200">m_transitiondistributions_derivative</a></td></tr>
+<tr class="memdesc:af82f1687dcf6979cc16c139a92288200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for.  <a href="classmio_1_1isecir_1_1Model.html#af82f1687dcf6979cc16c139a92288200">More...</a><br /></td></tr>
+<tr class="separator:af82f1687dcf6979cc16c139a92288200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a4662cfd4ef9cb89c3471a47e85a7170f">m_transitiondistributions_in_forceofinfection</a></td></tr>
+<tr class="memdesc:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector.  <a href="classmio_1_1isecir_1_1Model.html#a4662cfd4ef9cb89c3471a47e85a7170f">More...</a><br /></td></tr>
+<tr class="separator:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a904d52c6ae0b3d6c9c5280be491dafa8">m_transitiondistributions_support_max</a></td></tr>
+<tr class="memdesc:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the support_max.  <a href="classmio_1_1isecir_1_1Model.html#a904d52c6ae0b3d6c9c5280be491dafa8">More...</a><br /></td></tr>
+<tr class="separator:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aeaa245527257d77cc8a2247decc03485"></a>
@@ -651,6 +669,87 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a110730b0d8679c1e8139a778829aa842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110730b0d8679c1e8139a778829aa842">&#9670;&nbsp;</a></span>set_transitiondistributions_derivative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mio::isecir::Model::set_transitiondistributions_derivative </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for the vector m_transitiondistributions_derivative that contains the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for all necessary time points. </p>
+<p>The derivative is approximated using a backwards difference scheme. The number of necessary time points for each TransitionDistribution is determined using m_transitiondistributions_support_max.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3852261d2bb6175ded1bdb851b1f7e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3852261d2bb6175ded1bdb851b1f7e98">&#9670;&nbsp;</a></span>set_transitiondistributions_in_forceofinfection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mio::isecir::Model::set_transitiondistributions_in_forceofinfection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for the vector m_transitiondistributions_in_forceofinfection. </p>
+<p>When computing the force of infection, we evaluate the survival functions of the <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> InfectedNoSymptomsToInfectedSymptoms, InfectedNoSymptomsToRecovered, InfectedSymptomsToInfectedSevere and InfectedSymptomsToRecovered, weighted by the corresponding <a class="el" href="structmio_1_1isecir_1_1TransitionProbabilities.html" title="Defines the probability for each possible transition to take this flow/transition.">TransitionProbabilities</a>, at the same time points. Here, we compute these contributions to the force of infection term and store them in the vector m_transitiondistributions_in_forceofinfection so that we can access this vector for all following computations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1dcdee6a10ad6e93afaa67b05fce9a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dcdee6a10ad6e93afaa67b05fce9a1c">&#9670;&nbsp;</a></span>set_transitiondistributions_support_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mio::isecir::Model::set_transitiondistributions_support_max </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for the vector m_transitiondistributions_support_max that contains the support_max for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>. </p>
+<p>This determines how many summands are required when calculating flows, the force of infection or compartments.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a065fbcd241696d9aaa02eccef8f2df86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a065fbcd241696d9aaa02eccef8f2df86">&#9670;&nbsp;</a></span>update_compartment_from_flow()</h2>
 
@@ -842,6 +941,87 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Total number of confirmed cases at time t0. </p>
+
+</div>
+</div>
+<a id="af82f1687dcf6979cc16c139a92288200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af82f1687dcf6979cc16c139a92288200">&#9670;&nbsp;</a></span>m_transitiondistributions_derivative</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt; mio::isecir::Model::m_transitiondistributions_derivative</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{std::vector&lt;std::vector&lt;ScalarType&gt;&gt;(</div>
+<div class="line">        (int)<a class="code" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">InfectionTransition::Count</a>,</div>
+<div class="line">        std::vector&lt;ScalarType&gt;(</div>
+<div class="line">            1, 0.))}</div>
+<div class="ttc" id="anamespacemio_1_1isecir_html_a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9"><div class="ttname"><a href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">mio::isecir::InfectionTransition::Count</a></div><div class="ttdeci">@ Count</div></div>
+</div><!-- fragment -->
+<p>Vector containing the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for. </p>
+
+</div>
+</div>
+<a id="a4662cfd4ef9cb89c3471a47e85a7170f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4662cfd4ef9cb89c3471a47e85a7170f">&#9670;&nbsp;</a></span>m_transitiondistributions_in_forceofinfection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt; mio::isecir::Model::m_transitiondistributions_in_forceofinfection</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        std::vector&lt;std::vector&lt;ScalarType&gt;&gt;(2, std::vector&lt;ScalarType&gt;(1, 0.))}</div>
+</div><!-- fragment -->
+<p>Vector. </p>
+
+</div>
+</div>
+<a id="a904d52c6ae0b3d6c9c5280be491dafa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904d52c6ae0b3d6c9c5280be491dafa8">&#9670;&nbsp;</a></span>m_transitiondistributions_support_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; mio::isecir::Model::m_transitiondistributions_support_max</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        std::vector&lt;ScalarType&gt;((<span class="keywordtype">int</span>)<a class="code" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">InfectionTransition::Count</a>, 0.)}</div>
+</div><!-- fragment -->
+<p>Vector containing the support_max. </p>
 
 </div>
 </div>

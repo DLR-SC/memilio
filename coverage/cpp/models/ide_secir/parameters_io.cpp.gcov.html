@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">132</td>
-            <td class="headerCovTableEntry">132</td>
+            <td class="headerCovTableEntry">134</td>
+            <td class="headerCovTableEntry">134</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-30 08:12:58</td>
+            <td class="headerValue">2024-10-01 10:50:38</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -269,80 +269,83 @@
 <a name="207"><span class="lineNum">     207 </span><span class="lineCov">          1 :     }</span></a>
 <a name="208"><span class="lineNum">     208 </span>            : </a>
 <a name="209"><span class="lineNum">     209 </span>            :     //--- Calculate the flows &quot;after&quot; InfectedNoSymptomsToInfectedSymptoms. ---</a>
-<a name="210"><span class="lineNum">     210 </span>            :     // Compute flow InfectedSymptomsToInfectedSevere for -3 * global_support_max, ..., 0.</a>
-<a name="211"><span class="lineNum">     211 </span><span class="lineCov">         28 :     for (Eigen::Index i = -3 * global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         26 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere),</span></a>
-<a name="213"><span class="lineNum">     213 </span>            :                            Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms), dt,</a>
-<a name="214"><span class="lineNum">     214 </span>            :                            i + start_shift);</a>
-<a name="215"><span class="lineNum">     215 </span>            :     }</a>
-<a name="216"><span class="lineNum">     216 </span>            :     // Compute flow InfectedSevereToInfectedCritical for -2 * global_support_max, ..., 0.</a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         20 :     for (Eigen::Index i = -2 * global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="218"><span class="lineNum">     218 </span><span class="lineCov">         18 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSevereToInfectedCritical),</span></a>
-<a name="219"><span class="lineNum">     219 </span>            :                            Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere), dt, i + start_shift);</a>
-<a name="220"><span class="lineNum">     220 </span>            :     }</a>
-<a name="221"><span class="lineNum">     221 </span>            :     // Compute flows from InfectedSymptoms, InfectedSevere and InfectedCritical to Recovered and</a>
-<a name="222"><span class="lineNum">     222 </span>            :     // flow InfectedCriticalToDead for -global_support_max, ..., 0.</a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="224"><span class="lineNum">     224 </span>            :         // Compute flow InfectedSymptomsToRecovered.</a>
-<a name="225"><span class="lineNum">     225 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSymptomsToRecovered),</span></a>
-<a name="226"><span class="lineNum">     226 </span>            :                            Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms), dt,</a>
-<a name="227"><span class="lineNum">     227 </span>            :                            i + start_shift);</a>
-<a name="228"><span class="lineNum">     228 </span>            :         // Compute flow InfectedSevereToRecovered.</a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSevereToRecovered),</span></a>
-<a name="230"><span class="lineNum">     230 </span>            :                            Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere), dt, i + start_shift);</a>
-<a name="231"><span class="lineNum">     231 </span>            :         // Compute flow InfectedCriticalToRecovered.</a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedCriticalToRecovered),</span></a>
-<a name="233"><span class="lineNum">     233 </span>            :                            Eigen::Index(InfectionTransition::InfectedSevereToInfectedCritical), dt, i + start_shift);</a>
-<a name="234"><span class="lineNum">     234 </span>            :         // Compute flow InfectedCriticalToDead.</a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedCriticalToDead),</span></a>
+<a name="210"><span class="lineNum">     210 </span>            :     // Set m_support_max_vector and m_derivative_vector in the model which is needed for the following computations.</a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">          2 :     model.set_transitiondistributions_support_max(dt);</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">          2 :     model.set_transitiondistributions_derivative(dt);</span></a>
+<a name="213"><span class="lineNum">     213 </span>            :     // Compute flow InfectedSymptomsToInfectedSevere for -3 * global_support_max, ..., 0.</a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">         28 :     for (Eigen::Index i = -3 * global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="215"><span class="lineNum">     215 </span><span class="lineCov">         26 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere),</span></a>
+<a name="216"><span class="lineNum">     216 </span>            :                            Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms), dt,</a>
+<a name="217"><span class="lineNum">     217 </span>            :                            i + start_shift);</a>
+<a name="218"><span class="lineNum">     218 </span>            :     }</a>
+<a name="219"><span class="lineNum">     219 </span>            :     // Compute flow InfectedSevereToInfectedCritical for -2 * global_support_max, ..., 0.</a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">         20 :     for (Eigen::Index i = -2 * global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">         18 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSevereToInfectedCritical),</span></a>
+<a name="222"><span class="lineNum">     222 </span>            :                            Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere), dt, i + start_shift);</a>
+<a name="223"><span class="lineNum">     223 </span>            :     }</a>
+<a name="224"><span class="lineNum">     224 </span>            :     // Compute flows from InfectedSymptoms, InfectedSevere and InfectedCritical to Recovered and</a>
+<a name="225"><span class="lineNum">     225 </span>            :     // flow InfectedCriticalToDead for -global_support_max, ..., 0.</a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="227"><span class="lineNum">     227 </span>            :         // Compute flow InfectedSymptomsToRecovered.</a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSymptomsToRecovered),</span></a>
+<a name="229"><span class="lineNum">     229 </span>            :                            Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms), dt,</a>
+<a name="230"><span class="lineNum">     230 </span>            :                            i + start_shift);</a>
+<a name="231"><span class="lineNum">     231 </span>            :         // Compute flow InfectedSevereToRecovered.</a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedSevereToRecovered),</span></a>
+<a name="233"><span class="lineNum">     233 </span>            :                            Eigen::Index(InfectionTransition::InfectedSymptomsToInfectedSevere), dt, i + start_shift);</a>
+<a name="234"><span class="lineNum">     234 </span>            :         // Compute flow InfectedCriticalToRecovered.</a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedCriticalToRecovered),</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :                            Eigen::Index(InfectionTransition::InfectedSevereToInfectedCritical), dt, i + start_shift);</a>
-<a name="237"><span class="lineNum">     237 </span>            :     }</a>
-<a name="238"><span class="lineNum">     238 </span>            : </a>
-<a name="239"><span class="lineNum">     239 </span>            :     //--- Calculate the remaining flows. ---</a>
-<a name="240"><span class="lineNum">     240 </span>            :     // Compute flow ExposedToInfectedNoSymptoms for -2 * global_support_max, ..., 0.</a>
-<a name="241"><span class="lineNum">     241 </span>            :     // Use mean value of the TransitionDistribution InfectedNoSymptomsToInfectedSymptoms for the calculation.</a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">          2 :     Eigen::Index index_shift_mean = Eigen::Index(std::round(mean_InfectedNoSymptomsToInfectedSymptoms / dt));</span></a>
-<a name="243"><span class="lineNum">     243 </span><span class="lineCov">         20 :     for (Eigen::Index i = -2 * global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">         18 :         model.m_transitions[i + start_shift][Eigen::Index(InfectionTransition::ExposedToInfectedNoSymptoms)] =</span></a>
-<a name="245"><span class="lineNum">     245 </span><span class="lineCov">         36 :             (1 / model.parameters.get&lt;TransitionProbabilities&gt;()[Eigen::Index(</span></a>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">         36 :                      InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)]) *</span></a>
-<a name="247"><span class="lineNum">     247 </span><span class="lineCov">         18 :             model.m_transitions[i + start_shift + index_shift_mean]</span></a>
-<a name="248"><span class="lineNum">     248 </span><span class="lineCov">         36 :                                [Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)];</span></a>
-<a name="249"><span class="lineNum">     249 </span>            :     }</a>
-<a name="250"><span class="lineNum">     250 </span>            : </a>
-<a name="251"><span class="lineNum">     251 </span>            :     // Compute flow SusceptibleToExposed for -global_support_max, ..., 0.</a>
-<a name="252"><span class="lineNum">     252 </span>            :     // Use mean values of the TransitionDistribution ExposedToInfectedNoSymptoms and of the TransitionDistribution InfectedNoSymptomsToInfectedSymptoms for the calculation.</a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">          2 :     index_shift_mean =</span></a>
-<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          2 :         Eigen::Index(std::round((mean_ExposedToInfectedNoSymptoms + mean_InfectedNoSymptomsToInfectedSymptoms) / dt));</span></a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">         10 :         model.m_transitions[i + start_shift][Eigen::Index(InfectionTransition::SusceptibleToExposed)] =</span></a>
-<a name="257"><span class="lineNum">     257 </span><span class="lineCov">         20 :             (1 / model.parameters.get&lt;TransitionProbabilities&gt;()[Eigen::Index(</span></a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">         20 :                      InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)]) *</span></a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         10 :             model.m_transitions[i + start_shift + index_shift_mean]</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">         20 :                                [Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)];</span></a>
-<a name="261"><span class="lineNum">     261 </span>            :     }</a>
-<a name="262"><span class="lineNum">     262 </span>            : </a>
-<a name="263"><span class="lineNum">     263 </span>            :     // InfectedNoSymptomsToRecovered for -global_support_max, ..., 0.</a>
-<a name="264"><span class="lineNum">     264 </span>            :     // If we previously calculated the transition ExposedToInfectedNoSymptoms, we can calculate this transition using the standard formula.</a>
-<a name="265"><span class="lineNum">     265 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="266"><span class="lineNum">     266 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedNoSymptomsToRecovered),</span></a>
-<a name="267"><span class="lineNum">     267 </span>            :                            Eigen::Index(InfectionTransition::ExposedToInfectedNoSymptoms), dt, i + start_shift);</a>
-<a name="268"><span class="lineNum">     268 </span>            :     }</a>
-<a name="269"><span class="lineNum">     269 </span>            : </a>
-<a name="270"><span class="lineNum">     270 </span>            :     // At the end of the calculation, delete all time points that are not required for the simulation.</a>
-<a name="271"><span class="lineNum">     271 </span><span class="lineCov">          2 :     auto transition_copy(model.m_transitions);</span></a>
-<a name="272"><span class="lineNum">     272 </span><span class="lineCov">          2 :     model.m_transitions = TimeSeries&lt;ScalarType&gt;((int)InfectionTransition::Count);</span></a>
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
-<a name="274"><span class="lineNum">     274 </span><span class="lineCov">         10 :         model.m_transitions.add_time_point(i * dt, transition_copy.get_value(i + start_shift));</span></a>
-<a name="275"><span class="lineNum">     275 </span>            :     }</a>
-<a name="276"><span class="lineNum">     276 </span>            : </a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          4 :     return mio::success();</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">          5 : }</span></a>
+<a name="237"><span class="lineNum">     237 </span>            :         // Compute flow InfectedCriticalToDead.</a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedCriticalToDead),</span></a>
+<a name="239"><span class="lineNum">     239 </span>            :                            Eigen::Index(InfectionTransition::InfectedSevereToInfectedCritical), dt, i + start_shift);</a>
+<a name="240"><span class="lineNum">     240 </span>            :     }</a>
+<a name="241"><span class="lineNum">     241 </span>            : </a>
+<a name="242"><span class="lineNum">     242 </span>            :     //--- Calculate the remaining flows. ---</a>
+<a name="243"><span class="lineNum">     243 </span>            :     // Compute flow ExposedToInfectedNoSymptoms for -2 * global_support_max, ..., 0.</a>
+<a name="244"><span class="lineNum">     244 </span>            :     // Use mean value of the TransitionDistribution InfectedNoSymptomsToInfectedSymptoms for the calculation.</a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineCov">          2 :     Eigen::Index index_shift_mean = Eigen::Index(std::round(mean_InfectedNoSymptomsToInfectedSymptoms / dt));</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">         20 :     for (Eigen::Index i = -2 * global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">         18 :         model.m_transitions[i + start_shift][Eigen::Index(InfectionTransition::ExposedToInfectedNoSymptoms)] =</span></a>
+<a name="248"><span class="lineNum">     248 </span><span class="lineCov">         36 :             (1 / model.parameters.get&lt;TransitionProbabilities&gt;()[Eigen::Index(</span></a>
+<a name="249"><span class="lineNum">     249 </span><span class="lineCov">         36 :                      InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)]) *</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">         18 :             model.m_transitions[i + start_shift + index_shift_mean]</span></a>
+<a name="251"><span class="lineNum">     251 </span><span class="lineCov">         36 :                                [Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)];</span></a>
+<a name="252"><span class="lineNum">     252 </span>            :     }</a>
+<a name="253"><span class="lineNum">     253 </span>            : </a>
+<a name="254"><span class="lineNum">     254 </span>            :     // Compute flow SusceptibleToExposed for -global_support_max, ..., 0.</a>
+<a name="255"><span class="lineNum">     255 </span>            :     // Use mean values of the TransitionDistribution ExposedToInfectedNoSymptoms and of the TransitionDistribution InfectedNoSymptomsToInfectedSymptoms for the calculation.</a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">          2 :     index_shift_mean =</span></a>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">          2 :         Eigen::Index(std::round((mean_ExposedToInfectedNoSymptoms + mean_InfectedNoSymptomsToInfectedSymptoms) / dt));</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         10 :         model.m_transitions[i + start_shift][Eigen::Index(InfectionTransition::SusceptibleToExposed)] =</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">         20 :             (1 / model.parameters.get&lt;TransitionProbabilities&gt;()[Eigen::Index(</span></a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">         20 :                      InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)]) *</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">         10 :             model.m_transitions[i + start_shift + index_shift_mean]</span></a>
+<a name="263"><span class="lineNum">     263 </span><span class="lineCov">         20 :                                [Eigen::Index(InfectionTransition::InfectedNoSymptomsToInfectedSymptoms)];</span></a>
+<a name="264"><span class="lineNum">     264 </span>            :     }</a>
+<a name="265"><span class="lineNum">     265 </span>            : </a>
+<a name="266"><span class="lineNum">     266 </span>            :     // InfectedNoSymptomsToRecovered for -global_support_max, ..., 0.</a>
+<a name="267"><span class="lineNum">     267 </span>            :     // If we previously calculated the transition ExposedToInfectedNoSymptoms, we can calculate this transition using the standard formula.</a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">         10 :         model.compute_flow(Eigen::Index(InfectionTransition::InfectedNoSymptomsToRecovered),</span></a>
+<a name="270"><span class="lineNum">     270 </span>            :                            Eigen::Index(InfectionTransition::ExposedToInfectedNoSymptoms), dt, i + start_shift);</a>
+<a name="271"><span class="lineNum">     271 </span>            :     }</a>
+<a name="272"><span class="lineNum">     272 </span>            : </a>
+<a name="273"><span class="lineNum">     273 </span>            :     // At the end of the calculation, delete all time points that are not required for the simulation.</a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">          2 :     auto transition_copy(model.m_transitions);</span></a>
+<a name="275"><span class="lineNum">     275 </span><span class="lineCov">          2 :     model.m_transitions = TimeSeries&lt;ScalarType&gt;((int)InfectionTransition::Count);</span></a>
+<a name="276"><span class="lineNum">     276 </span><span class="lineCov">         12 :     for (Eigen::Index i = -global_support_max_index; i &lt;= 0; i++) {</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">         10 :         model.m_transitions.add_time_point(i * dt, transition_copy.get_value(i + start_shift));</span></a>
+<a name="278"><span class="lineNum">     278 </span>            :     }</a>
 <a name="279"><span class="lineNum">     279 </span>            : </a>
-<a name="280"><span class="lineNum">     280 </span>            : } // namespace isecir</a>
-<a name="281"><span class="lineNum">     281 </span>            : } // namespace mio</a>
+<a name="280"><span class="lineNum">     280 </span><span class="lineCov">          4 :     return mio::success();</span></a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineCov">          5 : }</span></a>
 <a name="282"><span class="lineNum">     282 </span>            : </a>
-<a name="283"><span class="lineNum">     283 </span>            : #endif // MEMILIO_HAS_JSONCPP</a>
+<a name="283"><span class="lineNum">     283 </span>            : } // namespace isecir</a>
+<a name="284"><span class="lineNum">     284 </span>            : } // namespace mio</a>
+<a name="285"><span class="lineNum">     285 </span>            : </a>
+<a name="286"><span class="lineNum">     286 </span>            : #endif // MEMILIO_HAS_JSONCPP</a>
 </pre>
       </td>
     </tr>
