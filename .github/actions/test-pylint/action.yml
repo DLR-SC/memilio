@@ -17,6 +17,7 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: python-wheels-${{ inputs.package }}
+        path: pycode/wheelhouse
     - name: Install Python Wheels
       shell: bash
       run: |
@@ -27,8 +28,7 @@ runs:
       shell: bash
       run: |
         cd pycode/memilio-${{ inputs.package }}
-        mkdir -p build_pylint
-        python setup.py pylint
+        python memilio/custom_pylint.py
         pylint-json2html -f jsonextended -o build_pylint/pylint.html < build_pylint/pylint_extended.json
     - name: Upload Pylint Report
       uses: actions/upload-artifact@v4
