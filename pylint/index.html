@@ -28,7 +28,7 @@
 
         
         <h2>Score</h2>
-        7.47 / 10
+        7.46 / 10
             
         
 
@@ -1150,391 +1150,6 @@
                 <td>C0103</td>
                 <td></td>
                 <td><pre>Module name &#34;geoModificationGermany&#34; doesn&#39;t conform to snake_case naming style</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getJHData:[97:106]
-==memilio.epidata_test.test_epidata_get_jh_data:[122:129]
-        directory_ger = os.path.join(out_folder, &#39;Germany/&#39;)
-        directory_es = os.path.join(out_folder, &#39;Spain/&#39;)
-        directory_fr = os.path.join(out_folder, &#39;France/&#39;)
-        directory_it = os.path.join(out_folder, &#39;Italy/&#39;)
-        directory_us = os.path.join(out_folder, &#39;US/&#39;)
-        directory_rok = os.path.join(out_folder, &#39;SouthKorea/&#39;)
-        directory_prc = os.path.join(out_folder, &#39;China/&#39;)</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata_test.test_epidata_getCaseData:[20:29]
-==memilio.epidata_test.test_epidata_get_jh_data:[19:28]
-import os
-import unittest
-from datetime import date, datetime
-from unittest.mock import patch
-
-import pandas as pd
-from pyfakefs import fake_filesystem_unittest
-
-from memilio.epidata import defaultDict as dd</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCaseData:[238:244]
-==memilio.epidata.getDIVIData:[141:147]
-        try:
-            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
-                df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
-        except ValueError:
-            try:
-                df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCaseData:[36:43]
-==memilio.epidata.transformWeatherData:[23:32]
-import numpy as np
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCommuterMobility:[25:32]
-==memilio.epidata.transformMobilityData:[19:29]
-import os
-
-import numpy as np
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-
-# activate CoW for more predictable behaviour of pandas DataFrames</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getPopulationData:[30:48]
-==memilio.epidata.transformMobilityData:[21:40]
-import numpy as np
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-
-# activate CoW for more predictable behaviour of pandas DataFrames
-pd.options.mode.copy_on_write = True
-
-
-def read_population_data(ref_year):
-    &#34;&#34;&#34;! Reads Population data from regionalstatistik.de
-
-    A request is made to regionalstatistik.de and the StringIO is read in as a csv into the dataframe format.
-    @param ref_year [Default: None] or year (jjjj) convertible to str. Reference year.
-    @return DataFrame
-    &#34;&#34;&#34;</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata_test.test_epidata_getHospitalizationData:[103:109]
-==memilio.epidata_test.test_epidata_get_divi_data:[217:223]
-        df = pd.DataFrame(
-            {&#39;date_fake&#39;: [1, 2, 3],
-             &#39;6&#39;: [6, 7, 8],
-             &#39;7&#39;: [7, 8, 9],
-             &#39;8&#39;: [8, 9, 0],
-             &#39;bundesland&#39;: [2, 3, 4],</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getJHData:[31:69]
-==memilio.epidata.transformWeatherData:[28:60]
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-# activate CoW for more predictable behaviour of pandas DataFrames
-pd.options.mode.copy_on_write = True
-
-
-def get_jh_data(read_data=dd.defaultDict[&#39;read_data&#39;],
-                file_format=dd.defaultDict[&#39;file_format&#39;],
-                out_folder=dd.defaultDict[&#39;out_folder&#39;],
-                start_date=date(2020, 1, 22),
-                end_date=dd.defaultDict[&#39;end_date&#39;],
-                impute_dates=dd.defaultDict[&#39;impute_dates&#39;],
-                **kwargs):
-    &#34;&#34;&#34;! Download data from John Hopkins University
-
-   Data is either downloaded and afterwards stored or loaded from a stored filed.
-   The file is &#34;FullData_JohnHopkins.json&#34;
-
-   Working with the data includes
-   - rename columns such that &#34;/&#34; is deleted, e.g Country/Region becomes CountryRegion
-   - data of all countries together are written to a file
-   - download the data from following countries in a separate file
-   and are stored in the according folders with the country name
-       - Germany, SouthKorea, Spain, France, Italy, US, China
-   - furthermore, all countries, for which provinces are added, are written to a file
-
-    @param read_data True or False. Defines if data is read from file or downloaded. Default defined in defaultDict.
-    @param file_format File format which is used for writing the data. Default defined in defaultDict.
-    @param out_folder Folder where data is written to. Default defined in defaultDict.
-    @param start_date Date of first date in dataframe. Default defined in defaultDict.
-    @param end_date Date of last date in dataframe. Default defined in defaultDict.
-    @param impute_dates [Currently not used] True or False. Defines if values for dates without new information are imputed. Default defined in defaultDict.
-    @param moving_average [Currently not used] Integers &gt;=0. Applies an &#39;moving_average&#39;-days moving average on all time series
-        to smooth out effects of irregular reporting. Default defined in defaultDict.
-   &#34;&#34;&#34;
-    conf = gd.Conf(out_folder, **kwargs)
-    out_folder = conf.path_to_use</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCaseData:[37:43]
-==memilio.epidata.getDIVIData:[41:74]
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-
-def fetch_divi_data(
-        directory: str,
-        filename: str,
-        conf_obj,
-        read_data: bool = dd.defaultDict[&#39;read_data&#39;],
-        file_format: str = dd.defaultDict[&#39;file_format&#39;],
-) -&gt; pd.DataFrame:
-    &#34;&#34;&#34;! Downloads or reads the DIVI ICU data and writes them in different files.
-
-    If it does not already exist, the folder Germany is generated in the given out_folder.
-    If read_data == True and the file &#34;FullData_DIVI.json&#34; exists, the data is read form this file
-    and stored in a pandas dataframe. If read_data = True and the file does not exist the program is stopped.
-    The downloaded dataframe is written to the file &#34;FullData_DIVI&#34;.
-
-    @param directory str
-        Path to the output directory
-    @param conf_obj
-        configuration object
-    @param filename str
-        File format which is used for writing the data. Default defined in defaultDict.
-    @param read_data bool. True or False. Defines if data is read from file or downloaded. Default defined in defaultDict.
-    @param file_format str. File format which is used for writing the data. Default defined in defaultDict.
-
-    @return Tuple[df_raw, start_date] Tuple. Contains the fetched data as well as the adjusted starting date
-    &#34;&#34;&#34;</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCaseData:[36:42]
-==memilio.epidata.transformMobilityData:[21:29]
-import numpy as np
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getHospitalizationData:[32:51]
-==memilio.epidata.getJHData:[28:67]
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-# activate CoW for more predictable behaviour of pandas DataFrames
-pd.options.mode.copy_on_write = True
-
-
-def get_jh_data(read_data=dd.defaultDict[&#39;read_data&#39;],
-                file_format=dd.defaultDict[&#39;file_format&#39;],
-                out_folder=dd.defaultDict[&#39;out_folder&#39;],
-                start_date=date(2020, 1, 22),
-                end_date=dd.defaultDict[&#39;end_date&#39;],
-                impute_dates=dd.defaultDict[&#39;impute_dates&#39;],
-                **kwargs):
-    &#34;&#34;&#34;! Download data from John Hopkins University
-
-   Data is either downloaded and afterwards stored or loaded from a stored filed.
-   The file is &#34;FullData_JohnHopkins.json&#34;
-
-   Working with the data includes
-   - rename columns such that &#34;/&#34; is deleted, e.g Country/Region becomes CountryRegion
-   - data of all countries together are written to a file
-   - download the data from following countries in a separate file
-   and are stored in the according folders with the country name
-       - Germany, SouthKorea, Spain, France, Italy, US, China
-   - furthermore, all countries, for which provinces are added, are written to a file
-
-    @param read_data True or False. Defines if data is read from file or downloaded. Default defined in defaultDict.
-    @param file_format File format which is used for writing the data. Default defined in defaultDict.
-    @param out_folder Folder where data is written to. Default defined in defaultDict.
-    @param start_date Date of first date in dataframe. Default defined in defaultDict.
-    @param end_date Date of last date in dataframe. Default defined in defaultDict.
-    @param impute_dates [Currently not used] True or False. Defines if values for dates without new information are imputed. Default defined in defaultDict.
-    @param moving_average [Currently not used] Integers &gt;=0. Applies an &#39;moving_average&#39;-days moving average on all time series
-        to smooth out effects of irregular reporting. Default defined in defaultDict.
-   &#34;&#34;&#34;</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getCommuterMobility:[26:32]
-==memilio.epidata.getPopulationData:[30:38]
-import numpy as np
-import pandas as pd
-
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata.getTestingData:[27:46]
-==memilio.epidata.transformWeatherData:[26:57]
-from memilio.epidata import defaultDict as dd
-from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-# activate CoW for more predictable behaviour of pandas DataFrames
-pd.options.mode.copy_on_write = True
-
-# Downloads testing data from RKI
-
-
-def download_testing_data():
-    &#34;&#34;&#34;! Downloads the Sars-CoV-2 test data sets from RKI on country
-    and federal state level. Information on federal state level do not sum
-    up to country-wide information since less laboratories are participating.
-
-    @return dataframe array with country level information first and
-        federal state level second
-    &#34;&#34;&#34;</pre></td>
-            </tr>
-            
-            <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>refactor</td>
-                <td><code>duplicate-code</code></td>
-                <td>R0801</td>
-                <td></td>
-                <td><pre>Similar lines in 2 files
-==memilio.epidata_test.test_epidata_getCommuterMobility:[65:75]
-==memilio.epidata_test.test_epidata_get_vaccination_data:[100:113]
-    filename = os.path.join(
-        here, &#39;test_data&#39;, &#39;TestSetPopulationFinal.json&#39;)
-    with open(filename) as file_object:
-        df_pop = pd.DataFrame(json.load(file_object))
-
-    def setUp(self):
-        self.setUpPyfakefs()
-
-    @patch(&#39;memilio.epidata.getVaccinationData.download_vaccination_data&#39;,
-           return_value=df_vacc_data_altern)
-    @patch(&#39;memilio.epidata.getPopulationData.get_population_data&#39;, return_value=df_pop)
-    @patch(&#39;memilio.epidata.getDataIntoPandasDataFrame.user_choice&#39;, return_value=True)
-    def test_get_vaccination_data_alternative_ages(self, mockin, mockp, mockv):</pre></td>
             </tr>
             
             <tr>
@@ -4142,7 +3757,7 @@ def download_testing_data():
                 <td><code>too-many-lines</code></td>
                 <td>C0302</td>
                 <td></td>
-                <td><pre>Too many lines in module (1503/1000)</pre></td>
+                <td><pre>Too many lines in module (1501/1000)</pre></td>
             </tr>
             
             <tr>
@@ -4602,7 +4217,7 @@ def download_testing_data():
                 <td><code>too-many-statements</code></td>
                 <td>R0915</td>
                 <td>get_npi_data</td>
-                <td><pre>Too many statements (307/50)</pre></td>
+                <td><pre>Too many statements (308/50)</pre></td>
             </tr>
             
             <tr>
@@ -4646,7 +4261,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>653</td>
+                <td>658</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -4656,7 +4271,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>658</td>
+                <td>663</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -4666,7 +4281,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>680</td>
+                <td>685</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -4676,7 +4291,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>687</td>
+                <td>692</td>
                 <td>16</td>
                 <td>refactor</td>
                 <td><code>unnecessary-comprehension</code></td>
@@ -4686,7 +4301,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>691</td>
+                <td>696</td>
                 <td>15</td>
                 <td>convention</td>
                 <td><code>singleton-comparison</code></td>
@@ -4696,7 +4311,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>727</td>
+                <td>732</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -4706,7 +4321,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>730</td>
+                <td>735</td>
                 <td>11</td>
                 <td>convention</td>
                 <td><code>unneeded-not</code></td>
@@ -4716,7 +4331,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>768</td>
+                <td>773</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -4726,7 +4341,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>776</td>
+                <td>781</td>
                 <td>35</td>
                 <td>refactor</td>
                 <td><code>use-dict-literal</code></td>
@@ -4736,7 +4351,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>787</td>
+                <td>792</td>
                 <td>25</td>
                 <td>convention</td>
                 <td><code>consider-iterating-dictionary</code></td>
@@ -4746,7 +4361,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>799</td>
+                <td>804</td>
                 <td>26</td>
                 <td>refactor</td>
                 <td><code>use-dict-literal</code></td>
@@ -4756,7 +4371,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>819</td>
+                <td>824</td>
                 <td>19</td>
                 <td>convention</td>
                 <td><code>unneeded-not</code></td>
@@ -4766,7 +4381,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>822</td>
+                <td>827</td>
                 <td>19</td>
                 <td>convention</td>
                 <td><code>unneeded-not</code></td>
@@ -4776,7 +4391,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>964</td>
+                <td>962</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4786,7 +4401,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>964</td>
+                <td>962</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-nested-blocks</code></td>
@@ -4796,7 +4411,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1019</td>
+                <td>1017</td>
                 <td>19</td>
                 <td>refactor</td>
                 <td><code>use-a-generator</code></td>
@@ -4806,7 +4421,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1028</td>
+                <td>1026</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>superfluous-parens</code></td>
@@ -4816,7 +4431,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1274</td>
+                <td>1272</td>
                 <td>12</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4826,7 +4441,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1275</td>
+                <td>1273</td>
                 <td>16</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4836,7 +4451,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1279</td>
+                <td>1277</td>
                 <td>20</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4846,7 +4461,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1279</td>
+                <td>1277</td>
                 <td>23</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4856,7 +4471,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1279</td>
+                <td>1277</td>
                 <td>26</td>
                 <td>warning</td>
                 <td><code>unused-variable</code></td>
@@ -4866,7 +4481,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1279</td>
+                <td>1277</td>
                 <td>32</td>
                 <td>warning</td>
                 <td><code>unused-variable</code></td>
@@ -4876,7 +4491,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1284</td>
+                <td>1282</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>superfluous-parens</code></td>
@@ -4886,7 +4501,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1309</td>
+                <td>1307</td>
                 <td>77</td>
                 <td>convention</td>
                 <td><code>trailing-whitespace</code></td>
@@ -4896,7 +4511,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1311</td>
+                <td>1309</td>
                 <td>79</td>
                 <td>convention</td>
                 <td><code>trailing-whitespace</code></td>
@@ -4906,7 +4521,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1319</td>
+                <td>1317</td>
                 <td>16</td>
                 <td>convention</td>
                 <td><code>singleton-comparison</code></td>
@@ -4916,7 +4531,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1327</td>
+                <td>1325</td>
                 <td>12</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -4926,7 +4541,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1342</td>
+                <td>1340</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -4936,7 +4551,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1357</td>
+                <td>1355</td>
                 <td>12</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -4946,7 +4561,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1387</td>
+                <td>1385</td>
                 <td>0</td>
                 <td>refactor</td>
                 <td><code>too-many-statements</code></td>
@@ -4956,7 +4571,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1389</td>
+                <td>1387</td>
                 <td>69</td>
                 <td>convention</td>
                 <td><code>trailing-whitespace</code></td>
@@ -4966,7 +4581,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1405</td>
+                <td>1403</td>
                 <td>8</td>
                 <td>warning</td>
                 <td><code>raise-missing-from</code></td>
@@ -4976,7 +4591,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1420</td>
+                <td>1418</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -4986,7 +4601,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1437</td>
+                <td>1435</td>
                 <td>20</td>
                 <td>refactor</td>
                 <td><code>unnecessary-comprehension</code></td>
@@ -4996,7 +4611,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1473</td>
+                <td>1471</td>
                 <td>69</td>
                 <td>convention</td>
                 <td><code>consider-using-f-string</code></td>
@@ -5006,7 +4621,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1479</td>
+                <td>1477</td>
                 <td>20</td>
                 <td>refactor</td>
                 <td><code>unnecessary-comprehension</code></td>
@@ -5016,7 +4631,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1488</td>
+                <td>1486</td>
                 <td>69</td>
                 <td>convention</td>
                 <td><code>consider-using-f-string</code></td>
@@ -5026,7 +4641,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1497</td>
+                <td>1495</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -5036,7 +4651,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>1497</td>
+                <td>1495</td>
                 <td>4</td>
                 <td>warning</td>
                 <td><code>unused-variable</code></td>
@@ -7146,7 +6761,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>339</td>
+                <td>344</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>superfluous-parens</code></td>
@@ -7156,7 +6771,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>343</td>
+                <td>348</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>superfluous-parens</code></td>
@@ -7166,7 +6781,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>372</td>
+                <td>377</td>
                 <td>8</td>
                 <td>refactor</td>
                 <td><code>no-else-continue</code></td>
@@ -7176,7 +6791,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>380</td>
+                <td>385</td>
                 <td>0</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -7186,7 +6801,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>380</td>
+                <td>385</td>
                 <td>0</td>
                 <td>refactor</td>
                 <td><code>too-many-branches</code></td>
@@ -7196,7 +6811,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>380</td>
+                <td>385</td>
                 <td>0</td>
                 <td>refactor</td>
                 <td><code>too-many-statements</code></td>
@@ -7206,7 +6821,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>383</td>
+                <td>388</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -7216,7 +6831,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>401</td>
+                <td>406</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -7226,7 +6841,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>402</td>
+                <td>407</td>
                 <td>69</td>
                 <td>convention</td>
                 <td><code>trailing-whitespace</code></td>
@@ -7236,7 +6851,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>403</td>
+                <td>408</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -7246,7 +6861,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>456</td>
+                <td>461</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -7256,7 +6871,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>502</td>
+                <td>507</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>line-too-long</code></td>
@@ -7575,6 +7190,384 @@ def download_testing_data():
                 <td>C0103</td>
                 <td></td>
                 <td><pre>Module name &#34;transformWeatherData&#34; doesn&#39;t conform to snake_case naming style</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getJHData:[97:106]
+==memilio.epidata_test.test_epidata_get_jh_data:[122:129]
+        directory_ger = os.path.join(out_folder, &#39;Germany/&#39;)
+        directory_es = os.path.join(out_folder, &#39;Spain/&#39;)
+        directory_fr = os.path.join(out_folder, &#39;France/&#39;)
+        directory_it = os.path.join(out_folder, &#39;Italy/&#39;)
+        directory_us = os.path.join(out_folder, &#39;US/&#39;)
+        directory_rok = os.path.join(out_folder, &#39;SouthKorea/&#39;)
+        directory_prc = os.path.join(out_folder, &#39;China/&#39;)</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCommuterMobility:[25:32]
+==memilio.epidata.transformMobilityData:[19:29]
+import os
+import numpy as np
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCaseData:[36:43]
+==memilio.epidata.transformWeatherData:[23:32]
+import numpy as np
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+from memilio.epidata import modifyDataframeSeries as mdfs
+
+# activate CoW for more predictable behaviour of pandas DataFrames</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCaseData:[238:244]
+==memilio.epidata.getDIVIData:[141:147]
+    try:
+        df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
+            df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
+    except ValueError:
+        try:
+            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getPopulationData:[30:48]
+==memilio.epidata.transformMobilityData:[21:40]
+import numpy as np
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+
+# activate CoW for more predictable behaviour of pandas DataFrames
+pd.options.mode.copy_on_write = True
+
+
+def getMobilityFromFile(directory, mobility_file):
+    &#34;&#34;&#34;! Gets a mobility matrix that is written in a plain txt file
+    under the given directory into a pandas data frame.
+
+    @param directory Path to folder where data is read.
+    @param mobility_file Mobility matrix file which has to be updated.
+    @return Mobility matrix data frame.
+    &#34;&#34;&#34;</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata_test.test_epidata_getCaseData:[22:30]
+==memilio.epidata_test.test_epidata_get_jh_data:[20:28]
+import unittest
+from datetime import date, datetime
+from unittest.mock import patch
+
+import pandas as pd
+from pyfakefs import fake_filesystem_unittest
+
+from memilio.epidata import defaultDict as dd</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata_test.test_epidata_getHospitalizationData:[103:109]
+==memilio.epidata_test.test_epidata_get_divi_data:[217:223]
+        df = pd.DataFrame(
+            {&#39;date_fake&#39;: [1, 2, 3],
+             &#39;6&#39;: [6, 7, 8],
+             &#39;7&#39;: [7, 8, 9],
+             &#39;8&#39;: [8, 9, 0],
+             &#39;bundesland&#39;: [2, 3, 4],</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getTestingData:[27:46]
+==memilio.epidata.transformWeatherData:[26:57]
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+from memilio.epidata import modifyDataframeSeries as mdfs
+
+# activate CoW for more predictable behaviour of pandas DataFrames
+pd.options.mode.copy_on_write = True
+
+
+def transformWeatherData(read_data=dd.defaultDict[&#39;read_data&#39;],
+                         file_format=dd.defaultDict[&#39;file_format&#39;],
+                         out_folder=dd.defaultDict[&#39;out_folder&#39;],
+                         start_date=dd.defaultDict[&#39;start_date&#39;],
+                         end_date=dd.defaultDict[&#39;end_date&#39;],
+                         moving_average=dd.defaultDict[&#39;moving_average&#39;],
+                         merge_berlin=True,
+                         merge_eisenach=False,
+                         **kwargs
+                         ):
+    &#34;&#34;&#34;! ...
+    @param file_format File format which is used for writing the data.
+        Default defined in defaultDict.
+    @param out_folder Path to folder where data is written in folder
+        out_folder/Germany.
+    @param start_date [Default = &#39;&#39;, taken from read data] Start date
+        of stored data frames.
+    @param end_date [Default = &#39;&#39;, taken from read data] End date of
+        stored data frames.
+    @param moving_average 0 [Default] or Number &gt; 0. Defines the number of
+        days for which a centered moving average is computed.
+    &#34;&#34;&#34;</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCommuterMobility:[26:32]
+==memilio.epidata.transformWeatherData:[23:29]
+import numpy as np
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCaseData:[37:43]
+==memilio.epidata.getDIVIData:[41:74]
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+from memilio.epidata import modifyDataframeSeries as mdfs</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getJHData:[31:69]
+==memilio.epidata.transformWeatherData:[28:60]
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+from memilio.epidata import modifyDataframeSeries as mdfs
+
+# activate CoW for more predictable behaviour of pandas DataFrames
+pd.options.mode.copy_on_write = True
+
+
+def transformWeatherData(read_data=dd.defaultDict[&#39;read_data&#39;],
+                         file_format=dd.defaultDict[&#39;file_format&#39;],
+                         out_folder=dd.defaultDict[&#39;out_folder&#39;],
+                         start_date=dd.defaultDict[&#39;start_date&#39;],
+                         end_date=dd.defaultDict[&#39;end_date&#39;],
+                         moving_average=dd.defaultDict[&#39;moving_average&#39;],
+                         merge_berlin=True,
+                         merge_eisenach=False,
+                         **kwargs
+                         ):
+    &#34;&#34;&#34;! ...
+    @param file_format File format which is used for writing the data.
+        Default defined in defaultDict.
+    @param out_folder Path to folder where data is written in folder
+        out_folder/Germany.
+    @param start_date [Default = &#39;&#39;, taken from read data] Start date
+        of stored data frames.
+    @param end_date [Default = &#39;&#39;, taken from read data] End date of
+        stored data frames.
+    @param moving_average 0 [Default] or Number &gt; 0. Defines the number of
+        days for which a centered moving average is computed.
+    &#34;&#34;&#34;
+    conf = gd.Conf(out_folder, **kwargs)
+    out_folder = conf.path_to_use
+</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getHospitalizationData:[32:51]
+==memilio.epidata.getJHData:[28:67]
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+from memilio.epidata import modifyDataframeSeries as mdfs
+
+# activate CoW for more predictable behaviour of pandas DataFrames
+pd.options.mode.copy_on_write = True
+
+
+def get_jh_data(read_data=dd.defaultDict[&#39;read_data&#39;],
+                file_format=dd.defaultDict[&#39;file_format&#39;],
+                out_folder=dd.defaultDict[&#39;out_folder&#39;],
+                start_date=date(2020, 1, 22),
+                end_date=dd.defaultDict[&#39;end_date&#39;],
+                impute_dates=dd.defaultDict[&#39;impute_dates&#39;],
+                **kwargs):
+    &#34;&#34;&#34;! Download data from John Hopkins University
+
+   Data is either downloaded and afterwards stored or loaded from a stored filed.
+   The file is &#34;FullData_JohnHopkins.json&#34;
+
+   Working with the data includes
+   - rename columns such that &#34;/&#34; is deleted, e.g Country/Region becomes CountryRegion
+   - data of all countries together are written to a file
+   - download the data from following countries in a separate file
+   and are stored in the according folders with the country name
+       - Germany, SouthKorea, Spain, France, Italy, US, China
+   - furthermore, all countries, for which provinces are added, are written to a file
+
+    @param read_data True or False. Defines if data is read from file or downloaded. Default defined in defaultDict.
+    @param file_format File format which is used for writing the data. Default defined in defaultDict.
+    @param out_folder Folder where data is written to. Default defined in defaultDict.
+    @param start_date Date of first date in dataframe. Default defined in defaultDict.
+    @param end_date Date of last date in dataframe. Default defined in defaultDict.
+    @param impute_dates [Currently not used] True or False. Defines if values for dates without new information are imputed. Default defined in defaultDict.
+    @param moving_average [Currently not used] Integers &gt;=0. Applies an &#39;moving_average&#39;-days moving average on all time series
+        to smooth out effects of irregular reporting. Default defined in defaultDict.
+   &#34;&#34;&#34;</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata.getCaseData:[36:42]
+==memilio.epidata.getPopulationData:[30:38]
+import numpy as np
+import pandas as pd
+
+from memilio.epidata import defaultDict as dd
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata_test.test_epidata_get_vaccination_data:[24:30]
+==memilio.epidata_test.test_epidata_transform_mobility_data:[23:29]
+import numpy as np
+import pandas as pd
+from pyfakefs import fake_filesystem_unittest
+
+from memilio.epidata import geoModificationGermany as geoger
+from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td><pre>Similar lines in 2 files
+==memilio.epidata_test.test_epidata_getCommuterMobility:[65:75]
+==memilio.epidata_test.test_epidata_get_vaccination_data:[101:114]
+    filename = os.path.join(
+        here, &#39;test_data&#39;, &#39;TestSetPopulationFinal.json&#39;)
+    with open(filename) as file_object:
+        df_pop = pd.DataFrame(json.load(file_object))
+
+    def setUp(self):
+        self.setUpPyfakefs()
+
+    @patch(&#39;builtins.print&#39;)
+    def test_verify_sorted(self, mock_print):</pre></td>
             </tr>
             
             <tr>
@@ -9398,7 +9391,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>26</td>
+                <td>27</td>
                 <td>0</td>
                 <td>error</td>
                 <td><code>import-error</code></td>
@@ -9408,7 +9401,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>34</td>
+                <td>35</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>missing-class-docstring</code></td>
@@ -9418,7 +9411,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>50</td>
+                <td>51</td>
                 <td>9</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9428,7 +9421,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>116</td>
+                <td>117</td>
                 <td>9</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9438,7 +9431,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>127</td>
+                <td>128</td>
                 <td>9</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9448,7 +9441,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>141</td>
+                <td>142</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9458,7 +9451,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>145</td>
+                <td>146</td>
                 <td>13</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9468,7 +9461,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>145</td>
+                <td>146</td>
                 <td>47</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -9478,7 +9471,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>148</td>
+                <td>149</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9488,7 +9481,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>152</td>
+                <td>153</td>
                 <td>13</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9498,7 +9491,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>152</td>
+                <td>153</td>
                 <td>47</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -9508,7 +9501,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>155</td>
+                <td>156</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9518,7 +9511,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>158</td>
+                <td>159</td>
                 <td>13</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -9528,7 +9521,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>158</td>
+                <td>159</td>
                 <td>47</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -9538,7 +9531,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>162</td>
+                <td>163</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9548,7 +9541,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>162</td>
+                <td>163</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -9558,7 +9551,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>221</td>
+                <td>222</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9568,7 +9561,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>221</td>
+                <td>222</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -9578,7 +9571,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>221</td>
+                <td>222</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-statements</code></td>
@@ -9588,7 +9581,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>265</td>
+                <td>266</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -9598,7 +9591,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>327</td>
+                <td>328</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9608,7 +9601,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>327</td>
+                <td>328</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -9618,7 +9611,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>327</td>
+                <td>328</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-statements</code></td>
@@ -9628,7 +9621,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>327</td>
+                <td>328</td>
                 <td>48</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -9638,7 +9631,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>475</td>
+                <td>476</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -9648,7 +9641,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>475</td>
+                <td>476</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -9658,7 +9651,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>475</td>
+                <td>476</td>
                 <td>46</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11520,11 +11513,21 @@ def download_testing_data():
                 <td><code>import-error</code></td>
                 <td>E0401</td>
                 <td></td>
+                <td><pre>Unable to import &#39;numpy&#39;</pre></td>
+            </tr>
+            
+            <tr>
+                <td>26</td>
+                <td>0</td>
+                <td>error</td>
+                <td><code>import-error</code></td>
+                <td>E0401</td>
+                <td></td>
                 <td><pre>Unable to import &#39;pandas&#39;</pre></td>
             </tr>
             
             <tr>
-                <td>33</td>
+                <td>34</td>
                 <td>0</td>
                 <td>convention</td>
                 <td><code>missing-class-docstring</code></td>
@@ -11534,7 +11537,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>73</td>
+                <td>74</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -11544,7 +11547,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>103</td>
+                <td>104</td>
                 <td>9</td>
                 <td>warning</td>
                 <td><code>unspecified-encoding</code></td>
@@ -11554,7 +11557,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>113</td>
+                <td>114</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11564,7 +11567,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>113</td>
+                <td>114</td>
                 <td>57</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11574,7 +11577,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>113</td>
+                <td>114</td>
                 <td>65</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11584,7 +11587,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>113</td>
+                <td>114</td>
                 <td>72</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11594,7 +11597,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>126</td>
+                <td>127</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11604,7 +11607,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>126</td>
+                <td>127</td>
                 <td>55</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11614,7 +11617,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>126</td>
+                <td>127</td>
                 <td>63</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11624,7 +11627,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>126</td>
+                <td>127</td>
                 <td>70</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11634,7 +11637,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>132</td>
+                <td>133</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11644,7 +11647,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>132</td>
+                <td>133</td>
                 <td>33</td>
                 <td>warning</td>
                 <td><code>unused-argument</code></td>
@@ -11654,7 +11657,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>177</td>
+                <td>178</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11664,7 +11667,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>229</td>
+                <td>230</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11958,7 +11961,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>520</td>
+                <td>521</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>invalid-name</code></td>
@@ -11968,7 +11971,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>529</td>
+                <td>530</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11978,7 +11981,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>536</td>
+                <td>537</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11988,7 +11991,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>543</td>
+                <td>544</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -11998,7 +12001,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>543</td>
+                <td>544</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -12008,7 +12011,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>615</td>
+                <td>616</td>
                 <td>4</td>
                 <td>convention</td>
                 <td><code>missing-function-docstring</code></td>
@@ -12018,7 +12021,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>615</td>
+                <td>616</td>
                 <td>4</td>
                 <td>refactor</td>
                 <td><code>too-many-locals</code></td>
@@ -12028,7 +12031,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>670</td>
+                <td>671</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12038,7 +12041,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>672</td>
+                <td>673</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12048,7 +12051,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>674</td>
+                <td>675</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12058,7 +12061,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>676</td>
+                <td>677</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12068,7 +12071,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>678</td>
+                <td>679</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12078,7 +12081,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>704</td>
+                <td>705</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12088,7 +12091,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>706</td>
+                <td>707</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12098,7 +12101,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>708</td>
+                <td>709</td>
                 <td>8</td>
                 <td>convention</td>
                 <td><code>consider-using-enumerate</code></td>
@@ -12500,7 +12503,7 @@ def download_testing_data():
             
             <tr>
                 <td>refactor</td>
-                <td>262</td>
+                <td>263</td>
             </tr>
             
             <tr>
@@ -12515,7 +12518,7 @@ def download_testing_data():
             
             <tr>
                 <td>error</td>
-                <td>73</td>
+                <td>74</td>
             </tr>
             
         </table>
@@ -12539,28 +12542,23 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>line-too-long</td>
-                <td>116</td>
-            </tr>
-            
-            <tr>
                 <td>missing-module-docstring</td>
                 <td>23</td>
             </tr>
             
             <tr>
+                <td>invalid-name</td>
+                <td>221</td>
+            </tr>
+            
+            <tr>
                 <td>import-error</td>
-                <td>48</td>
+                <td>49</td>
             </tr>
             
             <tr>
                 <td>missing-class-docstring</td>
                 <td>18</td>
-            </tr>
-            
-            <tr>
-                <td>invalid-name</td>
-                <td>221</td>
             </tr>
             
             <tr>
@@ -12574,26 +12572,6 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>unused-argument</td>
-                <td>37</td>
-            </tr>
-            
-            <tr>
-                <td>wrong-import-order</td>
-                <td>20</td>
-            </tr>
-            
-            <tr>
-                <td>singleton-comparison</td>
-                <td>24</td>
-            </tr>
-            
-            <tr>
-                <td>protected-access</td>
-                <td>3</td>
-            </tr>
-            
-            <tr>
                 <td>too-many-statements</td>
                 <td>17</td>
             </tr>
@@ -12601,6 +12579,11 @@ def download_testing_data():
             <tr>
                 <td>unused-variable</td>
                 <td>9</td>
+            </tr>
+            
+            <tr>
+                <td>singleton-comparison</td>
+                <td>24</td>
             </tr>
             
             <tr>
@@ -12614,8 +12597,18 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>too-many-locals</td>
-                <td>40</td>
+                <td>consider-using-enumerate</td>
+                <td>46</td>
+            </tr>
+            
+            <tr>
+                <td>unused-argument</td>
+                <td>37</td>
+            </tr>
+            
+            <tr>
+                <td>line-too-long</td>
+                <td>116</td>
             </tr>
             
             <tr>
@@ -12624,13 +12617,23 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>consider-using-enumerate</td>
-                <td>46</td>
+                <td>too-many-locals</td>
+                <td>40</td>
             </tr>
             
             <tr>
                 <td>bare-except</td>
                 <td>8</td>
+            </tr>
+            
+            <tr>
+                <td>consider-iterating-dictionary</td>
+                <td>14</td>
+            </tr>
+            
+            <tr>
+                <td>wrong-import-order</td>
+                <td>20</td>
             </tr>
             
             <tr>
@@ -12659,16 +12662,6 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>consider-iterating-dictionary</td>
-                <td>14</td>
-            </tr>
-            
-            <tr>
-                <td>consider-using-dict-items</td>
-                <td>4</td>
-            </tr>
-            
-            <tr>
                 <td>superfluous-parens</td>
                 <td>14</td>
             </tr>
@@ -12684,28 +12677,18 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>trailing-whitespace</td>
-                <td>43</td>
+                <td>consider-using-dict-items</td>
+                <td>4</td>
             </tr>
             
             <tr>
-                <td>no-member</td>
-                <td>11</td>
-            </tr>
-            
-            <tr>
-                <td>missing-timeout</td>
+                <td>protected-access</td>
                 <td>3</td>
             </tr>
             
             <tr>
-                <td>raise-missing-from</td>
-                <td>18</td>
-            </tr>
-            
-            <tr>
-                <td>invalid-sequence-index</td>
-                <td>14</td>
+                <td>trailing-whitespace</td>
+                <td>43</td>
             </tr>
             
             <tr>
@@ -12714,8 +12697,8 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>no-else-return</td>
-                <td>11</td>
+                <td>duplicate-key</td>
+                <td>2</td>
             </tr>
             
             <tr>
@@ -12724,23 +12707,48 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>too-many-boolean-expressions</td>
-                <td>1</td>
-            </tr>
-            
-            <tr>
                 <td>too-many-branches</td>
                 <td>14</td>
             </tr>
             
             <tr>
-                <td>too-many-instance-attributes</td>
+                <td>simplifiable-if-expression</td>
+                <td>6</td>
+            </tr>
+            
+            <tr>
+                <td>too-few-public-methods</td>
                 <td>1</td>
             </tr>
             
             <tr>
-                <td>import-outside-toplevel</td>
+                <td>no-else-return</td>
+                <td>11</td>
+            </tr>
+            
+            <tr>
+                <td>raise-missing-from</td>
+                <td>18</td>
+            </tr>
+            
+            <tr>
+                <td>dangerous-default-value</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>consider-merging-isinstance</td>
                 <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>unnecessary-pass</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>broad-except</td>
+                <td>5</td>
             </tr>
             
             <tr>
@@ -12754,27 +12762,7 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>broad-except</td>
-                <td>5</td>
-            </tr>
-            
-            <tr>
-                <td>unnecessary-pass</td>
-                <td>2</td>
-            </tr>
-            
-            <tr>
-                <td>use-dict-literal</td>
-                <td>4</td>
-            </tr>
-            
-            <tr>
-                <td>simplifiable-if-statement</td>
-                <td>1</td>
-            </tr>
-            
-            <tr>
-                <td>inconsistent-return-statements</td>
+                <td>missing-timeout</td>
                 <td>3</td>
             </tr>
             
@@ -12789,33 +12777,38 @@ def download_testing_data():
             </tr>
             
             <tr>
+                <td>use-dict-literal</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
                 <td>consider-using-f-string</td>
                 <td>2</td>
             </tr>
             
             <tr>
-                <td>simplifiable-if-expression</td>
-                <td>6</td>
-            </tr>
-            
-            <tr>
-                <td>too-few-public-methods</td>
+                <td>simplifiable-if-statement</td>
                 <td>1</td>
             </tr>
             
             <tr>
-                <td>dangerous-default-value</td>
-                <td>4</td>
+                <td>inconsistent-return-statements</td>
+                <td>3</td>
             </tr>
             
             <tr>
-                <td>consider-merging-isinstance</td>
+                <td>too-many-instance-attributes</td>
                 <td>1</td>
             </tr>
             
             <tr>
-                <td>duplicate-key</td>
-                <td>2</td>
+                <td>import-outside-toplevel</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>too-many-boolean-expressions</td>
+                <td>1</td>
             </tr>
             
             <tr>
@@ -12824,8 +12817,18 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>duplicate-code</td>
+                <td>no-member</td>
+                <td>11</td>
+            </tr>
+            
+            <tr>
+                <td>invalid-sequence-index</td>
                 <td>14</td>
+            </tr>
+            
+            <tr>
+                <td>duplicate-code</td>
+                <td>15</td>
             </tr>
             
         </table>
@@ -12844,33 +12847,13 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio.epidata_test.test_epidata_get_population_data</td>
-                <td>15</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_transform_mobility_data</td>
-                <td>15</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_progress_indicator</td>
-                <td>20</td>
-            </tr>
-            
-            <tr>
                 <td>memilio.epidata_test.test_epidata_getDataIntoPandasDataFrame</td>
                 <td>56</td>
             </tr>
             
             <tr>
-                <td>memilio.epidata_test.test_epidata_getNPIData</td>
-                <td>13</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_get_jh_data</td>
-                <td>17</td>
+                <td>memilio.epidata_test.test_epidata_get_vaccination_data</td>
+                <td>18</td>
             </tr>
             
             <tr>
@@ -12879,13 +12862,8 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio.epidata_test.test_epidata_getCaseData</td>
-                <td>40</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_modifyDataframeSeries</td>
-                <td>42</td>
+                <td>memilio.epidata_test.test_epidata_get_simulation_data</td>
+                <td>6</td>
             </tr>
             
             <tr>
@@ -12894,28 +12872,8 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio.epidata_test.test_epidata_get_vaccination_data</td>
+                <td>memilio.epidata_test.test_epidata_get_jh_data</td>
                 <td>17</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_cleandata</td>
-                <td>94</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_getCommuterMobility</td>
-                <td>18</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_defaultDict</td>
-                <td>10</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata_test.test_epidata_geoModificationGermany</td>
-                <td>48</td>
             </tr>
             
             <tr>
@@ -12924,93 +12882,53 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio.epidata_test.test_epidata_get_simulation_data</td>
-                <td>6</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getTestingData</td>
-                <td>58</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getPopulationData</td>
-                <td>26</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getCommuterMobility</td>
-                <td>45</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.progress_indicator</td>
-                <td>11</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.modifyDataframeSeries</td>
-                <td>38</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getSimulationData</td>
-                <td>12</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getHospitalizationData</td>
-                <td>17</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.cleanData</td>
-                <td>8</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getCaseData</td>
-                <td>60</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.transformWeatherData</td>
-                <td>16</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getNPIData</td>
-                <td>91</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getJHData</td>
-                <td>13</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.transformMobilityData</td>
-                <td>14</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getDataIntoPandasDataFrame</td>
-                <td>68</td>
-            </tr>
-            
-            <tr>
-                <td>memilio.epidata.getDIVIData</td>
+                <td>memilio.epidata_test.test_epidata_getCommuterMobility</td>
                 <td>18</td>
             </tr>
             
             <tr>
-                <td>memilio.epidata.getVaccinationData</td>
-                <td>81</td>
+                <td>memilio.epidata_test.test_epidata_cleandata</td>
+                <td>94</td>
             </tr>
             
             <tr>
-                <td>memilio.epidata.defaultDict</td>
-                <td>12</td>
+                <td>memilio.epidata_test.test_epidata_geoModificationGermany</td>
+                <td>48</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_modifyDataframeSeries</td>
+                <td>42</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_defaultDict</td>
+                <td>10</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_getCaseData</td>
+                <td>40</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_progress_indicator</td>
+                <td>20</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_transform_mobility_data</td>
+                <td>15</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_getNPIData</td>
+                <td>13</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata_test.test_epidata_get_population_data</td>
+                <td>15</td>
             </tr>
             
             <tr>
@@ -13019,8 +12937,93 @@ def download_testing_data():
             </tr>
             
             <tr>
+                <td>memilio.epidata.defaultDict</td>
+                <td>12</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.cleanData</td>
+                <td>8</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getDataIntoPandasDataFrame</td>
+                <td>68</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getSimulationData</td>
+                <td>12</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.modifyDataframeSeries</td>
+                <td>38</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getPopulationData</td>
+                <td>26</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getJHData</td>
+                <td>13</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getHospitalizationData</td>
+                <td>17</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getNPIData</td>
+                <td>91</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getCaseData</td>
+                <td>60</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.progress_indicator</td>
+                <td>11</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getCommuterMobility</td>
+                <td>45</td>
+            </tr>
+            
+            <tr>
                 <td>memilio.epidata.geoModificationGermany</td>
-                <td>44</td>
+                <td>30</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getVaccinationData</td>
+                <td>81</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getDIVIData</td>
+                <td>18</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.transformMobilityData</td>
+                <td>14</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.getTestingData</td>
+                <td>58</td>
+            </tr>
+            
+            <tr>
+                <td>memilio.epidata.transformWeatherData</td>
+                <td>31</td>
             </tr>
             
         </table>
@@ -13039,33 +13042,13 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio/epidata_test/test_epidata_get_population_data.py</td>
-                <td>15</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_transform_mobility_data.py</td>
-                <td>15</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_progress_indicator.py</td>
-                <td>20</td>
-            </tr>
-            
-            <tr>
                 <td>memilio/epidata_test/test_epidata_getDataIntoPandasDataFrame.py</td>
                 <td>56</td>
             </tr>
             
             <tr>
-                <td>memilio/epidata_test/test_epidata_getNPIData.py</td>
-                <td>13</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_get_jh_data.py</td>
-                <td>17</td>
+                <td>memilio/epidata_test/test_epidata_get_vaccination_data.py</td>
+                <td>18</td>
             </tr>
             
             <tr>
@@ -13074,13 +13057,8 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio/epidata_test/test_epidata_getCaseData.py</td>
-                <td>40</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_modifyDataframeSeries.py</td>
-                <td>42</td>
+                <td>memilio/epidata_test/test_epidata_get_simulation_data.py</td>
+                <td>6</td>
             </tr>
             
             <tr>
@@ -13089,28 +13067,8 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio/epidata_test/test_epidata_get_vaccination_data.py</td>
+                <td>memilio/epidata_test/test_epidata_get_jh_data.py</td>
                 <td>17</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_cleandata.py</td>
-                <td>94</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_getCommuterMobility.py</td>
-                <td>18</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_defaultDict.py</td>
-                <td>10</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata_test/test_epidata_geoModificationGermany.py</td>
-                <td>48</td>
             </tr>
             
             <tr>
@@ -13119,93 +13077,53 @@ def download_testing_data():
             </tr>
             
             <tr>
-                <td>memilio/epidata_test/test_epidata_get_simulation_data.py</td>
-                <td>6</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getTestingData.py</td>
-                <td>58</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getPopulationData.py</td>
-                <td>26</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getCommuterMobility.py</td>
-                <td>45</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/progress_indicator.py</td>
-                <td>11</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/modifyDataframeSeries.py</td>
-                <td>38</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getSimulationData.py</td>
-                <td>12</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getHospitalizationData.py</td>
-                <td>17</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/cleanData.py</td>
-                <td>8</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getCaseData.py</td>
-                <td>60</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/transformWeatherData.py</td>
-                <td>16</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getNPIData.py</td>
-                <td>91</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getJHData.py</td>
-                <td>13</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/transformMobilityData.py</td>
-                <td>14</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getDataIntoPandasDataFrame.py</td>
-                <td>68</td>
-            </tr>
-            
-            <tr>
-                <td>memilio/epidata/getDIVIData.py</td>
+                <td>memilio/epidata_test/test_epidata_getCommuterMobility.py</td>
                 <td>18</td>
             </tr>
             
             <tr>
-                <td>memilio/epidata/getVaccinationData.py</td>
-                <td>81</td>
+                <td>memilio/epidata_test/test_epidata_cleandata.py</td>
+                <td>94</td>
             </tr>
             
             <tr>
-                <td>memilio/epidata/defaultDict.py</td>
-                <td>12</td>
+                <td>memilio/epidata_test/test_epidata_geoModificationGermany.py</td>
+                <td>48</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_modifyDataframeSeries.py</td>
+                <td>42</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_defaultDict.py</td>
+                <td>10</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_getCaseData.py</td>
+                <td>40</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_progress_indicator.py</td>
+                <td>20</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_transform_mobility_data.py</td>
+                <td>15</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_getNPIData.py</td>
+                <td>13</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata_test/test_epidata_get_population_data.py</td>
+                <td>15</td>
             </tr>
             
             <tr>
@@ -13214,8 +13132,93 @@ def download_testing_data():
             </tr>
             
             <tr>
+                <td>memilio/epidata/defaultDict.py</td>
+                <td>12</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/cleanData.py</td>
+                <td>8</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getDataIntoPandasDataFrame.py</td>
+                <td>68</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getSimulationData.py</td>
+                <td>12</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/modifyDataframeSeries.py</td>
+                <td>38</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getPopulationData.py</td>
+                <td>26</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getJHData.py</td>
+                <td>13</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getHospitalizationData.py</td>
+                <td>17</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getNPIData.py</td>
+                <td>91</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getCaseData.py</td>
+                <td>60</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/progress_indicator.py</td>
+                <td>11</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getCommuterMobility.py</td>
+                <td>45</td>
+            </tr>
+            
+            <tr>
                 <td>memilio/epidata/geoModificationGermany.py</td>
-                <td>44</td>
+                <td>30</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getVaccinationData.py</td>
+                <td>81</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getDIVIData.py</td>
+                <td>18</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/transformMobilityData.py</td>
+                <td>14</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/getTestingData.py</td>
+                <td>58</td>
+            </tr>
+            
+            <tr>
+                <td>memilio/epidata/transformWeatherData.py</td>
+                <td>31</td>
             </tr>
             
         </table>

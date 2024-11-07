@@ -106,7 +106,7 @@ var searchData=
   ['inputs_1019',['inputs',['../classad_1_1helper_1_1external__adjoint__object__base.html#a0f788905e866607d8c0d58212f741b65',1,'ad::helper::external_adjoint_object_base']]],
   ['inputs_5fcount_1020',['inputs_count',['../classad_1_1helper_1_1external__adjoint__object__base.html#a98d5b97fba639c4aa0974163d3d83cb5',1,'ad::helper::external_adjoint_object_base']]],
   ['insert_5fcallback_1021',['insert_callback',['../structad_1_1internal_1_1blob__tape.html#a312d775ca3921d66945f5bd91769438e',1,'ad::internal::blob_tape']]],
-  ['insert_5fcolumn_5fby_5fmap_1022',['insert_column_by_map',['../namespacememilio_1_1epidata_1_1modifyDataframeSeries.html#a6f5e314e012fab4bce45a073e98d5174',1,'memilio::epidata::modifyDataframeSeries']]],
+  ['insert_5fcolumn_5fby_5fmap_1022',['insert_column_by_map',['../namespacememilio_1_1epidata_1_1modifyDataframeSeries.html#a366549d8aa629caa6ceaeb4def4bd3e4',1,'memilio::epidata::modifyDataframeSeries']]],
   ['insert_5fnames_5fof_5fcounties_1023',['insert_names_of_counties',['../namespacememilio_1_1epidata_1_1geoModificationGermany.html#a3c6d82414ccb48583b1a1edbd2298d3c',1,'memilio::epidata::geoModificationGermany']]],
   ['insert_5fnames_5fof_5fstates_1024',['insert_names_of_states',['../namespacememilio_1_1epidata_1_1geoModificationGermany.html#a7d9042405fba66f506f90ba85fa31240',1,'memilio::epidata::geoModificationGermany']]],
   ['insert_5fsorted_5freplace_1025',['insert_sorted_replace',['../namespacemio.html#abe01e2795a0e0b69936834f050129964',1,'mio::insert_sorted_replace(std::vector&lt; T &gt; &amp;vec, T const &amp;item)'],['../namespacemio.html#af182124b02db89381844675d1365a286',1,'mio::insert_sorted_replace(std::vector&lt; T &gt; &amp;vec, T const &amp;item, Pred pred)']]],

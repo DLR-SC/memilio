@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-01 10:50:38</td>
+            <td class="headerValue">2024-11-07 10:44:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -179,9 +179,9 @@
 <a name="117"><span class="lineNum">     117 </span>            :      * @brief Get the AgeGroup of this Person.</a>
 <a name="118"><span class="lineNum">     118 </span>            :      * @return AgeGroup of the Person.</a>
 <a name="119"><span class="lineNum">     119 </span>            :      */</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       1112 :     AgeGroup get_age() const</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       1116 :     AgeGroup get_age() const</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :     {</a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">       1112 :         return m_age;</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">       1116 :         return m_age;</span></a>
 <a name="123"><span class="lineNum">     123 </span>            :     }</a>
 <a name="124"><span class="lineNum">     124 </span>            : </a>
 <a name="125"><span class="lineNum">     125 </span>            :     /**</a>
@@ -190,9 +190,9 @@
 <a name="128"><span class="lineNum">     128 </span>            :      */</a>
 <a name="129"><span class="lineNum">     129 </span>            :     LocationId get_location() const;</a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       1191 :     LocationType get_location_type() const</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       1193 :     LocationType get_location_type() const</span></a>
 <a name="132"><span class="lineNum">     132 </span>            :     {</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       1191 :         return m_location_type;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       1193 :         return m_location_type;</span></a>
 <a name="134"><span class="lineNum">     134 </span>            :     }</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
 <a name="136"><span class="lineNum">     136 </span>            :     /**</a>
@@ -205,9 +205,9 @@
 <a name="143"><span class="lineNum">     143 </span>            :      * @brief Get the time the Person has been at its current Location.</a>
 <a name="144"><span class="lineNum">     144 </span>            :      * @return TimeSpan the Person has been at the Location.</a>
 <a name="145"><span class="lineNum">     145 </span>            :      */</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         10 :     TimeSpan get_time_at_location() const</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">          8 :     TimeSpan get_time_at_location() const</span></a>
 <a name="147"><span class="lineNum">     147 </span>            :     {</a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         10 :         return m_time_at_location;</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          8 :         return m_time_at_location;</span></a>
 <a name="149"><span class="lineNum">     149 </span>            :     }</a>
 <a name="150"><span class="lineNum">     150 </span>            : </a>
 <a name="151"><span class="lineNum">     151 </span>            :     /**</a>
@@ -293,9 +293,9 @@
 <a name="231"><span class="lineNum">     231 </span>            :      * @param[in] params Parameter that includes the length of a quarantine.</a>
 <a name="232"><span class="lineNum">     232 </span>            :      * @return True if the Person is in quarantine.</a>
 <a name="233"><span class="lineNum">     233 </span>            :      */</a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        182 :     bool is_in_quarantine(TimePoint t, const Parameters&amp; params) const</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        186 :     bool is_in_quarantine(TimePoint t, const Parameters&amp; params) const</span></a>
 <a name="235"><span class="lineNum">     235 </span>            :     {</a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">        182 :         return t &lt; m_home_isolation_start + params.get&lt;mio::abm::QuarantineDuration&gt;();</span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">        186 :         return t &lt; m_home_isolation_start + params.get&lt;mio::abm::QuarantineDuration&gt;();</span></a>
 <a name="237"><span class="lineNum">     237 </span>            :     }</a>
 <a name="238"><span class="lineNum">     238 </span>            : </a>
 <a name="239"><span class="lineNum">     239 </span>            :     /**</a>
@@ -369,9 +369,9 @@
 <a name="307"><span class="lineNum">     307 </span>            :      * @param[in] intervention_type The #InterventionType.</a>
 <a name="308"><span class="lineNum">     308 </span>            :      * @return The probability that the Person complies to an Intervention.</a>
 <a name="309"><span class="lineNum">     309 </span>            :      */</a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">         74 :     ScalarType get_compliance(InterventionType intervention_type) const</span></a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">         73 :     ScalarType get_compliance(InterventionType intervention_type) const</span></a>
 <a name="311"><span class="lineNum">     311 </span>            :     {</a>
-<a name="312"><span class="lineNum">     312 </span><span class="lineCov">         74 :         return m_compliance[static_cast&lt;uint32_t&gt;(intervention_type)];</span></a>
+<a name="312"><span class="lineNum">     312 </span><span class="lineCov">         73 :         return m_compliance[static_cast&lt;uint32_t&gt;(intervention_type)];</span></a>
 <a name="313"><span class="lineNum">     313 </span>            :     }</a>
 <a name="314"><span class="lineNum">     314 </span>            : </a>
 <a name="315"><span class="lineNum">     315 </span>            :     /**</a>
@@ -421,10 +421,10 @@
 <a name="359"><span class="lineNum">     359 </span>            :      * @brief Set the transport mode the Person used to get to its current Location.</a>
 <a name="360"><span class="lineNum">     360 </span>            :      * @param[in] mode TransportMode the Person used to get to its current Location.</a>
 <a name="361"><span class="lineNum">     361 </span>            :      */</a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">         39 :     void set_last_transport_mode(const mio::abm::TransportMode mode)</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">         37 :     void set_last_transport_mode(const mio::abm::TransportMode mode)</span></a>
 <a name="363"><span class="lineNum">     363 </span>            :     {</a>
-<a name="364"><span class="lineNum">     364 </span><span class="lineCov">         39 :         m_last_transport_mode = mode;</span></a>
-<a name="365"><span class="lineNum">     365 </span><span class="lineCov">         39 :     }</span></a>
+<a name="364"><span class="lineNum">     364 </span><span class="lineCov">         37 :         m_last_transport_mode = mode;</span></a>
+<a name="365"><span class="lineNum">     365 </span><span class="lineCov">         37 :     }</span></a>
 <a name="366"><span class="lineNum">     366 </span>            : </a>
 <a name="367"><span class="lineNum">     367 </span>            :     /**</a>
 <a name="368"><span class="lineNum">     368 </span>            :      * @brief Get this persons RandomNumberGenerator counter.</a>
