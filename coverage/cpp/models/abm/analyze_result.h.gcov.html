@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">94</td>
@@ -97,167 +97,167 @@
 <a name="35"><span class="lineNum">      35 </span>            :     * @return p percentile of the parameters over all runs</a>
 <a name="36"><span class="lineNum">      36 </span>            :     */</a>
 <a name="37"><span class="lineNum">      37 </span>            : template &lt;class Model&gt;</a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">          2 : std::vector&lt;Model&gt; ensemble_params_percentile(const std::vector&lt;std::vector&lt;Model&gt;&gt;&amp; ensemble_params, double p)</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         14 : std::vector&lt;Model&gt; ensemble_params_percentile(const std::vector&lt;std::vector&lt;Model&gt;&gt;&amp; ensemble_params, double p)</span></a>
 <a name="39"><span class="lineNum">      39 </span>            : {</a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">          2 :     assert(p &gt; 0.0 &amp;&amp; p &lt; 1.0 &amp;&amp; &quot;Invalid percentile value.&quot;);</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">         14 :     assert(p &gt; 0.0 &amp;&amp; p &lt; 1.0 &amp;&amp; &quot;Invalid percentile value.&quot;);</span></a>
 <a name="41"><span class="lineNum">      41 </span>            : </a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">          2 :     auto num_runs  = ensemble_params.size();</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">          2 :     auto num_nodes = ensemble_params[0].size();</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; single_element_ensemble(num_runs);</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          2 :     auto num_groups = (size_t)ensemble_params[0][0].parameters.get_num_groups();</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         14 :     auto num_runs  = ensemble_params.size();</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         14 :     auto num_nodes = ensemble_params[0].size();</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">         28 :     std::vector&lt;double&gt; single_element_ensemble(num_runs);</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         14 :     auto num_groups = (size_t)ensemble_params[0][0].parameters.get_num_groups();</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
 <a name="47"><span class="lineNum">      47 </span>            :     // Lambda function that calculates the percentile of a single parameter</a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">          6 :     std::vector&lt;Model&gt; percentile(num_nodes, Model((int)num_groups));</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">       8634 :     auto param_percentil = [&amp;ensemble_params, p, num_runs, &amp;percentile](auto n, auto get_param) mutable {</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">       1992 :         std::vector&lt;double&gt; single_element(num_runs);</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">       2656 :         for (size_t run = 0; run &lt; num_runs; run++) {</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">       2656 :             auto const&amp; params  = ensemble_params[run][n];</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">       1328 :             single_element[run] = get_param(params);</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">         42 :     std::vector&lt;Model&gt; percentile(num_nodes, Model((int)num_groups));</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      60438 :     auto param_percentil = [&amp;ensemble_params, p, num_runs, &amp;percentile](auto n, auto get_param) mutable {</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      13944 :         std::vector&lt;double&gt; single_element(num_runs);</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">      18592 :         for (size_t run = 0; run &lt; num_runs; run++) {</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      18592 :             auto const&amp; params  = ensemble_params[run][n];</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">       9296 :             single_element[run] = get_param(params);</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :         }</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        664 :         std::sort(single_element.begin(), single_element.end());</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       1328 :         auto&amp; new_params = get_param(percentile[n]);</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       1328 :         new_params       = single_element[static_cast&lt;size_t&gt;(num_runs * p)];</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        664 :     };</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       4648 :         std::sort(single_element.begin(), single_element.end());</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       9296 :         auto&amp; new_params = get_param(percentile[n]);</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       9296 :         new_params       = single_element[static_cast&lt;size_t&gt;(num_runs * p)];</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       4648 :     };</span></a>
 <a name="59"><span class="lineNum">      59 </span>            : </a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">          6 :     for (size_t node = 0; node &lt; num_nodes; node++) {</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         28 :         for (auto age_group = AgeGroup(0); age_group &lt; AgeGroup(num_groups); age_group++) {</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         48 :             for (auto virus_variant = VirusVariant(0); virus_variant &lt; VirusVariant::Count;</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         24 :                  virus_variant      = static_cast&lt;VirusVariant&gt;((uint32_t)virus_variant + 1)) {</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         42 :     for (size_t node = 0; node &lt; num_nodes; node++) {</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        196 :         for (auto age_group = AgeGroup(0); age_group &lt; AgeGroup(num_groups); age_group++) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        336 :             for (auto virus_variant = VirusVariant(0); virus_variant &lt; VirusVariant::Count;</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        168 :                  virus_variant      = static_cast&lt;VirusVariant&gt;((uint32_t)virus_variant + 1)) {</span></a>
 <a name="64"><span class="lineNum">      64 </span>            :                 // Global infection parameters</a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;IncubationPeriod&gt;()[{virus_variant, age_group}];</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;IncubationPeriod&gt;()[{virus_variant, age_group}];</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :                 });</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;InfectedNoSymptomsToSymptoms&gt;()[{virus_variant, age_group}];</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;InfectedNoSymptomsToSymptoms&gt;()[{virus_variant, age_group}];</span></a>
 <a name="70"><span class="lineNum">      70 </span>            :                 });</a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;InfectedNoSymptomsToRecovered&gt;()[{virus_variant, age_group}];</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;InfectedNoSymptomsToRecovered&gt;()[{virus_variant, age_group}];</span></a>
 <a name="73"><span class="lineNum">      73 </span>            :                 });</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;InfectedSymptomsToRecovered&gt;()[{virus_variant, age_group}];</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;InfectedSymptomsToRecovered&gt;()[{virus_variant, age_group}];</span></a>
 <a name="76"><span class="lineNum">      76 </span>            :                 });</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;InfectedSymptomsToSevere&gt;()[{virus_variant, age_group}];</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;InfectedSymptomsToSevere&gt;()[{virus_variant, age_group}];</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :                 });</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;SevereToCritical&gt;()[{virus_variant, age_group}];</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;SevereToCritical&gt;()[{virus_variant, age_group}];</span></a>
 <a name="82"><span class="lineNum">      82 </span>            :                 });</a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;SevereToRecovered&gt;()[{virus_variant, age_group}];</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;SevereToRecovered&gt;()[{virus_variant, age_group}];</span></a>
 <a name="85"><span class="lineNum">      85 </span>            :                 });</a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;CriticalToDead&gt;()[{virus_variant, age_group}];</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;CriticalToDead&gt;()[{virus_variant, age_group}];</span></a>
 <a name="88"><span class="lineNum">      88 </span>            :                 });</a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;CriticalToRecovered&gt;()[{virus_variant, age_group}];</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;CriticalToRecovered&gt;()[{virus_variant, age_group}];</span></a>
 <a name="91"><span class="lineNum">      91 </span>            :                 });</a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;RecoveredToSusceptible&gt;()[{virus_variant, age_group}];</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;RecoveredToSusceptible&gt;()[{virus_variant, age_group}];</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :                 });</a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         96 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;DetectInfection&gt;()[{virus_variant, age_group}];</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">        672 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;DetectInfection&gt;()[{virus_variant, age_group}];</span></a>
 <a name="97"><span class="lineNum">      97 </span>            :                 });</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="101"><span class="lineNum">     101 </span>            :                             .viral_load_incline.params.a();</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :                 });</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="107"><span class="lineNum">     107 </span>            :                             .viral_load_incline.params.b();</a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="109"><span class="lineNum">     109 </span>            :                 });</a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :                             .viral_load_decline.params.a();</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :                 });</a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :                             .viral_load_decline.params.b();</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :                 });</a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="125"><span class="lineNum">     125 </span>            :                             .viral_load_peak.params.a();</a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :                 });</a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;ViralLoadDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="131"><span class="lineNum">     131 </span>            :                             .viral_load_peak.params.b();</a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :                 });</a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="137"><span class="lineNum">     137 </span>            :                             .infectivity_alpha.params.a();</a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            :                 });</a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="143"><span class="lineNum">     143 </span>            :                             .infectivity_alpha.params.b();</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="145"><span class="lineNum">     145 </span>            :                 });</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="149"><span class="lineNum">     149 </span>            :                             .infectivity_beta.params.a();</a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="151"><span class="lineNum">     151 </span>            :                 });</a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         26 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         74 :                     static auto result =</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          6 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">        182 :                 param_percentil(node, [age_group, virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">        518 :                     static auto result =</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         42 :                         model.parameters.template get&lt;InfectivityDistributions&gt;()[{virus_variant, age_group}]</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :                             .infectivity_beta.params.b();</a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         72 :                     return result;</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">        504 :                     return result;</span></a>
 <a name="157"><span class="lineNum">     157 </span>            :                 });</a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         96 :                 param_percentil(node, [virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        144 :                     return model.parameters.template get&lt;AerosolTransmissionRates&gt;()[{virus_variant}];</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        672 :                 param_percentil(node, [virus_variant](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">       1008 :                     return model.parameters.template get&lt;AerosolTransmissionRates&gt;()[{virus_variant}];</span></a>
 <a name="160"><span class="lineNum">     160 </span>            :                 });</a>
 <a name="161"><span class="lineNum">     161 </span>            :             }</a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         96 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">         72 :                 return model.parameters.template get&lt;BasicShoppingRate&gt;()[{age_group}];</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">        672 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        504 :                 return model.parameters.template get&lt;BasicShoppingRate&gt;()[{age_group}];</span></a>
 <a name="164"><span class="lineNum">     164 </span>            :             });</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         96 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">         72 :                 static auto result = model.parameters.template get&lt;GotoWorkTimeMinimum&gt;()[{age_group}].hours();</span></a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         72 :                 return result;</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">        672 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">        504 :                 static auto result = model.parameters.template get&lt;GotoWorkTimeMinimum&gt;()[{age_group}].hours();</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">        504 :                 return result;</span></a>
 <a name="168"><span class="lineNum">     168 </span>            :             });</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         96 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">         72 :                 static auto result = model.parameters.template get&lt;GotoWorkTimeMaximum&gt;()[{age_group}].hours();</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         72 :                 return result;</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">        672 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">        504 :                 static auto result = model.parameters.template get&lt;GotoWorkTimeMaximum&gt;()[{age_group}].hours();</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">        504 :                 return result;</span></a>
 <a name="172"><span class="lineNum">     172 </span>            :             });</a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">         96 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         72 :                 static auto result = model.parameters.template get&lt;GotoSchoolTimeMinimum&gt;()[{age_group}].hours();</span></a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">         72 :                 return result;</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        672 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">        504 :                 static auto result = model.parameters.template get&lt;GotoSchoolTimeMinimum&gt;()[{age_group}].hours();</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">        504 :                 return result;</span></a>
 <a name="176"><span class="lineNum">     176 </span>            :             });</a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">         96 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">         72 :                 static auto result = model.parameters.template get&lt;GotoSchoolTimeMaximum&gt;()[{age_group}].hours();</span></a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         72 :                 return result;</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">        672 :             param_percentil(node, [age_group](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        504 :                 static auto result = model.parameters.template get&lt;GotoSchoolTimeMaximum&gt;()[{age_group}].hours();</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">        504 :                 return result;</span></a>
 <a name="180"><span class="lineNum">     180 </span>            :             });</a>
 <a name="181"><span class="lineNum">     181 </span>            :         }</a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         16 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         12 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::Community];</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">        112 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         84 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::Community];</span></a>
 <a name="184"><span class="lineNum">     184 </span>            :         });</a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         16 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">         12 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::FFP2];</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        112 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">         84 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::FFP2];</span></a>
 <a name="187"><span class="lineNum">     187 </span>            :         });</a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">         16 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         12 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::Surgical];</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        112 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         84 :             return model.parameters.template get&lt;MaskProtection&gt;()[MaskType::Surgical];</span></a>
 <a name="190"><span class="lineNum">     190 </span>            :         });</a>
-<a name="191"><span class="lineNum">     191 </span><span class="lineCov">         16 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         12 :             static auto result = model.parameters.template get&lt;LockdownDate&gt;().days();</span></a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">         12 :             return result;</span></a>
+<a name="191"><span class="lineNum">     191 </span><span class="lineCov">        112 :         param_percentil(node, [](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         84 :             static auto result = model.parameters.template get&lt;LockdownDate&gt;().days();</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">         84 :             return result;</span></a>
 <a name="194"><span class="lineNum">     194 </span>            :         });</a>
 <a name="195"><span class="lineNum">     195 </span>            :     }</a>
 <a name="196"><span class="lineNum">     196 </span>            : </a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">          4 :     return percentile;</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">          2 : }</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">         28 :     return percentile;</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">         14 : }</span></a>
 <a name="199"><span class="lineNum">     199 </span>            : </a>
 <a name="200"><span class="lineNum">     200 </span>            : } // namespace abm</a>
 <a name="201"><span class="lineNum">     201 </span>            : } // namespace mio</a>

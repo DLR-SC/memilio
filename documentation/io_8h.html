@@ -82,6 +82,8 @@ $(function() {
 <code>#include &quot;boost/outcome/result.hpp&quot;</code><br />
 <code>#include &quot;boost/outcome/try.hpp&quot;</code><br />
 <code>#include &quot;boost/optional.hpp&quot;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div>
@@ -183,10 +185,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3cd34c233549e8b0e086c67fd82809d3"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class F , class... T&gt; </td></tr>
-<tr class="memitem:a3cd34c233549e8b0e086c67fd82809d3"><td class="memTemplItemLeft" align="right" valign="top">details::ApplyResultT&lt; F, T... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">mio::apply</a> (IOContext &amp;io, F f, const IOResult&lt; T &gt; &amp;... rs)</td></tr>
-<tr class="memdesc:a3cd34c233549e8b0e086c67fd82809d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a function with zero or more unpacked IOResults as arguments.  <a href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">More...</a><br /></td></tr>
-<tr class="separator:a3cd34c233549e8b0e086c67fd82809d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d3e99d87ecd03e78eef03c54a8e58d2"><td class="memItemLeft" align="right" valign="top">IOResult&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio.html#a8d3e99d87ecd03e78eef03c54a8e58d2">mio::create_directory</a> (std::string const  &amp;rel_path)</td></tr>
 <tr class="memdesc:a8d3e99d87ecd03e78eef03c54a8e58d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directory in the file system.  <a href="namespacemio.html#a8d3e99d87ecd03e78eef03c54a8e58d2">More...</a><br /></td></tr>
 <tr class="separator:a8d3e99d87ecd03e78eef03c54a8e58d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +207,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a210ceb31e6e751b667b64fe06389b6a5"><td class="memTemplItemLeft" align="right" valign="top">IOResult&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a210ceb31e6e751b667b64fe06389b6a5">mio::deserialize_internal</a> (IOContext &amp;io, Tag&lt; M &gt;)</td></tr>
 <tr class="memdesc:a210ceb31e6e751b667b64fe06389b6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserialize an Eigen matrix.  <a href="namespacemio.html#a210ceb31e6e751b667b64fe06389b6a5">More...</a><br /></td></tr>
 <tr class="separator:a210ceb31e6e751b667b64fe06389b6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ef539dcfae557cb5a011ce6d4ee1f4"><td class="memTemplParams" colspan="2">template&lt;class IOContext , size_t N&gt; </td></tr>
+<tr class="memitem:a77ef539dcfae557cb5a011ce6d4ee1f4"><td class="memTemplItemLeft" align="right" valign="top">IOResult&lt; std::bitset&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a77ef539dcfae557cb5a011ce6d4ee1f4">mio::deserialize_internal</a> (IOContext &amp;io, Tag&lt; std::bitset&lt; N &gt;&gt; tag)</td></tr>
+<tr class="memdesc:a77ef539dcfae557cb5a011ce6d4ee1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize an std::bitset.  <a href="namespacemio.html#a77ef539dcfae557cb5a011ce6d4ee1f4">More...</a><br /></td></tr>
+<tr class="separator:a77ef539dcfae557cb5a011ce6d4ee1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bee6e76e87298ab8dc95c7c97591f6f"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class T , std::enable_if_t&lt; has_deserialize&lt; IOContext, T &gt;::value, void * &gt;  = nullptr&gt; </td></tr>
 <tr class="memitem:a3bee6e76e87298ab8dc95c7c97591f6f"><td class="memTemplItemLeft" align="right" valign="top">IOResult&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a3bee6e76e87298ab8dc95c7c97591f6f">mio::deserialize_internal</a> (IOContext &amp;io, Tag&lt; T &gt;)</td></tr>
 <tr class="memdesc:a3bee6e76e87298ab8dc95c7c97591f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserialize an object that has a deserialize(io) static member function.  <a href="namespacemio.html#a3bee6e76e87298ab8dc95c7c97591f6f">More...</a><br /></td></tr>
@@ -262,6 +264,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a123611af57e5e17defecde4498b0a25c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a123611af57e5e17defecde4498b0a25c">mio::serialize_internal</a> (IOContext &amp;io, const Eigen::EigenBase&lt; M &gt; &amp;mat)</td></tr>
 <tr class="memdesc:a123611af57e5e17defecde4498b0a25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize an Eigen matrix expression.  <a href="namespacemio.html#a123611af57e5e17defecde4498b0a25c">More...</a><br /></td></tr>
 <tr class="separator:a123611af57e5e17defecde4498b0a25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24db0bcb67a93d0012ab9b09ce26c95"><td class="memTemplParams" colspan="2">template&lt;class IOContext , size_t N&gt; </td></tr>
+<tr class="memitem:aa24db0bcb67a93d0012ab9b09ce26c95"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#aa24db0bcb67a93d0012ab9b09ce26c95">mio::serialize_internal</a> (IOContext &amp;io, const std::bitset&lt; N &gt; bitset)</td></tr>
+<tr class="memdesc:aa24db0bcb67a93d0012ab9b09ce26c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize an std::bitset.  <a href="namespacemio.html#aa24db0bcb67a93d0012ab9b09ce26c95">More...</a><br /></td></tr>
+<tr class="separator:aa24db0bcb67a93d0012ab9b09ce26c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17c89be42d282d1da23ce443c09e9e74"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class T , std::enable_if_t&lt; is_expression_valid&lt; serialize_t, IOContext, T &gt;::value, void * &gt;  = nullptr&gt; </td></tr>
 <tr class="memitem:a17c89be42d282d1da23ce443c09e9e74"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a17c89be42d282d1da23ce443c09e9e74">mio::serialize_internal</a> (IOContext &amp;io, const T &amp;t)</td></tr>
 <tr class="memdesc:a17c89be42d282d1da23ce443c09e9e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize an object that has a serialize(io) member function.  <a href="namespacemio.html#a17c89be42d282d1da23ce443c09e9e74">More...</a><br /></td></tr>
@@ -290,6 +296,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a98cc59d9b2500df07a248ff1fd2b7367"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a98cc59d9b2500df07a248ff1fd2b7367">mio::success</a> (T &amp;&amp;t)</td></tr>
 <tr class="memdesc:a98cc59d9b2500df07a248ff1fd2b7367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an object that is implicitly convertible to a succesful IOResult.  <a href="namespacemio.html#a98cc59d9b2500df07a248ff1fd2b7367">More...</a><br /></td></tr>
 <tr class="separator:a98cc59d9b2500df07a248ff1fd2b7367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a3cd34c233549e8b0e086c67fd82809d3"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class F , class... T&gt; </td></tr>
+<tr class="memitem:a3cd34c233549e8b0e086c67fd82809d3"><td class="memTemplItemLeft" align="right" valign="top">details::ApplyResultT&lt; F, T... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">mio::apply</a> (IOContext &amp;io, F f, const IOResult&lt; T &gt; &amp;... rs)</td></tr>
+<tr class="memdesc:a3cd34c233549e8b0e086c67fd82809d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a function with zero or more unpacked IOResults as arguments.  <a href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">More...</a><br /></td></tr>
+<tr class="separator:a3cd34c233549e8b0e086c67fd82809d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a1113315d1670235546be67f2c3a03e"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class F , class... T&gt; </td></tr>
+<tr class="memitem:a7a1113315d1670235546be67f2c3a03e"><td class="memTemplItemLeft" align="right" valign="top">details::ApplyResultT&lt; F, T... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a7a1113315d1670235546be67f2c3a03e">mio::apply</a> (IOContext &amp;io, F f, const std::tuple&lt; IOResult&lt; T &gt;... &gt; &amp;results)</td></tr>
+<tr class="memdesc:a7a1113315d1670235546be67f2c3a03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a function with zero or more unpacked IOResults as arguments.  <a href="namespacemio.html#a7a1113315d1670235546be67f2c3a03e">More...</a><br /></td></tr>
+<tr class="separator:a7a1113315d1670235546be67f2c3a03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

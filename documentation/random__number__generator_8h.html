@@ -72,7 +72,8 @@ $(function() {
 <div class="title">random_number_generator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="compiler__diagnostics_8h_source.html">memilio/utils/compiler_diagnostics.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="default__serialize_8h_source.html">memilio/io/default_serialize.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="compiler__diagnostics_8h_source.html">memilio/utils/compiler_diagnostics.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="logging_8h_source.html">memilio/utils/logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="miompi_8h_source.html">memilio/utils/miompi.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="span_8h_source.html">memilio/utils/span.h</a>&quot;</code><br />
@@ -189,6 +190,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The counter in the subsequence.</dd></dl>
 <p>General purpose counter based random number generator. Stores its own key and counter. </p><dl class="section see"><dt>See also</dt><dd>RandomNumberGeneratorBase.</dd></dl>
 <p>Set the seeds in all MPI processes the same as in the root.</p>
+<p>This method is used by the default serialization feature.</p>
 <p>get a random number generator that is static and local to this thread. </p><dl class="section return"><dt>Returns</dt><dd>a RandomNumberGenerator that is static and local to this thread. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Not to be used anymore, only used by ParameterDistribution.</dd></dl>
 <p>Log the seeds used by the RandomNumberGenerator at the specified LogLevel.</p>

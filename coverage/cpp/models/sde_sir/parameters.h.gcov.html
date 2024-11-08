@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -101,9 +101,9 @@
 <a name="39"><span class="lineNum">      39 </span>            :  */</a>
 <a name="40"><span class="lineNum">      40 </span>            : struct TransmissionProbabilityOnContact {</a>
 <a name="41"><span class="lineNum">      41 </span>            :     using Type = UncertainValue&lt;&gt;;</a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">          3 :     static Type get_default()</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         27 :     static Type get_default()</span></a>
 <a name="43"><span class="lineNum">      43 </span>            :     {</a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">          3 :         return Type(1.0);</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">         27 :         return Type(1.0);</span></a>
 <a name="45"><span class="lineNum">      45 </span>            :     }</a>
 <a name="46"><span class="lineNum">      46 </span>            :     static std::string name()</a>
 <a name="47"><span class="lineNum">      47 </span>            :     {</a>
@@ -116,9 +116,9 @@
 <a name="54"><span class="lineNum">      54 </span>            :  */</a>
 <a name="55"><span class="lineNum">      55 </span>            : struct TimeInfected {</a>
 <a name="56"><span class="lineNum">      56 </span>            :     using Type = UncertainValue&lt;ScalarType&gt;;</a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          3 :     static Type get_default()</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">         27 :     static Type get_default()</span></a>
 <a name="58"><span class="lineNum">      58 </span>            :     {</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          3 :         return Type(6.0);</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">         27 :         return Type(6.0);</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :     }</a>
 <a name="61"><span class="lineNum">      61 </span>            :     static std::string name()</a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
@@ -131,9 +131,9 @@
 <a name="69"><span class="lineNum">      69 </span>            :  */</a>
 <a name="70"><span class="lineNum">      70 </span>            : struct ContactPatterns {</a>
 <a name="71"><span class="lineNum">      71 </span>            :     using Type = ContactMatrix;</a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          3 :     static Type get_default()</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">         27 :     static Type get_default()</span></a>
 <a name="73"><span class="lineNum">      73 </span>            :     {</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">          3 :         return Type{1};</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         27 :         return Type{1};</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :     }</a>
 <a name="76"><span class="lineNum">      76 </span>            :     static std::string name()</a>
 <a name="77"><span class="lineNum">      77 </span>            :     {</a>
@@ -149,10 +149,10 @@
 <a name="87"><span class="lineNum">      87 </span>            : class Parameters : public ParametersBase</a>
 <a name="88"><span class="lineNum">      88 </span>            : {</a>
 <a name="89"><span class="lineNum">      89 </span>            : public:</a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">          3 :     Parameters()</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">          3 :         : ParametersBase()</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">         27 :     Parameters()</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">         27 :         : ParametersBase()</span></a>
 <a name="92"><span class="lineNum">      92 </span>            :     {</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">          3 :     }</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         27 :     }</span></a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            :     /**</a>
 <a name="96"><span class="lineNum">      96 </span>            :      * @brief Checks whether all Parameters satisfy their corresponding constraints and applies them, if they do not.</a>
@@ -167,27 +167,27 @@
 <a name="105"><span class="lineNum">     105 </span>            :      *</a>
 <a name="106"><span class="lineNum">     106 </span>            :      * @return Returns true if one ore more constraint were corrected, false otherwise.  </a>
 <a name="107"><span class="lineNum">     107 </span>            :      */</a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          3 :     bool apply_constraints()</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         27 :     bool apply_constraints()</span></a>
 <a name="109"><span class="lineNum">     109 </span>            :     {</a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">          3 :         ScalarType tol_times = 1e-1;</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">         27 :         ScalarType tol_times = 1e-1;</span></a>
 <a name="111"><span class="lineNum">     111 </span>            : </a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          3 :         int corrected = false;</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">          3 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         27 :         int corrected = false;</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         27 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="116"><span class="lineNum">     116 </span>            :                         &quot;and reset parameters.&quot;,</a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">          1 :                         this-&gt;get&lt;TimeInfected&gt;(), tol_times);</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          1 :             this-&gt;get&lt;TimeInfected&gt;() = tol_times;</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">          1 :             corrected                 = true;</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">          9 :                         this-&gt;get&lt;TimeInfected&gt;(), tol_times);</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          9 :             this-&gt;get&lt;TimeInfected&gt;() = tol_times;</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">          9 :             corrected                 = true;</span></a>
 <a name="120"><span class="lineNum">     120 </span>            :         }</a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">          6 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">          3 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          2 :                         this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0);</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">          1 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() = 0.0;</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">          1 :             corrected                                     = true;</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">         54 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">         27 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         18 :                         this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0);</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">          9 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() = 0.0;</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">          9 :             corrected                                     = true;</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :         }</a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">          3 :         return corrected;</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">         27 :         return corrected;</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :     }</a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
 <a name="131"><span class="lineNum">     131 </span>            :     /**</a>
@@ -195,25 +195,25 @@
 <a name="133"><span class="lineNum">     133 </span>            :      * if constraints are not satisfied.</a>
 <a name="134"><span class="lineNum">     134 </span>            :      * @return Returns true if one constraint is not satisfied, otherwise false.   </a>
 <a name="135"><span class="lineNum">     135 </span>            :      */</a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">          3 :     bool check_constraints() const</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         27 :     bool check_constraints() const</span></a>
 <a name="137"><span class="lineNum">     137 </span>            :     {</a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          3 :         ScalarType tol_times = 1e-1;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         27 :         ScalarType tol_times = 1e-1;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">          3 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          2 :             log_error(&quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         27 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="143"><span class="lineNum">     143 </span>            :                       &quot;and reset parameters.&quot;,</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">          2 :                       this-&gt;get&lt;TimeInfected&gt;(), 0.0);</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeInfected&gt;(), 0.0);</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :         }</a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">          4 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          2 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">          2 :             log_error(</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         36 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         18 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         18 :             log_error(</span></a>
 <a name="150"><span class="lineNum">     150 </span>            :                 &quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or greater {:.4f}&quot;,</a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">          2 :                 this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0, 1.0);</span></a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         18 :                 this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0, 1.0);</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="153"><span class="lineNum">     153 </span>            :         }</a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          1 :         return false;</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          9 :         return false;</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :     }</a>
 <a name="156"><span class="lineNum">     156 </span>            : </a>
 <a name="157"><span class="lineNum">     157 </span>            : private:</a>

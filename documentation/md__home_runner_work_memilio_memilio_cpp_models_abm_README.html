@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This module models and simulates the epidemic using an agent-based model (<em>ABM</em>) approach. Unlike the <a class="el" href="md__home_runner_work_memilio_memilio_cpp_models_ode_secir_README.html">SECIR</a> compartmental model that uses a system of ODEs, this model simulates the spread of COVID-19 in a population with discrete persons (the agents) moving throughout locations in the model and interacting with (infecting) each other.</p>
-<h1><a class="anchor" id="autotoc_md36"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Structure</h1>
 <p>The model consists of the following major classes:</p>
 <ol type="1">
@@ -77,17 +77,17 @@ Structure</h1>
 <li>Model: collection of all persons and locations. It also holds information about the testing strategy of the simulation and holds the rules for the mobility phase.</li>
 <li>Simulation: runs the simulation and stores results.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md37"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Simulation</h1>
 <p>The simulation runs in discrete time steps. Each step has two phases, an interaction phase and a mobility phase.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Interaction Phase</h2>
 <p>In this phase, each person interacts with the other persons at the same location. This interaction determines the transmission of the disease. A susceptible person can become infected by contact with an infected person. The probability of infection depends on a multitude of factors, such as the viral load and infectiousness of the infected and the immunity level of the susceptible person.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Mobility Phase</h2>
 <p>During the mobility phase, each person may change their location. Mobility follows complex <a href="../abm/mobility_rules.cpp">rules</a>, considering the current location, time of day, and properties of the person (e.g. age). Some location changes are deterministic and regular (e.g. going to work), others are random (e.g. going to shopping or to a social event in the evening/on the weekend). When agents are infected, they are quarantined and cannot change their location. You can restrict some mobility rules by allowing only a proportion of people to enter specific locations.</p>
 <p>Another way of mobility we use in the simulation of Braunschweig (simulations/abm_braunschweig.cpp) is using trips. A trip consists of the ID of the person that performs this trip, a time point when this trip is performed and where the person is heading to. At the beginning of the simulation, a list with all trips is initialized and followed during the simulation. There can be different trips on the weekend than during the week, but other than that, the agents do the same trips every day. As before, agents that are in quarantine or in the hospital cannot change their location.</p>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md42"></a>
 Get Started</h1>
 <p>This section gives an introduction to how to use the ABM and set up your own simulation. For a quick overview, can find a full example in the <a href="../../examples/abm_minimal.cpp">ABM minimal example</a> and a more detailed Doxygen documentation <a href="https://scicompmod.github.io/memilio/documentation/index.html">here</a>. For a guide on installation and running the simulations and examples, see this <a class="el" href="md__home_runner_work_memilio_memilio_cpp_README.html">README</a>.</p>
 <p>Every person in the ABM belongs to an AgeGroup, which we can define as follows: <br  />
@@ -104,7 +104,7 @@ Get Started</h1>
 <div class="ttc" id="aclassmio_1_1abm_1_1Model_html"><div class="ttname"><a href="classmio_1_1abm_1_1Model.html">mio::abm::Model</a></div><div class="ttdoc">The Model of the Simulation.</div><div class="ttdef"><b>Definition:</b> model.h:51</div></div>
 </div><!-- fragment --><p>We can set several general parameters, which you can find <a href="../abm/parameters.h">here</a>. Here is an example where we set the duration of the incubation period to 4 days:</p>
 <div class="fragment"><div class="line">model.parameters.get&lt;<a class="code" href="structmio_1_1abm_1_1IncubationPeriod.html">mio::abm::IncubationPeriod</a>&gt;() = 4.</div>
-<div class="ttc" id="astructmio_1_1abm_1_1IncubationPeriod_html"><div class="ttname"><a href="structmio_1_1abm_1_1IncubationPeriod.html">mio::abm::IncubationPeriod</a></div><div class="ttdoc">Time that a Person is infected but not yet infectious.</div><div class="ttdef"><b>Definition:</b> parameters.h:44</div></div>
+<div class="ttc" id="astructmio_1_1abm_1_1IncubationPeriod_html"><div class="ttname"><a href="structmio_1_1abm_1_1IncubationPeriod.html">mio::abm::IncubationPeriod</a></div><div class="ttdoc">Time that a Person is infected but not yet infectious.</div><div class="ttdef"><b>Definition:</b> parameters.h:51</div></div>
 </div><!-- fragment --><p>To add a location to the model, we have to specify the kind of location.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> home = model.add_location(<a class="code" href="namespacemio_1_1abm.html#a83bc98ab43329c10fe9a6e683f2e1d0fa8cf04a9734132302f96da8e113e80ce5">mio::abm::LocationType::Home</a>);</div>
 <div class="ttc" id="anamespacemio_1_1abm_html_a83bc98ab43329c10fe9a6e683f2e1d0fa8cf04a9734132302f96da8e113e80ce5"><div class="ttname"><a href="namespacemio_1_1abm.html#a83bc98ab43329c10fe9a6e683f2e1d0fa8cf04a9734132302f96da8e113e80ce5">mio::abm::LocationType::Home</a></div><div class="ttdeci">@ Home</div></div>
@@ -151,14 +151,14 @@ Get Started</h1>
 <div class="line"><span class="keyword">auto</span> testing_scheme_work =</div>
 <div class="line">    <a class="code" href="classmio_1_1abm_1_1TestingScheme.html">mio::abm::TestingScheme</a>(testing_criteria_work, start_date, end_date, test_type, probability);</div>
 <div class="line">model.get_testing_strategy().add_testing_scheme(testing_scheme_work);</div>
-<div class="ttc" id="aclassmio_1_1abm_1_1TestingCriteria_html"><div class="ttname"><a href="classmio_1_1abm_1_1TestingCriteria.html">mio::abm::TestingCriteria</a></div><div class="ttdoc">TestingCriteria for TestingScheme.</div><div class="ttdef"><b>Definition:</b> testing_strategy.h:42</div></div>
-<div class="ttc" id="aclassmio_1_1abm_1_1TestingScheme_html"><div class="ttname"><a href="classmio_1_1abm_1_1TestingScheme.html">mio::abm::TestingScheme</a></div><div class="ttdoc">TestingScheme to regular test Persons.</div><div class="ttdef"><b>Definition:</b> testing_strategy.h:106</div></div>
-<div class="ttc" id="aclassmio_1_1abm_1_1TimePoint_html"><div class="ttname"><a href="classmio_1_1abm_1_1TimePoint.html">mio::abm::TimePoint</a></div><div class="ttdoc">Represents a point in time.</div><div class="ttdef"><b>Definition:</b> time.h:155</div></div>
+<div class="ttc" id="aclassmio_1_1abm_1_1TestingCriteria_html"><div class="ttname"><a href="classmio_1_1abm_1_1TestingCriteria.html">mio::abm::TestingCriteria</a></div><div class="ttdoc">TestingCriteria for TestingScheme.</div><div class="ttdef"><b>Definition:</b> testing_strategy.h:44</div></div>
+<div class="ttc" id="aclassmio_1_1abm_1_1TestingScheme_html"><div class="ttname"><a href="classmio_1_1abm_1_1TestingScheme.html">mio::abm::TestingScheme</a></div><div class="ttdoc">TestingScheme to regular test Persons.</div><div class="ttdef"><b>Definition:</b> testing_strategy.h:113</div></div>
+<div class="ttc" id="aclassmio_1_1abm_1_1TimePoint_html"><div class="ttname"><a href="classmio_1_1abm_1_1TimePoint.html">mio::abm::TimePoint</a></div><div class="ttdoc">Represents a point in time.</div><div class="ttdef"><b>Definition:</b> time.h:163</div></div>
 <div class="ttc" id="anamespacemio_1_1abm_html_a83bc98ab43329c10fe9a6e683f2e1d0fa0f9263536b9fc61ada745644735bfd8f"><div class="ttname"><a href="namespacemio_1_1abm.html#a83bc98ab43329c10fe9a6e683f2e1d0fa0f9263536b9fc61ada745644735bfd8f">mio::abm::LocationType::Work</a></div><div class="ttdeci">@ Work</div></div>
-<div class="ttc" id="anamespacemio_1_1abm_html_ac50d53d4d672f332b55133479478fe6a"><div class="ttname"><a href="namespacemio_1_1abm.html#ac50d53d4d672f332b55133479478fe6a">mio::abm::days</a></div><div class="ttdeci">TimeSpan days(int days)</div><div class="ttdoc">Create a TimeSpan with a specified number of days.</div><div class="ttdef"><b>Definition:</b> time.h:322</div></div>
+<div class="ttc" id="anamespacemio_1_1abm_html_ac50d53d4d672f332b55133479478fe6a"><div class="ttname"><a href="namespacemio_1_1abm.html#ac50d53d4d672f332b55133479478fe6a">mio::abm::days</a></div><div class="ttdeci">TimeSpan days(int days)</div><div class="ttdoc">Create a TimeSpan with a specified number of days.</div><div class="ttdef"><b>Definition:</b> time.h:336</div></div>
 </div><!-- fragment --><p>For some infections to happen during the simulation, we have to initialize people with infections.</p>
 <div class="fragment"><div class="line">person.add_new_infection(<a class="code" href="classmio_1_1abm_1_1Infection.html">mio::abm::Infection</a>(rng, <a class="code" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011fa89a4b46fc862c6127bfbde1a860d5ea0">mio::abm::VirusVariant::Wildtype</a>, person.get_age(), model.parameters, start_date, infection_state));</div>
-<div class="ttc" id="aclassmio_1_1abm_1_1Infection_html"><div class="ttname"><a href="classmio_1_1abm_1_1Infection.html">mio::abm::Infection</a></div><div class="ttdef"><b>Definition:</b> infection.h:50</div></div>
+<div class="ttc" id="aclassmio_1_1abm_1_1Infection_html"><div class="ttname"><a href="classmio_1_1abm_1_1Infection.html">mio::abm::Infection</a></div><div class="ttdef"><b>Definition:</b> infection.h:62</div></div>
 <div class="ttc" id="anamespacemio_1_1abm_html_a92b83c9298d24c2568847dfd9843011fa89a4b46fc862c6127bfbde1a860d5ea0"><div class="ttname"><a href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011fa89a4b46fc862c6127bfbde1a860d5ea0">mio::abm::VirusVariant::Wildtype</a></div><div class="ttdeci">@ Wildtype</div></div>
 </div><!-- fragment --><p>We can add restrictions for people after a specific date. For example, only 10% of the people go to social events after day 10.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> t_lockdown = <a class="code" href="classmio_1_1abm_1_1TimePoint.html">mio::abm::TimePoint</a>(0) + <a class="code" href="namespacemio_1_1abm.html#ac50d53d4d672f332b55133479478fe6a">mio::abm::days</a>(10);</div>
@@ -178,7 +178,7 @@ Get Started</h1>
 <div class="fragment"><div class="line">std::ofstream outfile(<span class="stringliteral">&quot;abm_minimal.txt&quot;</span>);</div>
 <div class="line">std::get&lt;0&gt;(<a class="code" href="namespacead_1_1internal.html#ae15b28df45545c50a0800df386cda9be">log</a>).print_table({<span class="stringliteral">&quot;S&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;I_NS&quot;</span>, <span class="stringliteral">&quot;I_Sy&quot;</span>, <span class="stringliteral">&quot;I_Sev&quot;</span>, <span class="stringliteral">&quot;I_Crit&quot;</span>, <span class="stringliteral">&quot;R&quot;</span>, <span class="stringliteral">&quot;D&quot;</span>}, 7, 4, outfile);</div>
 <div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;Results written to abm_minimal.txt&quot;</span> &lt;&lt; std::endl;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md43"></a>
 Current Limitations</h1>
 <p>Currently, a few things are not yet implemented, such as:</p>
 <ul>

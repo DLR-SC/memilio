@@ -194,6 +194,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a48f179f3a7c0386b9a0b3050db2eba1b"><td class="memItemLeft" align="right" valign="top">Eigen::Ref&lt; const <a class="el" href="classmio_1_1TimeSeries.html#a65de4f3412202f204b3f5bdcedcfc463">Vector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a48f179f3a7c0386b9a0b3050db2eba1b">get_value</a> (Eigen::Index i) const</td></tr>
 <tr class="memdesc:a48f179f3a7c0386b9a0b3050db2eba1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">reference to value vector at time point i  <a href="classmio_1_1TimeSeries.html#a48f179f3a7c0386b9a0b3050db2eba1b">More...</a><br /></td></tr>
 <tr class="separator:a48f179f3a7c0386b9a0b3050db2eba1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d710808a06c250d0915f2cb8abc68a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a96d710808a06c250d0915f2cb8abc68a">is_strictly_monotonic</a> () const</td></tr>
+<tr class="memdesc:a96d710808a06c250d0915f2cb8abc68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the time is strictly monotonic increasing.  <a href="classmio_1_1TimeSeries.html#a96d710808a06c250d0915f2cb8abc68a">More...</a><br /></td></tr>
+<tr class="separator:a96d710808a06c250d0915f2cb8abc68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2942f3950968c4d903f65761affa9054"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a2942f3950968c4d903f65761affa9054">operator=</a> (const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a> &amp;other)</td></tr>
 <tr class="memdesc:a2942f3950968c4d903f65761affa9054"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy assignment  <a href="classmio_1_1TimeSeries.html#a2942f3950968c4d903f65761affa9054">More...</a><br /></td></tr>
 <tr class="separator:a2942f3950968c4d903f65761affa9054"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -235,6 +238,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8250ad1cbfdce78daf3bb56d2cd92950"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a8250ad1cbfdce78daf3bb56d2cd92950">TimeSeries</a> (FP t, Expr &amp;&amp;expr)</td></tr>
 <tr class="memdesc:a8250ad1cbfdce78daf3bb56d2cd92950"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with one time point.  <a href="classmio_1_1TimeSeries.html#a8250ad1cbfdce78daf3bb56d2cd92950">More...</a><br /></td></tr>
 <tr class="separator:a8250ad1cbfdce78daf3bb56d2cd92950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627c12ab171d9fea9fad6fdb478346a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a627c12ab171d9fea9fad6fdb478346a9">TimeSeries</a> (std::vector&lt; std::vector&lt; FP &gt;&gt; table)</td></tr>
+<tr class="memdesc:a627c12ab171d9fea9fad6fdb478346a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with a table.  <a href="classmio_1_1TimeSeries.html#a627c12ab171d9fea9fad6fdb478346a9">More...</a><br /></td></tr>
+<tr class="separator:a627c12ab171d9fea9fad6fdb478346a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0f388bda63983da3476636b126cfc87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#aa0f388bda63983da3476636b126cfc87">TimeSeries</a> (<a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a> &amp;&amp;other)=default</td></tr>
 <tr class="memdesc:aa0f388bda63983da3476636b126cfc87"><td class="mdescLeft">&#160;</td><td class="mdescRight">move ctor and assignment  <a href="classmio_1_1TimeSeries.html#aa0f388bda63983da3476636b126cfc87">More...</a><br /></td></tr>
 <tr class="separator:aa0f388bda63983da3476636b126cfc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,6 +249,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac6bea94a213508d4893637dd1270f7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix expression that contains one time point per column.  <a href="classmio_1_1TimeSeries.html#ac6bea94a213508d4893637dd1270f7b8">More...</a><br /></td></tr>
 <tr class="separator:ac6bea94a213508d4893637dd1270f7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15864c9cc3c4abc01153f9f004d5aed1"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1TimeSeries.html#a15864c9cc3c4abc01153f9f004d5aed1">matrix</a> () const</td></tr>
+<tr class="memdesc:a15864c9cc3c4abc01153f9f004d5aed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix expression that contains one time point per column.  <a href="classmio_1_1TimeSeries.html#a15864c9cc3c4abc01153f9f004d5aed1">More...</a><br /></td></tr>
 <tr class="separator:a15864c9cc3c4abc01153f9f004d5aed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -521,7 +528,7 @@ template&lt;class FP &gt; </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6b044a3e7814bf42adfa853a597e2161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b044a3e7814bf42adfa853a597e2161">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b044a3e7814bf42adfa853a597e2161">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -549,7 +556,7 @@ template&lt;class FP &gt; </div>
 </div>
 </div>
 <a id="a8250ad1cbfdce78daf3bb56d2cd92950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8250ad1cbfdce78daf3bb56d2cd92950">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8250ad1cbfdce78daf3bb56d2cd92950">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -595,8 +602,36 @@ template&lt;typename Expr &gt; </div>
 
 </div>
 </div>
+<a id="a627c12ab171d9fea9fad6fdb478346a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627c12ab171d9fea9fad6fdb478346a9">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class FP &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmio_1_1TimeSeries.html">mio::TimeSeries</a>&lt; FP &gt;::<a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramname"><em>table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with a table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Consists of a list of time points, each of the form (time, value_0, value_1, ..., value_n) for some fixed n &gt;= 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab508f1558b4c240af9d1bf7912667106"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab508f1558b4c240af9d1bf7912667106">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab508f1558b4c240af9d1bf7912667106">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,7 +653,7 @@ template&lt;class FP &gt; </div>
 </div>
 </div>
 <a id="aa0f388bda63983da3476636b126cfc87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0f388bda63983da3476636b126cfc87">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f388bda63983da3476636b126cfc87">&#9670;&nbsp;</a></span>TimeSeries() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1395,6 +1430,27 @@ template&lt;class FP &gt; </div>
 
 </div>
 </div>
+<a id="a96d710808a06c250d0915f2cb8abc68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d710808a06c250d0915f2cb8abc68a">&#9670;&nbsp;</a></span>is_strictly_monotonic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class FP &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmio_1_1TimeSeries.html">mio::TimeSeries</a>&lt; FP &gt;::is_strictly_monotonic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the time is strictly monotonic increasing. </p>
+
+</div>
+</div>
 <a id="ac6bea94a213508d4893637dd1270f7b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6bea94a213508d4893637dd1270f7b8">&#9670;&nbsp;</a></span>matrix() <span class="overload">[1/2]</span></h2>
 
@@ -1433,6 +1489,9 @@ template&lt;class FP &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Matrix expression that contains one time point per column. </p>
+<p>Each column contains the corresponding time at index 0. </p>
 
 </div>
 </div>

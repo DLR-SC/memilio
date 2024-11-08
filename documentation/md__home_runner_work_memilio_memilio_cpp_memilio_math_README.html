@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This module contains different mathematical methods for integration of sets of ordinary differential equations. For the moment, it contains explicit methods for generic right hand sides and a work-in-progress (semi-)implicit method for the particular SECIR model.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 Structure</h1>
 <p>The model consists of the following classes:</p><ol type="1">
 <li>Integrator: The integrator module contains an IntegratorCore and an OdeIntegrator class, currently designed for explicit methods only. The IntegratorCore contains a step function that takes as input the right hand side function of the ODE, the current time, the step size etc. It represents a generic integration method from which the other integrators are derived from. The OdeIntegrator stores an IntegratorCore as well as the right hand side function and a time series of results.</li>
@@ -79,7 +79,7 @@ Structure</h1>
 </li>
 <li>Smoother: The smoother classes smoothes discrete jumps of function values y0 and y1 on the interval [x0,x1] by a continuously differentiable function</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 Example</h1>
 <p>Example can be found at</p><ul>
 <li>examples/euler_test.cpp</li>

@@ -103,6 +103,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa0a041ca71f18658b0d9583276850e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get/Setthe mobility coefficients.  <a href="classmio_1_1MobilityParameters.html#aa0a041ca71f18658b0d9583276850e1f">More...</a><br /></td></tr>
 <tr class="separator:aa0a041ca71f18658b0d9583276850e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71f01d42a69860018e6a2eed97ece31c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a5571b8f8620d421d58e213ae5c44b6fe">MobilityCoefficientGroup</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1MobilityParameters.html#a71f01d42a69860018e6a2eed97ece31c">get_coefficients</a> ()</td></tr>
+<tr class="memdesc:a71f01d42a69860018e6a2eed97ece31c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get/Setthe mobility coefficients.  <a href="classmio_1_1MobilityParameters.html#a71f01d42a69860018e6a2eed97ece31c">More...</a><br /></td></tr>
 <tr class="separator:a71f01d42a69860018e6a2eed97ece31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade48d6407243173b775965b7d4c5b70b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1MobilityParameters.html#ade48d6407243173b775965b7d4c5b70b">set_coefficients</a> (const <a class="el" href="namespacemio.html#a5571b8f8620d421d58e213ae5c44b6fe">MobilityCoefficientGroup</a> &amp;coeffs)</td></tr>
 <tr class="separator:ade48d6407243173b775965b7d4c5b70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,6 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa12162baa1cd9e2d2729df615ed99ade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get/Set dynamic NPIs that are implemented when relative infections exceed thresholds.  <a href="classmio_1_1MobilityParameters.html#aa12162baa1cd9e2d2729df615ed99ade">More...</a><br /></td></tr>
 <tr class="separator:aa12162baa1cd9e2d2729df615ed99ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a114bdbd55b126ae941233ddf9027afd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1DynamicNPIs.html">DynamicNPIs</a>&lt; FP &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1MobilityParameters.html#a114bdbd55b126ae941233ddf9027afd6">get_dynamic_npis_infected</a> ()</td></tr>
+<tr class="memdesc:a114bdbd55b126ae941233ddf9027afd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get/Set dynamic NPIs that are implemented when relative infections exceed thresholds.  <a href="classmio_1_1MobilityParameters.html#a114bdbd55b126ae941233ddf9027afd6">More...</a><br /></td></tr>
 <tr class="separator:a114bdbd55b126ae941233ddf9027afd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2fb273a2a507dc6e92e7478eb926a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1MobilityParameters.html#a2f2fb273a2a507dc6e92e7478eb926a1">set_dynamic_npis_infected</a> (const <a class="el" href="classmio_1_1DynamicNPIs.html">DynamicNPIs</a>&lt; FP &gt; &amp;v)</td></tr>
 <tr class="separator:a2f2fb273a2a507dc6e92e7478eb926a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,6 +250,9 @@ template&lt;typename FP  = ScalarType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Get/Setthe mobility coefficients. </p>
+<p>The coefficients represent the (time-dependent) percentage of people moving from one node to another by age and infection compartment. </p><dl class="section return"><dt>Returns</dt><dd>the mobility coefficients. </dd></dl>
+
 </div>
 </div>
 <a id="aa0a041ca71f18658b0d9583276850e1f"></a>
@@ -288,6 +293,9 @@ template&lt;typename FP  = ScalarType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get/Set dynamic NPIs that are implemented when relative infections exceed thresholds. </p>
+<p>This feature is optional. The simulation model needs to overload the get_infected_relative function. </p><dl class="section return"><dt>Returns</dt><dd>dynamic NPIs for relative infections. </dd></dl>
 
 </div>
 </div>

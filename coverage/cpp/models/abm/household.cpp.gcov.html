@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -97,59 +97,59 @@
 <a name="35"><span class="lineNum">      35 </span>            :  * @param[in] age_groups A CustomIndexArray with the weights.</a>
 <a name="36"><span class="lineNum">      36 </span>            :  * @return The picked AgeGroup.</a>
 <a name="37"><span class="lineNum">      37 </span>            :  */</a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">        104 : AgeGroup pick_age_group_from_age_distribution(RandomNumberGenerator&amp; rng,</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">        936 : AgeGroup pick_age_group_from_age_distribution(RandomNumberGenerator&amp; rng,</span></a>
 <a name="39"><span class="lineNum">      39 </span>            :                                               const CustomIndexArray&lt;int, AgeGroup&gt;&amp; age_groups)</a>
 <a name="40"><span class="lineNum">      40 </span>            : {</a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        104 :     auto age_group_weights = age_groups.array().cast&lt;double&gt;().eval();</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        104 :     size_t age_group       = DiscreteDistribution&lt;size_t&gt;::get_instance()(rng, age_group_weights);</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        208 :     return (AgeGroup)age_group;</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">        104 : }</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        936 :     auto age_group_weights = age_groups.array().cast&lt;double&gt;().eval();</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        936 :     size_t age_group       = DiscreteDistribution&lt;size_t&gt;::get_instance()(rng, age_group_weights);</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">       1872 :     return (AgeGroup)age_group;</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">        936 : }</span></a>
 <a name="45"><span class="lineNum">      45 </span>            : } // namespace</a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">          6 : void Household::add_members(HouseholdMember household_member, int number_of_members)</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">         54 : void Household::add_members(HouseholdMember household_member, int number_of_members)</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : {</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          6 :     m_household_member_list.push_back(std::make_tuple(household_member, number_of_members));</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">          6 :     m_number_of_members += number_of_members;</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">          6 : }</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         54 :     m_household_member_list.push_back(std::make_tuple(household_member, number_of_members));</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">         54 :     m_number_of_members += number_of_members;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">         54 : }</span></a>
 <a name="52"><span class="lineNum">      52 </span>            : </a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          2 : void HouseholdGroup::add_households(Household household, int number_of_households)</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">         18 : void HouseholdGroup::add_households(Household household, int number_of_households)</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : {</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">          2 :     m_household_list.push_back(std::make_tuple(household, number_of_households));</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          2 :     m_number_of_households += number_of_households;</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          2 : }</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">         18 :     m_household_list.push_back(std::make_tuple(household, number_of_households));</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">         18 :     m_number_of_households += number_of_households;</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">         18 : }</span></a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">         16 : void add_household_to_model(Model&amp; model, const Household&amp; household)</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        144 : void add_household_to_model(Model&amp; model, const Household&amp; household)</span></a>
 <a name="60"><span class="lineNum">      60 </span>            : {</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         16 :     auto home    = model.add_location(LocationType::Home);</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         16 :     auto members = household.get_members();</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         32 :     model.get_location(home).set_capacity(household.get_total_number_of_members(),</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         16 :                                           household.get_total_number_of_members() * household.get_space_per_member());</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        144 :     auto home    = model.add_location(LocationType::Home);</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        144 :     auto members = household.get_members();</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        288 :     model.get_location(home).set_capacity(household.get_total_number_of_members(),</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">        144 :                                           household.get_total_number_of_members() * household.get_space_per_member());</span></a>
 <a name="65"><span class="lineNum">      65 </span>            : </a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         48 :     for (auto&amp; memberTouple : members) {</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">         32 :         int count;</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">         32 :         HouseholdMember member  = HouseholdMember(model.parameters.get_num_groups());</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">         32 :         std::tie(member, count) = memberTouple;</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        136 :         for (int j = 0; j &lt; count; j++) {</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        104 :             auto age_group = pick_age_group_from_age_distribution(model.get_rng(), member.get_age_weights());</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        104 :             auto person    = model.add_person(home, age_group);</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">        104 :             model.assign_location(person, home);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">        432 :     for (auto&amp; memberTouple : members) {</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        288 :         int count;</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">        288 :         HouseholdMember member  = HouseholdMember(model.parameters.get_num_groups());</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        288 :         std::tie(member, count) = memberTouple;</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       1224 :         for (int j = 0; j &lt; count; j++) {</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        936 :             auto age_group = pick_age_group_from_age_distribution(model.get_rng(), member.get_age_weights());</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        936 :             auto person    = model.add_person(home, age_group);</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">        936 :             model.assign_location(person, home);</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :         }</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         32 :     }</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         32 : }</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">        288 :     }</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">        288 : }</span></a>
 <a name="77"><span class="lineNum">      77 </span>            : </a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          1 : void add_household_group_to_model(Model&amp; model, const HouseholdGroup&amp; household_group)</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          9 : void add_household_group_to_model(Model&amp; model, const HouseholdGroup&amp; household_group)</span></a>
 <a name="79"><span class="lineNum">      79 </span>            : {</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          1 :     auto households = household_group.get_households();</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          9 :     auto households = household_group.get_households();</span></a>
 <a name="81"><span class="lineNum">      81 </span>            : </a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          3 :     for (auto&amp; householdTuple : households) {</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">          2 :         int count;</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          2 :         Household household;</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          2 :         std::tie(household, count) = householdTuple;</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         17 :         for (int j = 0; j &lt; count; j++) {</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">         15 :             add_household_to_model(model, household);</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">         27 :     for (auto&amp; householdTuple : households) {</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">         18 :         int count;</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">         18 :         Household household;</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">         18 :         std::tie(household, count) = householdTuple;</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        153 :         for (int j = 0; j &lt; count; j++) {</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">        135 :             add_household_to_model(model, household);</span></a>
 <a name="88"><span class="lineNum">      88 </span>            :         }</a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          2 :     }</span></a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">          2 : }</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">         18 :     }</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">         18 : }</span></a>
 <a name="91"><span class="lineNum">      91 </span>            : </a>
 <a name="92"><span class="lineNum">      92 </span>            : } // namespace abm</a>
 <a name="93"><span class="lineNum">      93 </span>            : } // namespace mio</a>

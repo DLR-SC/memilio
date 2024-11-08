@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -132,14 +132,14 @@
 <a name="70"><span class="lineNum">      70 </span>            :      * @param graph_sim_dt time step of graph simulation</a>
 <a name="71"><span class="lineNum">      71 </span>            :      * @param num_runs number of runs</a>
 <a name="72"><span class="lineNum">      72 </span>            :      */</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          4 :     ParameterStudy(const ParametersGraph&amp; graph, double t0, double tmax, double graph_sim_dt, size_t num_runs)</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">          4 :         : m_graph(graph)</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          4 :         , m_num_runs(num_runs)</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          4 :         , m_t0{t0}</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          4 :         , m_tmax{tmax}</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          4 :         , m_dt_graph_sim(graph_sim_dt)</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         20 :     ParameterStudy(const ParametersGraph&amp; graph, double t0, double tmax, double graph_sim_dt, size_t num_runs)</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         20 :         : m_graph(graph)</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         20 :         , m_num_runs(num_runs)</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         20 :         , m_t0{t0}</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         20 :         , m_tmax{tmax}</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         20 :         , m_dt_graph_sim(graph_sim_dt)</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :     {</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          4 :     }</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">         20 :     }</span></a>
 <a name="81"><span class="lineNum">      81 </span>            : </a>
 <a name="82"><span class="lineNum">      82 </span>            :     /**</a>
 <a name="83"><span class="lineNum">      83 </span>            :      * create study for graph of compartment models.</a>
@@ -167,11 +167,11 @@
 <a name="105"><span class="lineNum">     105 </span>            :      * @param tmax end time of simulations</a>
 <a name="106"><span class="lineNum">     106 </span>            :      * @param num_runs number of runs in ensemble run</a>
 <a name="107"><span class="lineNum">     107 </span>            :      */</a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          1 :     ParameterStudy(typename Simulation::Model const&amp; model, double t0, double tmax, size_t num_runs)</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          1 :         : ParameterStudy({}, t0, tmax, tmax - t0, num_runs)</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          9 :     ParameterStudy(typename Simulation::Model const&amp; model, double t0, double tmax, size_t num_runs)</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          9 :         : ParameterStudy({}, t0, tmax, tmax - t0, num_runs)</span></a>
 <a name="110"><span class="lineNum">     110 </span>            :     {</a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          1 :         m_graph.add_node(0, model);</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          1 :     }</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          9 :         m_graph.add_node(0, model);</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          9 :     }</span></a>
 <a name="113"><span class="lineNum">     113 </span>            : </a>
 <a name="114"><span class="lineNum">     114 </span>            :     /*</a>
 <a name="115"><span class="lineNum">     115 </span>            :      * @brief Carry out all simulations in the parameter study.</a>
@@ -279,50 +279,50 @@
 <a name="217"><span class="lineNum">     217 </span>            :      * @return vector of SimulationGraph for each run.</a>
 <a name="218"><span class="lineNum">     218 </span>            :      */</a>
 <a name="219"><span class="lineNum">     219 </span>            :     template &lt;class SampleGraphFunction&gt;</a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">          2 :     std::vector&lt;SimulationGraph&gt; run(SampleGraphFunction sample_graph)</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">         18 :     std::vector&lt;SimulationGraph&gt; run(SampleGraphFunction sample_graph)</span></a>
 <a name="221"><span class="lineNum">     221 </span>            :     {</a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">          2 :         std::vector&lt;SimulationGraph&gt; ensemble_result;</span></a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">          2 :         ensemble_result.reserve(m_num_runs);</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">         18 :         std::vector&lt;SimulationGraph&gt; ensemble_result;</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         18 :         ensemble_result.reserve(m_num_runs);</span></a>
 <a name="224"><span class="lineNum">     224 </span>            : </a>
 <a name="225"><span class="lineNum">     225 </span>            :         //The ParameterDistributions used for sampling parameters use thread_local_rng()</a>
 <a name="226"><span class="lineNum">     226 </span>            :         //So we set our own RNG to be used.</a>
 <a name="227"><span class="lineNum">     227 </span>            :         //Assume that sampling uses the thread_local_rng() and isn't multithreaded</a>
-<a name="228"><span class="lineNum">     228 </span><span class="lineCov">          2 :         thread_local_rng() = m_rng;</span></a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">         18 :         thread_local_rng() = m_rng;</span></a>
 <a name="229"><span class="lineNum">     229 </span>            : </a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">          6 :         for (size_t i = 0; i &lt; m_num_runs; i++) {</span></a>
-<a name="231"><span class="lineNum">     231 </span><span class="lineCov">          4 :             log(LogLevel::info, &quot;ParameterStudies: run {}&quot;, i);</span></a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">         54 :         for (size_t i = 0; i &lt; m_num_runs; i++) {</span></a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         36 :             log(LogLevel::info, &quot;ParameterStudies: run {}&quot;, i);</span></a>
 <a name="232"><span class="lineNum">     232 </span>            : </a>
 <a name="233"><span class="lineNum">     233 </span>            :             //prepare rng for this run by setting the counter to the right offset</a>
 <a name="234"><span class="lineNum">     234 </span>            :             //Add the old counter so that this call of run() produces different results</a>
 <a name="235"><span class="lineNum">     235 </span>            :             //from the previous call</a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">          4 :             auto run_rng_counter = m_rng.get_counter() +</span></a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">          4 :                                    rng_totalsequence_counter&lt;uint64_t&gt;(static_cast&lt;uint32_t&gt;(i), Counter&lt;uint32_t&gt;(0));</span></a>
-<a name="238"><span class="lineNum">     238 </span><span class="lineCov">          2 :             thread_local_rng().set_counter(run_rng_counter);</span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">         36 :             auto run_rng_counter = m_rng.get_counter() +</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">         36 :                                    rng_totalsequence_counter&lt;uint64_t&gt;(static_cast&lt;uint32_t&gt;(i), Counter&lt;uint32_t&gt;(0));</span></a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">         18 :             thread_local_rng().set_counter(run_rng_counter);</span></a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">          2 :             auto sim = create_sampled_simulation(sample_graph);</span></a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">          4 :             log(LogLevel::info, &quot;ParameterStudies: Generated {} random numbers.&quot;,</span></a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">          4 :                 (thread_local_rng().get_counter() - run_rng_counter).get());</span></a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">         18 :             auto sim = create_sampled_simulation(sample_graph);</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">         36 :             log(LogLevel::info, &quot;ParameterStudies: Generated {} random numbers.&quot;,</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">         36 :                 (thread_local_rng().get_counter() - run_rng_counter).get());</span></a>
 <a name="243"><span class="lineNum">     243 </span>            : </a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">          2 :             sim.advance(m_tmax);</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">         18 :             sim.advance(m_tmax);</span></a>
 <a name="245"><span class="lineNum">     245 </span>            : </a>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">          2 :             ensemble_result.emplace_back(std::move(sim).get_graph());</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">         18 :             ensemble_result.emplace_back(std::move(sim).get_graph());</span></a>
 <a name="247"><span class="lineNum">     247 </span>            :         }</a>
 <a name="248"><span class="lineNum">     248 </span>            : </a>
 <a name="249"><span class="lineNum">     249 </span>            :         //Set the counter of our RNG so that future calls of run() produce different parameters.</a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          2 :         m_rng.set_counter(m_rng.get_counter() + rng_totalsequence_counter&lt;uint64_t&gt;(m_num_runs, Counter&lt;uint32_t&gt;(0)));</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">         18 :         m_rng.set_counter(m_rng.get_counter() + rng_totalsequence_counter&lt;uint64_t&gt;(m_num_runs, Counter&lt;uint32_t&gt;(0)));</span></a>
 <a name="251"><span class="lineNum">     251 </span>            : </a>
-<a name="252"><span class="lineNum">     252 </span><span class="lineCov">          4 :         return ensemble_result;</span></a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">          2 :     }</span></a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">         36 :         return ensemble_result;</span></a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">         18 :     }</span></a>
 <a name="254"><span class="lineNum">     254 </span>            : </a>
 <a name="255"><span class="lineNum">     255 </span>            :     /*</a>
 <a name="256"><span class="lineNum">     256 </span>            :      * @brief sets the number of Monte Carlo runs</a>
 <a name="257"><span class="lineNum">     257 </span>            :      * @param[in] num_runs number of runs</a>
 <a name="258"><span class="lineNum">     258 </span>            :      */</a>
 <a name="259"><span class="lineNum">     259 </span>            : </a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">          1 :     void set_num_runs(size_t num_runs)</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">          9 :     void set_num_runs(size_t num_runs)</span></a>
 <a name="261"><span class="lineNum">     261 </span>            :     {</a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">          1 :         m_num_runs = num_runs;</span></a>
-<a name="263"><span class="lineNum">     263 </span><span class="lineCov">          1 :     }</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">          9 :         m_num_runs = num_runs;</span></a>
+<a name="263"><span class="lineNum">     263 </span><span class="lineCov">          9 :     }</span></a>
 <a name="264"><span class="lineNum">     264 </span>            : </a>
 <a name="265"><span class="lineNum">     265 </span>            :     /*</a>
 <a name="266"><span class="lineNum">     266 </span>            :      * @brief returns the number of Monte Carlo runs</a>
@@ -392,28 +392,28 @@
 <a name="330"><span class="lineNum">     330 </span>            :     }</a>
 <a name="331"><span class="lineNum">     331 </span>            :     /** @} */</a>
 <a name="332"><span class="lineNum">     332 </span>            : </a>
-<a name="333"><span class="lineNum">     333 </span><span class="lineCov">          4 :     RandomNumberGenerator&amp; get_rng()</span></a>
+<a name="333"><span class="lineNum">     333 </span><span class="lineCov">         20 :     RandomNumberGenerator&amp; get_rng()</span></a>
 <a name="334"><span class="lineNum">     334 </span>            :     {</a>
-<a name="335"><span class="lineNum">     335 </span><span class="lineCov">          4 :         return m_rng;</span></a>
+<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         20 :         return m_rng;</span></a>
 <a name="336"><span class="lineNum">     336 </span>            :     }</a>
 <a name="337"><span class="lineNum">     337 </span>            : </a>
 <a name="338"><span class="lineNum">     338 </span>            : private:</a>
 <a name="339"><span class="lineNum">     339 </span>            :     //sample parameters and create simulation</a>
 <a name="340"><span class="lineNum">     340 </span>            :     template &lt;class SampleGraphFunction&gt;</a>
-<a name="341"><span class="lineNum">     341 </span><span class="lineCov">          8 :     mio::GraphSimulation&lt;SimulationGraph&gt; create_sampled_simulation(SampleGraphFunction sample_graph)</span></a>
+<a name="341"><span class="lineNum">     341 </span><span class="lineCov">         24 :     mio::GraphSimulation&lt;SimulationGraph&gt; create_sampled_simulation(SampleGraphFunction sample_graph)</span></a>
 <a name="342"><span class="lineNum">     342 </span>            :     {</a>
-<a name="343"><span class="lineNum">     343 </span><span class="lineCov">          8 :         SimulationGraph sim_graph;</span></a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         24 :         SimulationGraph sim_graph;</span></a>
 <a name="344"><span class="lineNum">     344 </span>            : </a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">          8 :         auto sampled_graph = sample_graph(m_graph);</span></a>
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">         23 :         for (auto&amp;&amp; node : sampled_graph.nodes()) {</span></a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         15 :             sim_graph.add_node(node.id, node.property, m_t0, m_dt_integration);</span></a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         24 :         auto sampled_graph = sample_graph(m_graph);</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">         63 :         for (auto&amp;&amp; node : sampled_graph.nodes()) {</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         39 :             sim_graph.add_node(node.id, node.property, m_t0, m_dt_integration);</span></a>
 <a name="348"><span class="lineNum">     348 </span>            :         }</a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">         15 :         for (auto&amp;&amp; edge : sampled_graph.edges()) {</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">          7 :             sim_graph.add_edge(edge.start_node_idx, edge.end_node_idx, edge.property);</span></a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">         39 :         for (auto&amp;&amp; edge : sampled_graph.edges()) {</span></a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">         15 :             sim_graph.add_edge(edge.start_node_idx, edge.end_node_idx, edge.property);</span></a>
 <a name="351"><span class="lineNum">     351 </span>            :         }</a>
 <a name="352"><span class="lineNum">     352 </span>            : </a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">         16 :         return make_mobility_sim(m_t0, m_dt_graph_sim, std::move(sim_graph));</span></a>
-<a name="354"><span class="lineNum">     354 </span><span class="lineCov">          8 :     }</span></a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">         48 :         return make_mobility_sim(m_t0, m_dt_graph_sim, std::move(sim_graph));</span></a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineCov">         24 :     }</span></a>
 <a name="355"><span class="lineNum">     355 </span>            : </a>
 <a name="356"><span class="lineNum">     356 </span><span class="lineCov">          2 :     std::vector&lt;size_t&gt; distribute_runs(size_t num_runs, int num_procs)</span></a>
 <a name="357"><span class="lineNum">     357 </span>            :     {</a>

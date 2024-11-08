@@ -98,16 +98,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af874959fbe0b6d4a2c2955808250a805"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality comparison operators.  <a href="classmio_1_1IOStatus.html#af874959fbe0b6d4a2c2955808250a805">More...</a><br /></td></tr>
 <tr class="separator:af874959fbe0b6d4a2c2955808250a805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa76f3de16c31c2224482b7d360d6a413"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#aa76f3de16c31c2224482b7d360d6a413">operator!=</a> (const <a class="el" href="classmio_1_1IOStatus.html">IOStatus</a> &amp;other) const</td></tr>
+<tr class="memdesc:aa76f3de16c31c2224482b7d360d6a413"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality comparison operators.  <a href="classmio_1_1IOStatus.html#aa76f3de16c31c2224482b7d360d6a413">More...</a><br /></td></tr>
 <tr class="separator:aa76f3de16c31c2224482b7d360d6a413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:af0179b1d2a097a3305ad195ba96a4113"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#af0179b1d2a097a3305ad195ba96a4113">is_ok</a> () const</td></tr>
 <tr class="memdesc:af0179b1d2a097a3305ad195ba96a4113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the status represents success.  <a href="classmio_1_1IOStatus.html#af0179b1d2a097a3305ad195ba96a4113">More...</a><br /></td></tr>
 <tr class="separator:af0179b1d2a097a3305ad195ba96a4113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a255494ff251ce874a2c6fce705393481"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#a255494ff251ce874a2c6fce705393481">operator bool</a> () const</td></tr>
+<tr class="memdesc:a255494ff251ce874a2c6fce705393481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the status represents success.  <a href="classmio_1_1IOStatus.html#a255494ff251ce874a2c6fce705393481">More...</a><br /></td></tr>
 <tr class="separator:a255494ff251ce874a2c6fce705393481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab87cb9abb5a24b684f274c881691f4e7"><td class="memItemLeft" align="right" valign="top">std::error_code&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#ab87cb9abb5a24b684f274c881691f4e7">m_ec</a> = {}</td></tr>
+<tr class="memdesc:ab87cb9abb5a24b684f274c881691f4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the status represents failure.  <a href="classmio_1_1IOStatus.html#ab87cb9abb5a24b684f274c881691f4e7">More...</a><br /></td></tr>
 <tr class="separator:ab87cb9abb5a24b684f274c881691f4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad56602dbab764453bed7fa33e8f27b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#a7ad56602dbab764453bed7fa33e8f27b">m_msg</a> = {}</td></tr>
+<tr class="memdesc:a7ad56602dbab764453bed7fa33e8f27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the status represents failure.  <a href="classmio_1_1IOStatus.html#a7ad56602dbab764453bed7fa33e8f27b">More...</a><br /></td></tr>
 <tr class="separator:a7ad56602dbab764453bed7fa33e8f27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af937423a45e7df8eeddf54387dd5453a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IOStatus.html#af937423a45e7df8eeddf54387dd5453a">is_error</a> () const</td></tr>
 <tr class="memdesc:af937423a45e7df8eeddf54387dd5453a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the status represents failure.  <a href="classmio_1_1IOStatus.html#af937423a45e7df8eeddf54387dd5453a">More...</a><br /></td></tr>
@@ -297,6 +301,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check if the status represents success. </p>
+<p><code><a class="el" href="classmio_1_1IOStatus.html#af0179b1d2a097a3305ad195ba96a4113" title="Check if the status represents success.">is_ok()</a></code> is Equivalent to <code>!bool(<a class="el" href="classmio_1_1IOStatus.html#a4e8c2388ce7a93ed683644d126990bbd" title="get the error code.">code()</a>)</code>. </p><dl class="section return"><dt>Returns</dt><dd>true if status is success, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="aa76f3de16c31c2224482b7d360d6a413"></a>
@@ -314,6 +321,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>equality comparison operators. </p>
 
 </div>
 </div>
@@ -358,6 +367,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Check if the status represents failure. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if status is failure, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a7ad56602dbab764453bed7fa33e8f27b"></a>
@@ -379,6 +391,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Check if the status represents failure. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if status is failure, false otherwise. </dd></dl>
 
 </div>
 </div>

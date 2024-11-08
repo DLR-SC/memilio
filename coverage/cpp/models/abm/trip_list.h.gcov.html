@@ -31,17 +31,17 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">47</td>
-            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntry">40</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -86,184 +86,179 @@
 <a name="24"><span class="lineNum">      24 </span>            : #include &quot;abm/mobility_data.h&quot;</a>
 <a name="25"><span class="lineNum">      25 </span>            : #include &quot;abm/person_id.h&quot;</a>
 <a name="26"><span class="lineNum">      26 </span>            : #include &quot;abm/time.h&quot;</a>
-<a name="27"><span class="lineNum">      27 </span>            : #include &lt;vector&gt;</a>
-<a name="28"><span class="lineNum">      28 </span>            : </a>
-<a name="29"><span class="lineNum">      29 </span>            : namespace mio</a>
-<a name="30"><span class="lineNum">      30 </span>            : {</a>
-<a name="31"><span class="lineNum">      31 </span>            : namespace abm</a>
-<a name="32"><span class="lineNum">      32 </span>            : {</a>
-<a name="33"><span class="lineNum">      33 </span>            : </a>
-<a name="34"><span class="lineNum">      34 </span>            : /**</a>
-<a name="35"><span class="lineNum">      35 </span>            :  * @brief A trip describes a change of Location from one Location to another Location.</a>
-<a name="36"><span class="lineNum">      36 </span>            :  */</a>
-<a name="37"><span class="lineNum">      37 </span>            : struct Trip {</a>
-<a name="38"><span class="lineNum">      38 </span>            :     PersonId person_id; /**&lt; Person that makes the trip and corresponds to the index into the structure m_persons from</a>
-<a name="39"><span class="lineNum">      39 </span>            :     Model, where all Person%s are saved.*/</a>
-<a name="40"><span class="lineNum">      40 </span>            :     TimePoint time; ///&lt; Time at which a Person changes the Location.</a>
-<a name="41"><span class="lineNum">      41 </span>            :     LocationId destination; ///&lt; Location where the Person changes to.</a>
-<a name="42"><span class="lineNum">      42 </span>            :     LocationId origin; ///&lt; Location where the Person starts the Trip.</a>
-<a name="43"><span class="lineNum">      43 </span>            :     std::vector&lt;uint32_t&gt; cells; /**&lt; If destination consists of different Cell%s, this gives the index of the</a>
-<a name="44"><span class="lineNum">      44 </span>            :     Cell%s the Person changes to.*/</a>
-<a name="45"><span class="lineNum">      45 </span>            :     TransportMode</a>
-<a name="46"><span class="lineNum">      46 </span>            :         trip_mode; ///&lt; Mode of transportation. 1:Bike, 2:Car (Driver), 3:Car (Co-Driver)), 4:Public Transport, 5:Walking, 6:Other/Unknown</a>
-<a name="47"><span class="lineNum">      47 </span>            :     ActivityType</a>
-<a name="48"><span class="lineNum">      48 </span>            :         activity_type; ///&lt; Type of activity. 1:Workplace, 2:Education, 3:Shopping, 4:Leisure, 5:Private Matters, 6:Other Activity, 7:Home, 8:Unknown Activity</a>
-<a name="49"><span class="lineNum">      49 </span>            : </a>
-<a name="50"><span class="lineNum">      50 </span>            :     /**</a>
-<a name="51"><span class="lineNum">      51 </span>            :      * @brief Construct a new Trip.</a>
-<a name="52"><span class="lineNum">      52 </span>            :      * @param[in] id ID of the Person that makes the Trip.</a>
-<a name="53"><span class="lineNum">      53 </span>            :      * @param[in] time_new Time at which a Person changes the Location this currently cant be set for s specific day just a timepoint in a day.</a>
-<a name="54"><span class="lineNum">      54 </span>            :      * @param[in] destination Location where the Person changes to.</a>
-<a name="55"><span class="lineNum">      55 </span>            :      * @param[in] origin Location where the person starts the Trip.</a>
-<a name="56"><span class="lineNum">      56 </span>            :      * @param[in] input_cells The index of the Cell%s the Person changes to.</a>
-<a name="57"><span class="lineNum">      57 </span>            :      */</a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         23 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig, TransportMode mode_of_transport,</span></a>
-<a name="59"><span class="lineNum">      59 </span>            :          ActivityType type_of_activity, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         23 :         : person_id(id)</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         23 :         , time(mio::abm::TimePoint(time_new.time_since_midnight().seconds()))</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         23 :         , destination(dest)</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         23 :         , origin(orig)</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         23 :         , cells(input_cells)</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">         23 :         , trip_mode(mode_of_transport)</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         23 :         , activity_type(type_of_activity)</span></a>
-<a name="67"><span class="lineNum">      67 </span>            :     {</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">         23 :     }</span></a>
-<a name="69"><span class="lineNum">      69 </span>            : </a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">         10 :     Trip(PersonId id, TimePoint time_new, LocationId dest, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         10 :         : Trip(id, time_new, dest, dest, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">         10 :                input_cells)</span></a>
-<a name="73"><span class="lineNum">      73 </span>            :     {</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         10 :     }</span></a>
-<a name="75"><span class="lineNum">      75 </span>            : </a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         13 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig,</span></a>
-<a name="77"><span class="lineNum">      77 </span>            :          const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         13 :         : Trip(id, time_new, dest, orig, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         13 :                input_cells)</span></a>
-<a name="80"><span class="lineNum">      80 </span>            :     {</a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">         13 :     }</span></a>
-<a name="82"><span class="lineNum">      82 </span>            : </a>
-<a name="83"><span class="lineNum">      83 </span>            :     /**</a>
-<a name="84"><span class="lineNum">      84 </span>            :      * @brief Compare two Trip%s.</a>
-<a name="85"><span class="lineNum">      85 </span>            :      */</a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          1 :     bool operator==(const Trip&amp; other) const</span></a>
-<a name="87"><span class="lineNum">      87 </span>            :     {</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          2 :         return (person_id == other.person_id) &amp;&amp; (time == other.time) &amp;&amp; (destination == other.destination) &amp;&amp;</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          2 :                (origin == other.origin);</span></a>
-<a name="90"><span class="lineNum">      90 </span>            :     }</a>
-<a name="91"><span class="lineNum">      91 </span>            : </a>
-<a name="92"><span class="lineNum">      92 </span>            :     /**</a>
-<a name="93"><span class="lineNum">      93 </span>            :      * serialize this. </a>
-<a name="94"><span class="lineNum">      94 </span>            :      * @see mio::serialize</a>
-<a name="95"><span class="lineNum">      95 </span>            :      */</a>
-<a name="96"><span class="lineNum">      96 </span>            :     template &lt;class IOContext&gt;</a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 :     void serialize(IOContext&amp; io) const</span></a>
-<a name="98"><span class="lineNum">      98 </span>            :     {</a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          3 :         auto obj = io.create_object(&quot;Trip&quot;);</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          1 :         obj.add_element(&quot;person_id&quot;, person_id);</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">          1 :         obj.add_element(&quot;time&quot;, time.seconds());</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          1 :         obj.add_element(&quot;destination&quot;, destination);</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">          1 :         obj.add_element(&quot;origin&quot;, origin);</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">          2 :     }</span></a>
-<a name="105"><span class="lineNum">     105 </span>            : </a>
-<a name="106"><span class="lineNum">     106 </span>            :     /**</a>
-<a name="107"><span class="lineNum">     107 </span>            :      * deserialize an object of this class.</a>
-<a name="108"><span class="lineNum">     108 </span>            :      * @see mio::deserialize</a>
-<a name="109"><span class="lineNum">     109 </span>            :      */</a>
-<a name="110"><span class="lineNum">     110 </span>            :     template &lt;class IOContext&gt;</a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          1 :     static IOResult&lt;Trip&gt; deserialize(IOContext&amp; io)</span></a>
-<a name="112"><span class="lineNum">     112 </span>            :     {</a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">          3 :         auto obj            = io.expect_object(&quot;Trip&quot;);</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          3 :         auto person_id      = obj.expect_element(&quot;person_id&quot;, Tag&lt;PersonId&gt;{});</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">          3 :         auto time           = obj.expect_element(&quot;time&quot;, Tag&lt;int&gt;{});</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          3 :         auto destination_id = obj.expect_element(&quot;destination&quot;, Tag&lt;LocationId&gt;{});</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">          3 :         auto origin_id      = obj.expect_element(&quot;origin&quot;, Tag&lt;LocationId&gt;{});</span></a>
-<a name="118"><span class="lineNum">     118 </span>            :         return apply(</a>
-<a name="119"><span class="lineNum">     119 </span>            :             io,</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          1 :             [](auto&amp;&amp; person_id_, auto&amp;&amp; time_, auto&amp;&amp; destination_id_, auto&amp;&amp; origin_id_) {</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">          1 :                 return Trip(person_id_, TimePoint(time_), destination_id_, origin_id_);</span></a>
-<a name="122"><span class="lineNum">     122 </span>            :             },</a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">          2 :             person_id, time, destination_id, origin_id);</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">          1 :     }</span></a>
-<a name="125"><span class="lineNum">     125 </span>            : };</a>
-<a name="126"><span class="lineNum">     126 </span>            : </a>
-<a name="127"><span class="lineNum">     127 </span>            : /**</a>
-<a name="128"><span class="lineNum">     128 </span>            :  * @brief A list of Trip%s a Person follows.</a>
-<a name="129"><span class="lineNum">     129 </span>            :  */</a>
-<a name="130"><span class="lineNum">     130 </span>            : class TripList</a>
-<a name="131"><span class="lineNum">     131 </span>            : {</a>
-<a name="132"><span class="lineNum">     132 </span>            : public:</a>
+<a name="27"><span class="lineNum">      27 </span>            : #include &quot;memilio/io/default_serialize.h&quot;</a>
+<a name="28"><span class="lineNum">      28 </span>            : #include &lt;vector&gt;</a>
+<a name="29"><span class="lineNum">      29 </span>            : </a>
+<a name="30"><span class="lineNum">      30 </span>            : namespace mio</a>
+<a name="31"><span class="lineNum">      31 </span>            : {</a>
+<a name="32"><span class="lineNum">      32 </span>            : namespace abm</a>
+<a name="33"><span class="lineNum">      33 </span>            : {</a>
+<a name="34"><span class="lineNum">      34 </span>            : </a>
+<a name="35"><span class="lineNum">      35 </span>            : /**</a>
+<a name="36"><span class="lineNum">      36 </span>            :  * @brief A trip describes a change of Location from one Location to another Location.</a>
+<a name="37"><span class="lineNum">      37 </span>            :  */</a>
+<a name="38"><span class="lineNum">      38 </span>            : struct Trip {</a>
+<a name="39"><span class="lineNum">      39 </span>            :     PersonId person_id; /**&lt; Person that makes the trip and corresponds to the index into the structure m_persons from</a>
+<a name="40"><span class="lineNum">      40 </span>            :     Model, where all Person%s are saved.*/</a>
+<a name="41"><span class="lineNum">      41 </span>            :     TimePoint time; ///&lt; Time at which a Person changes the Location.</a>
+<a name="42"><span class="lineNum">      42 </span>            :     LocationId destination; ///&lt; Location where the Person changes to.</a>
+<a name="43"><span class="lineNum">      43 </span>            :     LocationId origin; ///&lt; Location where the Person starts the Trip.</a>
+<a name="44"><span class="lineNum">      44 </span>            :     std::vector&lt;uint32_t&gt; cells; /**&lt; If destination consists of different Cell%s, this gives the index of the</a>
+<a name="45"><span class="lineNum">      45 </span>            :     Cell%s the Person changes to.*/</a>
+<a name="46"><span class="lineNum">      46 </span>            :     TransportMode</a>
+<a name="47"><span class="lineNum">      47 </span>            :         trip_mode; ///&lt; Mode of transportation. 1:Bike, 2:Car (Driver), 3:Car (Co-Driver)), 4:Public Transport, 5:Walking, 6:Other/Unknown</a>
+<a name="48"><span class="lineNum">      48 </span>            :     ActivityType</a>
+<a name="49"><span class="lineNum">      49 </span>            :         activity_type; ///&lt; Type of activity. 1:Workplace, 2:Education, 3:Shopping, 4:Leisure, 5:Private Matters, 6:Other Activity, 7:Home, 8:Unknown Activity</a>
+<a name="50"><span class="lineNum">      50 </span>            : </a>
+<a name="51"><span class="lineNum">      51 </span>            :     /**</a>
+<a name="52"><span class="lineNum">      52 </span>            :      * @brief Construct a new Trip.</a>
+<a name="53"><span class="lineNum">      53 </span>            :      * @param[in] id ID of the Person that makes the Trip.</a>
+<a name="54"><span class="lineNum">      54 </span>            :      * @param[in] time_new Time at which a Person changes the Location this currently cant be set for s specific day just a timepoint in a day.</a>
+<a name="55"><span class="lineNum">      55 </span>            :      * @param[in] destination Location where the Person changes to.</a>
+<a name="56"><span class="lineNum">      56 </span>            :      * @param[in] origin Location where the person starts the Trip.</a>
+<a name="57"><span class="lineNum">      57 </span>            :      * @param[in] input_cells The index of the Cell%s the Person changes to.</a>
+<a name="58"><span class="lineNum">      58 </span>            :      */</a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        198 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig, TransportMode mode_of_transport,</span></a>
+<a name="60"><span class="lineNum">      60 </span>            :          ActivityType type_of_activity, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        198 :         : person_id(id)</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        198 :         , time(mio::abm::TimePoint(time_new.time_since_midnight().seconds()))</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        198 :         , destination(dest)</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">        198 :         , origin(orig)</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">        198 :         , cells(input_cells)</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">        198 :         , trip_mode(mode_of_transport)</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        198 :         , activity_type(type_of_activity)</span></a>
+<a name="68"><span class="lineNum">      68 </span>            :     {</a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        198 :     }</span></a>
+<a name="70"><span class="lineNum">      70 </span>            : </a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         99 :     Trip(PersonId id, TimePoint time_new, LocationId dest, const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">         99 :         : Trip(id, time_new, dest, dest, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         99 :                input_cells)</span></a>
+<a name="74"><span class="lineNum">      74 </span>            :     {</a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         99 :     }</span></a>
+<a name="76"><span class="lineNum">      76 </span>            : </a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         99 :     Trip(PersonId id, TimePoint time_new, LocationId dest, LocationId orig,</span></a>
+<a name="78"><span class="lineNum">      78 </span>            :          const std::vector&lt;uint32_t&gt;&amp; input_cells = {})</a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         99 :         : Trip(id, time_new, dest, orig, mio::abm::TransportMode::Unknown, mio::abm::ActivityType::UnknownActivity,</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">         99 :                input_cells)</span></a>
+<a name="81"><span class="lineNum">      81 </span>            :     {</a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">         99 :     }</span></a>
+<a name="83"><span class="lineNum">      83 </span>            : </a>
+<a name="84"><span class="lineNum">      84 </span>            :     /**</a>
+<a name="85"><span class="lineNum">      85 </span>            :      * @brief Compare two Trip%s.</a>
+<a name="86"><span class="lineNum">      86 </span>            :      */</a>
+<a name="87"><span class="lineNum">      87 </span>            :     bool operator==(const Trip&amp; other) const</a>
+<a name="88"><span class="lineNum">      88 </span>            :     {</a>
+<a name="89"><span class="lineNum">      89 </span>            :         return (person_id == other.person_id) &amp;&amp; (time == other.time) &amp;&amp; (destination == other.destination) &amp;&amp;</a>
+<a name="90"><span class="lineNum">      90 </span>            :                (origin == other.origin);</a>
+<a name="91"><span class="lineNum">      91 </span>            :     }</a>
+<a name="92"><span class="lineNum">      92 </span>            : </a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         18 :     auto default_serialize()</span></a>
+<a name="94"><span class="lineNum">      94 </span>            :     {</a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         36 :         return Members(&quot;Trip&quot;)</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         54 :             .add(&quot;person_id&quot;, person_id)</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         54 :             .add(&quot;time&quot;, time)</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         54 :             .add(&quot;destination&quot;, destination)</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         54 :             .add(&quot;origin&quot;, origin);</span></a>
+<a name="100"><span class="lineNum">     100 </span>            :     }</a>
+<a name="101"><span class="lineNum">     101 </span>            : };</a>
+<a name="102"><span class="lineNum">     102 </span>            : </a>
+<a name="103"><span class="lineNum">     103 </span>            : /**</a>
+<a name="104"><span class="lineNum">     104 </span>            :  * @brief A list of Trip%s a Person follows.</a>
+<a name="105"><span class="lineNum">     105 </span>            :  */</a>
+<a name="106"><span class="lineNum">     106 </span>            : class TripList</a>
+<a name="107"><span class="lineNum">     107 </span>            : {</a>
+<a name="108"><span class="lineNum">     108 </span>            : public:</a>
+<a name="109"><span class="lineNum">     109 </span>            :     /**</a>
+<a name="110"><span class="lineNum">     110 </span>            :      * @brief Construct empty TripList.</a>
+<a name="111"><span class="lineNum">     111 </span>            :      */</a>
+<a name="112"><span class="lineNum">     112 </span>            :     TripList();</a>
+<a name="113"><span class="lineNum">     113 </span>            : </a>
+<a name="114"><span class="lineNum">     114 </span>            :     /**</a>
+<a name="115"><span class="lineNum">     115 </span>            :      * @brief Get the next Trip.</a>
+<a name="116"><span class="lineNum">     116 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
+<a name="117"><span class="lineNum">     117 </span>            :      */</a>
+<a name="118"><span class="lineNum">     118 </span>            :     const Trip&amp; get_next_trip(bool weekend) const;</a>
+<a name="119"><span class="lineNum">     119 </span>            : </a>
+<a name="120"><span class="lineNum">     120 </span>            :     /**</a>
+<a name="121"><span class="lineNum">     121 </span>            :      * @brief Get the time at which the next Trip will happen.</a>
+<a name="122"><span class="lineNum">     122 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
+<a name="123"><span class="lineNum">     123 </span>            :      */</a>
+<a name="124"><span class="lineNum">     124 </span>            :     TimePoint get_next_trip_time(bool weekend) const;</a>
+<a name="125"><span class="lineNum">     125 </span>            : </a>
+<a name="126"><span class="lineNum">     126 </span>            :     /**</a>
+<a name="127"><span class="lineNum">     127 </span>            :      * @brief Add a Trip to the trip list.</a>
+<a name="128"><span class="lineNum">     128 </span>            :      * @param[in] trip The Trip to be added.</a>
+<a name="129"><span class="lineNum">     129 </span>            :      * @param[in] weekend If the Trip is made on a weekend day.     </a>
+<a name="130"><span class="lineNum">     130 </span>            :      */</a>
+<a name="131"><span class="lineNum">     131 </span>            :     void add_trip(Trip trip, bool weekend = false);</a>
+<a name="132"><span class="lineNum">     132 </span>            : </a>
 <a name="133"><span class="lineNum">     133 </span>            :     /**</a>
-<a name="134"><span class="lineNum">     134 </span>            :      * @brief Construct empty TripList.</a>
+<a name="134"><span class="lineNum">     134 </span>            :      * @brief Use the same TripList for weekend and weekday.</a>
 <a name="135"><span class="lineNum">     135 </span>            :      */</a>
-<a name="136"><span class="lineNum">     136 </span>            :     TripList();</a>
+<a name="136"><span class="lineNum">     136 </span>            :     void use_weekday_trips_on_weekend();</a>
 <a name="137"><span class="lineNum">     137 </span>            : </a>
 <a name="138"><span class="lineNum">     138 </span>            :     /**</a>
-<a name="139"><span class="lineNum">     139 </span>            :      * @brief Get the next Trip.</a>
-<a name="140"><span class="lineNum">     140 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
-<a name="141"><span class="lineNum">     141 </span>            :      */</a>
-<a name="142"><span class="lineNum">     142 </span>            :     const Trip&amp; get_next_trip(bool weekend) const;</a>
-<a name="143"><span class="lineNum">     143 </span>            : </a>
-<a name="144"><span class="lineNum">     144 </span>            :     /**</a>
-<a name="145"><span class="lineNum">     145 </span>            :      * @brief Get the time at which the next Trip will happen.</a>
-<a name="146"><span class="lineNum">     146 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
-<a name="147"><span class="lineNum">     147 </span>            :      */</a>
-<a name="148"><span class="lineNum">     148 </span>            :     TimePoint get_next_trip_time(bool weekend) const;</a>
-<a name="149"><span class="lineNum">     149 </span>            : </a>
-<a name="150"><span class="lineNum">     150 </span>            :     /**</a>
-<a name="151"><span class="lineNum">     151 </span>            :      * @brief Add a Trip to the trip list.</a>
-<a name="152"><span class="lineNum">     152 </span>            :      * @param[in] trip The Trip to be added.</a>
-<a name="153"><span class="lineNum">     153 </span>            :      * @param[in] weekend If the Trip is made on a weekend day.     </a>
-<a name="154"><span class="lineNum">     154 </span>            :      */</a>
-<a name="155"><span class="lineNum">     155 </span>            :     void add_trip(Trip trip, bool weekend = false);</a>
-<a name="156"><span class="lineNum">     156 </span>            : </a>
-<a name="157"><span class="lineNum">     157 </span>            :     /**</a>
-<a name="158"><span class="lineNum">     158 </span>            :      * @brief Use the same TripList for weekend and weekday.</a>
-<a name="159"><span class="lineNum">     159 </span>            :      */</a>
-<a name="160"><span class="lineNum">     160 </span>            :     void use_weekday_trips_on_weekend();</a>
-<a name="161"><span class="lineNum">     161 </span>            : </a>
-<a name="162"><span class="lineNum">     162 </span>            :     /**</a>
-<a name="163"><span class="lineNum">     163 </span>            :      * @brief Increment the current index to select the next Trip.</a>
-<a name="164"><span class="lineNum">     164 </span>            :      */</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         21 :     void increase_index()</span></a>
-<a name="166"><span class="lineNum">     166 </span>            :     {</a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         21 :         m_current_index++;</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         21 :     }</span></a>
-<a name="169"><span class="lineNum">     169 </span>            : </a>
-<a name="170"><span class="lineNum">     170 </span>            :     /**</a>
-<a name="171"><span class="lineNum">     171 </span>            :      * @brief Reset the current index to 0.</a>
-<a name="172"><span class="lineNum">     172 </span>            :      */</a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">          6 :     void reset_index()</span></a>
-<a name="174"><span class="lineNum">     174 </span>            :     {</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">          6 :         m_current_index = 0;</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">          6 :     }</span></a>
-<a name="177"><span class="lineNum">     177 </span>            : </a>
-<a name="178"><span class="lineNum">     178 </span>            :     /**</a>
-<a name="179"><span class="lineNum">     179 </span>            :      * @brief Get the length of the TripList.</a>
-<a name="180"><span class="lineNum">     180 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
-<a name="181"><span class="lineNum">     181 </span>            :      */</a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         84 :     size_t num_trips(bool weekend = false) const</span></a>
-<a name="183"><span class="lineNum">     183 </span>            :     {</a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">         84 :         return weekend ? m_trips_weekend.size() : m_trips_weekday.size();</span></a>
-<a name="185"><span class="lineNum">     185 </span>            :     }</a>
-<a name="186"><span class="lineNum">     186 </span>            : </a>
-<a name="187"><span class="lineNum">     187 </span>            :     /**</a>
-<a name="188"><span class="lineNum">     188 </span>            :      * @brief Get the current index.</a>
-<a name="189"><span class="lineNum">     189 </span>            :      */</a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">        105 :     uint32_t get_current_index() const</span></a>
-<a name="191"><span class="lineNum">     191 </span>            :     {</a>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">        105 :         return m_current_index;</span></a>
-<a name="193"><span class="lineNum">     193 </span>            :     }</a>
-<a name="194"><span class="lineNum">     194 </span>            : </a>
-<a name="195"><span class="lineNum">     195 </span>            : private:</a>
-<a name="196"><span class="lineNum">     196 </span>            :     std::vector&lt;Trip&gt; m_trips_weekday; ///&lt; The list of Trip%s a Person makes on a weekday.</a>
-<a name="197"><span class="lineNum">     197 </span>            :     std::vector&lt;Trip&gt; m_trips_weekend; ///&lt; The list of Trip%s a Person makes on a weekend day.</a>
-<a name="198"><span class="lineNum">     198 </span>            :     uint32_t m_current_index; ///&lt; The index of the Trip a Person makes next.</a>
-<a name="199"><span class="lineNum">     199 </span>            : };</a>
-<a name="200"><span class="lineNum">     200 </span>            : </a>
-<a name="201"><span class="lineNum">     201 </span>            : } // namespace abm</a>
-<a name="202"><span class="lineNum">     202 </span>            : } // namespace mio</a>
-<a name="203"><span class="lineNum">     203 </span>            : </a>
-<a name="204"><span class="lineNum">     204 </span>            : #endif</a>
+<a name="139"><span class="lineNum">     139 </span>            :      * @brief Increment the current index to select the next Trip.</a>
+<a name="140"><span class="lineNum">     140 </span>            :      */</a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">        189 :     void increase_index()</span></a>
+<a name="142"><span class="lineNum">     142 </span>            :     {</a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        189 :         m_current_index++;</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        189 :     }</span></a>
+<a name="145"><span class="lineNum">     145 </span>            : </a>
+<a name="146"><span class="lineNum">     146 </span>            :     /**</a>
+<a name="147"><span class="lineNum">     147 </span>            :      * @brief Reset the current index to 0.</a>
+<a name="148"><span class="lineNum">     148 </span>            :      */</a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         54 :     void reset_index()</span></a>
+<a name="150"><span class="lineNum">     150 </span>            :     {</a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         54 :         m_current_index = 0;</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         54 :     }</span></a>
+<a name="153"><span class="lineNum">     153 </span>            : </a>
+<a name="154"><span class="lineNum">     154 </span>            :     /**</a>
+<a name="155"><span class="lineNum">     155 </span>            :      * @brief Get the length of the TripList.</a>
+<a name="156"><span class="lineNum">     156 </span>            :      * @param weekend Whether the Trip%s during the week or on the weekend are used.</a>
+<a name="157"><span class="lineNum">     157 </span>            :      */</a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        756 :     size_t num_trips(bool weekend = false) const</span></a>
+<a name="159"><span class="lineNum">     159 </span>            :     {</a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        756 :         return weekend ? m_trips_weekend.size() : m_trips_weekday.size();</span></a>
+<a name="161"><span class="lineNum">     161 </span>            :     }</a>
+<a name="162"><span class="lineNum">     162 </span>            : </a>
+<a name="163"><span class="lineNum">     163 </span>            :     /**</a>
+<a name="164"><span class="lineNum">     164 </span>            :      * @brief Get the current index.</a>
+<a name="165"><span class="lineNum">     165 </span>            :      */</a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">        945 :     uint32_t get_current_index() const</span></a>
+<a name="167"><span class="lineNum">     167 </span>            :     {</a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">        945 :         return m_current_index;</span></a>
+<a name="169"><span class="lineNum">     169 </span>            :     }</a>
+<a name="170"><span class="lineNum">     170 </span>            : </a>
+<a name="171"><span class="lineNum">     171 </span>            :     /// This method is used by the default serialization feature.</a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">         18 :     auto default_serialize()</span></a>
+<a name="173"><span class="lineNum">     173 </span>            :     {</a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         36 :         return Members(&quot;TestingScheme&quot;)</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">         54 :             .add(&quot;trips_weekday&quot;, m_trips_weekday)</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">         54 :             .add(&quot;trips_weekend&quot;, m_trips_weekend)</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">         54 :             .add(&quot;index&quot;, m_current_index);</span></a>
+<a name="178"><span class="lineNum">     178 </span>            :     }</a>
+<a name="179"><span class="lineNum">     179 </span>            : </a>
+<a name="180"><span class="lineNum">     180 </span>            : private:</a>
+<a name="181"><span class="lineNum">     181 </span>            :     std::vector&lt;Trip&gt; m_trips_weekday; ///&lt; The list of Trip%s a Person makes on a weekday.</a>
+<a name="182"><span class="lineNum">     182 </span>            :     std::vector&lt;Trip&gt; m_trips_weekend; ///&lt; The list of Trip%s a Person makes on a weekend day.</a>
+<a name="183"><span class="lineNum">     183 </span>            :     uint32_t m_current_index; ///&lt; The index of the Trip a Person makes next.</a>
+<a name="184"><span class="lineNum">     184 </span>            : };</a>
+<a name="185"><span class="lineNum">     185 </span>            : </a>
+<a name="186"><span class="lineNum">     186 </span>            : } // namespace abm</a>
+<a name="187"><span class="lineNum">     187 </span>            : </a>
+<a name="188"><span class="lineNum">     188 </span>            : /// @brief Creates an instance of abm::Trip for default serialization.</a>
+<a name="189"><span class="lineNum">     189 </span>            : template &lt;&gt;</a>
+<a name="190"><span class="lineNum">     190 </span>            : struct DefaultFactory&lt;abm::Trip&gt; {</a>
+<a name="191"><span class="lineNum">     191 </span><span class="lineCov">          9 :     static abm::Trip create()</span></a>
+<a name="192"><span class="lineNum">     192 </span>            :     {</a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">          9 :         return abm::Trip{abm::PersonId{}, abm::TimePoint{}, abm::LocationId{}};</span></a>
+<a name="194"><span class="lineNum">     194 </span>            :     }</a>
+<a name="195"><span class="lineNum">     195 </span>            : };</a>
+<a name="196"><span class="lineNum">     196 </span>            : </a>
+<a name="197"><span class="lineNum">     197 </span>            : } // namespace mio</a>
+<a name="198"><span class="lineNum">     198 </span>            : </a>
+<a name="199"><span class="lineNum">     199 </span>            : #endif</a>
 </pre>
       </td>
     </tr>

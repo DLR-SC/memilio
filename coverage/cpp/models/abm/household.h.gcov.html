@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -117,10 +117,10 @@
 <a name="55"><span class="lineNum">      55 </span>            :      * @brief Constructs a new HouseholdMember.</a>
 <a name="56"><span class="lineNum">      56 </span>            :      * @param[in] agegroups the age groups in the model. </a>
 <a name="57"><span class="lineNum">      57 </span>            :      */</a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         36 :     HouseholdMember(size_t num_agegroups)</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">         36 :         : m_age_weights({AgeGroup(num_agegroups)}, 0)</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        324 :     HouseholdMember(size_t num_agegroups)</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        324 :         : m_age_weights({AgeGroup(num_agegroups)}, 0)</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :     {</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         36 :     }</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        324 :     }</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span>            :     /**</a>
 <a name="64"><span class="lineNum">      64 </span>            :      * @brief Sets the weight of an AgeGroup.</a>
@@ -128,18 +128,18 @@
 <a name="66"><span class="lineNum">      66 </span>            :      * @param[in] age_group The AgeGroup.</a>
 <a name="67"><span class="lineNum">      67 </span>            :      * @param[in] weight The weight of the AgeGroup.</a>
 <a name="68"><span class="lineNum">      68 </span>            :      */</a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">          4 :     void set_age_weight(mio::AgeGroup age_group, int weight)</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">         36 :     void set_age_weight(mio::AgeGroup age_group, int weight)</span></a>
 <a name="70"><span class="lineNum">      70 </span>            :     {</a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">          4 :         assert(age_group &lt; m_age_weights.size&lt;mio::AgeGroup&gt;());</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          4 :         m_age_weights[age_group] = weight;</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          4 :     }</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         36 :         assert(age_group &lt; m_age_weights.size&lt;mio::AgeGroup&gt;());</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">         36 :         m_age_weights[age_group] = weight;</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         36 :     }</span></a>
 <a name="74"><span class="lineNum">      74 </span>            : </a>
 <a name="75"><span class="lineNum">      75 </span>            :     /**</a>
 <a name="76"><span class="lineNum">      76 </span>            :      * @brief Returns the CustomIndexArray with the weights of each AgeGroup.</a>
 <a name="77"><span class="lineNum">      77 </span>            :      */</a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">        104 :     const CustomIndexArray&lt;int, mio::AgeGroup&gt;&amp; get_age_weights() const</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">        936 :     const CustomIndexArray&lt;int, mio::AgeGroup&gt;&amp; get_age_weights() const</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :     {</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">        104 :         return m_age_weights;</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">        936 :         return m_age_weights;</span></a>
 <a name="81"><span class="lineNum">      81 </span>            :     }</a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            : private:</a>
@@ -156,19 +156,19 @@
 <a name="94"><span class="lineNum">      94 </span>            :     /**</a>
 <a name="95"><span class="lineNum">      95 </span>            :      * @brief Constructs a new Household.</a>
 <a name="96"><span class="lineNum">      96 </span>            :      */</a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          5 :     Household()</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">          5 :         : m_household_member_list()</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         45 :     Household()</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         45 :         : m_household_member_list()</span></a>
 <a name="99"><span class="lineNum">      99 </span>            :     {</a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          5 :         m_number_of_members = 0;</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">          5 :         m_space_per_member  = 0;</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          5 :     }</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         45 :         m_number_of_members = 0;</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         45 :         m_space_per_member  = 0;</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">         45 :     }</span></a>
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span>            :     /**</a>
 <a name="105"><span class="lineNum">     105 </span>            :      * @brief Returns the number of members, i.e.\ Person%s in the Household.</a>
 <a name="106"><span class="lineNum">     106 </span>            :      */</a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">         32 :     int get_total_number_of_members() const</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">        288 :     int get_total_number_of_members() const</span></a>
 <a name="108"><span class="lineNum">     108 </span>            :     {</a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         32 :         return m_number_of_members;</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">        288 :         return m_number_of_members;</span></a>
 <a name="110"><span class="lineNum">     110 </span>            :     }</a>
 <a name="111"><span class="lineNum">     111 </span>            : </a>
 <a name="112"><span class="lineNum">     112 </span>            :     /**</a>
@@ -183,17 +183,17 @@
 <a name="121"><span class="lineNum">     121 </span>            :     /**</a>
 <a name="122"><span class="lineNum">     122 </span>            :      * @brief Get the space per member of the Household, measured in cubic meters.</a>
 <a name="123"><span class="lineNum">     123 </span>            :      */</a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         16 :     int get_space_per_member() const</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">        144 :     int get_space_per_member() const</span></a>
 <a name="125"><span class="lineNum">     125 </span>            :     {</a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         16 :         return m_space_per_member;</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">        144 :         return m_space_per_member;</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :     }</a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
 <a name="129"><span class="lineNum">     129 </span>            :     /**</a>
 <a name="130"><span class="lineNum">     130 </span>            :      * @brief Get the HouseholdMember%s of the Household.</a>
 <a name="131"><span class="lineNum">     131 </span>            :      */</a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         16 :     const std::vector&lt;std::tuple&lt;HouseholdMember, int&gt;&gt;&amp; get_members() const</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">        144 :     const std::vector&lt;std::tuple&lt;HouseholdMember, int&gt;&gt;&amp; get_members() const</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :     {</a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">         16 :         return m_household_member_list;</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">        144 :         return m_household_member_list;</span></a>
 <a name="135"><span class="lineNum">     135 </span>            :     }</a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
 <a name="137"><span class="lineNum">     137 </span>            :     /**</a>
@@ -220,11 +220,11 @@
 <a name="158"><span class="lineNum">     158 </span>            :     /**</a>
 <a name="159"><span class="lineNum">     159 </span>            :      * @brief Constructs a new HouseholdGroup.</a>
 <a name="160"><span class="lineNum">     160 </span>            :      */</a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          1 :     HouseholdGroup()</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">          1 :         : m_household_list()</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          9 :     HouseholdGroup()</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">          9 :         : m_household_list()</span></a>
 <a name="163"><span class="lineNum">     163 </span>            :     {</a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          1 :         m_number_of_households = 0;</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          1 :     }</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          9 :         m_number_of_households = 0;</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          9 :     }</span></a>
 <a name="166"><span class="lineNum">     166 </span>            : </a>
 <a name="167"><span class="lineNum">     167 </span>            :     /**</a>
 <a name="168"><span class="lineNum">     168 </span>            :      * @brief Returns the number of Household%s in the HouseholdGroup.</a>
@@ -238,9 +238,9 @@
 <a name="176"><span class="lineNum">     176 </span>            :      * @brief Returns the Household%s of the HouseholdGroup.</a>
 <a name="177"><span class="lineNum">     177 </span>            :      * @return A vector of tuples that contains the Houshold and the amount of times that Household is in the group.</a>
 <a name="178"><span class="lineNum">     178 </span>            :      */</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">          1 :     const std::vector&lt;std::tuple&lt;Household, int&gt;&gt;&amp; get_households() const</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">          9 :     const std::vector&lt;std::tuple&lt;Household, int&gt;&gt;&amp; get_households() const</span></a>
 <a name="180"><span class="lineNum">     180 </span>            :     {</a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">          1 :         return m_household_list;</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineCov">          9 :         return m_household_list;</span></a>
 <a name="182"><span class="lineNum">     182 </span>            :     }</a>
 <a name="183"><span class="lineNum">     183 </span>            : </a>
 <a name="184"><span class="lineNum">     184 </span>            :     /**</a>

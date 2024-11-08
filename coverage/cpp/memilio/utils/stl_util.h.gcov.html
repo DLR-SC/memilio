@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">440</td>
@@ -109,10 +109,10 @@
 <a name="47"><span class="lineNum">      47 </span>            :  * @param fill [Default: A space ' '] The character used for padding.</a>
 <a name="48"><span class="lineNum">      48 </span>            :  * @return Returns a reference to out.</a>
 <a name="49"><span class="lineNum">      49 </span>            :  */</a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">         57 : inline std::ostream&amp; set_ostream_format(std::ostream&amp; out, size_t width, size_t precision, char fill = ' ')</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">        513 : inline std::ostream&amp; set_ostream_format(std::ostream&amp; out, size_t width, size_t precision, char fill = ' ')</span></a>
 <a name="51"><span class="lineNum">      51 </span>            : {</a>
 <a name="52"><span class="lineNum">      52 </span>            :     // Note: ostream&amp; operator&lt;&lt; returns a reference to itself</a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">         57 :     return out &lt;&lt; std::setw(width) &lt;&lt; std::fixed &lt;&lt; std::setprecision(precision) &lt;&lt; std::setfill(fill);</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        513 :     return out &lt;&lt; std::setw(width) &lt;&lt; std::fixed &lt;&lt; std::setprecision(precision) &lt;&lt; std::setfill(fill);</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : }</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <a name="56"><span class="lineNum">      56 </span>            : /**</a>
@@ -127,25 +127,25 @@
 <a name="65"><span class="lineNum">      65 </span>            :  * @return iterator to inserted or replaced item in vec</a>
 <a name="66"><span class="lineNum">      66 </span>            :  */</a>
 <a name="67"><span class="lineNum">      67 </span>            : template &lt;typename T, typename Pred&gt;</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">        307 : typename std::vector&lt;T&gt;::iterator insert_sorted_replace(std::vector&lt;T&gt;&amp; vec, T const&amp; item, Pred pred)</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       2169 : typename std::vector&lt;T&gt;::iterator insert_sorted_replace(std::vector&lt;T&gt;&amp; vec, T const&amp; item, Pred pred)</span></a>
 <a name="69"><span class="lineNum">      69 </span>            : {</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        307 :     auto bounds = std::equal_range(begin(vec), end(vec), item, pred);</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        307 :     auto lb     = bounds.first;</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        307 :     auto ub     = bounds.second;</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">        307 :     assert(ub - lb &lt;= 1); //input vector contains at most one item that is equal to the new item</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        307 :     if (ub - lb == 1) {</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          8 :         *lb = item;</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          8 :         return lb;</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       2169 :     auto bounds = std::equal_range(begin(vec), end(vec), item, pred);</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">       2169 :     auto lb     = bounds.first;</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       2169 :     auto ub     = bounds.second;</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       2169 :     assert(ub - lb &lt;= 1); //input vector contains at most one item that is equal to the new item</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       2169 :     if (ub - lb == 1) {</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         62 :         *lb = item;</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         62 :         return lb;</span></a>
 <a name="77"><span class="lineNum">      77 </span>            :     }</a>
 <a name="78"><span class="lineNum">      78 </span>            :     else {</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">        598 :         return vec.insert(lb, item);</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       4214 :         return vec.insert(lb, item);</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     }</a>
 <a name="81"><span class="lineNum">      81 </span>            : }</a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            : template &lt;typename T&gt;</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          8 : typename std::vector&lt;T&gt;::iterator insert_sorted_replace(std::vector&lt;T&gt;&amp; vec, T const&amp; item)</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">         72 : typename std::vector&lt;T&gt;::iterator insert_sorted_replace(std::vector&lt;T&gt;&amp; vec, T const&amp; item)</span></a>
 <a name="85"><span class="lineNum">      85 </span>            : {</a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          8 :     return insert_sorted_replace(vec, item, std::less&lt;T&gt;());</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         72 :     return insert_sorted_replace(vec, item, std::less&lt;T&gt;());</span></a>
 <a name="87"><span class="lineNum">      87 </span>            : }</a>
 <a name="88"><span class="lineNum">      88 </span>            : </a>
 <a name="89"><span class="lineNum">      89 </span>            : /**</a>
@@ -165,19 +165,19 @@
 <a name="103"><span class="lineNum">     103 </span>            :     using value_type             = typename std::iterator_traits&lt;iterator&gt;::value_type;</a>
 <a name="104"><span class="lineNum">     104 </span>            :     using reference              = typename std::iterator_traits&lt;iterator&gt;::reference;</a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">      90205 :     Range(IterPair iter_pair)</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">      90205 :         : m_iter_pair(iter_pair)</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">     869090 :     Range(IterPair iter_pair)</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">     869090 :         : m_iter_pair(iter_pair)</span></a>
 <a name="108"><span class="lineNum">     108 </span>            :     {</a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">      90205 :     }</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">     869090 :     }</span></a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
 <a name="111"><span class="lineNum">     111 </span>            :     /** @brief index operator.</a>
 <a name="112"><span class="lineNum">     112 </span>            :      * constant complexity if random access iterator, linear otherwise</a>
 <a name="113"><span class="lineNum">     113 </span>            :      */</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">      24620 :     reference operator[](size_t idx) const</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">     220934 :     reference operator[](size_t idx) const</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :     {</a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      24620 :         auto it = begin();</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">      24620 :         std::advance(it, idx);</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      24620 :         return *it;</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">     220934 :         auto it = begin();</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">     220934 :         std::advance(it, idx);</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">     220934 :         return *it;</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :     }</a>
 <a name="120"><span class="lineNum">     120 </span>            : </a>
 <a name="121"><span class="lineNum">     121 </span>            :     reference back() const</a>
@@ -185,33 +185,33 @@
 <a name="123"><span class="lineNum">     123 </span>            :         return *(--end());</a>
 <a name="124"><span class="lineNum">     124 </span>            :     }</a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      12680 :     size_t size() const</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">     112268 :     size_t size() const</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :     {</a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      12680 :         return static_cast&lt;size_t&gt;(std::distance(begin(), end()));</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">     112268 :         return static_cast&lt;size_t&gt;(std::distance(begin(), end()));</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :     }</a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      78068 :     auto begin() const</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">     830042 :     auto begin() const</span></a>
 <a name="132"><span class="lineNum">     132 </span>            :     {</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">      78068 :         return m_iter_pair.first;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">     830042 :         return m_iter_pair.first;</span></a>
 <a name="134"><span class="lineNum">     134 </span>            :     }</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">      53711 :     auto end() const</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">     550237 :     auto end() const</span></a>
 <a name="137"><span class="lineNum">     137 </span>            :     {</a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">      53711 :         return m_iter_pair.second;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">     550237 :         return m_iter_pair.second;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            :     }</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
 <a name="141"><span class="lineNum">     141 </span>            :     template &lt;class T = typename std::iterator_traits&lt;iterator&gt;::iterator_category,</a>
 <a name="142"><span class="lineNum">     142 </span>            :               class   = std::enable_if_t&lt;std::is_base_of&lt;std::bidirectional_iterator_tag, T&gt;::value&gt;&gt;</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         69 :     auto rbegin() const</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        501 :     auto rbegin() const</span></a>
 <a name="144"><span class="lineNum">     144 </span>            :     {</a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">         69 :         return std::make_reverse_iterator(end());</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">        501 :         return std::make_reverse_iterator(end());</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :     }</a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
 <a name="148"><span class="lineNum">     148 </span>            :     template &lt;class T = typename std::iterator_traits&lt;iterator&gt;::iterator_category,</a>
 <a name="149"><span class="lineNum">     149 </span>            :               class   = std::enable_if_t&lt;std::is_base_of&lt;std::bidirectional_iterator_tag, T&gt;::value&gt;&gt;</a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">        137 :     auto rend() const</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">        993 :     auto rend() const</span></a>
 <a name="151"><span class="lineNum">     151 </span>            :     {</a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">        137 :         return std::make_reverse_iterator(begin());</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">        993 :         return std::make_reverse_iterator(begin());</span></a>
 <a name="153"><span class="lineNum">     153 </span>            :     }</a>
 <a name="154"><span class="lineNum">     154 </span>            : </a>
 <a name="155"><span class="lineNum">     155 </span>            : private:</a>
@@ -222,15 +222,15 @@
 <a name="160"><span class="lineNum">     160 </span>            :  * @brief factories for template argument deduction</a>
 <a name="161"><span class="lineNum">     161 </span>            :  */</a>
 <a name="162"><span class="lineNum">     162 </span>            : template &lt;class IterPair&gt;</a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">      90039 : auto make_range(IterPair&amp;&amp; p)</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">     867592 : auto make_range(IterPair&amp;&amp; p)</span></a>
 <a name="164"><span class="lineNum">     164 </span>            : {</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">      90039 :     return Range&lt;std::remove_reference_t&lt;std::remove_cv_t&lt;IterPair&gt;&gt;&gt;{p};</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">     867592 :     return Range&lt;std::remove_reference_t&lt;std::remove_cv_t&lt;IterPair&gt;&gt;&gt;{p};</span></a>
 <a name="166"><span class="lineNum">     166 </span>            : }</a>
 <a name="167"><span class="lineNum">     167 </span>            : </a>
 <a name="168"><span class="lineNum">     168 </span>            : template &lt;class Iter1, class Iter2&gt;</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">      89999 : auto make_range(Iter1&amp;&amp; iter1, Iter2&amp;&amp; iter2)</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">     867464 : auto make_range(Iter1&amp;&amp; iter1, Iter2&amp;&amp; iter2)</span></a>
 <a name="170"><span class="lineNum">     170 </span>            : {</a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">      89999 :     return make_range(std::make_pair(iter1, iter2));</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">     867464 :     return make_range(std::make_pair(iter1, iter2));</span></a>
 <a name="172"><span class="lineNum">     172 </span>            : }</a>
 <a name="173"><span class="lineNum">     173 </span>            : </a>
 <a name="174"><span class="lineNum">     174 </span>            : /**</a>
@@ -262,26 +262,26 @@
 <a name="200"><span class="lineNum">     200 </span>            : /**</a>
 <a name="201"><span class="lineNum">     201 </span>            :      * length of a null terminated C string</a>
 <a name="202"><span class="lineNum">     202 </span>            :      */</a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">        438 : inline size_t string_length(const char* str)</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">       2950 : inline size_t string_length(const char* str)</span></a>
 <a name="204"><span class="lineNum">     204 </span>            : {</a>
-<a name="205"><span class="lineNum">     205 </span><span class="lineCov">        438 :     return std::strlen(str);</span></a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">       2950 :     return std::strlen(str);</span></a>
 <a name="206"><span class="lineNum">     206 </span>            : }</a>
 <a name="207"><span class="lineNum">     207 </span>            : </a>
 <a name="208"><span class="lineNum">     208 </span>            : /**</a>
 <a name="209"><span class="lineNum">     209 </span>            :      * length of a string (e.g std::string)</a>
 <a name="210"><span class="lineNum">     210 </span>            :      */</a>
 <a name="211"><span class="lineNum">     211 </span>            : template &lt;class String&gt;</a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">        314 : size_t string_length(String&amp;&amp; str)</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">       1338 : size_t string_length(String&amp;&amp; str)</span></a>
 <a name="213"><span class="lineNum">     213 </span>            : {</a>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">        314 :     return str.length();</span></a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">       1338 :     return str.length();</span></a>
 <a name="215"><span class="lineNum">     215 </span>            : }</a>
 <a name="216"><span class="lineNum">     216 </span>            : </a>
 <a name="217"><span class="lineNum">     217 </span>            : /**</a>
 <a name="218"><span class="lineNum">     218 </span>            :      * breaks the recursion of path_join_rec.</a>
 <a name="219"><span class="lineNum">     219 </span>            :      */</a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">        176 : inline void path_join_rec(std::stringstream&amp;, bool)</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">        976 : inline void path_join_rec(std::stringstream&amp;, bool)</span></a>
 <a name="221"><span class="lineNum">     221 </span>            : {</a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">        176 : }</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">        976 : }</span></a>
 <a name="223"><span class="lineNum">     223 </span>            : </a>
 <a name="224"><span class="lineNum">     224 </span>            : /**</a>
 <a name="225"><span class="lineNum">     225 </span>            :      * recursive template helper function to join paths</a>
@@ -291,14 +291,14 @@
 <a name="229"><span class="lineNum">     229 </span>            :      * @param tail remaining parts of the path</a>
 <a name="230"><span class="lineNum">     230 </span>            :      */</a>
 <a name="231"><span class="lineNum">     231 </span>            : template &lt;class Head, class... Tail&gt;</a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">        380 : void path_join_rec(std::stringstream&amp; ss, bool writeSeparator, Head&amp;&amp; head, Tail&amp;&amp;... tail)</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">       2180 : void path_join_rec(std::stringstream&amp; ss, bool writeSeparator, Head&amp;&amp; head, Tail&amp;&amp;... tail)</span></a>
 <a name="233"><span class="lineNum">     233 </span>            : {</a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        380 :     if (writeSeparator) {</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">        194 :         ss &lt;&lt; '/';</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">       2180 :     if (writeSeparator) {</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">       1114 :         ss &lt;&lt; '/';</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :     }</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        380 :     ss &lt;&lt; head;</span></a>
-<a name="238"><span class="lineNum">     238 </span><span class="lineCov">        380 :     path_join_rec(ss, string_length(head) &gt; 0 &amp;&amp; head[string_length(head) - 1] != '/', tail...);</span></a>
-<a name="239"><span class="lineNum">     239 </span><span class="lineCov">        380 : }</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">       2180 :     ss &lt;&lt; head;</span></a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">       2180 :     path_join_rec(ss, string_length(head) &gt; 0 &amp;&amp; head[string_length(head) - 1] != '/', tail...);</span></a>
+<a name="239"><span class="lineNum">     239 </span><span class="lineCov">       2180 : }</span></a>
 <a name="240"><span class="lineNum">     240 </span>            : </a>
 <a name="241"><span class="lineNum">     241 </span>            : } // namespace details</a>
 <a name="242"><span class="lineNum">     242 </span>            : </a>
@@ -315,13 +315,13 @@
 <a name="253"><span class="lineNum">     253 </span>            :  * @returns all inputs joined </a>
 <a name="254"><span class="lineNum">     254 </span>            :  */</a>
 <a name="255"><span class="lineNum">     255 </span>            : template &lt;class String, class... Strings&gt;</a>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">        176 : std::string path_join(String&amp;&amp; base, Strings&amp;&amp;... app)</span></a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">        976 : std::string path_join(String&amp;&amp; base, Strings&amp;&amp;... app)</span></a>
 <a name="257"><span class="lineNum">     257 </span>            : {</a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        176 :     std::stringstream ss;</span></a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">        176 :     details::path_join_rec(ss, false, base, app...);</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">        176 :     auto path = ss.str();</span></a>
-<a name="261"><span class="lineNum">     261 </span><span class="lineCov">        352 :     return path;</span></a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        176 : }</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        976 :     std::stringstream ss;</span></a>
+<a name="259"><span class="lineNum">     259 </span><span class="lineCov">        976 :     details::path_join_rec(ss, false, base, app...);</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">        976 :     auto path = ss.str();</span></a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">       1952 :     return path;</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        976 : }</span></a>
 <a name="263"><span class="lineNum">     263 </span>            : </a>
 <a name="264"><span class="lineNum">     264 </span>            : /**</a>
 <a name="265"><span class="lineNum">     265 </span>            :  * converts a unique_ptr&lt;T&gt; to unique_ptr&lt;U&gt;.</a>
@@ -332,25 +332,25 @@
 <a name="270"><span class="lineNum">     270 </span>            :  * @returns converted unique_ptr if object can be cast to U, default unique_ptr otherwise</a>
 <a name="271"><span class="lineNum">     271 </span>            :  */</a>
 <a name="272"><span class="lineNum">     272 </span>            : template &lt;class U, class T&gt;</a>
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">          3 : std::unique_ptr&lt;U&gt; dynamic_unique_ptr_cast(std::unique_ptr&lt;T&gt;&amp;&amp; base_ptr)</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">         27 : std::unique_ptr&lt;U&gt; dynamic_unique_ptr_cast(std::unique_ptr&lt;T&gt;&amp;&amp; base_ptr)</span></a>
 <a name="274"><span class="lineNum">     274 </span>            : {</a>
-<a name="275"><span class="lineNum">     275 </span><span class="lineCov">          3 :     auto tmp_base_ptr = std::move(base_ptr);</span></a>
-<a name="276"><span class="lineNum">     276 </span><span class="lineCov">          3 :     U* tmp            = dynamic_cast&lt;U*&gt;(tmp_base_ptr.get());</span></a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          3 :     std::unique_ptr&lt;U&gt; derived_ptr;</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">          3 :     if (tmp != nullptr) {</span></a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">          1 :         tmp_base_ptr.release();</span></a>
-<a name="280"><span class="lineNum">     280 </span><span class="lineCov">          1 :         derived_ptr.reset(tmp);</span></a>
+<a name="275"><span class="lineNum">     275 </span><span class="lineCov">         27 :     auto tmp_base_ptr = std::move(base_ptr);</span></a>
+<a name="276"><span class="lineNum">     276 </span><span class="lineCov">         27 :     U* tmp            = dynamic_cast&lt;U*&gt;(tmp_base_ptr.get());</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">         27 :     std::unique_ptr&lt;U&gt; derived_ptr;</span></a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">         27 :     if (tmp != nullptr) {</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">          9 :         tmp_base_ptr.release();</span></a>
+<a name="280"><span class="lineNum">     280 </span><span class="lineCov">          9 :         derived_ptr.reset(tmp);</span></a>
 <a name="281"><span class="lineNum">     281 </span>            :     }</a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">          3 :     return derived_ptr;</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          3 : }</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">         27 :     return derived_ptr;</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">         27 : }</span></a>
 <a name="284"><span class="lineNum">     284 </span>            : </a>
 <a name="285"><span class="lineNum">     285 </span>            : /**</a>
 <a name="286"><span class="lineNum">     286 </span>            :  * checks if there is an element in this range that matches a predicate</a>
 <a name="287"><span class="lineNum">     287 </span>            :  */</a>
 <a name="288"><span class="lineNum">     288 </span>            : template &lt;class Iter, class Pred&gt;</a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">          3 : bool contains(Iter b, Iter e, Pred p)</span></a>
+<a name="289"><span class="lineNum">     289 </span><span class="lineCov">         27 : bool contains(Iter b, Iter e, Pred p)</span></a>
 <a name="290"><span class="lineNum">     290 </span>            : {</a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">          3 :     return find_if(b, e, p) != e;</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">         27 :     return find_if(b, e, p) != e;</span></a>
 <a name="292"><span class="lineNum">     292 </span>            : }</a>
 <a name="293"><span class="lineNum">     293 </span>            : </a>
 <a name="294"><span class="lineNum">     294 </span>            : /**</a>
@@ -366,15 +366,15 @@
 <a name="304"><span class="lineNum">     304 </span>            :  * @return Array of all members of the enum class not including T::Count.</a>
 <a name="305"><span class="lineNum">     305 </span>            :  */</a>
 <a name="306"><span class="lineNum">     306 </span>            : template&lt;class T&gt;</a>
-<a name="307"><span class="lineNum">     307 </span><span class="lineCov">          1 : constexpr std::array&lt;T, size_t(T::Count)&gt; enum_members()</span></a>
+<a name="307"><span class="lineNum">     307 </span><span class="lineCov">          9 : constexpr std::array&lt;T, size_t(T::Count)&gt; enum_members()</span></a>
 <a name="308"><span class="lineNum">     308 </span>            : {</a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">          1 :     auto enum_members = std::array&lt;T, size_t(T::Count)&gt;{};</span></a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          1 :     auto indices      = std::array&lt;std::underlying_type_t&lt;T&gt;, size_t(T::Count)&gt;{};</span></a>
-<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          1 :     std::iota(indices.begin(), indices.end(), std::underlying_type_t&lt;T&gt;(0));</span></a>
-<a name="312"><span class="lineNum">     312 </span><span class="lineCov">          1 :     std::transform(indices.begin(), indices.end(), enum_members.begin(), [](auto i) {</span></a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">          2 :         return T(i);</span></a>
+<a name="309"><span class="lineNum">     309 </span><span class="lineCov">          9 :     auto enum_members = std::array&lt;T, size_t(T::Count)&gt;{};</span></a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          9 :     auto indices      = std::array&lt;std::underlying_type_t&lt;T&gt;, size_t(T::Count)&gt;{};</span></a>
+<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          9 :     std::iota(indices.begin(), indices.end(), std::underlying_type_t&lt;T&gt;(0));</span></a>
+<a name="312"><span class="lineNum">     312 </span><span class="lineCov">          9 :     std::transform(indices.begin(), indices.end(), enum_members.begin(), [](auto i) {</span></a>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">         18 :         return T(i);</span></a>
 <a name="314"><span class="lineNum">     314 </span>            :     });</a>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">          1 :     return enum_members;</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">          9 :     return enum_members;</span></a>
 <a name="316"><span class="lineNum">     316 </span>            : }</a>
 <a name="317"><span class="lineNum">     317 </span>            : </a>
 <a name="318"><span class="lineNum">     318 </span>            : } // namespace mio</a>

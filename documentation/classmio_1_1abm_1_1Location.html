@@ -68,7 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classmio_1_1abm_1_1Location-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -83,6 +83,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab91279389248ef41f84ef9fab427d282"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#ab91279389248ef41f84ef9fab427d282">default_serialize</a> ()</td></tr>
+<tr class="memdesc:ab91279389248ef41f84ef9fab427d282"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is used by the default serialization feature.  <a href="classmio_1_1abm_1_1Location.html#ab91279389248ef41f84ef9fab427d282">More...</a><br /></td></tr>
+<tr class="separator:ab91279389248ef41f84ef9fab427d282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a726eece2657c74a3900f0b13a2e5f649"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1abm_1_1CellCapacity.html">CellCapacity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#a726eece2657c74a3900f0b13a2e5f649">get_capacity</a> (uint32_t cell_idx=0) const</td></tr>
 <tr class="memdesc:a726eece2657c74a3900f0b13a2e5f649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the capacity of a specific <a class="el" href="structmio_1_1abm_1_1Cell.html" title="The Location can be split up into several Cells.">Cell</a> in persons and volume.  <a href="classmio_1_1abm_1_1Location.html#a726eece2657c74a3900f0b13a2e5f649">More...</a><br /></td></tr>
 <tr class="separator:a726eece2657c74a3900f0b13a2e5f649"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,10 +118,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac2337907f1cbe07c08b15a20f1a60107"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#ac2337907f1cbe07c08b15a20f1a60107">operator==</a> (const <a class="el" href="classmio_1_1abm_1_1Location.html">Location</a> &amp;other) const</td></tr>
 <tr class="memdesc:ac2337907f1cbe07c08b15a20f1a60107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a>s.  <a href="classmio_1_1abm_1_1Location.html#ac2337907f1cbe07c08b15a20f1a60107">More...</a><br /></td></tr>
 <tr class="separator:ac2337907f1cbe07c08b15a20f1a60107"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5663b3e422c9087f049008fe4858833"><td class="memTemplParams" colspan="2">template&lt;class IOContext &gt; </td></tr>
-<tr class="memitem:af5663b3e422c9087f049008fe4858833"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#af5663b3e422c9087f049008fe4858833">serialize</a> (IOContext &amp;io) const</td></tr>
-<tr class="memdesc:af5663b3e422c9087f049008fe4858833"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize this.  <a href="classmio_1_1abm_1_1Location.html#af5663b3e422c9087f049008fe4858833">More...</a><br /></td></tr>
-<tr class="separator:af5663b3e422c9087f049008fe4858833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40517dfde5294b58ba6c6ea05004ef9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#a40517dfde5294b58ba6c6ea05004ef9b">set_capacity</a> (uint32_t persons, uint32_t volume, uint32_t cell_idx=0)</td></tr>
 <tr class="memdesc:a40517dfde5294b58ba6c6ea05004ef9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <a class="el" href="structmio_1_1abm_1_1CellCapacity.html" title="CellCapacity describes the size of a Cell.">CellCapacity</a> of a <a class="el" href="structmio_1_1abm_1_1Cell.html" title="The Location can be split up into several Cells.">Cell</a> in the <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a> in persons and volume.  <a href="classmio_1_1abm_1_1Location.html#a40517dfde5294b58ba6c6ea05004ef9b">More...</a><br /></td></tr>
 <tr class="separator:a40517dfde5294b58ba6c6ea05004ef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,17 +132,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad10271ff6039b0b384eee7c38777b657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a> specific <a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a> parameters.  <a href="classmio_1_1abm_1_1Location.html#ad10271ff6039b0b384eee7c38777b657">More...</a><br /></td></tr>
 <tr class="separator:ad10271ff6039b0b384eee7c38777b657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae79dd648eed79c482e179faa29db0bdd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacemio_1_1abm.html#a077a3f74d15c9375f590e6fa444aa23f">LocalInfectionParameters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#ae79dd648eed79c482e179faa29db0bdd">get_infection_parameters</a> () const</td></tr>
+<tr class="memdesc:ae79dd648eed79c482e179faa29db0bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a> specific <a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a> parameters.  <a href="classmio_1_1abm_1_1Location.html#ae79dd648eed79c482e179faa29db0bdd">More...</a><br /></td></tr>
 <tr class="separator:ae79dd648eed79c482e179faa29db0bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a89704c48fb4e1506531ed6d3e88954e1"><td class="memTemplParams" colspan="2">template&lt;class IOContext &gt; </td></tr>
-<tr class="memitem:a89704c48fb4e1506531ed6d3e88954e1"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; <a class="el" href="classmio_1_1abm_1_1Location.html">Location</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#a89704c48fb4e1506531ed6d3e88954e1">deserialize</a> (IOContext &amp;io)</td></tr>
-<tr class="memdesc:a89704c48fb4e1506531ed6d3e88954e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">deserialize an object of this class.  <a href="classmio_1_1abm_1_1Location.html#a89704c48fb4e1506531ed6d3e88954e1">More...</a><br /></td></tr>
-<tr class="separator:a89704c48fb4e1506531ed6d3e88954e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aef7f4023a40b083db9248bcbac902a39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#aef7f4023a40b083db9248bcbac902a39">Location</a> ()=default</td></tr>
+<tr class="separator:aef7f4023a40b083db9248bcbac902a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a487c83bccc53542b9497c02d38f513d9"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#a487c83bccc53542b9497c02d38f513d9">DefaultFactory&lt; Location &gt;</a></td></tr>
+<tr class="separator:a487c83bccc53542b9497c02d38f513d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a635151804e7b40d8a61897901995ff93"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structmio_1_1abm_1_1Cell.html">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Location.html#a635151804e7b40d8a61897901995ff93">m_cells</a> {}</td></tr>
 <tr class="memdesc:a635151804e7b40d8a61897901995ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of all <a class="el" href="structmio_1_1abm_1_1Cell.html" title="The Location can be split up into several Cells.">Cell</a>s that the <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a> is divided in.  <a href="classmio_1_1abm_1_1Location.html#a635151804e7b40d8a61897901995ff93">More...</a><br /></td></tr>
 <tr class="separator:a635151804e7b40d8a61897901995ff93"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,7 +167,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>All <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a>s in the simulated <a class="el" href="classmio_1_1abm_1_1Model.html" title="The Model of the Simulation.">Model</a> where <a class="el" href="classmio_1_1abm_1_1Person.html" title="Agents in the simulated Model that can carry and spread the Infection.">Person</a>s gather. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abb12dc02b4f0dd2f81a112a3bb430a28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb12dc02b4f0dd2f81a112a3bb430a28">&#9670;&nbsp;</a></span>Location() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abb12dc02b4f0dd2f81a112a3bb430a28">&#9670;&nbsp;</a></span>Location() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +226,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a075a9126f6c4bee055af6885c58d3756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a075a9126f6c4bee055af6885c58d3756">&#9670;&nbsp;</a></span>Location() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a075a9126f6c4bee055af6885c58d3756">&#9670;&nbsp;</a></span>Location() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,35 +270,48 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a89704c48fb4e1506531ed6d3e88954e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89704c48fb4e1506531ed6d3e88954e1">&#9670;&nbsp;</a></span>deserialize()</h2>
+<a id="aef7f4023a40b083db9248bcbac902a39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7f4023a40b083db9248bcbac902a39">&#9670;&nbsp;</a></span>Location() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class IOContext &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt;<a class="el" href="classmio_1_1abm_1_1Location.html">Location</a>&gt; mio::abm::Location::deserialize </td>
+          <td class="memname">mio::abm::Location::Location </td>
           <td>(</td>
-          <td class="paramtype">IOContext &amp;&#160;</td>
-          <td class="paramname"><em>io</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>deserialize an object of this class. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemio.html#a1eecf99ef3a231d628f968aeb2136865" title="Restores an object from the data stored in an IO context.">mio::deserialize</a> </dd></dl>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab91279389248ef41f84ef9fab427d282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91279389248ef41f84ef9fab427d282">&#9670;&nbsp;</a></span>default_serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto mio::abm::Location::default_serialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method is used by the default serialization feature. </p>
 
 </div>
 </div>
@@ -424,6 +437,9 @@ template&lt;class IOContext &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Get the <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a> specific <a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a> parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classmio_1_1abm_1_1Parameters.html" title="Parameters of the simulation that are the same everywhere within the Model.">Parameters</a> of the <a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a> that are specific to this <a class="el" href="classmio_1_1abm_1_1Location.html" title="All Locations in the simulated Model where Persons gather.">Location</a>. </dd></dl>
+
 </div>
 </div>
 <a id="a89be8bc2e68dcd8aa414adac5dd42dcf"></a>
@@ -524,29 +540,6 @@ template&lt;class IOContext &gt; </div>
 
 </div>
 </div>
-<a id="af5663b3e422c9087f049008fe4858833"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5663b3e422c9087f049008fe4858833">&#9670;&nbsp;</a></span>serialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class IOContext &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void mio::abm::Location::serialize </td>
-          <td>(</td>
-          <td class="paramtype">IOContext &amp;&#160;</td>
-          <td class="paramname"><em>io</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>serialize this. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemio.html#a27a24b9e6cb629e04e9613446f07d6ba" title="Save data that describes an object in a format determined by the given context.">mio::serialize</a> </dd></dl>
-
-</div>
-</div>
 <a id="a40517dfde5294b58ba6c6ea05004ef9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40517dfde5294b58ba6c6ea05004ef9b">&#9670;&nbsp;</a></span>set_capacity()</h2>
 
@@ -644,6 +637,28 @@ template&lt;class IOContext &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a487c83bccc53542b9497c02d38f513d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a487c83bccc53542b9497c02d38f513d9">&#9670;&nbsp;</a></span>DefaultFactory&lt; Location &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend mio::abm::Location::DefaultFactory&lt; <a class="el" href="classmio_1_1abm_1_1Location.html">Location</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a635151804e7b40d8a61897901995ff93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a635151804e7b40d8a61897901995ff93">&#9670;&nbsp;</a></span>m_cells</h2>
 

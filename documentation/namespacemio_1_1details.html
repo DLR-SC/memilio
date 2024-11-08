@@ -156,6 +156,10 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aa2c4bf335b2dc1bff2495bf91e60e182"><td class="memTemplParams" colspan="2">template&lt;class C &gt; </td></tr>
 <tr class="memitem:aa2c4bf335b2dc1bff2495bf91e60e182"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#aa2c4bf335b2dc1bff2495bf91e60e182">compare_iterators_t</a> = decltype(std::declval&lt; const C &amp; &gt;().<a class="el" href="namespacemio.html#aa6c974748a742fac0093de2634750791">begin</a>() !=std::declval&lt; const C &amp; &gt;().<a class="el" href="namespacemio.html#a81e603f62801572c7afdf910bc057681">end</a>())</td></tr>
 <tr class="separator:aa2c4bf335b2dc1bff2495bf91e60e182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8feb0c6b6cde2923386433a1afa5c35"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:af8feb0c6b6cde2923386433a1afa5c35"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#af8feb0c6b6cde2923386433a1afa5c35">default_serialize_expr_t</a> = decltype(std::declval&lt; T &gt;().default_serialize())</td></tr>
+<tr class="memdesc:af8feb0c6b6cde2923386433a1afa5c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper type to detect whether T has a default_serialize member function.  <a href="namespacemio_1_1details.html#af8feb0c6b6cde2923386433a1afa5c35">More...</a><br /></td></tr>
+<tr class="separator:af8feb0c6b6cde2923386433a1afa5c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26c5eef3a80bcedd671959f097869954"><td class="memTemplParams" colspan="2">template&lt;class OmittedTag , template&lt; class... &gt; class IndexTemplate, class Index &gt; </td></tr>
 <tr class="memitem:a26c5eef3a80bcedd671959f097869954"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a26c5eef3a80bcedd671959f097869954">filtered_index_t</a> = decltype(<a class="el" href="namespacemio_1_1details.html#a6c4b5f0d97b75c7f5acba83e965f20f2">as_index</a>&lt; IndexTemplate &gt;(std::declval&lt; <a class="el" href="namespacemio_1_1details.html#aa3f25001eb1ce5139b95fb75ab605abe">filtered_tuple_t</a>&lt; OmittedTag, decltype(<a class="el" href="namespacemio_1_1details.html#a65db93235c9306cba65f420ff74df0a2">as_tuple</a>(std::declval&lt; <a class="el" href="classmio_1_1Index.html">Index</a> &gt;()))&gt; &gt;()))</td></tr>
 <tr class="separator:a26c5eef3a80bcedd671959f097869954"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,12 +181,24 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a95a6e43f1f9122ca54e373559b8e113c"><td class="memTemplParams" colspan="2">template&lt;class IOObject , class Member &gt; </td></tr>
+<tr class="memitem:a95a6e43f1f9122ca54e373559b8e113c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a95a6e43f1f9122ca54e373559b8e113c">add_named_ref</a> (IOObject &amp;obj, const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; Member &gt; named_ref)</td></tr>
+<tr class="memdesc:a95a6e43f1f9122ca54e373559b8e113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a name-value pair to an io object.  <a href="namespacemio_1_1details.html#a95a6e43f1f9122ca54e373559b8e113c">More...</a><br /></td></tr>
+<tr class="separator:a95a6e43f1f9122ca54e373559b8e113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c4b5f0d97b75c7f5acba83e965f20f2"><td class="memTemplParams" colspan="2">template&lt;template&lt; class... &gt; class T, class... Args&gt; </td></tr>
 <tr class="memitem:a6c4b5f0d97b75c7f5acba83e965f20f2"><td class="memTemplItemLeft" align="right" valign="top">T&lt; Args... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a6c4b5f0d97b75c7f5acba83e965f20f2">as_index</a> (std::tuple&lt; Args... &gt;)</td></tr>
 <tr class="separator:a6c4b5f0d97b75c7f5acba83e965f20f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65db93235c9306cba65f420ff74df0a2"><td class="memTemplParams" colspan="2">template&lt;template&lt; class... &gt; class T, class... Args&gt; </td></tr>
 <tr class="memitem:a65db93235c9306cba65f420ff74df0a2"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a65db93235c9306cba65f420ff74df0a2">as_tuple</a> (T&lt; Args... &gt;)</td></tr>
 <tr class="separator:a65db93235c9306cba65f420ff74df0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af10a8ed84d2dc64adbd1c560b36bab1c"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class DefaultSerializable , class... Members&gt; </td></tr>
+<tr class="memitem:af10a8ed84d2dc64adbd1c560b36bab1c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; DefaultSerializable &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#af10a8ed84d2dc64adbd1c560b36bab1c">default_deserialize_impl</a> (IOContext &amp;io, DefaultSerializable &amp;a, const char *name, <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; <a class="el" href="structmio_1_1Members.html">Members</a> &gt;... named_refs)</td></tr>
+<tr class="memdesc:af10a8ed84d2dc64adbd1c560b36bab1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read an io object and its members from the io context using the given names and assign the values to a.  <a href="namespacemio_1_1details.html#af10a8ed84d2dc64adbd1c560b36bab1c">More...</a><br /></td></tr>
+<tr class="separator:af10a8ed84d2dc64adbd1c560b36bab1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d977a815ca089e8dc03cdd769b531f"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class... Members&gt; </td></tr>
+<tr class="memitem:a49d977a815ca089e8dc03cdd769b531f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a49d977a815ca089e8dc03cdd769b531f">default_serialize_impl</a> (IOContext &amp;io, const char *name, const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; <a class="el" href="structmio_1_1Members.html">Members</a> &gt;... named_refs)</td></tr>
+<tr class="memdesc:a49d977a815ca089e8dc03cdd769b531f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpack all name-value pairs from the tuple and add them to a new io object with the given name.  <a href="namespacemio_1_1details.html#a49d977a815ca089e8dc03cdd769b531f">More...</a><br /></td></tr>
+<tr class="separator:a49d977a815ca089e8dc03cdd769b531f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf0df9c6873fa6991a4e55408bab72e7"><td class="memTemplParams" colspan="2">template&lt;class IOObj , class Tup , class... Ts&gt; </td></tr>
 <tr class="memitem:acf0df9c6873fa6991a4e55408bab72e7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt;(sizeof...(Ts)==std::tuple_size&lt; Tup &gt;::value), <a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; Tup &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#acf0df9c6873fa6991a4e55408bab72e7">deserialize_tuple_element</a> (IOObj &amp;o, <a class="el" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">Tag</a>&lt; Tup &gt;, const <a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; Ts &gt; &amp;... rs)</td></tr>
 <tr class="separator:acf0df9c6873fa6991a4e55408bab72e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,6 +208,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a458c46db8cb05bc6cc39ad1d0967bb34"><td class="memTemplParams" colspan="2">template&lt;class F , class... T, std::enable_if_t&lt; IsIOResult&lt; std::invoke_result_t&lt; F, T... &gt;&gt;::value, void * &gt;  = nullptr&gt; </td></tr>
 <tr class="memitem:a458c46db8cb05bc6cc39ad1d0967bb34"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemio_1_1details.html#a98c0eea24e7bbb725e78e8c7c6b22e8a">ApplyResultT</a>&lt; F, T... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a458c46db8cb05bc6cc39ad1d0967bb34">eval</a> (F f, const <a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; T &gt; &amp;... rs)</td></tr>
 <tr class="separator:a458c46db8cb05bc6cc39ad1d0967bb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfae5ea8e5d71802ac0c4389b3816e1"><td class="memTemplParams" colspan="2">template&lt;class IOObject , class Member &gt; </td></tr>
+<tr class="memitem:a5cfae5ea8e5d71802ac0c4389b3816e1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt; Member &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a5cfae5ea8e5d71802ac0c4389b3816e1">expect_named_ref</a> (IOObject &amp;obj, const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; Member &gt; named_ref)</td></tr>
+<tr class="memdesc:a5cfae5ea8e5d71802ac0c4389b3816e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a name-value pair from an io object.  <a href="namespacemio_1_1details.html#a5cfae5ea8e5d71802ac0c4389b3816e1">More...</a><br /></td></tr>
+<tr class="separator:a5cfae5ea8e5d71802ac0c4389b3816e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31071406adad250ddd55ad9725afdf2c"><td class="memTemplParams" colspan="2">template&lt;class... CategoryTags, class... Subset&gt; </td></tr>
 <tr class="memitem:a31071406adad250ddd55ad9725afdf2c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1Index.html">Index</a>&lt; CategoryTags... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1details.html#a31071406adad250ddd55ad9725afdf2c">extend_index_impl</a> (const <a class="el" href="classmio_1_1Index.html">Index</a>&lt; Subset... &gt; &amp;i, const size_t fill_value, <a class="el" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">mio::Tag</a>&lt; <a class="el" href="classmio_1_1Index.html">Index</a>&lt; CategoryTags... &gt;&gt;)</td></tr>
 <tr class="memdesc:a31071406adad250ddd55ad9725afdf2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a SuperIndex from SubIndex, using entries from the given SubIndex or fill_value.  <a href="namespacemio_1_1details.html#a31071406adad250ddd55ad9725afdf2c">More...</a><br /></td></tr>
@@ -319,6 +339,30 @@ template&lt;class C &gt; </div>
 
 </div>
 </div>
+<a id="af8feb0c6b6cde2923386433a1afa5c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8feb0c6b6cde2923386433a1afa5c35">&#9670;&nbsp;</a></span>default_serialize_expr_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacemio_1_1details.html#af8feb0c6b6cde2923386433a1afa5c35">mio::details::default_serialize_expr_t</a> = typedef decltype(std::declval&lt;T&gt;().default_serialize())</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper type to detect whether T has a default_serialize member function. </p>
+<p>Use has_default_serialize. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a26c5eef3a80bcedd671959f097869954"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26c5eef3a80bcedd671959f097869954">&#9670;&nbsp;</a></span>filtered_index_t</h2>
 
@@ -416,6 +460,38 @@ template&lt;class Tup &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a95a6e43f1f9122ca54e373559b8e113c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a6e43f1f9122ca54e373559b8e113c">&#9670;&nbsp;</a></span>add_named_ref()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IOObject , class Member &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void mio::details::add_named_ref </td>
+          <td>(</td>
+          <td class="paramtype">IOObject &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; Member &gt;&#160;</td>
+          <td class="paramname"><em>named_ref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a name-value pair to an io object. </p>
+
+</div>
+</div>
 <a id="a6c4b5f0d97b75c7f5acba83e965f20f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c4b5f0d97b75c7f5acba83e965f20f2">&#9670;&nbsp;</a></span>as_index()</h2>
 
@@ -453,6 +529,88 @@ template&lt;template&lt; class... &gt; class T, class... Args&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="af10a8ed84d2dc64adbd1c560b36bab1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af10a8ed84d2dc64adbd1c560b36bab1c">&#9670;&nbsp;</a></span>default_deserialize_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IOContext , class DefaultSerializable , class... Members&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt;DefaultSerializable&gt; mio::details::default_deserialize_impl </td>
+          <td>(</td>
+          <td class="paramtype">IOContext &amp;&#160;</td>
+          <td class="paramname"><em>io</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DefaultSerializable &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; <a class="el" href="structmio_1_1Members.html">Members</a> &gt;...&#160;</td>
+          <td class="paramname"><em>named_refs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read an io object and its members from the io context using the given names and assign the values to a. </p>
+
+</div>
+</div>
+<a id="a49d977a815ca089e8dc03cdd769b531f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d977a815ca089e8dc03cdd769b531f">&#9670;&nbsp;</a></span>default_serialize_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IOContext , class... Members&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void mio::details::default_serialize_impl </td>
+          <td>(</td>
+          <td class="paramtype">IOContext &amp;&#160;</td>
+          <td class="paramname"><em>io</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; <a class="el" href="structmio_1_1Members.html">Members</a> &gt;...&#160;</td>
+          <td class="paramname"><em>named_refs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpack all name-value pairs from the tuple and add them to a new io object with the given name. </p>
 
 </div>
 </div>
@@ -555,6 +713,38 @@ template&lt;class F , class... T, std::enable_if_t&lt; IsIOResult&lt; std::invok
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cfae5ea8e5d71802ac0c4389b3816e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfae5ea8e5d71802ac0c4389b3816e1">&#9670;&nbsp;</a></span>expect_named_ref()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IOObject , class Member &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">IOResult</a>&lt;Member&gt; mio::details::expect_named_ref </td>
+          <td>(</td>
+          <td class="paramtype">IOObject &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmio_1_1NamedRef.html">NamedRef</a>&lt; Member &gt;&#160;</td>
+          <td class="paramname"><em>named_ref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve a name-value pair from an io object. </p>
 
 </div>
 </div>

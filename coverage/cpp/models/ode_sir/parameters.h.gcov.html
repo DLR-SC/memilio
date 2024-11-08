@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -104,9 +104,9 @@
 <a name="42"><span class="lineNum">      42 </span>            : template &lt;typename FP = ScalarType&gt;</a>
 <a name="43"><span class="lineNum">      43 </span>            : struct TransmissionProbabilityOnContact {</a>
 <a name="44"><span class="lineNum">      44 </span>            :     using Type = CustomIndexArray&lt;UncertainValue&lt;FP&gt;, AgeGroup&gt;;</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          8 :     static Type get_default(AgeGroup size)</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         72 :     static Type get_default(AgeGroup size)</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     {</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">         16 :         return Type(size, 1.0);</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">        144 :         return Type(size, 1.0);</span></a>
 <a name="48"><span class="lineNum">      48 </span>            :     }</a>
 <a name="49"><span class="lineNum">      49 </span>            :     static std::string name()</a>
 <a name="50"><span class="lineNum">      50 </span>            :     {</a>
@@ -120,9 +120,9 @@
 <a name="58"><span class="lineNum">      58 </span>            : template &lt;typename FP = ScalarType&gt;</a>
 <a name="59"><span class="lineNum">      59 </span>            : struct TimeInfected {</a>
 <a name="60"><span class="lineNum">      60 </span>            :     using Type = CustomIndexArray&lt;UncertainValue&lt;FP&gt;, AgeGroup&gt;;</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">          8 :     static Type get_default(AgeGroup size)</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         72 :     static Type get_default(AgeGroup size)</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         16 :         return Type(size, 6.0);</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        144 :         return Type(size, 6.0);</span></a>
 <a name="64"><span class="lineNum">      64 </span>            :     }</a>
 <a name="65"><span class="lineNum">      65 </span>            :     static std::string name()</a>
 <a name="66"><span class="lineNum">      66 </span>            :     {</a>
@@ -136,9 +136,9 @@
 <a name="74"><span class="lineNum">      74 </span>            : template &lt;typename FP = ScalarType&gt;</a>
 <a name="75"><span class="lineNum">      75 </span>            : struct ContactPatterns {</a>
 <a name="76"><span class="lineNum">      76 </span>            :     using Type = UncertainContactMatrix&lt;FP&gt;;</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          8 :     static Type get_default(AgeGroup size)</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         72 :     static Type get_default(AgeGroup size)</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :     {</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          8 :         return Type(1, static_cast&lt;Eigen::Index&gt;((size_t)size));</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         72 :         return Type(1, static_cast&lt;Eigen::Index&gt;((size_t)size));</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     }</a>
 <a name="81"><span class="lineNum">      81 </span>            :     static std::string name()</a>
 <a name="82"><span class="lineNum">      82 </span>            :     {</a>
@@ -156,15 +156,15 @@
 <a name="94"><span class="lineNum">      94 </span>            : class Parameters : public ParametersBase&lt;FP&gt;</a>
 <a name="95"><span class="lineNum">      95 </span>            : {</a>
 <a name="96"><span class="lineNum">      96 </span>            : public:</a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          8 :     Parameters(AgeGroup num_agegroups)</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         72 :     Parameters(AgeGroup num_agegroups)</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :         : ParametersBase&lt;FP&gt;(num_agegroups)</a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          8 :         , m_num_groups{num_agegroups}</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         72 :         , m_num_groups{num_agegroups}</span></a>
 <a name="100"><span class="lineNum">     100 </span>            :     {</a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">          8 :     }</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         72 :     }</span></a>
 <a name="102"><span class="lineNum">     102 </span>            : </a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">        453 :     AgeGroup get_num_groups()</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">       4077 :     AgeGroup get_num_groups()</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :     {</a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">        453 :         return m_num_groups;</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">       4077 :         return m_num_groups;</span></a>
 <a name="106"><span class="lineNum">     106 </span>            :     }</a>
 <a name="107"><span class="lineNum">     107 </span>            : </a>
 <a name="108"><span class="lineNum">     108 </span>            :     /**</a>
@@ -180,32 +180,32 @@
 <a name="118"><span class="lineNum">     118 </span>            :      *</a>
 <a name="119"><span class="lineNum">     119 </span>            :      * @return Returns true if one ore more constraint were corrected, false otherwise.  </a>
 <a name="120"><span class="lineNum">     120 </span>            :      */</a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">          3 :     bool apply_constraints()</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">         27 :     bool apply_constraints()</span></a>
 <a name="122"><span class="lineNum">     122 </span>            :     {</a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">          3 :         double tol_times = 1e-1;</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         27 :         double tol_times = 1e-1;</span></a>
 <a name="124"><span class="lineNum">     124 </span>            : </a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">          3 :         int corrected = false;</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">         27 :         int corrected = false;</span></a>
 <a name="126"><span class="lineNum">     126 </span>            : </a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">          6 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); i++) {</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">          3 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">          2 :                 log_warning(</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">         54 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); i++) {</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">         27 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">         18 :                 log_warning(</span></a>
 <a name="130"><span class="lineNum">     130 </span>            :                     &quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</a>
 <a name="131"><span class="lineNum">     131 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="132"><span class="lineNum">     132 </span>            :                     &quot;and reset parameters.&quot;,</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">          1 :                     this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i], tol_times);</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">          1 :                 this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] = tol_times;</span></a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          1 :                 corrected                                 = true;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">          9 :                     this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i], tol_times);</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] = tol_times;</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          9 :                 corrected                                 = true;</span></a>
 <a name="136"><span class="lineNum">     136 </span>            :             }</a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">          6 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          3 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">          2 :                 log_warning(</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         54 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         27 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">         18 :                 log_warning(</span></a>
 <a name="140"><span class="lineNum">     140 </span>            :                     &quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          2 :                     this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0);</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          1 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;() = 0.0;</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">          1 :                 corrected                                                  = true;</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         18 :                     this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0);</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;() = 0.0;</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">          9 :                 corrected                                                  = true;</span></a>
 <a name="144"><span class="lineNum">     144 </span>            :             }</a>
 <a name="145"><span class="lineNum">     145 </span>            :         }</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">          3 :         return corrected;</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         27 :         return corrected;</span></a>
 <a name="147"><span class="lineNum">     147 </span>            :     }</a>
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <a name="149"><span class="lineNum">     149 </span>            :     /**</a>
@@ -213,29 +213,29 @@
 <a name="151"><span class="lineNum">     151 </span>            :      * if constraints are not satisfied.</a>
 <a name="152"><span class="lineNum">     152 </span>            :      * @return Returns true if one constraint is not satisfied, otherwise false.   </a>
 <a name="153"><span class="lineNum">     153 </span>            :      */</a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          9 :     bool check_constraints() const</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         81 :     bool check_constraints() const</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :     {</a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">          9 :         double tol_times = 1e-1;</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         81 :         double tol_times = 1e-1;</span></a>
 <a name="157"><span class="lineNum">     157 </span>            : </a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         16 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); i++) {</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        144 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); i++) {</span></a>
 <a name="159"><span class="lineNum">     159 </span>            : </a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">          9 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          2 :                 log_error(</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">         81 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">         18 :                 log_error(</span></a>
 <a name="162"><span class="lineNum">     162 </span>            :                     &quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</a>
 <a name="163"><span class="lineNum">     163 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="164"><span class="lineNum">     164 </span>            :                     &quot;and reset parameters.&quot;,</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          2 :                     this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i], 0.0);</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">          1 :                 return true;</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         18 :                     this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i], 0.0);</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="167"><span class="lineNum">     167 </span>            :             }</a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         16 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">          8 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or &quot;</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">        144 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         72 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or &quot;</span></a>
 <a name="171"><span class="lineNum">     171 </span>            :                           &quot;greater {:.4f}&quot;,</a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">          2 :                           this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0, 1.0);</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">          1 :                 return true;</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">         18 :                           this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0, 1.0);</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="174"><span class="lineNum">     174 </span>            :             }</a>
 <a name="175"><span class="lineNum">     175 </span>            :         }</a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">          7 :         return false;</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">         63 :         return false;</span></a>
 <a name="177"><span class="lineNum">     177 </span>            :     }</a>
 <a name="178"><span class="lineNum">     178 </span>            : </a>
 <a name="179"><span class="lineNum">     179 </span>            : private:</a>

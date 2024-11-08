@@ -69,15 +69,49 @@ $(function() {
 <div class="textblock"><p>This directory contains utilities for reading and writing data from and to files in different formats. The main part is a serialization framework that can be used to define the structure of data without using a specific file format. There are implementations of the framework for different formats. The framework is described in detail below, also see the <a href="../../examples/serialize.cpp">serialization example</a>.</p>
 <h1><a class="anchor" id="autotoc_md16"></a>
 The Serialization framework</h1>
-<h1><a class="anchor" id="autotoc_md17"></a>
-Main functions and types</h1>
+<h2><a class="anchor" id="autotoc_md17"></a>
+Using serialization</h2>
+<p>In the next sections we will explain how to implement serialization (both for types and formats), here we quickly show how to use it once it already is implemented for a type. In the following examples, we serialize (write) <code>Foo</code> to a file in Json format, then deserialize (read) the Json again. </p><div class="fragment"><div class="line">Foo foo{5};</div>
+<div class="line"><a class="code" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">mio::IOResult&lt;void&gt;</a> io_result = mio::write_json(<span class="stringliteral">&quot;path/to/foo.json&quot;</span>, foo);</div>
+<div class="ttc" id="anamespacemio_html_ae556a666d14183eb2bf3a3efc11551ec"><div class="ttname"><a href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">mio::IOResult</a></div><div class="ttdeci">boost::outcome_v2::unchecked&lt; T, IOStatus &gt; IOResult</div><div class="ttdoc">Value-or-error type for operations that return a value but can fail.</div><div class="ttdef"><b>Definition:</b> io.h:349</div></div>
+</div><!-- fragment --> <div class="fragment"><div class="line"><a class="code" href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">mio::IOResult&lt;Foo&gt;</a> io_result = mio::read_json(<span class="stringliteral">&quot;path/to/foo.json&quot;</span>, <a class="code" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">mio::Tag&lt;Foo&gt;</a>{});</div>
+<div class="line"><span class="keywordflow">if</span> (io_result) {</div>
+<div class="line">  Foo foo = io_result.value();</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespacemio_html_a2f858e287c3935240954cf75cf53cfeb"><div class="ttname"><a href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">mio::Tag</a></div><div class="ttdeci">boost::outcome_v2::in_place_type_t&lt; T &gt; Tag</div><div class="ttdoc">Type that is used for overload resolution.</div><div class="ttdef"><b>Definition:</b> io.h:403</div></div>
+</div><!-- fragment --><p> There is also support for a binary format. If you want to use a format directly, use the <code>serialize_json</code>/<code>deserialize_json</code> and <code>serialize_binary</code>/<code>deserialize_binary</code> functions.</p>
+<h2><a class="anchor" id="autotoc_md18"></a>
+Main functions and types</h2>
 <ul>
 <li>functions serialize and deserialize: Main entry points to the framework to write and read values, respectively. The functions expect an IOContext (see Concepts below) that stores the serialized data. (De-)serialization can be customized by providing a (de-)serialize_internal overload or a (de-)serialize member function for the type. See the section "Implementing
      serialization for a new type" or the documentation for <code>serialize</code> and <code>deserialize</code>.</li>
 <li>IOStatus and IOResult: Used for error handling, see section "Error Handling" below.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md18"></a>
-Concepts</h1>
+<h2><a class="anchor" id="autotoc_md19"></a>
+Default serialization</h2>
+<p>Before we get into the details of the framework, this feature provides an easy and convenient alternative to the serialize and deserialize functions. To give an example:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>Foo {</div>
+<div class="line">  <span class="keywordtype">int</span> i;</div>
+<div class="line">  <span class="keyword">auto</span> default_serialize() {</div>
+<div class="line">    <span class="keywordflow">return</span> Members(<span class="stringliteral">&quot;Foo&quot;</span>).add(<span class="stringliteral">&quot;i&quot;</span>, i);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> The default serialization is less flexible than the serialize and deserialize functions and has additional requirements:</p><ul>
+<li>The class must be default constructible.<ul>
+<li>If there is a default constructor that is <em>private</em>, it can still be used by marking the struct <code>DefaultFactory</code> as a friend. For the example above, the line <code>friend DefaultFactory&lt;Foo&gt;;</code> would be added to the class definition.</li>
+<li>Alternatively, you may provide a specialization of the struct <code>DefaultFactory</code>. For more details, view the struct's documentation.</li>
+</ul>
+</li>
+<li>Every class member must be added to <code>Members</code> exactly once, and the provided names must be unique.<ul>
+<li>The members must be passed directly, like in the example. No copies, accessors, etc.</li>
+<li>It is recommended, but not required, to add member variables to <code>Members</code> in the same order they are declared in the class, using the variables' names or something very similar.</li>
+</ul>
+</li>
+<li>Every class member itself must be serializable, deserializable and assignable.</li>
+</ul>
+<p>As to the feature set, default-serialization only supports the <code>add_element</code> and <code>expect_element</code> operations defined in the Concepts section below, where each operation's arguments are provided through the <code>add</code> function. Note that the value provided to <code>add</code> is also used to assign a value during deserialization, hence the class members must be used directly in the function (i.e. as a non-const lvalue reference).</p>
+<h2><a class="anchor" id="autotoc_md20"></a>
+Concepts</h2>
 <ol type="1">
 <li>IOContext Stores data that describes serialized objects of any type in some unspecified format and provides structured access to the data for deserialization. Implementations of this concept may store the data in any format they want including binary. The data may also be written directly to disk. The context also keeps track of errors. An IOContext object <code>io</code> allows the following operations: <pre class="fragment">- `io.create_object("Type")`:
     Returns an IOObject for the type called `"Type"`. The IOObject (see below) allows adding data that describes
@@ -120,11 +154,11 @@ Concepts</h1>
       an empty optional, so make sure to provide the correct key.
 </pre> </li>
 </ol>
-<h1><a class="anchor" id="autotoc_md19"></a>
-Error handling</h1>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Error handling</h2>
 <p>Errors are handled by returning error codes. The type IOStatus contains an error code and an optional string with additional information. The type IOResult contains either a value or an IOStatus that describes an error. Operations that can fail return an <code>IOResult&lt;T&gt;</code> where T is the type of the value that is produced by the operation if it is succesful. Except where necessary because of dependencies, the framework does not throw nor catch any exceptions. IOContext and IOObject implementations are expected to store errors. During serialization, <code>add_...</code> operations fail without returning errors, but the error is stored in the IOObject and subsequent calls are usually no-ops. During deserialization, the values produced must usually be used or inspected, so <code>expect_...</code> operations return an IOResult. The <code>apply</code> utility function provides a simple way to inspect the result of multiple <code>expect_...</code> operations and use the values if all are succesful. See the documentation of <code>IOStatus</code>, <code>IOResult</code> and <code>apply</code> below for more details.</p>
-<h1><a class="anchor" id="autotoc_md20"></a>
-Adding a new data type to be serialized</h1>
+<h2><a class="anchor" id="autotoc_md22"></a>
+Adding a new data type to be serialized</h2>
 <p>Serialization of a new type T can be customized by providing <em>either</em> member functions <code>serialize</code> and <code>deserialize</code> <em>or</em> free functions <code>serialize_internal</code> and <code>deserialize_internal</code>.</p>
 <p>The <code>void serialize(IOContext&amp; io)</code> member function takes an IO context and uses <code>create_object</code> and <code>add_...</code> operations to add data. The static <code>IOResult&lt;T&gt; deserialize(IOContext&amp; io)</code> member function takes an IO context and uses <code>expect_...</code> operations to retrieve the data. The <code>apply</code> utility function can be used to inspect the result of the <code>expect_...</code> operations and construct the object of type T. E.g.:</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>Foo {</div>
@@ -141,21 +175,20 @@ Adding a new data type to be serialized</h1>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">mio::apply</a>(io, [](<span class="keyword">auto</span>&amp;&amp; i) { <span class="keywordflow">return</span> Foo{i}; }, i_result);</div>
 <div class="line">  }</div>
 <div class="line">};</div>
-<div class="ttc" id="anamespacemio_html_a1eecf99ef3a231d628f968aeb2136865"><div class="ttname"><a href="namespacemio.html#a1eecf99ef3a231d628f968aeb2136865">mio::deserialize</a></div><div class="ttdeci">IOResult&lt; T &gt; deserialize(IOContext &amp;io, Tag&lt; T &gt; tag)</div><div class="ttdoc">Restores an object from the data stored in an IO context.</div><div class="ttdef"><b>Definition:</b> io.h:809</div></div>
-<div class="ttc" id="anamespacemio_html_a27a24b9e6cb629e04e9613446f07d6ba"><div class="ttname"><a href="namespacemio.html#a27a24b9e6cb629e04e9613446f07d6ba">mio::serialize</a></div><div class="ttdeci">void serialize(IOContext &amp;io, const T &amp;t)</div><div class="ttdoc">Save data that describes an object in a format determined by the given context.</div><div class="ttdef"><b>Definition:</b> io.h:785</div></div>
-<div class="ttc" id="anamespacemio_html_a2f858e287c3935240954cf75cf53cfeb"><div class="ttname"><a href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">mio::Tag</a></div><div class="ttdeci">boost::outcome_v2::in_place_type_t&lt; T &gt; Tag</div><div class="ttdoc">Type that is used for overload resolution.</div><div class="ttdef"><b>Definition:</b> io.h:400</div></div>
-<div class="ttc" id="anamespacemio_html_a3cd34c233549e8b0e086c67fd82809d3"><div class="ttname"><a href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">mio::apply</a></div><div class="ttdeci">details::ApplyResultT&lt; F, T... &gt; apply(IOContext &amp;io, F f, const IOResult&lt; T &gt; &amp;... rs)</div><div class="ttdoc">Evaluate a function with zero or more unpacked IOResults as arguments.</div><div class="ttdef"><b>Definition:</b> io.h:472</div></div>
+<div class="ttc" id="anamespacemio_html_a1eecf99ef3a231d628f968aeb2136865"><div class="ttname"><a href="namespacemio.html#a1eecf99ef3a231d628f968aeb2136865">mio::deserialize</a></div><div class="ttdeci">IOResult&lt; T &gt; deserialize(IOContext &amp;io, Tag&lt; T &gt; tag)</div><div class="ttdoc">Restores an object from the data stored in an IO context.</div><div class="ttdef"><b>Definition:</b> io.h:874</div></div>
+<div class="ttc" id="anamespacemio_html_a27a24b9e6cb629e04e9613446f07d6ba"><div class="ttname"><a href="namespacemio.html#a27a24b9e6cb629e04e9613446f07d6ba">mio::serialize</a></div><div class="ttdeci">void serialize(IOContext &amp;io, const T &amp;t)</div><div class="ttdoc">Save data that describes an object in a format determined by the given context.</div><div class="ttdef"><b>Definition:</b> io.h:850</div></div>
+<div class="ttc" id="anamespacemio_html_a3cd34c233549e8b0e086c67fd82809d3"><div class="ttname"><a href="namespacemio.html#a3cd34c233549e8b0e086c67fd82809d3">mio::apply</a></div><div class="ttdeci">details::ApplyResultT&lt; F, T... &gt; apply(IOContext &amp;io, F f, const IOResult&lt; T &gt; &amp;... rs)</div><div class="ttdoc">Evaluate a function with zero or more unpacked IOResults as arguments.</div><div class="ttdef"><b>Definition:</b> io.h:476</div></div>
 </div><!-- fragment --><p>The free functions <code>serialize_internal</code> and <code>deserialize_internal</code> must be found with argument dependent lookup (ADL). They can be used if no member function should or can be added to the type. See the code below for examples where this was done for, e.g., Eigen3 matrices and STL containers.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Adding a new format</h1>
 <p>Implement concepts IOContext and IOObject that provide the operations listed above. Your implemenation should handle all built in types as well as std::string. It may handle other types (e.g., STL containers) as well if it can do so more efficiently than the provided general free functions.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Other IO modules</h1>
 <ul>
 <li>HDF5 support classes for C++</li>
 <li>Reading of mobility matrix files</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md25"></a>
 The command line interface</h1>
 <p>We provide a function <code>mio::command_line_interface</code> in the header <code><a class="el" href="cli_8h.html">memilio/io/cli.h</a></code>, that can be used to write to or read from a parameter set. It can take parameters from command line arguments (i.e. the content of <code>argv</code> in the main function), and assign them to or get them from a <code><a class="el" href="classmio_1_1ParameterSet.html" title="a set of parameters defined at compile time">mio::ParameterSet</a></code>. A small example can be seen in <code>cpp/examples/cli.cpp</code>.</p>
 <p>The command line interface (CLI) provides some non-parameter options listed below.</p>
@@ -174,10 +207,10 @@ The command line interface</h1>
 </table>
 <p>In general, an option is defined as a string, which consists either of two dashes followed by a name (e.g. &ndash;help), or a single dash followed by an alias (e.g. -h). Apart from the built-in options, the names each refer to a parameter that can be set.</p>
 <p>To set the value of a parameter from the command line, first type the corresponding parameter option (see &ndash;help), followed by the value that should be assigned (reference &ndash;print_option). Values are given as a Json value corresponding to the Type of the parameter. Note that some characters may need to be escaped or quoted. For example, the Json string <code>"some string"</code> must be entered as <code>\"some string\\"</code> or &lsquo;&rsquo;"some string"'`.</p>
-<h1><a class="anchor" id="autotoc_md24"></a>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Working with the History object</h1>
 <p>The History object provides a way to save data throughout the simulation process. It offers an interface where users can define the data to be saved from a given object using Loggers and the method of saving it using Writers. Afterward, the user can access this data from the History object and manipulate it. For a basic Logger use case, refer to <a href="../../examples/history.cpp">this example</a>. For an example demonstrating using a Logger in the ABM, refer to <a href="../../examples/abm_history_example.cpp">this example</a>.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Loggers</h2>
 <p>The <code>Logger</code> struct is a tool for logging data from a given object. Each user-implemented Logger must have a <code>Type</code> and implement two functions: <code>Type log(const T&amp;)</code> and <code>bool should_log(const T&amp;)</code>. The input <code>T</code> for these functions is the same as the one given to the <code>History</code> member-function <code>History::log</code>, e.g. <code>Model&amp;</code> in the ABM.</p>
 <ul>
@@ -200,7 +233,7 @@ Loggers</h2>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="ttc" id="anamespacead_1_1internal_html_ae15b28df45545c50a0800df386cda9be"><div class="ttname"><a href="namespacead_1_1internal.html#ae15b28df45545c50a0800df386cda9be">ad::internal::log</a></div><div class="ttdeci">ad::internal::unary_intermediate&lt; AD_TAPE_REAL, ad::internal::active_type&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt;, ad::operations::ad_log&lt; AD_TAPE_REAL &gt; &gt; log(const ad::internal::active_type&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt; &amp;x1)</div><div class="ttdef"><b>Definition:</b> ad.hpp:1034</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md28"></a>
 Writers</h2>
 <p>The <code>Writer</code> struct defines how to store the logged data from one or more implemented <code>Loggers</code>. Each user-implemented <code>Writer</code> must have a <code>Data</code> Type and implement the <code>template &lt;class Logger&gt; static void add_record(const typename Logger::Type&amp; t, Data&amp; data)</code> function.</p>
 <ul>
@@ -217,7 +250,7 @@ Writers</h2>
 <div class="line">          <span class="comment">/* Manipulation of data to store the value t returned by the Loggers */</span>;</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
 History</h2>
 <p>The <code>History</code> class manages the Writers and Loggers and provides an interface to log data. It is templated on one <code>Writer</code> and several suitable and unique <code>Loggers</code>. To use the Writer to log something, the <code>History</code> provides the function <code>void log(const T&amp; t)</code> to call the <code>add_record</code> function of the <code>Writer</code> if the Logger function <code>should_log</code> returns true.</p>
 <p>To access the data from the <code>History</code> class after logging, we provide the function <code>get_log</code> to access all records. For this, the lifetime of the <code>History</code> has to be as long as one wants to have access to the data, e.g. a history should not be constructed in the function it is called in when data is needed later.</p>

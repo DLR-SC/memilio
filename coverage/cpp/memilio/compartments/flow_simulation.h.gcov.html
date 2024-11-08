@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -108,27 +108,27 @@
 <a name="46"><span class="lineNum">      46 </span>            :      * @param[in] t0 Start time.</a>
 <a name="47"><span class="lineNum">      47 </span>            :      * @param[in] dt Initial step size of integration.</a>
 <a name="48"><span class="lineNum">      48 </span>            :      */</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         13 :     FlowSimulation(Model const&amp; model, FP t0 = 0., FP dt = 0.1)</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        113 :     FlowSimulation(Model const&amp; model, FP t0 = 0., FP dt = 0.1)</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :         : Base(model, t0, dt)</a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">         13 :         , m_pop(model.get_initial_values().size())</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">         26 :         , m_flow_result(t0, model.get_initial_flows())</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        113 :         , m_pop(model.get_initial_values().size())</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        226 :         , m_flow_result(t0, model.get_initial_flows())</span></a>
 <a name="53"><span class="lineNum">      53 </span>            :     {</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">         13 :     }</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">        113 :     }</span></a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <a name="56"><span class="lineNum">      56 </span>            :     /**</a>
 <a name="57"><span class="lineNum">      57 </span>            :      * @brief Advance the simulation to tmax.</a>
 <a name="58"><span class="lineNum">      58 </span>            :      * tmax must be greater than get_result().get_last_time_point().</a>
 <a name="59"><span class="lineNum">      59 </span>            :      * @param[in] tmax Next stopping time of the simulation.</a>
 <a name="60"><span class="lineNum">      60 </span>            :      */</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       3007 :     Eigen::Ref&lt;Vector&lt;FP&gt;&gt; advance(FP tmax)</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      27059 :     Eigen::Ref&lt;Vector&lt;FP&gt;&gt; advance(FP tmax)</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
 <a name="63"><span class="lineNum">      63 </span>            :         // the derivfunktion (i.e. the lambda passed to m_integrator.advance below) requires that there are at least</a>
 <a name="64"><span class="lineNum">      64 </span>            :         // as many entries in m_flow_result as in Base::m_result</a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       3007 :         assert(m_flow_result.get_num_time_points() == this-&gt;get_result().get_num_time_points());</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       6014 :         auto result = this-&gt;get_ode_integrator().advance(</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     126539 :             [this](auto&amp;&amp; flows, auto&amp;&amp; t, auto&amp;&amp; dflows_dt) {</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      18077 :                 const auto&amp; pop_result = this-&gt;get_result();</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">      18077 :                 const auto&amp; model      = this-&gt;get_model();</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      27059 :         assert(m_flow_result.get_num_time_points() == this-&gt;get_result().get_num_time_points());</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      54118 :         auto result = this-&gt;get_ode_integrator().advance(</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    1137843 :             [this](auto&amp;&amp; flows, auto&amp;&amp; t, auto&amp;&amp; dflows_dt) {</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">     162549 :                 const auto&amp; pop_result = this-&gt;get_result();</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">     162549 :                 const auto&amp; model      = this-&gt;get_model();</span></a>
 <a name="70"><span class="lineNum">      70 </span>            :                 // compute current population</a>
 <a name="71"><span class="lineNum">      71 </span>            :                 //   flows contains the accumulated outflows of each compartment for each target compartment at time t.</a>
 <a name="72"><span class="lineNum">      72 </span>            :                 //   Using that the ODEs are linear expressions of the flows, get_derivatives can compute the total change</a>
@@ -136,19 +136,19 @@
 <a name="74"><span class="lineNum">      74 </span>            :                 //   To incorporate external changes to the last values of pop_result (e.g. by applying mobility), we only</a>
 <a name="75"><span class="lineNum">      75 </span>            :                 //   calculate the change in population starting from the last available time point in m_result, instead</a>
 <a name="76"><span class="lineNum">      76 </span>            :                 //   of starting at t0. To do that, the following difference of flows is used.</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">      54231 :                 model.get_derivatives(flows - m_flow_result.get_value(pop_result.get_num_time_points() - 1),</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">     487647 :                 model.get_derivatives(flows - m_flow_result.get_value(pop_result.get_num_time_points() - 1),</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :                                       m_pop); // note: overwrites values in pop</a>
 <a name="79"><span class="lineNum">      79 </span>            :                 //   add the &quot;initial&quot; value of the ODEs (using last available time point in pop_result)</a>
 <a name="80"><span class="lineNum">      80 </span>            :                 //     If no changes were made to the last value in m_result outside of FlowSimulation, the following</a>
 <a name="81"><span class="lineNum">      81 </span>            :                 //     line computes the same as `model.get_derivatives(flows, x); x += model.get_initial_values();`.</a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">      36154 :                 m_pop += pop_result.get_last_value();</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">     325098 :                 m_pop += pop_result.get_last_value();</span></a>
 <a name="83"><span class="lineNum">      83 </span>            :                 // compute the current change in flows with respect to the current population</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">      18077 :                 dflows_dt.setZero();</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">      54231 :                 model.get_flows(m_pop, m_pop, t, dflows_dt); // this result is used by the integrator</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     162549 :                 dflows_dt.setZero();</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     487647 :                 model.get_flows(m_pop, m_pop, t, dflows_dt); // this result is used by the integrator</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :             },</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">       3007 :             tmax, this-&gt;get_dt(), m_flow_result);</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">       3007 :         compute_population_results();</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">       6014 :         return result;</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      27059 :             tmax, this-&gt;get_dt(), m_flow_result);</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">      27059 :         compute_population_results();</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      54118 :         return result;</span></a>
 <a name="90"><span class="lineNum">      90 </span>            :     }</a>
 <a name="91"><span class="lineNum">      91 </span>            : </a>
 <a name="92"><span class="lineNum">      92 </span>            :     /**</a>
@@ -161,9 +161,9 @@
 <a name="99"><span class="lineNum">      99 </span>            :      * For each simulated time step, the TimeSeries contains the value of each flow. </a>
 <a name="100"><span class="lineNum">     100 </span>            :      * @{</a>
 <a name="101"><span class="lineNum">     101 </span>            :      */</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">       3041 :     TimeSeries&lt;FP&gt;&amp; get_flows()</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">      27361 :     TimeSeries&lt;FP&gt;&amp; get_flows()</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :     {</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">       3041 :         return m_flow_result;</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">      27361 :         return m_flow_result;</span></a>
 <a name="105"><span class="lineNum">     105 </span>            :     }</a>
 <a name="106"><span class="lineNum">     106 </span>            : </a>
 <a name="107"><span class="lineNum">     107 </span>            :     const TimeSeries&lt;FP&gt;&amp; get_flows() const</a>
@@ -179,20 +179,20 @@
 <a name="117"><span class="lineNum">     117 </span>            :      * values. Adds time points to Base::m_result until it has the same number of time points as m_flow_result.</a>
 <a name="118"><span class="lineNum">     118 </span>            :      * Does not recalculate older values.</a>
 <a name="119"><span class="lineNum">     119 </span>            :      */</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       3013 :     void compute_population_results()</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      27113 :     void compute_population_results()</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :     {</a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">       3013 :         const auto&amp; flows = get_flows();</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">       3013 :         const auto&amp; model = this-&gt;get_model();</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">       3013 :         auto&amp; result      = this-&gt;get_result();</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      27113 :         const auto&amp; flows = get_flows();</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      27113 :         const auto&amp; model = this-&gt;get_model();</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">      27113 :         auto&amp; result      = this-&gt;get_result();</span></a>
 <a name="125"><span class="lineNum">     125 </span>            :         // take the last time point as base result (instead of the initial results), so that we use external changes</a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">       3013 :         const size_t last_tp = result.get_num_time_points() - 1;</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      27113 :         const size_t last_tp = result.get_num_time_points() - 1;</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :         // calculate new time points</a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       6036 :         for (Eigen::Index i = result.get_num_time_points(); i &lt; flows.get_num_time_points(); i++) {</span></a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">       3023 :             result.add_time_point(flows.get_time(i));</span></a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">       3023 :             model.get_derivatives(flows.get_value(i) - flows.get_value(last_tp), result.get_value(i));</span></a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       3023 :             result.get_value(i) += result.get_value(last_tp);</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      54296 :         for (Eigen::Index i = result.get_num_time_points(); i &lt; flows.get_num_time_points(); i++) {</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">      27183 :             result.add_time_point(flows.get_time(i));</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineCov">      27183 :             model.get_derivatives(flows.get_value(i) - flows.get_value(last_tp), result.get_value(i));</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      27183 :             result.get_value(i) += result.get_value(last_tp);</span></a>
 <a name="132"><span class="lineNum">     132 </span>            :         }</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       3013 :     }</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">      27113 :     }</span></a>
 <a name="134"><span class="lineNum">     134 </span>            : </a>
 <a name="135"><span class="lineNum">     135 </span>            :     Vector&lt;FP&gt; m_pop; ///&lt; pre-allocated temporary, used in right_hand_side()</a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
@@ -214,17 +214,17 @@
 <a name="152"><span class="lineNum">     152 </span>            :  * @tparam Sim A FlowSimulation that can simulate the model.</a>
 <a name="153"><span class="lineNum">     153 </span>            :  */</a>
 <a name="154"><span class="lineNum">     154 </span>            : template &lt;typename FP, class Model, class Sim = FlowSimulation&lt;FP, Model&gt;&gt;</a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">          7 : std::vector&lt;TimeSeries&lt;FP&gt;&gt; simulate_flows(FP t0, FP tmax, FP dt, Model const&amp; model,</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         59 : std::vector&lt;TimeSeries&lt;FP&gt;&gt; simulate_flows(FP t0, FP tmax, FP dt, Model const&amp; model,</span></a>
 <a name="156"><span class="lineNum">     156 </span>            :                                            std::shared_ptr&lt;IntegratorCore&lt;FP&gt;&gt; integrator = nullptr)</a>
 <a name="157"><span class="lineNum">     157 </span>            : {</a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          7 :     model.check_constraints();</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">          7 :     Sim sim(model, t0, dt);</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">          7 :     if (integrator) {</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          6 :         sim.set_integrator(integrator);</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         59 :     model.check_constraints();</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         59 :     Sim sim(model, t0, dt);</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">         59 :     if (integrator) {</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">         52 :         sim.set_integrator(integrator);</span></a>
 <a name="162"><span class="lineNum">     162 </span>            :     }</a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">          7 :     sim.advance(tmax);</span></a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">         28 :     return {sim.get_result(), sim.get_flows()};</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          7 : }</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">         59 :     sim.advance(tmax);</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">        236 :     return {sim.get_result(), sim.get_flows()};</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         59 : }</span></a>
 <a name="166"><span class="lineNum">     166 </span>            : </a>
 <a name="167"><span class="lineNum">     167 </span>            : } // namespace mio</a>
 <a name="168"><span class="lineNum">     168 </span>            : </a>

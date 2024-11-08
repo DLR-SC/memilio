@@ -126,12 +126,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a95978e3a64521f80664918bfae8fe3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the model owned and used by the simulation.  <a href="classmio_1_1Simulation.html#a95978e3a64521f80664918bfae8fe3b0">More...</a><br /></td></tr>
 <tr class="separator:a95978e3a64521f80664918bfae8fe3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59d2952fad5ce032b03872191413614d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1Simulation.html#a5afc88cdb7f1f72b7c62c6a2bf497556">Model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#a59d2952fad5ce032b03872191413614d">get_model</a> ()</td></tr>
+<tr class="memdesc:a59d2952fad5ce032b03872191413614d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the model owned and used by the simulation.  <a href="classmio_1_1Simulation.html#a59d2952fad5ce032b03872191413614d">More...</a><br /></td></tr>
 <tr class="separator:a59d2952fad5ce032b03872191413614d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a160dad68f6f2ebefca2733a70ab33e2a"><td class="memItemLeft" align="right" valign="top">FP &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#a160dad68f6f2ebefca2733a70ab33e2a">get_dt</a> ()</td></tr>
 <tr class="memdesc:a160dad68f6f2ebefca2733a70ab33e2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the step size used by the integrator.  <a href="classmio_1_1Simulation.html#a160dad68f6f2ebefca2733a70ab33e2a">More...</a><br /></td></tr>
 <tr class="separator:a160dad68f6f2ebefca2733a70ab33e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6d6579e087313ba0f19d3f3859ca5dc"><td class="memItemLeft" align="right" valign="top">const FP &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#af6d6579e087313ba0f19d3f3859ca5dc">get_dt</a> () const</td></tr>
+<tr class="memdesc:af6d6579e087313ba0f19d3f3859ca5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the step size used by the integrator.  <a href="classmio_1_1Simulation.html#af6d6579e087313ba0f19d3f3859ca5dc">More...</a><br /></td></tr>
 <tr class="separator:af6d6579e087313ba0f19d3f3859ca5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -302,6 +304,9 @@ template&lt;typename FP , class M &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the step size used by the integrator. </p>
+<p>When using a integration scheme with adaptive time stepping, the integrator will store its estimate for the next step size in this value. </p>
+
 </div>
 </div>
 <a id="ad6f3b3236757d75e250a3e6d275ef182"></a>
@@ -364,6 +369,9 @@ template&lt;typename FP , class M &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a reference to the model owned and used by the simulation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The simulation model. </dd></dl>
 
 </div>
 </div>

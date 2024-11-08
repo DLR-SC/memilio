@@ -92,12 +92,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2a4745bb9133cc940ace6331df139a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access lower bound to the step size dt.  <a href="classmio_1_1IntegratorCore.html#a2a4745bb9133cc940ace6331df139a0a">More...</a><br /></td></tr>
 <tr class="separator:a2a4745bb9133cc940ace6331df139a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35635792257ee9badb005cd5332e4a91"><td class="memItemLeft" align="right" valign="top">const FP &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IntegratorCore.html#a35635792257ee9badb005cd5332e4a91">get_dt_min</a> () const</td></tr>
+<tr class="memdesc:a35635792257ee9badb005cd5332e4a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access lower bound to the step size dt.  <a href="classmio_1_1IntegratorCore.html#a35635792257ee9badb005cd5332e4a91">More...</a><br /></td></tr>
 <tr class="separator:a35635792257ee9badb005cd5332e4a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a0600874e232703c5bb5b74b38eadc20f"><td class="memItemLeft" align="right" valign="top">FP &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IntegratorCore.html#a0600874e232703c5bb5b74b38eadc20f">get_dt_max</a> ()</td></tr>
 <tr class="memdesc:a0600874e232703c5bb5b74b38eadc20f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access upper bound to the step size dt.  <a href="classmio_1_1IntegratorCore.html#a0600874e232703c5bb5b74b38eadc20f">More...</a><br /></td></tr>
 <tr class="separator:a0600874e232703c5bb5b74b38eadc20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdad7be1a0f7cc218865c7bbd975b2b6"><td class="memItemLeft" align="right" valign="top">const FP &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1IntegratorCore.html#afdad7be1a0f7cc218865c7bbd975b2b6">get_dt_max</a> () const</td></tr>
+<tr class="memdesc:afdad7be1a0f7cc218865c7bbd975b2b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access upper bound to the step size dt.  <a href="classmio_1_1IntegratorCore.html#afdad7be1a0f7cc218865c7bbd975b2b6">More...</a><br /></td></tr>
 <tr class="separator:afdad7be1a0f7cc218865c7bbd975b2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -214,6 +216,9 @@ template&lt;typename FP  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Access upper bound to the step size dt. </p>
+<p>These values will only be used by adaptive steppers. Fixed size steppers ignore them. </p><dl class="section return"><dt>Returns</dt><dd>A reference to the maximum possible value of dt. </dd></dl>
+
 </div>
 </div>
 <a id="a2a4745bb9133cc940ace6331df139a0a"></a>
@@ -254,6 +259,9 @@ template&lt;typename FP  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Access lower bound to the step size dt. </p>
+<p>These values will only be used by adaptive steppers. Fixed size steppers ignore them. </p><dl class="section return"><dt>Returns</dt><dd>A reference to the minimum possible value of dt. </dd></dl>
 
 </div>
 </div>

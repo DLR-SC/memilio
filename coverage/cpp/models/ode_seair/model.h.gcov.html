@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -103,43 +103,43 @@
 <a name="41"><span class="lineNum">      41 </span>            :     using typename Base::ParameterSet;</a>
 <a name="42"><span class="lineNum">      42 </span>            :     using typename Base::Populations;</a>
 <a name="43"><span class="lineNum">      43 </span>            : </a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">          7 :     Model()</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          7 :         : Base(Populations({InfectionState::Count}, 0.), ParameterSet())</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">         47 :     Model()</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         47 :         : Base(Populations({InfectionState::Count}, 0.), ParameterSet())</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     {</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">          7 :     }</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">         47 :     }</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : </a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        434 :     void get_derivatives(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; y, FP /* t */,</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">       3810 :     void get_derivatives(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; y, FP /* t */,</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :                          Eigen::Ref&lt;Vector&lt;FP&gt;&gt; dydt) const override</a>
 <a name="51"><span class="lineNum">      51 </span>            :     {</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        434 :         auto&amp; params         = this-&gt;parameters;</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        434 :         const auto pop_total = pop.sum();</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">       3810 :         auto&amp; params         = this-&gt;parameters;</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">       3810 :         const auto pop_total = pop.sum();</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : </a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Susceptible] =</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        446 :             -params.template get&lt;SocialDistancing&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">        458 :                 pop[(size_t)InfectionState::Asymptomatic] -</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        446 :             params.template get&lt;Quarantined&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        458 :                 pop[(size_t)InfectionState::Infected] +</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        440 :             params.template get&lt;TimeRecoveredInv&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Recovered];</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Exposed] =</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        446 :             params.template get&lt;SocialDistancing&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        458 :                 pop[(size_t)InfectionState::Asymptomatic] +</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">        446 :             params.template get&lt;Quarantined&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">        458 :                 pop[(size_t)InfectionState::Infected] -</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">        440 :             y[(size_t)InfectionState::Exposed] / params.template get&lt;TimeExposed&lt;FP&gt;&gt;();</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Asymptomatic] =</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">        446 :             y[(size_t)InfectionState::Exposed] / params.template get&lt;TimeExposed&lt;FP&gt;&gt;() -</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        446 :             (params.template get&lt;TestingRate&lt;FP&gt;&gt;() + params.template get&lt;RecoveryRateFromAsymptomatic&lt;FP&gt;&gt;()) *</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        440 :                 y[(size_t)InfectionState::Asymptomatic];</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Infected] =</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        446 :             params.template get&lt;TestingRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Asymptomatic] -</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">        446 :             (params.template get&lt;RecoveryRate&lt;FP&gt;&gt;() + params.template get&lt;DeathRate&lt;FP&gt;&gt;()) *</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        440 :                 y[(size_t)InfectionState::Infected];</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Recovered] =</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">        446 :             params.template get&lt;RecoveryRateFromAsymptomatic&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Asymptomatic] +</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">        458 :             params.template get&lt;RecoveryRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Infected] -</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">        440 :             params.template get&lt;TimeRecoveredInv&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Recovered];</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">        434 :         dydt[(size_t)InfectionState::Dead] = params.template get&lt;DeathRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Infected];</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">        434 :     }</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Susceptible] =</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       3822 :             -params.template get&lt;SocialDistancing&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       3834 :                 pop[(size_t)InfectionState::Asymptomatic] -</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       3822 :             params.template get&lt;Quarantined&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">       3834 :                 pop[(size_t)InfectionState::Infected] +</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       3816 :             params.template get&lt;TimeRecoveredInv&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Recovered];</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Exposed] =</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">       3822 :             params.template get&lt;SocialDistancing&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">       3834 :                 pop[(size_t)InfectionState::Asymptomatic] +</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       3822 :             params.template get&lt;Quarantined&lt;FP&gt;&gt;() / pop_total * y[(size_t)InfectionState::Susceptible] *</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       3834 :                 pop[(size_t)InfectionState::Infected] -</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       3816 :             y[(size_t)InfectionState::Exposed] / params.template get&lt;TimeExposed&lt;FP&gt;&gt;();</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Asymptomatic] =</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       3822 :             y[(size_t)InfectionState::Exposed] / params.template get&lt;TimeExposed&lt;FP&gt;&gt;() -</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">       3822 :             (params.template get&lt;TestingRate&lt;FP&gt;&gt;() + params.template get&lt;RecoveryRateFromAsymptomatic&lt;FP&gt;&gt;()) *</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       3816 :                 y[(size_t)InfectionState::Asymptomatic];</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Infected] =</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       3822 :             params.template get&lt;TestingRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Asymptomatic] -</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       3822 :             (params.template get&lt;RecoveryRate&lt;FP&gt;&gt;() + params.template get&lt;DeathRate&lt;FP&gt;&gt;()) *</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       3816 :                 y[(size_t)InfectionState::Infected];</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Recovered] =</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       3822 :             params.template get&lt;RecoveryRateFromAsymptomatic&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Asymptomatic] +</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       3834 :             params.template get&lt;RecoveryRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Infected] -</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       3816 :             params.template get&lt;TimeRecoveredInv&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Recovered];</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       3810 :         dydt[(size_t)InfectionState::Dead] = params.template get&lt;DeathRate&lt;FP&gt;&gt;() * y[(size_t)InfectionState::Infected];</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       3810 :     }</span></a>
 <a name="81"><span class="lineNum">      81 </span>            : };</a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            : } // namespace oseair</a>

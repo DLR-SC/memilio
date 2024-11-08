@@ -165,6 +165,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aff1d73d9f6b69d375a68f21090fbc191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff1d73d9f6b69d375a68f21090fbc191"><td class="memTemplParams" colspan="2">template&lt;class Dummy  = MatrixRef, std::enable_if_t&lt;!details::IsElementReference&lt; Dummy &gt;::value, void * &gt;  = nullptr&gt; </td></tr>
 <tr class="memitem:aff1d73d9f6b69d375a68f21090fbc191"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1RowMajorIterator.html#acb2e228dfe3c3203bb5f5ef7e4832c41">pointer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1RowMajorIterator.html#aff1d73d9f6b69d375a68f21090fbc191">operator-&gt;</a> () const</td></tr>
+<tr class="memdesc:aff1d73d9f6b69d375a68f21090fbc191"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a pointer to the element this iterator points to.  <a href="classmio_1_1RowMajorIterator.html#aff1d73d9f6b69d375a68f21090fbc191">More...</a><br /></td></tr>
 <tr class="separator:aff1d73d9f6b69d375a68f21090fbc191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -628,6 +629,9 @@ template&lt;class Dummy  = MatrixRef, std::enable_if_t&lt;!details::IsElementRef
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>get a pointer to the element this iterator points to. </p>
+<p>may return a proxy instead of a reference to the element if the matrix is not evaluated in memory, e.g. in the case of Eigen::MatrixXd::Constant(r, c, v). The proxy stores a copy of the element and forwards the address of this copy. </p>
 
 </div>
 </div>

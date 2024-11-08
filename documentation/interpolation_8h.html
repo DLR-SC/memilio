@@ -73,9 +73,11 @@ $(function() {
 <div class="title">interpolation.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="logging_8h_source.html">memilio/utils/logging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="time__series_8h_source.html">memilio/utils/time_series.h</a>&quot;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
-<code>#include &quot;<a class="el" href="logging_8h_source.html">memilio/utils/logging.h</a>&quot;</code><br />
 </div>
 <p><a href="interpolation_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -91,6 +93,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a46a8c32ccd44e57584abc88bf22eee11"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a46a8c32ccd44e57584abc88bf22eee11">mio::linear_interpolation</a> (const X &amp;x_eval, const X &amp;x_1, const X &amp;x_2, const V &amp;y1, const V &amp;y2)</td></tr>
 <tr class="memdesc:a46a8c32ccd44e57584abc88bf22eee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation between two data values.  <a href="namespacemio.html#a46a8c32ccd44e57584abc88bf22eee11">More...</a><br /></td></tr>
 <tr class="separator:a46a8c32ccd44e57584abc88bf22eee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memTemplParams" colspan="2">template&lt;class FP &gt; </td></tr>
+<tr class="memitem:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memTemplItemLeft" align="right" valign="top">TimeSeries&lt; FP &gt;::Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a5d1b824e74e65d53b7d3ae4f19ce0fef">mio::linear_interpolation</a> (FP time, const TimeSeries&lt; FP &gt; &amp;data)</td></tr>
+<tr class="memdesc:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation of a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>.  <a href="namespacemio.html#a5d1b824e74e65d53b7d3ae4f19ce0fef">More...</a><br /></td></tr>
+<tr class="separator:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f961972292a81681062a6c8fdc03041"><td class="memTemplParams" colspan="2">template&lt;typename X , typename Y &gt; </td></tr>
 <tr class="memitem:a2f961972292a81681062a6c8fdc03041"><td class="memTemplItemLeft" align="right" valign="top">Y&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a2f961972292a81681062a6c8fdc03041">mio::linear_interpolation_of_data_set</a> (std::vector&lt; std::pair&lt; X, Y &gt;&gt; vector, const X &amp;x_eval)</td></tr>
 <tr class="memdesc:a2f961972292a81681062a6c8fdc03041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation between two points of a dataset, which is represented by a vector of pairs of node and value.  <a href="namespacemio.html#a2f961972292a81681062a6c8fdc03041">More...</a><br /></td></tr>

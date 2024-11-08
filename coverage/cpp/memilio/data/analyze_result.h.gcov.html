@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-07 10:44:23</td>
+            <td class="headerValue">2024-11-08 13:45:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -127,15 +127,15 @@
 <a name="65"><span class="lineNum">      65 </span>            :  * @return interpolated time series, one (or as many as nodes in the graph) per result in the ensemble</a>
 <a name="66"><span class="lineNum">      66 </span>            :  */</a>
 <a name="67"><span class="lineNum">      67 </span>            : template &lt;class T&gt;</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">          1 : std::vector&lt;InterpolateResultT&lt;T&gt;&gt; interpolate_ensemble_results(const std::vector&lt;T&gt;&amp; ensemble_results)</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">          7 : std::vector&lt;InterpolateResultT&lt;T&gt;&gt; interpolate_ensemble_results(const std::vector&lt;T&gt;&amp; ensemble_results)</span></a>
 <a name="69"><span class="lineNum">      69 </span>            : {</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">          1 :     std::vector&lt;InterpolateResultT&lt;T&gt;&gt; interpolated;</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">          1 :     interpolated.reserve(ensemble_results.size());</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          1 :     std::transform(ensemble_results.begin(), ensemble_results.end(), std::back_inserter(interpolated), [](auto&amp; run) {</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          2 :         return interpolate_simulation_result(run);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">          7 :     std::vector&lt;InterpolateResultT&lt;T&gt;&gt; interpolated;</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">          7 :     interpolated.reserve(ensemble_results.size());</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">          7 :     std::transform(ensemble_results.begin(), ensemble_results.end(), std::back_inserter(interpolated), [](auto&amp; run) {</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         14 :         return interpolate_simulation_result(run);</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :     });</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          2 :     return interpolated;</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          1 : }</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         14 :     return interpolated;</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          7 : }</span></a>
 <a name="77"><span class="lineNum">      77 </span>            : </a>
 <a name="78"><span class="lineNum">      78 </span>            : std::vector&lt;std::vector&lt;TimeSeries&lt;double&gt;&gt;&gt;</a>
 <a name="79"><span class="lineNum">      79 </span>            : sum_nodes(const std::vector&lt;std::vector&lt;TimeSeries&lt;double&gt;&gt;&gt;&amp; ensemble_result);</a>
@@ -171,16 +171,16 @@
 <a name="109"><span class="lineNum">     109 </span>            :  */</a>
 <a name="110"><span class="lineNum">     110 </span>            : template &lt;class Simulation, typename FP = double&gt;</a>
 <a name="111"><span class="lineNum">     111 </span>            : std::vector&lt;TimeSeries&lt;double&gt;&gt;</a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          7 : interpolate_simulation_result(const Graph&lt;SimulationNode&lt;Simulation&gt;, MobilityEdge&lt;FP&gt;&gt;&amp; graph_result)</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         13 : interpolate_simulation_result(const Graph&lt;SimulationNode&lt;Simulation&gt;, MobilityEdge&lt;FP&gt;&gt;&amp; graph_result)</span></a>
 <a name="113"><span class="lineNum">     113 </span>            : {</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          7 :     std::vector&lt;TimeSeries&lt;double&gt;&gt; interpolated;</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">          7 :     interpolated.reserve(graph_result.nodes().size());</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          7 :     std::transform(graph_result.nodes().begin(), graph_result.nodes().end(), std::back_inserter(interpolated),</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         14 :                    [](auto&amp; n) {</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         14 :                        return interpolate_simulation_result(n.property.get_result());</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         13 :     std::vector&lt;TimeSeries&lt;double&gt;&gt; interpolated;</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         13 :     interpolated.reserve(graph_result.nodes().size());</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">         13 :     std::transform(graph_result.nodes().begin(), graph_result.nodes().end(), std::back_inserter(interpolated),</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         26 :                    [](auto&amp; n) {</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         26 :                        return interpolate_simulation_result(n.property.get_result());</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :                    });</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">         14 :     return interpolated;</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">          7 : }</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">         26 :     return interpolated;</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">         13 : }</span></a>
 <a name="122"><span class="lineNum">     122 </span>            : </a>
 <a name="123"><span class="lineNum">     123 </span>            : /**</a>
 <a name="124"><span class="lineNum">     124 </span>            :  * Compute the distance between two SECIR simulation results.</a>
@@ -204,31 +204,31 @@
 <a name="142"><span class="lineNum">     142 </span>            :  * @return Computed distance between result1 and result2.</a>
 <a name="143"><span class="lineNum">     143 </span>            :  */</a>
 <a name="144"><span class="lineNum">     144 </span>            : template &lt;class InfectionState&gt;</a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          2 : double result_distance_2norm(const std::vector&lt;mio::TimeSeries&lt;double&gt;&gt;&amp; result1,</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">         14 : double result_distance_2norm(const std::vector&lt;mio::TimeSeries&lt;double&gt;&gt;&amp; result1,</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :                              const std::vector&lt;mio::TimeSeries&lt;double&gt;&gt;&amp; result2, InfectionState compartment)</a>
 <a name="147"><span class="lineNum">     147 </span>            : {</a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          2 :     assert(result1.size() == result2.size());</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">          2 :     assert(result1.size() &gt; 0);</span></a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">          2 :     assert(result1[0].get_num_time_points() &gt; 0);</span></a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">          2 :     assert(result1[0].get_num_elements() &gt; 0);</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         14 :     assert(result1.size() == result2.size());</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         14 :     assert(result1.size() &gt; 0);</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">         14 :     assert(result1[0].get_num_time_points() &gt; 0);</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         14 :     assert(result1[0].get_num_elements() &gt; 0);</span></a>
 <a name="152"><span class="lineNum">     152 </span>            : </a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          2 :     auto num_compartments = Eigen::Index(InfectionState::Count);</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          2 :     auto num_age_groups   = result1[0].get_num_elements() / num_compartments;</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         14 :     auto num_compartments = Eigen::Index(InfectionState::Count);</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         14 :     auto num_age_groups   = result1[0].get_num_elements() / num_compartments;</span></a>
 <a name="155"><span class="lineNum">     155 </span>            : </a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">          2 :     auto norm_sqr = 0.0;</span></a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">          6 :     for (auto iter_node1 = result1.begin(), iter_node2 = result2.begin(); iter_node1 &lt; result1.end();</span></a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          4 :          ++iter_node1, ++iter_node2) {</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         20 :         for (Eigen::Index time_idx = 0; time_idx &lt; iter_node1-&gt;get_num_time_points(); ++time_idx) {</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">          8 :             auto v1 = (*iter_node1)[time_idx];</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          8 :             auto v2 = (*iter_node2)[time_idx];</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         16 :             for (Eigen::Index age_idx = 0; age_idx &lt; num_age_groups; ++age_idx) {</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">          8 :                 auto d1 = v1[age_idx * num_compartments + Eigen::Index(compartment)];</span></a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          8 :                 auto d2 = v2[age_idx * num_compartments + Eigen::Index(compartment)];</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          8 :                 norm_sqr += (d1 - d2) * (d1 - d2);</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         14 :     auto norm_sqr = 0.0;</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         42 :     for (auto iter_node1 = result1.begin(), iter_node2 = result2.begin(); iter_node1 &lt; result1.end();</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         28 :          ++iter_node1, ++iter_node2) {</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        140 :         for (Eigen::Index time_idx = 0; time_idx &lt; iter_node1-&gt;get_num_time_points(); ++time_idx) {</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">         56 :             auto v1 = (*iter_node1)[time_idx];</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">         56 :             auto v2 = (*iter_node2)[time_idx];</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">        112 :             for (Eigen::Index age_idx = 0; age_idx &lt; num_age_groups; ++age_idx) {</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">         56 :                 auto d1 = v1[age_idx * num_compartments + Eigen::Index(compartment)];</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">         56 :                 auto d2 = v2[age_idx * num_compartments + Eigen::Index(compartment)];</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         56 :                 norm_sqr += (d1 - d2) * (d1 - d2);</span></a>
 <a name="166"><span class="lineNum">     166 </span>            :             }</a>
 <a name="167"><span class="lineNum">     167 </span>            :         }</a>
 <a name="168"><span class="lineNum">     168 </span>            :     }</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">          2 :     return std::sqrt(norm_sqr);</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         14 :     return std::sqrt(norm_sqr);</span></a>
 <a name="170"><span class="lineNum">     170 </span>            : }</a>
 <a name="171"><span class="lineNum">     171 </span>            : </a>
 <a name="172"><span class="lineNum">     172 </span>            : } // namespace mio</a>
