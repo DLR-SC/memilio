@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-08 13:45:23</td>
+            <td class="headerValue">2024-11-11 13:14:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -84,173 +84,199 @@
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : #include &quot;memilio/io/json_serializer.h&quot;</a>
 <a name="24"><span class="lineNum">      24 </span>            : #include &quot;memilio/mobility/graph.h&quot;</a>
-<a name="25"><span class="lineNum">      25 </span>            : #include &quot;memilio/mobility/metapopulation_mobility_instant.h&quot;</a>
-<a name="26"><span class="lineNum">      26 </span>            : </a>
-<a name="27"><span class="lineNum">      27 </span>            : namespace mio</a>
-<a name="28"><span class="lineNum">      28 </span>            : {</a>
-<a name="29"><span class="lineNum">      29 </span>            : </a>
-<a name="30"><span class="lineNum">      30 </span>            : /**</a>
-<a name="31"><span class="lineNum">      31 </span>            :  * @brief Splits string into a Vector of strings according to delimiter</a>
-<a name="32"><span class="lineNum">      32 </span>            :  * @param s string which is splitted</a>
-<a name="33"><span class="lineNum">      33 </span>            :  * @param delimiter sign at which to split string</a>
-<a name="34"><span class="lineNum">      34 </span>            :  */</a>
-<a name="35"><span class="lineNum">      35 </span>            : std::vector&lt;std::string&gt; split(const std::string&amp; s, char delimiter);</a>
-<a name="36"><span class="lineNum">      36 </span>            : </a>
-<a name="37"><span class="lineNum">      37 </span>            : /**</a>
-<a name="38"><span class="lineNum">      38 </span>            :  * @brief Counts lines of txt file</a>
-<a name="39"><span class="lineNum">      39 </span>            :  * @param filename name of file which is counted</a>
-<a name="40"><span class="lineNum">      40 </span>            :  */</a>
-<a name="41"><span class="lineNum">      41 </span>            : IOResult&lt;int&gt; count_lines(const std::string&amp; filename);</a>
-<a name="42"><span class="lineNum">      42 </span>            : </a>
-<a name="43"><span class="lineNum">      43 </span>            : /**</a>
-<a name="44"><span class="lineNum">      44 </span>            :  * @brief Reads formatted mobility or contact data which is given in columns</a>
-<a name="45"><span class="lineNum">      45 </span>            :  *          from_str    to_str  from_rs     to_rs       count_abs</a>
-<a name="46"><span class="lineNum">      46 </span>            :  *        and separated by tabs. Writes it into a NxN Eigen Matrix, </a>
-<a name="47"><span class="lineNum">      47 </span>            :  *        where N is the number of regions</a>
-<a name="48"><span class="lineNum">      48 </span>            :  * @param filename name of file to be read</a>
-<a name="49"><span class="lineNum">      49 </span>            :  */</a>
-<a name="50"><span class="lineNum">      50 </span>            : IOResult&lt;Eigen::MatrixXd&gt; read_mobility_formatted(const std::string&amp; filename);</a>
-<a name="51"><span class="lineNum">      51 </span>            : </a>
-<a name="52"><span class="lineNum">      52 </span>            : /**</a>
-<a name="53"><span class="lineNum">      53 </span>            :  * @brief Reads txt mobility data or contact which is given by values only</a>
-<a name="54"><span class="lineNum">      54 </span>            :  *        and separated by spaces. Writes it into a NxN Eigen </a>
-<a name="55"><span class="lineNum">      55 </span>            :  *        Matrix, where N is the number of regions</a>
-<a name="56"><span class="lineNum">      56 </span>            :  * @param filename name of file to be read</a>
-<a name="57"><span class="lineNum">      57 </span>            :  */</a>
-<a name="58"><span class="lineNum">      58 </span>            : IOResult&lt;Eigen::MatrixXd&gt; read_mobility_plain(const std::string&amp; filename);</a>
-<a name="59"><span class="lineNum">      59 </span>            : </a>
-<a name="60"><span class="lineNum">      60 </span>            : #ifdef MEMILIO_HAS_JSONCPP</a>
-<a name="61"><span class="lineNum">      61 </span>            : </a>
-<a name="62"><span class="lineNum">      62 </span>            : /**</a>
-<a name="63"><span class="lineNum">      63 </span>            :  * @brief creates json files for each node in a simulation graph.</a>
-<a name="64"><span class="lineNum">      64 </span>            :  * Creates two files per node: one contains the models and its parameters, one contains the outgoing edges.</a>
-<a name="65"><span class="lineNum">      65 </span>            :  * @param graph Graph which should be written</a>
-<a name="66"><span class="lineNum">      66 </span>            :  * @param directory directory where files should be stored</a>
-<a name="67"><span class="lineNum">      67 </span>            :  * @param ioflags flags that set the behavior of serialization; see mio::IOFlags</a>
-<a name="68"><span class="lineNum">      68 </span>            :  */</a>
-<a name="69"><span class="lineNum">      69 </span>            : template &lt;typename FP, class Model&gt;</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">         10 : IOResult&lt;void&gt; write_graph(const Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;&amp; graph, const std::string&amp; directory,</span></a>
-<a name="71"><span class="lineNum">      71 </span>            :                            int ioflags = IOF_None)</a>
-<a name="72"><span class="lineNum">      72 </span>            : {</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         10 :     assert(graph.nodes().size() &gt; 0 &amp;&amp; &quot;Graph Nodes are empty&quot;);</span></a>
-<a name="74"><span class="lineNum">      74 </span>            : </a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         10 :     std::string abs_path;</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         10 :     BOOST_OUTCOME_TRY(auto&amp;&amp; created, create_directory(directory, abs_path));</span></a>
-<a name="77"><span class="lineNum">      77 </span>            : </a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         10 :     if (created) {</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          2 :         log_info(&quot;Results are stored in {:s}/results.&quot;, mio::get_current_dir_name());</span></a>
-<a name="80"><span class="lineNum">      80 </span>            :     }</a>
-<a name="81"><span class="lineNum">      81 </span>            :     else {</a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">         18 :         log_info(&quot;Results are stored in {:s}/results. Files from previous &quot;</span></a>
-<a name="83"><span class="lineNum">      83 </span>            :                  &quot;graph will be &quot;</a>
-<a name="84"><span class="lineNum">      84 </span>            :                  &quot;overwritten&quot;,</a>
-<a name="85"><span class="lineNum">      85 </span>            :                  mio::get_current_dir_name());</a>
-<a name="86"><span class="lineNum">      86 </span>            :     }</a>
-<a name="87"><span class="lineNum">      87 </span>            : </a>
-<a name="88"><span class="lineNum">      88 </span>            :     //write two files per node</a>
-<a name="89"><span class="lineNum">      89 </span>            :     //one file that contains outgoing edges from the node</a>
-<a name="90"><span class="lineNum">      90 </span>            :     //one file for the model (parameters and population)</a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">         50 :     for (auto inode = size_t(0); inode &lt; graph.nodes().size(); ++inode) {</span></a>
-<a name="92"><span class="lineNum">      92 </span>            :         //node</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         20 :         const auto node = graph.nodes()[inode];</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">         20 :         BOOST_OUTCOME_TRY(auto&amp;&amp; js_node_model, serialize_json(node.property, ioflags));</span></a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         20 :         Json::Value js_node(Json::objectValue);</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         20 :         js_node[&quot;NodeId&quot;]  = node.id;</span></a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         20 :         js_node[&quot;Model&quot;]   = js_node_model;</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         80 :         auto node_filename = path_join(abs_path, &quot;GraphNode&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         20 :         BOOST_OUTCOME_TRY(write_json(node_filename, js_node));</span></a>
-<a name="100"><span class="lineNum">     100 </span>            : </a>
-<a name="101"><span class="lineNum">     101 </span>            :         //list of edges</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">         20 :         auto out_edges = graph.out_edges(inode);</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">         20 :         if (out_edges.size()) {</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">          2 :             Json::Value js_edges(Json::arrayValue);</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">          6 :             for (auto&amp; e : graph.out_edges(inode)) {</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">          2 :                 BOOST_OUTCOME_TRY(auto&amp;&amp; js_edge_params, serialize_json(e.property, ioflags));</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          2 :                 Json::Value js_edge{Json::objectValue};</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          2 :                 js_edge[&quot;StartNodeIndex&quot;] = Json::UInt64(e.start_node_idx);</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          2 :                 js_edge[&quot;EndNodeIndex&quot;]   = Json::UInt64(e.end_node_idx);</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">          2 :                 js_edge[&quot;Parameters&quot;]     = js_edge_params;</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          2 :                 js_edges.append(std::move(js_edge));</span></a>
-<a name="112"><span class="lineNum">     112 </span>            :             }</a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">          8 :             auto edge_filename = path_join(abs_path, &quot;GraphEdges_node&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          2 :             BOOST_OUTCOME_TRY(write_json(edge_filename, js_edges));</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">          2 :         }</span></a>
-<a name="116"><span class="lineNum">     116 </span>            :     }</a>
-<a name="117"><span class="lineNum">     117 </span>            : </a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         20 :     return success();</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">         10 : }</span></a>
-<a name="120"><span class="lineNum">     120 </span>            : </a>
-<a name="121"><span class="lineNum">     121 </span>            : /**</a>
-<a name="122"><span class="lineNum">     122 </span>            :  * @brief reads graph json files and returns a simulation graph.</a>
-<a name="123"><span class="lineNum">     123 </span>            :  * See write_graph() for information of expected files.</a>
-<a name="124"><span class="lineNum">     124 </span>            :  * @tparam the type of the simulation model.</a>
-<a name="125"><span class="lineNum">     125 </span>            :  * @param directory directory from where graph should be read.</a>
-<a name="126"><span class="lineNum">     126 </span>            :  * @param ioflags flags that set the behavior of serialization; see mio::IOFlags</a>
-<a name="127"><span class="lineNum">     127 </span>            :  * @param read_edges boolean value that decides whether the edges of the graph should also be read in.</a>
-<a name="128"><span class="lineNum">     128 </span>            :  */</a>
-<a name="129"><span class="lineNum">     129 </span>            : template &lt;typename FP, class Model&gt;</a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">          3 : IOResult&lt;Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;&gt; read_graph(const std::string&amp; directory, int ioflags = IOF_None,</span></a>
-<a name="131"><span class="lineNum">     131 </span>            :                                                           bool read_edges = true)</a>
-<a name="132"><span class="lineNum">     132 </span>            : {</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">          3 :     std::string abs_path;</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">          3 :     if (!file_exists(directory, abs_path)) {</span></a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineNoCov">          0 :         log_error(&quot;Directory {} does not exist.&quot;, directory);</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineNoCov">          0 :         return failure(StatusCode::FileNotFound, directory);</span></a>
-<a name="137"><span class="lineNum">     137 </span>            :     }</a>
-<a name="138"><span class="lineNum">     138 </span>            : </a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">          3 :     auto graph = Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;{};</span></a>
-<a name="140"><span class="lineNum">     140 </span>            : </a>
-<a name="141"><span class="lineNum">     141 </span>            :     //read nodes, as many as files are available</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         18 :     for (auto inode = 0;; ++inode) {</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         36 :         auto node_filename = path_join(abs_path, &quot;GraphNode&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">          9 :         if (!file_exists(node_filename, node_filename)) {</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          3 :             break;</span></a>
-<a name="146"><span class="lineNum">     146 </span>            :         }</a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">          6 :         BOOST_OUTCOME_TRY(auto&amp;&amp; js_node, read_json(node_filename));</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          6 :         if (!js_node[&quot;NodeId&quot;].isInt()) {</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineNoCov">          0 :             log_error(&quot;NodeId field must be an integer.&quot;);</span></a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineNoCov">          0 :             return failure(StatusCode::InvalidType, node_filename + &quot;, NodeId must be an integer.&quot;);</span></a>
-<a name="151"><span class="lineNum">     151 </span>            :         }</a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">          6 :         auto node_id = js_node[&quot;NodeId&quot;].asInt();</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          6 :         BOOST_OUTCOME_TRY(auto&amp;&amp; model, deserialize_json(js_node[&quot;Model&quot;], Tag&lt;Model&gt;{}, ioflags));</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          6 :         graph.add_node(node_id, model);</span></a>
-<a name="155"><span class="lineNum">     155 </span>            :     }</a>
-<a name="156"><span class="lineNum">     156 </span>            : </a>
-<a name="157"><span class="lineNum">     157 </span>            :     //read edges; nodes must already be available for that)</a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          3 :     if (read_edges) {</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">          5 :         for (auto inode = size_t(0); inode &lt; graph.nodes().size(); ++inode) {</span></a>
-<a name="160"><span class="lineNum">     160 </span>            :             //list of edges</a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">          8 :             auto edge_filename = path_join(abs_path, &quot;GraphEdges_node&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">          2 :             BOOST_OUTCOME_TRY(auto&amp;&amp; js_edges, read_json(edge_filename));</span></a>
-<a name="163"><span class="lineNum">     163 </span>            : </a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          8 :             for (auto&amp; e : js_edges) {</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          2 :                 auto start_node_idx  = inode;</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">          2 :                 auto js_end_node_idx = e[&quot;EndNodeIndex&quot;];</span></a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">          2 :                 if (!js_end_node_idx.isUInt64()) {</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineNoCov">          0 :                     log_error(&quot;EndNodeIndex must be an integer.&quot;);</span></a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineNoCov">          0 :                     return failure(StatusCode::InvalidType, edge_filename + &quot;, EndNodeIndex must be an integer.&quot;);</span></a>
-<a name="170"><span class="lineNum">     170 </span>            :                 }</a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">          2 :                 auto end_node_idx = js_end_node_idx.asUInt64();</span></a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">          2 :                 if (end_node_idx &gt;= graph.nodes().size()) {</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineNoCov">          0 :                     log_error(&quot;EndNodeIndex not in range of number of graph nodes.&quot;);</span></a>
-<a name="174"><span class="lineNum">     174 </span>            :                     return failure(StatusCode::OutOfRange,</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineNoCov">          0 :                                    edge_filename + &quot;, EndNodeIndex not in range of number of graph nodes.&quot;);</span></a>
-<a name="176"><span class="lineNum">     176 </span>            :                 }</a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">          2 :                 BOOST_OUTCOME_TRY(auto&amp;&amp; parameters,</span></a>
-<a name="178"><span class="lineNum">     178 </span>            :                                   deserialize_json(e[&quot;Parameters&quot;], Tag&lt;MobilityParameters&lt;FP&gt;&gt;{}, ioflags));</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">          2 :                 graph.add_edge(start_node_idx, end_node_idx, parameters);</span></a>
-<a name="180"><span class="lineNum">     180 </span>            :             }</a>
-<a name="181"><span class="lineNum">     181 </span>            :         }</a>
-<a name="182"><span class="lineNum">     182 </span>            :     }</a>
-<a name="183"><span class="lineNum">     183 </span>            : </a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">          3 :     return success(graph);</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          3 : }</span></a>
-<a name="186"><span class="lineNum">     186 </span>            : </a>
-<a name="187"><span class="lineNum">     187 </span>            : #endif //MEMILIO_HAS_JSONCPP</a>
-<a name="188"><span class="lineNum">     188 </span>            : </a>
-<a name="189"><span class="lineNum">     189 </span>            : } // namespace mio</a>
-<a name="190"><span class="lineNum">     190 </span>            : </a>
-<a name="191"><span class="lineNum">     191 </span>            : #endif // READ_TWITTER_H</a>
+<a name="25"><span class="lineNum">      25 </span>            : #include &quot;memilio/data/analyze_result.h&quot;</a>
+<a name="26"><span class="lineNum">      26 </span>            : #include &quot;memilio/mobility/metapopulation_mobility_instant.h&quot;</a>
+<a name="27"><span class="lineNum">      27 </span>            : </a>
+<a name="28"><span class="lineNum">      28 </span>            : namespace mio</a>
+<a name="29"><span class="lineNum">      29 </span>            : {</a>
+<a name="30"><span class="lineNum">      30 </span>            : </a>
+<a name="31"><span class="lineNum">      31 </span>            : /**</a>
+<a name="32"><span class="lineNum">      32 </span>            :  * @brief Splits string into a Vector of strings according to delimiter</a>
+<a name="33"><span class="lineNum">      33 </span>            :  * @param s string which is splitted</a>
+<a name="34"><span class="lineNum">      34 </span>            :  * @param delimiter sign at which to split string</a>
+<a name="35"><span class="lineNum">      35 </span>            :  */</a>
+<a name="36"><span class="lineNum">      36 </span>            : std::vector&lt;std::string&gt; split(const std::string&amp; s, char delimiter);</a>
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span>            : /**</a>
+<a name="39"><span class="lineNum">      39 </span>            :  * @brief Counts lines of txt file</a>
+<a name="40"><span class="lineNum">      40 </span>            :  * @param filename name of file which is counted</a>
+<a name="41"><span class="lineNum">      41 </span>            :  */</a>
+<a name="42"><span class="lineNum">      42 </span>            : IOResult&lt;int&gt; count_lines(const std::string&amp; filename);</a>
+<a name="43"><span class="lineNum">      43 </span>            : </a>
+<a name="44"><span class="lineNum">      44 </span>            : /**</a>
+<a name="45"><span class="lineNum">      45 </span>            :  * @brief Reads formatted mobility or contact data which is given in columns</a>
+<a name="46"><span class="lineNum">      46 </span>            :  *          from_str    to_str  from_rs     to_rs       count_abs</a>
+<a name="47"><span class="lineNum">      47 </span>            :  *        and separated by tabs. Writes it into a NxN Eigen Matrix, </a>
+<a name="48"><span class="lineNum">      48 </span>            :  *        where N is the number of regions</a>
+<a name="49"><span class="lineNum">      49 </span>            :  * @param filename name of file to be read</a>
+<a name="50"><span class="lineNum">      50 </span>            :  */</a>
+<a name="51"><span class="lineNum">      51 </span>            : IOResult&lt;Eigen::MatrixXd&gt; read_mobility_formatted(const std::string&amp; filename);</a>
+<a name="52"><span class="lineNum">      52 </span>            : </a>
+<a name="53"><span class="lineNum">      53 </span>            : /**</a>
+<a name="54"><span class="lineNum">      54 </span>            :  * @brief Reads txt mobility data or contact which is given by values only</a>
+<a name="55"><span class="lineNum">      55 </span>            :  *        and separated by spaces. Writes it into a NxN Eigen </a>
+<a name="56"><span class="lineNum">      56 </span>            :  *        Matrix, where N is the number of regions</a>
+<a name="57"><span class="lineNum">      57 </span>            :  * @param filename name of file to be read</a>
+<a name="58"><span class="lineNum">      58 </span>            :  */</a>
+<a name="59"><span class="lineNum">      59 </span>            : IOResult&lt;Eigen::MatrixXd&gt; read_mobility_plain(const std::string&amp; filename);</a>
+<a name="60"><span class="lineNum">      60 </span>            : </a>
+<a name="61"><span class="lineNum">      61 </span>            : #ifdef MEMILIO_HAS_JSONCPP</a>
+<a name="62"><span class="lineNum">      62 </span>            : </a>
+<a name="63"><span class="lineNum">      63 </span>            : /**</a>
+<a name="64"><span class="lineNum">      64 </span>            :  * @brief creates json files for each node in a simulation graph.</a>
+<a name="65"><span class="lineNum">      65 </span>            :  * Creates two files per node: one contains the models and its parameters, one contains the outgoing edges.</a>
+<a name="66"><span class="lineNum">      66 </span>            :  * @param graph Graph which should be written</a>
+<a name="67"><span class="lineNum">      67 </span>            :  * @param directory directory where files should be stored</a>
+<a name="68"><span class="lineNum">      68 </span>            :  * @param ioflags flags that set the behavior of serialization; see mio::IOFlags</a>
+<a name="69"><span class="lineNum">      69 </span>            :  */</a>
+<a name="70"><span class="lineNum">      70 </span>            : template &lt;typename FP, class Model&gt;</a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         10 : IOResult&lt;void&gt; write_graph(const Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;&amp; graph, const std::string&amp; directory,</span></a>
+<a name="72"><span class="lineNum">      72 </span>            :                            int ioflags = IOF_None)</a>
+<a name="73"><span class="lineNum">      73 </span>            : {</a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         10 :     assert(graph.nodes().size() &gt; 0 &amp;&amp; &quot;Graph Nodes are empty&quot;);</span></a>
+<a name="75"><span class="lineNum">      75 </span>            : </a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         10 :     std::string abs_path;</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         10 :     BOOST_OUTCOME_TRY(auto&amp;&amp; created, create_directory(directory, abs_path));</span></a>
+<a name="78"><span class="lineNum">      78 </span>            : </a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">         10 :     if (created) {</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          2 :         log_info(&quot;Results are stored in {:s}/results.&quot;, mio::get_current_dir_name());</span></a>
+<a name="81"><span class="lineNum">      81 </span>            :     }</a>
+<a name="82"><span class="lineNum">      82 </span>            :     else {</a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">         18 :         log_info(&quot;Results are stored in {:s}/results. Files from previous &quot;</span></a>
+<a name="84"><span class="lineNum">      84 </span>            :                  &quot;graph will be &quot;</a>
+<a name="85"><span class="lineNum">      85 </span>            :                  &quot;overwritten&quot;,</a>
+<a name="86"><span class="lineNum">      86 </span>            :                  mio::get_current_dir_name());</a>
+<a name="87"><span class="lineNum">      87 </span>            :     }</a>
+<a name="88"><span class="lineNum">      88 </span>            : </a>
+<a name="89"><span class="lineNum">      89 </span>            :     //write two files per node</a>
+<a name="90"><span class="lineNum">      90 </span>            :     //one file that contains outgoing edges from the node</a>
+<a name="91"><span class="lineNum">      91 </span>            :     //one file for the model (parameters and population)</a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">         50 :     for (auto inode = size_t(0); inode &lt; graph.nodes().size(); ++inode) {</span></a>
+<a name="93"><span class="lineNum">      93 </span>            :         //node</a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">         20 :         const auto node = graph.nodes()[inode];</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">         20 :         BOOST_OUTCOME_TRY(auto&amp;&amp; js_node_model, serialize_json(node.property, ioflags));</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         20 :         Json::Value js_node(Json::objectValue);</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         20 :         js_node[&quot;NodeId&quot;]  = node.id;</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         20 :         js_node[&quot;Model&quot;]   = js_node_model;</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">         80 :         auto node_filename = path_join(abs_path, &quot;GraphNode&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         20 :         BOOST_OUTCOME_TRY(write_json(node_filename, js_node));</span></a>
+<a name="101"><span class="lineNum">     101 </span>            : </a>
+<a name="102"><span class="lineNum">     102 </span>            :         //list of edges</a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">         20 :         auto out_edges = graph.out_edges(inode);</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">         20 :         if (out_edges.size()) {</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">          2 :             Json::Value js_edges(Json::arrayValue);</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">          6 :             for (auto&amp; e : graph.out_edges(inode)) {</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          2 :                 BOOST_OUTCOME_TRY(auto&amp;&amp; js_edge_params, serialize_json(e.property, ioflags));</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          2 :                 Json::Value js_edge{Json::objectValue};</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          2 :                 js_edge[&quot;StartNodeIndex&quot;] = Json::UInt64(e.start_node_idx);</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">          2 :                 js_edge[&quot;EndNodeIndex&quot;]   = Json::UInt64(e.end_node_idx);</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          2 :                 js_edge[&quot;Parameters&quot;]     = js_edge_params;</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          2 :                 js_edges.append(std::move(js_edge));</span></a>
+<a name="113"><span class="lineNum">     113 </span>            :             }</a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          8 :             auto edge_filename = path_join(abs_path, &quot;GraphEdges_node&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">          2 :             BOOST_OUTCOME_TRY(write_json(edge_filename, js_edges));</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          2 :         }</span></a>
+<a name="117"><span class="lineNum">     117 </span>            :     }</a>
+<a name="118"><span class="lineNum">     118 </span>            : </a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">         20 :     return success();</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">         10 : }</span></a>
+<a name="121"><span class="lineNum">     121 </span>            : </a>
+<a name="122"><span class="lineNum">     122 </span>            : /**</a>
+<a name="123"><span class="lineNum">     123 </span>            :  * @brief reads graph json files and returns a simulation graph.</a>
+<a name="124"><span class="lineNum">     124 </span>            :  * See write_graph() for information of expected files.</a>
+<a name="125"><span class="lineNum">     125 </span>            :  * @tparam the type of the simulation model.</a>
+<a name="126"><span class="lineNum">     126 </span>            :  * @param directory directory from where graph should be read.</a>
+<a name="127"><span class="lineNum">     127 </span>            :  * @param ioflags flags that set the behavior of serialization; see mio::IOFlags</a>
+<a name="128"><span class="lineNum">     128 </span>            :  * @param read_edges boolean value that decides whether the edges of the graph should also be read in.</a>
+<a name="129"><span class="lineNum">     129 </span>            :  */</a>
+<a name="130"><span class="lineNum">     130 </span>            : template &lt;typename FP, class Model&gt;</a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">          3 : IOResult&lt;Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;&gt; read_graph(const std::string&amp; directory, int ioflags = IOF_None,</span></a>
+<a name="132"><span class="lineNum">     132 </span>            :                                                           bool read_edges = true)</a>
+<a name="133"><span class="lineNum">     133 </span>            : {</a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">          3 :     std::string abs_path;</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          3 :     if (!file_exists(directory, abs_path)) {</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineNoCov">          0 :         log_error(&quot;Directory {} does not exist.&quot;, directory);</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineNoCov">          0 :         return failure(StatusCode::FileNotFound, directory);</span></a>
+<a name="138"><span class="lineNum">     138 </span>            :     }</a>
+<a name="139"><span class="lineNum">     139 </span>            : </a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">          3 :     auto graph = Graph&lt;Model, MobilityParameters&lt;FP&gt;&gt;{};</span></a>
+<a name="141"><span class="lineNum">     141 </span>            : </a>
+<a name="142"><span class="lineNum">     142 </span>            :     //read nodes, as many as files are available</a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         18 :     for (auto inode = 0;; ++inode) {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">         36 :         auto node_filename = path_join(abs_path, &quot;GraphNode&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          9 :         if (!file_exists(node_filename, node_filename)) {</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">          3 :             break;</span></a>
+<a name="147"><span class="lineNum">     147 </span>            :         }</a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          6 :         BOOST_OUTCOME_TRY(auto&amp;&amp; js_node, read_json(node_filename));</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">          6 :         if (!js_node[&quot;NodeId&quot;].isInt()) {</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineNoCov">          0 :             log_error(&quot;NodeId field must be an integer.&quot;);</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineNoCov">          0 :             return failure(StatusCode::InvalidType, node_filename + &quot;, NodeId must be an integer.&quot;);</span></a>
+<a name="152"><span class="lineNum">     152 </span>            :         }</a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          6 :         auto node_id = js_node[&quot;NodeId&quot;].asInt();</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          6 :         BOOST_OUTCOME_TRY(auto&amp;&amp; model, deserialize_json(js_node[&quot;Model&quot;], Tag&lt;Model&gt;{}, ioflags));</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">          6 :         graph.add_node(node_id, model);</span></a>
+<a name="156"><span class="lineNum">     156 </span>            :     }</a>
+<a name="157"><span class="lineNum">     157 </span>            : </a>
+<a name="158"><span class="lineNum">     158 </span>            :     //read edges; nodes must already be available for that)</a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">          3 :     if (read_edges) {</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">          5 :         for (auto inode = size_t(0); inode &lt; graph.nodes().size(); ++inode) {</span></a>
+<a name="161"><span class="lineNum">     161 </span>            :             //list of edges</a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">          8 :             auto edge_filename = path_join(abs_path, &quot;GraphEdges_node&quot; + std::to_string(inode) + &quot;.json&quot;);</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">          2 :             BOOST_OUTCOME_TRY(auto&amp;&amp; js_edges, read_json(edge_filename));</span></a>
+<a name="164"><span class="lineNum">     164 </span>            : </a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          8 :             for (auto&amp; e : js_edges) {</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">          2 :                 auto start_node_idx  = inode;</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">          2 :                 auto js_end_node_idx = e[&quot;EndNodeIndex&quot;];</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">          2 :                 if (!js_end_node_idx.isUInt64()) {</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineNoCov">          0 :                     log_error(&quot;EndNodeIndex must be an integer.&quot;);</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineNoCov">          0 :                     return failure(StatusCode::InvalidType, edge_filename + &quot;, EndNodeIndex must be an integer.&quot;);</span></a>
+<a name="171"><span class="lineNum">     171 </span>            :                 }</a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">          2 :                 auto end_node_idx = js_end_node_idx.asUInt64();</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">          2 :                 if (end_node_idx &gt;= graph.nodes().size()) {</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineNoCov">          0 :                     log_error(&quot;EndNodeIndex not in range of number of graph nodes.&quot;);</span></a>
+<a name="175"><span class="lineNum">     175 </span>            :                     return failure(StatusCode::OutOfRange,</a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineNoCov">          0 :                                    edge_filename + &quot;, EndNodeIndex not in range of number of graph nodes.&quot;);</span></a>
+<a name="177"><span class="lineNum">     177 </span>            :                 }</a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">          2 :                 BOOST_OUTCOME_TRY(auto&amp;&amp; parameters,</span></a>
+<a name="179"><span class="lineNum">     179 </span>            :                                   deserialize_json(e[&quot;Parameters&quot;], Tag&lt;MobilityParameters&lt;FP&gt;&gt;{}, ioflags));</a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">          2 :                 graph.add_edge(start_node_idx, end_node_idx, parameters);</span></a>
+<a name="181"><span class="lineNum">     181 </span>            :             }</a>
+<a name="182"><span class="lineNum">     182 </span>            :         }</a>
+<a name="183"><span class="lineNum">     183 </span>            :     }</a>
+<a name="184"><span class="lineNum">     184 </span>            : </a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          3 :     return success(graph);</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">          3 : }</span></a>
+<a name="187"><span class="lineNum">     187 </span>            : </a>
+<a name="188"><span class="lineNum">     188 </span>            : #endif //MEMILIO_HAS_JSONCPP</a>
+<a name="189"><span class="lineNum">     189 </span>            : #ifdef MEMILIO_HAS_HDF5</a>
+<a name="190"><span class="lineNum">     190 </span>            : /**</a>
+<a name="191"><span class="lineNum">     191 </span>            :  * @brief Save the results of the edges for a single graph simulation run.</a>
+<a name="192"><span class="lineNum">     192 </span>            :  * @param[in] results Simulation results per edge of the graph.</a>
+<a name="193"><span class="lineNum">     193 </span>            :  * @param[in] ids Identifiers for the start and end node of the edges.</a>
+<a name="194"><span class="lineNum">     194 </span>            :  * @param[in] filename Name of the file where the results will be saved.</a>
+<a name="195"><span class="lineNum">     195 </span>            :  * @return Any io errors that occur during writing of the files. </a>
+<a name="196"><span class="lineNum">     196 </span>            :  */</a>
+<a name="197"><span class="lineNum">     197 </span>            : IOResult&lt;void&gt; save_edges(const std::vector&lt;TimeSeries&lt;double&gt;&gt;&amp; results, const std::vector&lt;std::pair&lt;int, int&gt;&gt;&amp; ids,</a>
+<a name="198"><span class="lineNum">     198 </span>            :                           const std::string&amp; filename);</a>
+<a name="199"><span class="lineNum">     199 </span>            : </a>
+<a name="200"><span class="lineNum">     200 </span>            : /**</a>
+<a name="201"><span class="lineNum">     201 </span>            :  * @brief Saves the results of a simulation for each edge in the graph.</a>
+<a name="202"><span class="lineNum">     202 </span>            :  * @param[in] ensemble_edges Simulation results for each run for each edge.</a>
+<a name="203"><span class="lineNum">     203 </span>            :  * @param[in] pairs_edges Identifiers for the start and end node of the edges.</a>
+<a name="204"><span class="lineNum">     204 </span>            :  * @param[in] result_dir Top level directory for all results of the parameter study.</a>
+<a name="205"><span class="lineNum">     205 </span>            :  * @param[in] save_single_runs [Default: true] Defines if single run results are written.</a>
+<a name="206"><span class="lineNum">     206 </span>            :  * @param[in] save_percentiles [Default: true] Defines if percentiles are written.</a>
+<a name="207"><span class="lineNum">     207 </span>            :  * @return Any io errors that occur during writing of the files.</a>
+<a name="208"><span class="lineNum">     208 </span>            :  */</a>
+<a name="209"><span class="lineNum">     209 </span>            : IOResult&lt;void&gt; save_edges(const std::vector&lt;std::vector&lt;TimeSeries&lt;double&gt;&gt;&gt;&amp; ensemble_edges,</a>
+<a name="210"><span class="lineNum">     210 </span>            :                           const std::vector&lt;std::pair&lt;int, int&gt;&gt;&amp; pairs_edges, const fs::path&amp; result_dir,</a>
+<a name="211"><span class="lineNum">     211 </span>            :                           bool save_single_runs = true, bool save_percentiles = true);</a>
+<a name="212"><span class="lineNum">     212 </span>            : </a>
+<a name="213"><span class="lineNum">     213 </span>            : #endif //MEMILIO_HAS_HDF5</a>
+<a name="214"><span class="lineNum">     214 </span>            : </a>
+<a name="215"><span class="lineNum">     215 </span>            : } // namespace mio</a>
+<a name="216"><span class="lineNum">     216 </span>            : </a>
+<a name="217"><span class="lineNum">     217 </span>            : #endif // READ_TWITTER_H</a>
 </pre>
       </td>
     </tr>

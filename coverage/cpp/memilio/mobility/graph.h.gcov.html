@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-08 13:45:23</td>
+            <td class="headerValue">2024-11-11 13:14:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">89</td>
-            <td class="headerCovTableEntry">156</td>
-            <td class="headerCovTableEntryLo">57.1 %</td>
+            <td class="headerCovTableEntry">169</td>
+            <td class="headerCovTableEntryLo">52.7 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -101,25 +101,25 @@
 <a name="39"><span class="lineNum">      39 </span>            : {</a>
 <a name="40"><span class="lineNum">      40 </span>            : </a>
 <a name="41"><span class="lineNum">      41 </span>            : struct OutEdgeBase {</a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        527 :     OutEdgeBase(size_t start)</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        527 :         : start_node_idx(start)</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        545 :     OutEdgeBase(size_t start)</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        545 :         : start_node_idx(start)</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :     {</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">        527 :     }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">        545 :     }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     size_t start_node_idx;</a>
 <a name="47"><span class="lineNum">      47 </span>            : };</a>
 <a name="48"><span class="lineNum">      48 </span>            : struct InEdgeBase {</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        487 :     InEdgeBase(size_t end)</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">        487 :         : end_node_idx(end)</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        505 :     InEdgeBase(size_t end)</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">        505 :         : end_node_idx(end)</span></a>
 <a name="51"><span class="lineNum">      51 </span>            :     {</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        487 :     }</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        505 :     }</span></a>
 <a name="53"><span class="lineNum">      53 </span>            :     size_t end_node_idx;</a>
 <a name="54"><span class="lineNum">      54 </span>            : };</a>
 <a name="55"><span class="lineNum">      55 </span>            : struct EdgeBase : public OutEdgeBase, public InEdgeBase {</a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        487 :     EdgeBase(size_t start, size_t end)</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">        487 :         : OutEdgeBase(start)</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        487 :         , InEdgeBase(end)</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        505 :     EdgeBase(size_t start, size_t end)</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">        505 :         : OutEdgeBase(start)</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        505 :         , InEdgeBase(end)</span></a>
 <a name="59"><span class="lineNum">      59 </span>            :     {</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        487 :     }</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        505 :     }</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : };</a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span>            : /**</a>
@@ -129,11 +129,11 @@
 <a name="67"><span class="lineNum">      67 </span>            : template &lt;class NodePropertyT&gt;</a>
 <a name="68"><span class="lineNum">      68 </span>            : struct Node {</a>
 <a name="69"><span class="lineNum">      69 </span>            :     template &lt;class... Args&gt;</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        691 :     Node(int node_id, Args&amp;&amp;... args)</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        691 :         : id{node_id}</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        691 :         , property(std::forward&lt;Args&gt;(args)...)</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        709 :     Node(int node_id, Args&amp;&amp;... args)</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        709 :         : id{node_id}</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        709 :         , property(std::forward&lt;Args&gt;(args)...)</span></a>
 <a name="73"><span class="lineNum">      73 </span>            :     {</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        691 :     }</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">        709 :     }</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :     int id;</a>
 <a name="76"><span class="lineNum">      76 </span>            :     NodePropertyT property;</a>
 <a name="77"><span class="lineNum">      77 </span>            : };</a>
@@ -144,11 +144,11 @@
 <a name="82"><span class="lineNum">      82 </span>            : template &lt;class EdgePropertyT&gt;</a>
 <a name="83"><span class="lineNum">      83 </span>            : struct Edge : public EdgeBase {</a>
 <a name="84"><span class="lineNum">      84 </span>            :     template &lt;class... Args&gt;</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">        487 :     Edge(size_t start, size_t end, Args&amp;&amp;... args)</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">        505 :     Edge(size_t start, size_t end, Args&amp;&amp;... args)</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :         : EdgeBase{start, end}</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">        487 :         , property(std::forward&lt;Args&gt;(args)...)</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">        505 :         , property(std::forward&lt;Args&gt;(args)...)</span></a>
 <a name="88"><span class="lineNum">      88 </span>            :     {</a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">        487 :     }</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">        505 :     }</span></a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
 <a name="91"><span class="lineNum">      91 </span>            :     EdgePropertyT property;</a>
 <a name="92"><span class="lineNum">      92 </span>            : };</a>
@@ -218,34 +218,34 @@
 <a name="156"><span class="lineNum">     156 </span>            :      * @brief add a node to the graph. property of the node is constructed from arguments.</a>
 <a name="157"><span class="lineNum">     157 </span>            :      */</a>
 <a name="158"><span class="lineNum">     158 </span>            :     template &lt;class... Args&gt;</a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        637 :     Node&lt;NodePropertyT&gt;&amp; add_node(int id, Args&amp;&amp;... args)</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        655 :     Node&lt;NodePropertyT&gt;&amp; add_node(int id, Args&amp;&amp;... args)</span></a>
 <a name="160"><span class="lineNum">     160 </span>            :     {</a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">        637 :         m_nodes.emplace_back(id, std::forward&lt;Args&gt;(args)...);</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">        637 :         return m_nodes.back();</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">        655 :         m_nodes.emplace_back(id, std::forward&lt;Args&gt;(args)...);</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">        655 :         return m_nodes.back();</span></a>
 <a name="163"><span class="lineNum">     163 </span>            :     }</a>
 <a name="164"><span class="lineNum">     164 </span>            : </a>
 <a name="165"><span class="lineNum">     165 </span>            :     /**</a>
 <a name="166"><span class="lineNum">     166 </span>            :      * @brief add an edge to the graph. property of the edge is constructed from arguments.</a>
 <a name="167"><span class="lineNum">     167 </span>            :      */</a>
 <a name="168"><span class="lineNum">     168 </span>            :     template &lt;class... Args&gt;</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">        397 :     Edge&lt;EdgePropertyT&gt;&amp; add_edge(size_t start_node_idx, size_t end_node_idx, Args&amp;&amp;... args)</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">        415 :     Edge&lt;EdgePropertyT&gt;&amp; add_edge(size_t start_node_idx, size_t end_node_idx, Args&amp;&amp;... args)</span></a>
 <a name="170"><span class="lineNum">     170 </span>            :     {</a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">        397 :         assert(m_nodes.size() &gt; start_node_idx &amp;&amp; m_nodes.size() &gt; end_node_idx);</span></a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">        794 :         return *insert_sorted_replace(m_edges,</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        794 :                                       Edge&lt;EdgePropertyT&gt;(start_node_idx, end_node_idx, std::forward&lt;Args&gt;(args)...),</span></a>
-<a name="174"><span class="lineNum">     174 </span><span class="lineCov">        398 :                                       [](auto&amp;&amp; e1, auto&amp;&amp; e2) {</span></a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">        398 :                                           return e1.start_node_idx == e2.start_node_idx</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        398 :                                                      ? e1.end_node_idx &lt; e2.end_node_idx</span></a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">        398 :                                                      : e1.start_node_idx &lt; e2.start_node_idx;</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        794 :                                       });</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">        415 :         assert(m_nodes.size() &gt; start_node_idx &amp;&amp; m_nodes.size() &gt; end_node_idx);</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">        830 :         return *insert_sorted_replace(m_edges,</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        830 :                                       Edge&lt;EdgePropertyT&gt;(start_node_idx, end_node_idx, std::forward&lt;Args&gt;(args)...),</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">        407 :                                       [](auto&amp;&amp; e1, auto&amp;&amp; e2) {</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">        407 :                                           return e1.start_node_idx == e2.start_node_idx</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        407 :                                                      ? e1.end_node_idx &lt; e2.end_node_idx</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">        407 :                                                      : e1.start_node_idx &lt; e2.start_node_idx;</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        830 :                                       });</span></a>
 <a name="179"><span class="lineNum">     179 </span>            :     }</a>
 <a name="180"><span class="lineNum">     180 </span>            : </a>
 <a name="181"><span class="lineNum">     181 </span>            :     /**</a>
 <a name="182"><span class="lineNum">     182 </span>            :      * @brief range of nodes</a>
 <a name="183"><span class="lineNum">     183 </span>            :      */</a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">     239661 :     auto nodes()</span></a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineCov">     239733 :     auto nodes()</span></a>
 <a name="185"><span class="lineNum">     185 </span>            :     {</a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">     239661 :         return make_range(begin(m_nodes), end(m_nodes));</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">     239733 :         return make_range(begin(m_nodes), end(m_nodes));</span></a>
 <a name="187"><span class="lineNum">     187 </span>            :     }</a>
 <a name="188"><span class="lineNum">     188 </span>            : </a>
 <a name="189"><span class="lineNum">     189 </span>            :     /**</a>
@@ -259,9 +259,9 @@
 <a name="197"><span class="lineNum">     197 </span>            :     /**</a>
 <a name="198"><span class="lineNum">     198 </span>            :      * @brief range of edges</a>
 <a name="199"><span class="lineNum">     199 </span>            :      */</a>
-<a name="200"><span class="lineNum">     200 </span><span class="lineCov">      19311 :     auto edges()</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineCov">      19320 :     auto edges()</span></a>
 <a name="201"><span class="lineNum">     201 </span>            :     {</a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      19311 :         return make_range(begin(m_edges), end(m_edges));</span></a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      19320 :         return make_range(begin(m_edges), end(m_edges));</span></a>
 <a name="203"><span class="lineNum">     203 </span>            :     }</a>
 <a name="204"><span class="lineNum">     204 </span>            : </a>
 <a name="205"><span class="lineNum">     205 </span>            :     /**</a>
@@ -393,129 +393,130 @@
 <a name="331"><span class="lineNum">     331 </span>            :  * @param[in] contact_locations_size Number of contact locations.</a>
 <a name="332"><span class="lineNum">     332 </span>            :  * @param[in] read_func Function that reads commuting matrices.</a>
 <a name="333"><span class="lineNum">     333 </span>            :  * @param[in] commuting_weights Vector with a commuting weight for every AgeGroup.</a>
-<a name="334"><span class="lineNum">     334 </span>            :  */</a>
-<a name="335"><span class="lineNum">     335 </span>            : template &lt;class ContactLocation, class Model, class MobilityParams, class MobilityCoefficientGroup,</a>
-<a name="336"><span class="lineNum">     336 </span>            :           class InfectionState, class ReadFunction&gt;</a>
-<a name="337"><span class="lineNum">     337 </span><span class="lineCov">          9 : IOResult&lt;void&gt; set_edges(const fs::path&amp; data_dir, Graph&lt;Model, MobilityParams&gt;&amp; params_graph,</span></a>
-<a name="338"><span class="lineNum">     338 </span>            :                          std::initializer_list&lt;InfectionState&gt;&amp; mobile_compartments, size_t contact_locations_size,</a>
-<a name="339"><span class="lineNum">     339 </span>            :                          ReadFunction&amp;&amp; read_func,</a>
-<a name="340"><span class="lineNum">     340 </span>            :                          std::vector&lt;ScalarType&gt; commuting_weights = std::vector&lt;ScalarType&gt;{})</a>
-<a name="341"><span class="lineNum">     341 </span>            : {</a>
-<a name="342"><span class="lineNum">     342 </span>            :     // mobility between nodes</a>
-<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         45 :     BOOST_OUTCOME_TRY(auto&amp;&amp; mobility_data_commuter,</span></a>
-<a name="344"><span class="lineNum">     344 </span>            :                       read_func((data_dir / &quot;mobility&quot; / &quot;commuter_mobility.txt&quot;).string()));</a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         45 :     BOOST_OUTCOME_TRY(auto&amp;&amp; mobility_data_twitter,</span></a>
-<a name="346"><span class="lineNum">     346 </span>            :                       read_func((data_dir / &quot;mobility&quot; / &quot;twitter_scaled_1252.txt&quot;).string()));</a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         18 :     if (mobility_data_commuter.rows() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
-<a name="348"><span class="lineNum">     348 </span><span class="lineCov">         18 :         mobility_data_commuter.cols() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">         45 :         mobility_data_twitter.rows() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">         18 :         mobility_data_twitter.cols() != Eigen::Index(params_graph.nodes().size())) {</span></a>
-<a name="351"><span class="lineNum">     351 </span>            :         return mio::failure(mio::StatusCode::InvalidValue,</a>
-<a name="352"><span class="lineNum">     352 </span>            :                             &quot;Mobility matrices do not have the correct size. You may need to run &quot;</a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineNoCov">          0 :                             &quot;transformMobilitydata.py from pycode memilio epidata package.&quot;);</span></a>
-<a name="354"><span class="lineNum">     354 </span>            :     }</a>
-<a name="355"><span class="lineNum">     355 </span>            : </a>
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">         27 :     for (size_t county_idx_i = 0; county_idx_i &lt; params_graph.nodes().size(); ++county_idx_i) {</span></a>
-<a name="357"><span class="lineNum">     357 </span><span class="lineCov">         90 :         for (size_t county_idx_j = 0; county_idx_j &lt; params_graph.nodes().size(); ++county_idx_j) {</span></a>
-<a name="358"><span class="lineNum">     358 </span><span class="lineCov">         36 :             auto&amp; populations = params_graph.nodes()[county_idx_i].property.populations;</span></a>
-<a name="359"><span class="lineNum">     359 </span>            :             // mobility coefficients have the same number of components as the contact matrices.</a>
-<a name="360"><span class="lineNum">     360 </span>            :             // so that the same NPIs/dampings can be used for both (e.g. more home office =&gt; fewer commuters)</a>
-<a name="361"><span class="lineNum">     361 </span><span class="lineCov">         36 :             auto mobility_coeffs = MobilityCoefficientGroup(contact_locations_size, populations.numel());</span></a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">         36 :             auto num_age_groups  = (size_t)params_graph.nodes()[county_idx_i].property.parameters.get_num_groups();</span></a>
-<a name="363"><span class="lineNum">     363 </span><span class="lineCov">         72 :             commuting_weights =</span></a>
-<a name="364"><span class="lineNum">     364 </span><span class="lineCov">         72 :                 (commuting_weights.size() == 0 ? std::vector&lt;ScalarType&gt;(num_age_groups, 1.0) : commuting_weights);</span></a>
-<a name="365"><span class="lineNum">     365 </span>            :             //commuters</a>
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">         36 :             auto working_population = 0.0;</span></a>
-<a name="367"><span class="lineNum">     367 </span><span class="lineCov">        252 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
-<a name="368"><span class="lineNum">     368 </span><span class="lineCov">        216 :                 working_population += populations.get_group_total(age) * commuting_weights[size_t(age)];</span></a>
-<a name="369"><span class="lineNum">     369 </span>            :             }</a>
-<a name="370"><span class="lineNum">     370 </span><span class="lineCov">         36 :             auto commuter_coeff_ij = mobility_data_commuter(county_idx_i, county_idx_j) /</span></a>
-<a name="371"><span class="lineNum">     371 </span><span class="lineCov">         36 :                                      working_population; //data is absolute numbers, we need relative</span></a>
-<a name="372"><span class="lineNum">     372 </span><span class="lineCov">        252 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
-<a name="373"><span class="lineNum">     373 </span><span class="lineCov">       1296 :                 for (auto compartment : mobile_compartments) {</span></a>
-<a name="374"><span class="lineNum">     374 </span><span class="lineCov">       1080 :                     auto coeff_index = populations.get_flat_index({age, compartment});</span></a>
-<a name="375"><span class="lineNum">     375 </span><span class="lineCov">       1080 :                     mobility_coeffs[size_t(ContactLocation::Work)].get_baseline()[coeff_index] =</span></a>
-<a name="376"><span class="lineNum">     376 </span><span class="lineCov">       1080 :                         commuter_coeff_ij * commuting_weights[size_t(age)];</span></a>
-<a name="377"><span class="lineNum">     377 </span>            :                 }</a>
-<a name="378"><span class="lineNum">     378 </span>            :             }</a>
-<a name="379"><span class="lineNum">     379 </span>            :             //others</a>
-<a name="380"><span class="lineNum">     380 </span><span class="lineCov">         36 :             auto total_population = populations.get_total();</span></a>
-<a name="381"><span class="lineNum">     381 </span><span class="lineCov">         36 :             auto twitter_coeff    = mobility_data_twitter(county_idx_i, county_idx_j) /</span></a>
-<a name="382"><span class="lineNum">     382 </span><span class="lineCov">         36 :                                  total_population; //data is absolute numbers, we need relative</span></a>
-<a name="383"><span class="lineNum">     383 </span><span class="lineCov">        252 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
-<a name="384"><span class="lineNum">     384 </span><span class="lineCov">       1296 :                 for (auto compartment : mobile_compartments) {</span></a>
-<a name="385"><span class="lineNum">     385 </span><span class="lineCov">       1080 :                     auto coeff_idx = populations.get_flat_index({age, compartment});</span></a>
-<a name="386"><span class="lineNum">     386 </span><span class="lineCov">       1080 :                     mobility_coeffs[size_t(ContactLocation::Other)].get_baseline()[coeff_idx] = twitter_coeff;</span></a>
-<a name="387"><span class="lineNum">     387 </span>            :                 }</a>
-<a name="388"><span class="lineNum">     388 </span>            :             }</a>
-<a name="389"><span class="lineNum">     389 </span>            : </a>
-<a name="390"><span class="lineNum">     390 </span>            :             //only add edges with mobility above thresholds for performance</a>
-<a name="391"><span class="lineNum">     391 </span>            :             //thresholds are chosen empirically so that more than 99% of mobility is covered, approx. 1/3 of the edges</a>
-<a name="392"><span class="lineNum">     392 </span><span class="lineCov">         36 :             if (commuter_coeff_ij &gt; 4e-5 || twitter_coeff &gt; 1e-5) {</span></a>
-<a name="393"><span class="lineNum">     393 </span><span class="lineCov">         18 :                 params_graph.add_edge(county_idx_i, county_idx_j, std::move(mobility_coeffs));</span></a>
-<a name="394"><span class="lineNum">     394 </span>            :             }</a>
-<a name="395"><span class="lineNum">     395 </span>            :         }</a>
-<a name="396"><span class="lineNum">     396 </span>            :     }</a>
-<a name="397"><span class="lineNum">     397 </span>            : </a>
-<a name="398"><span class="lineNum">     398 </span><span class="lineCov">         18 :     return success();</span></a>
-<a name="399"><span class="lineNum">     399 </span><span class="lineCov">          9 : }</span></a>
-<a name="400"><span class="lineNum">     400 </span>            : </a>
-<a name="401"><span class="lineNum">     401 </span>            : /**</a>
-<a name="402"><span class="lineNum">     402 </span>            :  * Create an unconnected graph.</a>
-<a name="403"><span class="lineNum">     403 </span>            :  * Can be used to save space on disk when writing parameters if the edges are not required.</a>
-<a name="404"><span class="lineNum">     404 </span>            :  * @param node_properties Vector of node properties of all nodes, e.g., parameters in each model node.</a>
-<a name="405"><span class="lineNum">     405 </span>            :  * @param node_ids Indices for the nodes.</a>
-<a name="406"><span class="lineNum">     406 </span>            :  * @return Graph with nodes only having no edges.</a>
-<a name="407"><span class="lineNum">     407 </span>            :  */</a>
-<a name="408"><span class="lineNum">     408 </span>            : template &lt;class NodePropertyT, class EdgePropertyT&gt;</a>
-<a name="409"><span class="lineNum">     409 </span><span class="lineCov">         18 : auto create_graph_without_edges(const std::vector&lt;NodePropertyT&gt;&amp; node_properties, const std::vector&lt;int&gt;&amp; node_ids)</span></a>
-<a name="410"><span class="lineNum">     410 </span>            : {</a>
-<a name="411"><span class="lineNum">     411 </span>            :     // create a graph without edges for writing to file</a>
-<a name="412"><span class="lineNum">     412 </span><span class="lineCov">         18 :     auto graph = mio::Graph&lt;NodePropertyT, EdgePropertyT&gt;();</span></a>
-<a name="413"><span class="lineNum">     413 </span><span class="lineCov">         54 :     for (auto i = size_t(0); i &lt; node_ids.size(); ++i) {</span></a>
-<a name="414"><span class="lineNum">     414 </span><span class="lineCov">         36 :         graph.add_node(node_ids[i], node_properties[i]);</span></a>
-<a name="415"><span class="lineNum">     415 </span>            :     }</a>
-<a name="416"><span class="lineNum">     416 </span><span class="lineCov">         36 :     return graph;</span></a>
-<a name="417"><span class="lineNum">     417 </span><span class="lineCov">         18 : }</span></a>
-<a name="418"><span class="lineNum">     418 </span>            : </a>
-<a name="419"><span class="lineNum">     419 </span>            : template &lt;class T&gt;</a>
-<a name="420"><span class="lineNum">     420 </span>            : std::enable_if_t&lt;!has_ostream_op&lt;T&gt;::value, void&gt; print_graph_object(std::ostream&amp; os, size_t idx, const T&amp;)</a>
-<a name="421"><span class="lineNum">     421 </span>            : {</a>
-<a name="422"><span class="lineNum">     422 </span>            :     os &lt;&lt; idx;</a>
-<a name="423"><span class="lineNum">     423 </span>            : }</a>
-<a name="424"><span class="lineNum">     424 </span>            : </a>
-<a name="425"><span class="lineNum">     425 </span>            : template &lt;class T&gt;</a>
-<a name="426"><span class="lineNum">     426 </span>            : std::enable_if_t&lt;has_ostream_op&lt;T&gt;::value, void&gt; print_graph_object(std::ostream&amp; os, size_t idx, const T&amp; o)</a>
-<a name="427"><span class="lineNum">     427 </span>            : {</a>
-<a name="428"><span class="lineNum">     428 </span>            :     os &lt;&lt; idx &lt;&lt; &quot; [&quot; &lt;&lt; o &lt;&lt; &quot;]&quot;;</a>
-<a name="429"><span class="lineNum">     429 </span>            : }</a>
-<a name="430"><span class="lineNum">     430 </span>            : </a>
-<a name="431"><span class="lineNum">     431 </span>            : template &lt;class Graph&gt;</a>
-<a name="432"><span class="lineNum">     432 </span>            : void print_graph(std::ostream&amp; os, const Graph&amp; g)</a>
-<a name="433"><span class="lineNum">     433 </span>            : {</a>
-<a name="434"><span class="lineNum">     434 </span>            :     auto nodes = g.nodes();</a>
-<a name="435"><span class="lineNum">     435 </span>            :     for (size_t i = 0; i &lt; nodes.size(); ++i) {</a>
-<a name="436"><span class="lineNum">     436 </span>            :         os &lt;&lt; &quot;NODE &quot;;</a>
-<a name="437"><span class="lineNum">     437 </span>            :         print_graph_object(os, i, nodes[i]);</a>
-<a name="438"><span class="lineNum">     438 </span>            :         os &lt;&lt; '\n';</a>
-<a name="439"><span class="lineNum">     439 </span>            :     }</a>
-<a name="440"><span class="lineNum">     440 </span>            : </a>
-<a name="441"><span class="lineNum">     441 </span>            :     auto edges = g.edges();</a>
-<a name="442"><span class="lineNum">     442 </span>            :     for (size_t i = 0; i &lt; edges.size(); ++i) {</a>
-<a name="443"><span class="lineNum">     443 </span>            :         auto&amp; e = edges[i];</a>
-<a name="444"><span class="lineNum">     444 </span>            :         os &lt;&lt; &quot;EDGE &quot;;</a>
-<a name="445"><span class="lineNum">     445 </span>            :         print_graph_object(os, i, e.property);</a>
-<a name="446"><span class="lineNum">     446 </span>            :         os &lt;&lt; &quot; FROM NODE &quot;;</a>
-<a name="447"><span class="lineNum">     447 </span>            :         print_graph_object(os, e.start_node_idx, nodes[e.start_node_idx]);</a>
-<a name="448"><span class="lineNum">     448 </span>            :         os &lt;&lt; &quot; TO &quot;;</a>
-<a name="449"><span class="lineNum">     449 </span>            :         print_graph_object(os, e.end_node_idx, nodes[e.end_node_idx]);</a>
-<a name="450"><span class="lineNum">     450 </span>            :         os &lt;&lt; '\n';</a>
-<a name="451"><span class="lineNum">     451 </span>            :     }</a>
-<a name="452"><span class="lineNum">     452 </span>            : }</a>
-<a name="453"><span class="lineNum">     453 </span>            : </a>
-<a name="454"><span class="lineNum">     454 </span>            : } // namespace mio</a>
-<a name="455"><span class="lineNum">     455 </span>            : </a>
-<a name="456"><span class="lineNum">     456 </span>            : #endif //GRAPH_H</a>
+<a name="334"><span class="lineNum">     334 </span>            :  * @param[in] indices_of_saved_edges Vector of vectors with indices of the compartments that should be saved on the edges.</a>
+<a name="335"><span class="lineNum">     335 </span>            :  */</a>
+<a name="336"><span class="lineNum">     336 </span>            : template &lt;class ContactLocation, class Model, class MobilityParams, class MobilityCoefficientGroup,</a>
+<a name="337"><span class="lineNum">     337 </span>            :           class InfectionState, class ReadFunction&gt;</a>
+<a name="338"><span class="lineNum">     338 </span><span class="lineCov">         18 : IOResult&lt;void&gt; set_edges(const fs::path&amp; data_dir, Graph&lt;Model, MobilityParams&gt;&amp; params_graph,</span></a>
+<a name="339"><span class="lineNum">     339 </span>            :                          std::initializer_list&lt;InfectionState&gt;&amp; mobile_compartments, size_t contact_locations_size,</a>
+<a name="340"><span class="lineNum">     340 </span>            :                          ReadFunction&amp;&amp; read_func, std::vector&lt;ScalarType&gt; commuting_weights,</a>
+<a name="341"><span class="lineNum">     341 </span>            :                          std::vector&lt;std::vector&lt;size_t&gt;&gt; indices_of_saved_edges = {})</a>
+<a name="342"><span class="lineNum">     342 </span>            : {</a>
+<a name="343"><span class="lineNum">     343 </span>            :     // mobility between nodes</a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">         90 :     BOOST_OUTCOME_TRY(auto&amp;&amp; mobility_data_commuter,</span></a>
+<a name="345"><span class="lineNum">     345 </span>            :                       read_func((data_dir / &quot;mobility&quot; / &quot;commuter_mobility.txt&quot;).string()));</a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">         90 :     BOOST_OUTCOME_TRY(auto&amp;&amp; mobility_data_twitter,</span></a>
+<a name="347"><span class="lineNum">     347 </span>            :                       read_func((data_dir / &quot;mobility&quot; / &quot;twitter_scaled_1252.txt&quot;).string()));</a>
+<a name="348"><span class="lineNum">     348 </span><span class="lineCov">         36 :     if (mobility_data_commuter.rows() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">         36 :         mobility_data_commuter.cols() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">         90 :         mobility_data_twitter.rows() != Eigen::Index(params_graph.nodes().size()) ||</span></a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineCov">         36 :         mobility_data_twitter.cols() != Eigen::Index(params_graph.nodes().size())) {</span></a>
+<a name="352"><span class="lineNum">     352 </span>            :         return mio::failure(mio::StatusCode::InvalidValue,</a>
+<a name="353"><span class="lineNum">     353 </span>            :                             &quot;Mobility matrices do not have the correct size. You may need to run &quot;</a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineNoCov">          0 :                             &quot;transformMobilitydata.py from pycode memilio epidata package.&quot;);</span></a>
+<a name="355"><span class="lineNum">     355 </span>            :     }</a>
+<a name="356"><span class="lineNum">     356 </span>            : </a>
+<a name="357"><span class="lineNum">     357 </span><span class="lineCov">         54 :     for (size_t county_idx_i = 0; county_idx_i &lt; params_graph.nodes().size(); ++county_idx_i) {</span></a>
+<a name="358"><span class="lineNum">     358 </span><span class="lineCov">        180 :         for (size_t county_idx_j = 0; county_idx_j &lt; params_graph.nodes().size(); ++county_idx_j) {</span></a>
+<a name="359"><span class="lineNum">     359 </span><span class="lineCov">         72 :             auto&amp; populations = params_graph.nodes()[county_idx_i].property.populations;</span></a>
+<a name="360"><span class="lineNum">     360 </span>            :             // mobility coefficients have the same number of components as the contact matrices.</a>
+<a name="361"><span class="lineNum">     361 </span>            :             // so that the same NPIs/dampings can be used for both (e.g. more home office =&gt; fewer commuters)</a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">         72 :             auto mobility_coeffs = MobilityCoefficientGroup(contact_locations_size, populations.numel());</span></a>
+<a name="363"><span class="lineNum">     363 </span><span class="lineCov">         72 :             auto num_age_groups  = (size_t)params_graph.nodes()[county_idx_i].property.parameters.get_num_groups();</span></a>
+<a name="364"><span class="lineNum">     364 </span><span class="lineCov">        144 :             commuting_weights =</span></a>
+<a name="365"><span class="lineNum">     365 </span><span class="lineCov">        144 :                 (commuting_weights.size() == 0 ? std::vector&lt;ScalarType&gt;(num_age_groups, 1.0) : commuting_weights);</span></a>
+<a name="366"><span class="lineNum">     366 </span>            :             //commuters</a>
+<a name="367"><span class="lineNum">     367 </span><span class="lineCov">         72 :             auto working_population = 0.0;</span></a>
+<a name="368"><span class="lineNum">     368 </span><span class="lineCov">        504 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">        432 :                 working_population += populations.get_group_total(age) * commuting_weights[size_t(age)];</span></a>
+<a name="370"><span class="lineNum">     370 </span>            :             }</a>
+<a name="371"><span class="lineNum">     371 </span><span class="lineCov">         72 :             auto commuter_coeff_ij = mobility_data_commuter(county_idx_i, county_idx_j) /</span></a>
+<a name="372"><span class="lineNum">     372 </span><span class="lineCov">         72 :                                      working_population; //data is absolute numbers, we need relative</span></a>
+<a name="373"><span class="lineNum">     373 </span><span class="lineCov">        504 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
+<a name="374"><span class="lineNum">     374 </span><span class="lineCov">       2592 :                 for (auto compartment : mobile_compartments) {</span></a>
+<a name="375"><span class="lineNum">     375 </span><span class="lineCov">       2160 :                     auto coeff_index = populations.get_flat_index({age, compartment});</span></a>
+<a name="376"><span class="lineNum">     376 </span><span class="lineCov">       2160 :                     mobility_coeffs[size_t(ContactLocation::Work)].get_baseline()[coeff_index] =</span></a>
+<a name="377"><span class="lineNum">     377 </span><span class="lineCov">       2160 :                         commuter_coeff_ij * commuting_weights[size_t(age)];</span></a>
+<a name="378"><span class="lineNum">     378 </span>            :                 }</a>
+<a name="379"><span class="lineNum">     379 </span>            :             }</a>
+<a name="380"><span class="lineNum">     380 </span>            :             //others</a>
+<a name="381"><span class="lineNum">     381 </span><span class="lineCov">         72 :             auto total_population = populations.get_total();</span></a>
+<a name="382"><span class="lineNum">     382 </span><span class="lineCov">         72 :             auto twitter_coeff    = mobility_data_twitter(county_idx_i, county_idx_j) /</span></a>
+<a name="383"><span class="lineNum">     383 </span><span class="lineCov">         72 :                                  total_population; //data is absolute numbers, we need relative</span></a>
+<a name="384"><span class="lineNum">     384 </span><span class="lineCov">        504 :             for (auto age = AgeGroup(0); age &lt; populations.template size&lt;mio::AgeGroup&gt;(); ++age) {</span></a>
+<a name="385"><span class="lineNum">     385 </span><span class="lineCov">       2592 :                 for (auto compartment : mobile_compartments) {</span></a>
+<a name="386"><span class="lineNum">     386 </span><span class="lineCov">       2160 :                     auto coeff_idx = populations.get_flat_index({age, compartment});</span></a>
+<a name="387"><span class="lineNum">     387 </span><span class="lineCov">       2160 :                     mobility_coeffs[size_t(ContactLocation::Other)].get_baseline()[coeff_idx] = twitter_coeff;</span></a>
+<a name="388"><span class="lineNum">     388 </span>            :                 }</a>
+<a name="389"><span class="lineNum">     389 </span>            :             }</a>
+<a name="390"><span class="lineNum">     390 </span>            : </a>
+<a name="391"><span class="lineNum">     391 </span>            :             //only add edges with mobility above thresholds for performance</a>
+<a name="392"><span class="lineNum">     392 </span>            :             //thresholds are chosen empirically so that more than 99% of mobility is covered, approx. 1/3 of the edges</a>
+<a name="393"><span class="lineNum">     393 </span><span class="lineCov">         72 :             if (commuter_coeff_ij &gt; 4e-5 || twitter_coeff &gt; 1e-5) {</span></a>
+<a name="394"><span class="lineNum">     394 </span><span class="lineCov">         36 :                 params_graph.add_edge(county_idx_i, county_idx_j, std::move(mobility_coeffs), indices_of_saved_edges);</span></a>
+<a name="395"><span class="lineNum">     395 </span>            :             }</a>
+<a name="396"><span class="lineNum">     396 </span>            :         }</a>
+<a name="397"><span class="lineNum">     397 </span>            :     }</a>
+<a name="398"><span class="lineNum">     398 </span>            : </a>
+<a name="399"><span class="lineNum">     399 </span><span class="lineCov">         36 :     return success();</span></a>
+<a name="400"><span class="lineNum">     400 </span><span class="lineCov">         18 : }</span></a>
+<a name="401"><span class="lineNum">     401 </span>            : </a>
+<a name="402"><span class="lineNum">     402 </span>            : /**</a>
+<a name="403"><span class="lineNum">     403 </span>            :  * Create an unconnected graph.</a>
+<a name="404"><span class="lineNum">     404 </span>            :  * Can be used to save space on disk when writing parameters if the edges are not required.</a>
+<a name="405"><span class="lineNum">     405 </span>            :  * @param node_properties Vector of node properties of all nodes, e.g., parameters in each model node.</a>
+<a name="406"><span class="lineNum">     406 </span>            :  * @param node_ids Indices for the nodes.</a>
+<a name="407"><span class="lineNum">     407 </span>            :  * @return Graph with nodes only having no edges.</a>
+<a name="408"><span class="lineNum">     408 </span>            :  */</a>
+<a name="409"><span class="lineNum">     409 </span>            : template &lt;class NodePropertyT, class EdgePropertyT&gt;</a>
+<a name="410"><span class="lineNum">     410 </span><span class="lineCov">         18 : auto create_graph_without_edges(const std::vector&lt;NodePropertyT&gt;&amp; node_properties, const std::vector&lt;int&gt;&amp; node_ids)</span></a>
+<a name="411"><span class="lineNum">     411 </span>            : {</a>
+<a name="412"><span class="lineNum">     412 </span>            :     // create a graph without edges for writing to file</a>
+<a name="413"><span class="lineNum">     413 </span><span class="lineCov">         18 :     auto graph = mio::Graph&lt;NodePropertyT, EdgePropertyT&gt;();</span></a>
+<a name="414"><span class="lineNum">     414 </span><span class="lineCov">         54 :     for (auto i = size_t(0); i &lt; node_ids.size(); ++i) {</span></a>
+<a name="415"><span class="lineNum">     415 </span><span class="lineCov">         36 :         graph.add_node(node_ids[i], node_properties[i]);</span></a>
+<a name="416"><span class="lineNum">     416 </span>            :     }</a>
+<a name="417"><span class="lineNum">     417 </span><span class="lineCov">         36 :     return graph;</span></a>
+<a name="418"><span class="lineNum">     418 </span><span class="lineCov">         18 : }</span></a>
+<a name="419"><span class="lineNum">     419 </span>            : </a>
+<a name="420"><span class="lineNum">     420 </span>            : template &lt;class T&gt;</a>
+<a name="421"><span class="lineNum">     421 </span>            : std::enable_if_t&lt;!has_ostream_op&lt;T&gt;::value, void&gt; print_graph_object(std::ostream&amp; os, size_t idx, const T&amp;)</a>
+<a name="422"><span class="lineNum">     422 </span>            : {</a>
+<a name="423"><span class="lineNum">     423 </span>            :     os &lt;&lt; idx;</a>
+<a name="424"><span class="lineNum">     424 </span>            : }</a>
+<a name="425"><span class="lineNum">     425 </span>            : </a>
+<a name="426"><span class="lineNum">     426 </span>            : template &lt;class T&gt;</a>
+<a name="427"><span class="lineNum">     427 </span>            : std::enable_if_t&lt;has_ostream_op&lt;T&gt;::value, void&gt; print_graph_object(std::ostream&amp; os, size_t idx, const T&amp; o)</a>
+<a name="428"><span class="lineNum">     428 </span>            : {</a>
+<a name="429"><span class="lineNum">     429 </span>            :     os &lt;&lt; idx &lt;&lt; &quot; [&quot; &lt;&lt; o &lt;&lt; &quot;]&quot;;</a>
+<a name="430"><span class="lineNum">     430 </span>            : }</a>
+<a name="431"><span class="lineNum">     431 </span>            : </a>
+<a name="432"><span class="lineNum">     432 </span>            : template &lt;class Graph&gt;</a>
+<a name="433"><span class="lineNum">     433 </span>            : void print_graph(std::ostream&amp; os, const Graph&amp; g)</a>
+<a name="434"><span class="lineNum">     434 </span>            : {</a>
+<a name="435"><span class="lineNum">     435 </span>            :     auto nodes = g.nodes();</a>
+<a name="436"><span class="lineNum">     436 </span>            :     for (size_t i = 0; i &lt; nodes.size(); ++i) {</a>
+<a name="437"><span class="lineNum">     437 </span>            :         os &lt;&lt; &quot;NODE &quot;;</a>
+<a name="438"><span class="lineNum">     438 </span>            :         print_graph_object(os, i, nodes[i]);</a>
+<a name="439"><span class="lineNum">     439 </span>            :         os &lt;&lt; '\n';</a>
+<a name="440"><span class="lineNum">     440 </span>            :     }</a>
+<a name="441"><span class="lineNum">     441 </span>            : </a>
+<a name="442"><span class="lineNum">     442 </span>            :     auto edges = g.edges();</a>
+<a name="443"><span class="lineNum">     443 </span>            :     for (size_t i = 0; i &lt; edges.size(); ++i) {</a>
+<a name="444"><span class="lineNum">     444 </span>            :         auto&amp; e = edges[i];</a>
+<a name="445"><span class="lineNum">     445 </span>            :         os &lt;&lt; &quot;EDGE &quot;;</a>
+<a name="446"><span class="lineNum">     446 </span>            :         print_graph_object(os, i, e.property);</a>
+<a name="447"><span class="lineNum">     447 </span>            :         os &lt;&lt; &quot; FROM NODE &quot;;</a>
+<a name="448"><span class="lineNum">     448 </span>            :         print_graph_object(os, e.start_node_idx, nodes[e.start_node_idx]);</a>
+<a name="449"><span class="lineNum">     449 </span>            :         os &lt;&lt; &quot; TO &quot;;</a>
+<a name="450"><span class="lineNum">     450 </span>            :         print_graph_object(os, e.end_node_idx, nodes[e.end_node_idx]);</a>
+<a name="451"><span class="lineNum">     451 </span>            :         os &lt;&lt; '\n';</a>
+<a name="452"><span class="lineNum">     452 </span>            :     }</a>
+<a name="453"><span class="lineNum">     453 </span>            : }</a>
+<a name="454"><span class="lineNum">     454 </span>            : </a>
+<a name="455"><span class="lineNum">     455 </span>            : } // namespace mio</a>
+<a name="456"><span class="lineNum">     456 </span>            : </a>
+<a name="457"><span class="lineNum">     457 </span>            : #endif //GRAPH_H</a>
 </pre>
       </td>
     </tr>

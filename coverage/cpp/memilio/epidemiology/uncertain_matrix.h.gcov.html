@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-08 13:45:23</td>
+            <td class="headerValue">2024-11-11 13:14:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -105,36 +105,36 @@
 <a name="43"><span class="lineNum">      43 </span>            : class UncertainContactMatrix</a>
 <a name="44"><span class="lineNum">      44 </span>            : {</a>
 <a name="45"><span class="lineNum">      45 </span>            : public:</a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">        854 :     UncertainContactMatrix(size_t num_matrices = 1, Eigen::Index num_groups = 1)</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">        854 :         : UncertainContactMatrix(ContactMatrixGroup(num_matrices, num_groups))</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">        872 :     UncertainContactMatrix(size_t num_matrices = 1, Eigen::Index num_groups = 1)</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">        872 :         : UncertainContactMatrix(ContactMatrixGroup(num_matrices, num_groups))</span></a>
 <a name="48"><span class="lineNum">      48 </span>            :     {</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        854 :     }</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        872 :     }</span></a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        923 :     UncertainContactMatrix(const ContactMatrixGroup&amp; cont_freq)</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        923 :         : m_cont_freq(cont_freq)</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        923 :         , m_dampings()</span></a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       1846 :         , m_school_holiday_damping(0.0, mio::DampingLevel(0), mio::DampingType(0), mio::SimulationTime(0), {},</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        923 :                                    Eigen::VectorXd::Zero(cont_freq.get_num_groups()))</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        923 :         , m_school_holidays()</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        941 :     UncertainContactMatrix(const ContactMatrixGroup&amp; cont_freq)</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        941 :         : m_cont_freq(cont_freq)</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        941 :         , m_dampings()</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       1882 :         , m_school_holiday_damping(0.0, mio::DampingLevel(0), mio::DampingType(0), mio::SimulationTime(0), {},</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        941 :                                    Eigen::VectorXd::Zero(cont_freq.get_num_groups()))</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        941 :         , m_school_holidays()</span></a>
 <a name="57"><span class="lineNum">      57 </span>            :     {</a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        923 :     }</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        941 :     }</span></a>
 <a name="59"><span class="lineNum">      59 </span>            : </a>
 <a name="60"><span class="lineNum">      60 </span>            :     /**</a>
 <a name="61"><span class="lineNum">      61 </span>            :      * @brief Conversion to const ContactMatrix reference by returning the </a>
 <a name="62"><span class="lineNum">      62 </span>            :      *        ContactMatrix contained in UncertainContactMatrix</a>
 <a name="63"><span class="lineNum">      63 </span>            :      */</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">     376395 :     operator ContactMatrixGroup const &amp;() const</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">     340425 :     operator ContactMatrixGroup const &amp;() const</span></a>
 <a name="65"><span class="lineNum">      65 </span>            :     {</a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">     376395 :         return m_cont_freq;</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">     340425 :         return m_cont_freq;</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :     }</a>
 <a name="68"><span class="lineNum">      68 </span>            : </a>
 <a name="69"><span class="lineNum">      69 </span>            :     /**</a>
 <a name="70"><span class="lineNum">      70 </span>            :      * @brief Conversion to ContactMatrix reference by returning the </a>
 <a name="71"><span class="lineNum">      71 </span>            :      *        ContactMatrix contained in UncertainContactMatrix</a>
 <a name="72"><span class="lineNum">      72 </span>            :      */</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       4317 :     operator ContactMatrixGroup&amp;()</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       4326 :     operator ContactMatrixGroup&amp;()</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :     {</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       4317 :         return m_cont_freq;</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       4326 :         return m_cont_freq;</span></a>
 <a name="76"><span class="lineNum">      76 </span>            :     }</a>
 <a name="77"><span class="lineNum">      77 </span>            : </a>
 <a name="78"><span class="lineNum">      78 </span>            :     /**</a>
@@ -160,9 +160,9 @@
 <a name="98"><span class="lineNum">      98 </span>            :      * @brief Returns the const ContactMatrix reference </a>
 <a name="99"><span class="lineNum">      99 </span>            :      *        of the UncertainContactMatrix object</a>
 <a name="100"><span class="lineNum">     100 </span>            :      */</a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">     386540 :     ContactMatrixGroup const&amp; get_cont_freq_mat() const</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">     386432 :     ContactMatrixGroup const&amp; get_cont_freq_mat() const</span></a>
 <a name="102"><span class="lineNum">     102 </span>            :     {</a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     386540 :         return m_cont_freq;</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     386432 :         return m_cont_freq;</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :     }</a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
 <a name="106"><span class="lineNum">     106 </span>            :     /**</a>
