@@ -92,7 +92,7 @@ var searchData=
   ['add_5fmobility_5fresult_5ftime_5fpoint_156',['add_mobility_result_time_point',['../classmio_1_1MobilityEdge.html#a1b7459491e6b8cafbaed5584faf4575b',1,'mio::MobilityEdge']]],
   ['add_5fnamed_5fref_157',['add_named_ref',['../namespacemio_1_1details.html#a95a6e43f1f9122ca54e373559b8e113c',1,'mio::details']]],
   ['add_5fnew_5finfection_158',['add_new_infection',['../classmio_1_1abm_1_1Person.html#a92538490a35661c4e1c388f8dd27206f',1,'mio::abm::Person']]],
-  ['add_5fnew_5fvaccination_159',['add_new_vaccination',['../classmio_1_1abm_1_1Person.html#a345219074e5da7b1d2bfa2d81dcaf941',1,'mio::abm::Person']]],
+  ['add_5fnew_5fvaccination_159',['add_new_vaccination',['../classmio_1_1abm_1_1Person.html#adbf48e7c813d733148fa0b5f56511561',1,'mio::abm::Person']]],
   ['add_5fnode_160',['add_node',['../classmio_1_1Graph.html#ad1dbb82b931880b6339adc404a356e17',1,'mio::Graph']]],
   ['add_5foptional_161',['add_optional',['../classmio_1_1BinarySerializerObject.html#a17e6e3852f84ae85cea5222a561a11c2',1,'mio::BinarySerializerObject']]],
   ['add_5fperson_162',['add_person',['../classmio_1_1abm_1_1Model.html#a875bfb0bbd094e845ba3dc64ab06870b',1,'mio::abm::Model::add_person(Person &amp;&amp;person)'],['../classmio_1_1abm_1_1Model.html#ae01186c7f05b9d680c1a3447990721c1',1,'mio::abm::Model::add_person(const LocationId id, AgeGroup age)']]],

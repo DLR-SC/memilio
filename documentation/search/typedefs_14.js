@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writewrapper_4447',['WriteWrapper',['../classmio_1_1History.html#ac8056e97a2d338ff2e8090eeb80cc007',1,'mio::History']]]
+  ['writewrapper_4445',['WriteWrapper',['../classmio_1_1History.html#ac8056e97a2d338ff2e8090eeb80cc007',1,'mio::History']]]
 ];

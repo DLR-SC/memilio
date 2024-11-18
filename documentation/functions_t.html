@@ -138,8 +138,8 @@ $(function() {
 : <a class="el" href="classmio_1_1abm_1_1TestingStrategy.html#a6f0a14f3455998dea8be00f54c9d36f4">mio::abm::TestingStrategy</a>
 </li>
 <li>time
-: <a class="el" href="structmio_1_1abm_1_1Trip.html#a57c712334dcc9ca9d3945196f1332c63">mio::abm::Trip</a>
-, <a class="el" href="structmio_1_1abm_1_1Vaccination.html#ab5e0d0a322e960a7bb5887898d45312f">mio::abm::Vaccination</a>
+: <a class="el" href="structmio_1_1abm_1_1ProtectionEvent.html#a65399bd3dfaa11da43a14262a51209ff">mio::abm::ProtectionEvent</a>
+, <a class="el" href="structmio_1_1abm_1_1Trip.html#a57c712334dcc9ca9d3945196f1332c63">mio::abm::Trip</a>
 </li>
 <li>time_iterator
 : <a class="el" href="classmio_1_1TimeSeries.html#a2982d8f6b6fa1b9d493bb70043cf4257">mio::TimeSeries&lt; FP &gt;</a>
@@ -200,7 +200,7 @@ $(function() {
 : <a class="el" href="structmio_1_1abm_1_1mobility__data.html#ad396a641b0f7c268e23be952b352cc0f">mio::abm::mobility_data</a>
 </li>
 <li>Trip()
-: <a class="el" href="structmio_1_1abm_1_1Trip.html#ab92aaa248ac9b25fed0bd4167dc7a500">mio::abm::Trip</a>
+: <a class="el" href="structmio_1_1abm_1_1Trip.html#a5c8e2e7dd7486863babf5893dda2b91d">mio::abm::Trip</a>
 </li>
 <li>trip_mode
 : <a class="el" href="structmio_1_1abm_1_1Trip.html#adb610b058eccdc9796fd530344ba4ed2">mio::abm::Trip</a>
@@ -235,13 +235,13 @@ $(function() {
 , <a class="el" href="structmio_1_1abm_1_1GotoSchoolTimeMinimum.html#ac784cd75c61b23323a91b952002cef6e">mio::abm::GotoSchoolTimeMinimum</a>
 , <a class="el" href="structmio_1_1abm_1_1GotoWorkTimeMaximum.html#a7b53659fd9f1c6b86cf568fae17ff322">mio::abm::GotoWorkTimeMaximum</a>
 , <a class="el" href="structmio_1_1abm_1_1GotoWorkTimeMinimum.html#ac0505d60a259ad2143aadb6ef57d8ef4">mio::abm::GotoWorkTimeMinimum</a>
-, <a class="el" href="structmio_1_1abm_1_1HighViralLoadProtectionFactor.html#ae454124ca93763dbf5a650b59105feab">mio::abm::HighViralLoadProtectionFactor</a>
+, <a class="el" href="structmio_1_1abm_1_1HighViralLoadProtectionFactor.html#a58b5652a88f44d69616d84b625a8890c">mio::abm::HighViralLoadProtectionFactor</a>
 , <a class="el" href="structmio_1_1abm_1_1IncubationPeriod.html#a9b5ab24ac71f490434f616ea752671a0">mio::abm::IncubationPeriod</a>
 , <a class="el" href="structmio_1_1abm_1_1InfectedNoSymptomsToRecovered.html#a91bad07bab2c83b39cf435930abf447d">mio::abm::InfectedNoSymptomsToRecovered</a>
 , <a class="el" href="structmio_1_1abm_1_1InfectedNoSymptomsToSymptoms.html#a658ff05add4c88723b64fb690ab16685">mio::abm::InfectedNoSymptomsToSymptoms</a>
 , <a class="el" href="structmio_1_1abm_1_1InfectedSymptomsToRecovered.html#a93568eebe5eb1cfd642ff97c661a55e9">mio::abm::InfectedSymptomsToRecovered</a>
 , <a class="el" href="structmio_1_1abm_1_1InfectedSymptomsToSevere.html#aa9d01dcd4f5b82544b67138384b88a90">mio::abm::InfectedSymptomsToSevere</a>
-, <a class="el" href="structmio_1_1abm_1_1InfectionProtectionFactor.html#a42cc515cfc1231a65a666efa7e158d94">mio::abm::InfectionProtectionFactor</a>
+, <a class="el" href="structmio_1_1abm_1_1InfectionProtectionFactor.html#a257bb9ce84e1ceb7134586674d8b3205">mio::abm::InfectionProtectionFactor</a>
 , <a class="el" href="structmio_1_1abm_1_1InfectivityDistributions.html#a44fb87c50367c305339667ea97c069a4">mio::abm::InfectivityDistributions</a>
 , <a class="el" href="structmio_1_1abm_1_1LockdownDate.html#adbf00b72901465fa219a7dc218071210">mio::abm::LockdownDate</a>
 , <a class="el" href="structmio_1_1abm_1_1LogDataForMobility.html#a1e028216c81c575b426bb5cba70baef7">mio::abm::LogDataForMobility</a>
@@ -250,12 +250,17 @@ $(function() {
 , <a class="el" href="structmio_1_1abm_1_1LogPersonInformation.html#a0b8705f2d8d4ffff2316b6f224d35037">mio::abm::LogPersonInformation</a>
 , <a class="el" href="structmio_1_1abm_1_1MaskProtection.html#af0970b5eb809c25dd89255db83b7ed07">mio::abm::MaskProtection</a>
 , <a class="el" href="structmio_1_1abm_1_1MaximumContacts.html#ab299664220f3ad8eea70671a0de57132">mio::abm::MaximumContacts</a>
-, <a class="el" href="structmio_1_1abm_1_1QuarantineDuration.html#a0b1cca83911d09ac587981887075e411">mio::abm::QuarantineDuration</a>
+</li>
+<li>type
+: <a class="el" href="structmio_1_1abm_1_1ProtectionEvent.html#a06d26a7149a7017b4b9d617a0fda3835">mio::abm::ProtectionEvent</a>
+</li>
+<li>Type
+: <a class="el" href="structmio_1_1abm_1_1QuarantineDuration.html#a0b1cca83911d09ac587981887075e411">mio::abm::QuarantineDuration</a>
 , <a class="el" href="structmio_1_1abm_1_1RecoveredToSusceptible.html#a673541143fb34f53b190454b03a27fbc">mio::abm::RecoveredToSusceptible</a>
 , <a class="el" href="structmio_1_1abm_1_1SchoolRatio.html#abab536233e4a361526fcaaba12f3efe7">mio::abm::SchoolRatio</a>
 , <a class="el" href="structmio_1_1abm_1_1SevereToCritical.html#a6f8e09a5094a8eaf29748e626f2988dc">mio::abm::SevereToCritical</a>
 , <a class="el" href="structmio_1_1abm_1_1SevereToRecovered.html#aabba09e3ba066c734984de1219079dc4">mio::abm::SevereToRecovered</a>
-, <a class="el" href="structmio_1_1abm_1_1SeverityProtectionFactor.html#abc8a9339e42ea16499a11dddd122978d">mio::abm::SeverityProtectionFactor</a>
+, <a class="el" href="structmio_1_1abm_1_1SeverityProtectionFactor.html#a93eac9d6aebd0e7b63b20a25d9d0ee92">mio::abm::SeverityProtectionFactor</a>
 , <a class="el" href="structmio_1_1abm_1_1SocialEventRate.html#a66a838f001754a82b28ec2302a49a424">mio::abm::SocialEventRate</a>
 , <a class="el" href="structmio_1_1abm_1_1TestData.html#a06d2b013f37722119a7d275263e8aa0f">mio::abm::TestData</a>
 </li>

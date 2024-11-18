@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['masktype_4456',['MaskType',['../namespacemio_1_1abm.html#ae5dfbb686f6e9d6e642193be9af23424',1,'mio::abm']]]
+  ['protectiontype_4454',['ProtectionType',['../namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649',1,'mio::abm']]]
 ];

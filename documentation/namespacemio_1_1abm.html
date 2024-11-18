@@ -127,7 +127,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Earliest time that a <a class="el" href="classmio_1_1abm_1_1Person.html" title="Agents in the simulated Model that can carry and spread the Infection.">Person</a> can go to work.  <a href="structmio_1_1abm_1_1GotoWorkTimeMinimum.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1HighViralLoadProtectionFactor.html">HighViralLoadProtectionFactor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protective factor against high viral load.  <a href="structmio_1_1abm_1_1HighViralLoadProtectionFactor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protective factor against high viral load, which depends on <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649" title="ProtectionType in ABM.">ProtectionType</a>, #AgeGroup and <a class="el" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011f" title="Virus variants in ABM.">VirusVariant</a>.  <a href="structmio_1_1abm_1_1HighViralLoadProtectionFactor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Household.html">Household</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classmio_1_1abm_1_1Household.html" title="A Household represented by a vector with HouseholdMembers.">Household</a> represented by a vector with <a class="el" href="classmio_1_1abm_1_1HouseholdMember.html" title="A HouseholdMember represented by a weighted age distribution.">HouseholdMember</a>s.  <a href="classmio_1_1abm_1_1Household.html#details">More...</a><br /></td></tr>
@@ -152,7 +152,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1InfectionProtectionFactor.html">InfectionProtectionFactor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protection factor against #Infection% after #Infection and #Vaccination, which depends on <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705" title="ExposureType in ABM.">ExposureType</a>, #AgeGroup and <a class="el" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011f" title="Virus variants in ABM.">VirusVariant</a>.  <a href="structmio_1_1abm_1_1InfectionProtectionFactor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protection factor against #Infection% after #Infection and vaccination, which depends on <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649" title="ProtectionType in ABM.">ProtectionType</a>, #AgeGroup and <a class="el" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011f" title="Virus variants in ABM.">VirusVariant</a>.  <a href="structmio_1_1abm_1_1InfectionProtectionFactor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1InfectivityDistributions.html">InfectivityDistributions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,6 +207,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1PersonId.html">PersonId</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for a <a class="el" href="classmio_1_1abm_1_1Person.html" title="Agents in the simulated Model that can carry and spread the Infection.">Person</a> within a <a class="el" href="classmio_1_1abm_1_1Model.html" title="The Model of the Simulation.">Model</a>.  <a href="structmio_1_1abm_1_1PersonId.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1ProtectionEvent.html">ProtectionEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A tuple of <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649" title="ProtectionType in ABM.">ProtectionType</a> and #TimePoint.  <a href="structmio_1_1abm_1_1ProtectionEvent.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1QuarantineDuration.html">QuarantineDuration</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of quarantine.  <a href="structmio_1_1abm_1_1QuarantineDuration.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +223,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1SevereToRecovered.html">SevereToRecovered</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1SeverityProtectionFactor.html">SeverityProtectionFactor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protective factor against severe symptoms after #Infection and #Vaccination, which depends on <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705" title="ExposureType in ABM.">ExposureType</a>, #AgeGroup and <a class="el" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011f" title="Virus variants in ABM.">VirusVariant</a>.  <a href="structmio_1_1abm_1_1SeverityProtectionFactor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Personal protective factor against severe symptoms after #Infection and vaccination, which depends on <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649" title="ProtectionType in ABM.">ProtectionType</a>, #AgeGroup and <a class="el" href="namespacemio_1_1abm.html#a92b83c9298d24c2568847dfd9843011f" title="Virus variants in ABM.">VirusVariant</a>.  <a href="structmio_1_1abm_1_1SeverityProtectionFactor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1abm_1_1Simulation.html">Simulation</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the <a class="el" href="classmio_1_1abm_1_1Simulation.html" title="Run the Simulation in discrete steps, evolve the Model and report results.">Simulation</a> in discrete steps, evolve the <a class="el" href="classmio_1_1abm_1_1Model.html" title="The Model of the Simulation.">Model</a> and report results.  <a href="classmio_1_1abm_1_1Simulation.html#details">More...</a><br /></td></tr>
@@ -263,9 +266,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1UseLocationCapacityForTransmissions.html">UseLocationCapacityForTransmissions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1Vaccination.html">Vaccination</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A tuple of #TimePoint and <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705" title="ExposureType in ABM.">ExposureType</a> (i.e.  <a href="structmio_1_1abm_1_1Vaccination.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1abm_1_1ViralLoad.html">ViralLoad</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Models the <a class="el" href="structmio_1_1abm_1_1ViralLoad.html" title="Models the ViralLoad for an Infection, modelled on a log_10 scale.">ViralLoad</a> for an <a class="el" href="classmio_1_1abm_1_1Infection.html">Infection</a>, modelled on a log_10 scale.  <a href="structmio_1_1abm_1_1ViralLoad.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -306,13 +306,6 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a87b19348d6ba20fbe8bcb16485029ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the activity.  <a href="namespacemio_1_1abm.html#a87b19348d6ba20fbe8bcb16485029ce5">More...</a><br /></td></tr>
 <tr class="separator:a87b19348d6ba20fbe8bcb16485029ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf972255c1cfcdc64f54f9efeaec0705"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705">ExposureType</a> : std::uint32_t { <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705a18f2c901a0893097e2ef30ac53f4086a">NoProtection</a>
-, <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705a7274449ce8f5d4a4a17e3a73944863f9">NaturalInfection</a>
-, <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705aea59b072b3b9842a710ae6569dd6c3f6">GenericVaccine</a>
-, <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705ae93f994f01c537c4e2f7d8528c3eb5e9">Count</a>
- }</td></tr>
-<tr class="memdesc:aaf972255c1cfcdc64f54f9efeaec0705"><td class="mdescLeft">&#160;</td><td class="mdescRight">#ExposureType in ABM.  <a href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705">More...</a><br /></td></tr>
-<tr class="separator:aaf972255c1cfcdc64f54f9efeaec0705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1ae0779f53a827b524e1f0925b9d704"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio_1_1abm.html#ad1ae0779f53a827b524e1f0925b9d704">InfectionState</a> : std::uint32_t { <br />
 &#160;&#160;<a class="el" href="namespacemio_1_1abm.html#ad1ae0779f53a827b524e1f0925b9d704a494bf3eaa390dc405dd04ed1c8c99311">Susceptible</a> = 0
 , <a class="el" href="namespacemio_1_1abm.html#ad1ae0779f53a827b524e1f0925b9d704aa54eecd5041d37f5c8443e0ee91e241a">Exposed</a>
@@ -366,6 +359,13 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ae5dfbb686f6e9d6e642193be9af23424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of a Mask.  <a href="namespacemio_1_1abm.html#ae5dfbb686f6e9d6e642193be9af23424">More...</a><br /></td></tr>
 <tr class="separator:ae5dfbb686f6e9d6e642193be9af23424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf2b22aabaa39684a4ef82d9a064649"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649">ProtectionType</a> : std::uint32_t { <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649a18f2c901a0893097e2ef30ac53f4086a">NoProtection</a>
+, <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649a7274449ce8f5d4a4a17e3a73944863f9">NaturalInfection</a>
+, <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649aea59b072b3b9842a710ae6569dd6c3f6">GenericVaccine</a>
+, <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649ae93f994f01c537c4e2f7d8528c3eb5e9">Count</a>
+ }</td></tr>
+<tr class="memdesc:a3bf2b22aabaa39684a4ef82d9a064649"><td class="mdescLeft">&#160;</td><td class="mdescRight">#ProtectionType in ABM.  <a href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649">More...</a><br /></td></tr>
+<tr class="separator:a3bf2b22aabaa39684a4ef82d9a064649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0d7e3de7f9fed998985776d664ee313"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio_1_1abm.html#aa0d7e3de7f9fed998985776d664ee313">TestType</a> : std::uint32_t { <a class="el" href="namespacemio_1_1abm.html#aa0d7e3de7f9fed998985776d664ee313a8045a0a6c688b0635e3caccc408a1446">Generic</a>
 , <a class="el" href="namespacemio_1_1abm.html#aa0d7e3de7f9fed998985776d664ee313a1c06164fb2c1db87e83c3f7240ba5575">Antigen</a>
 , <a class="el" href="namespacemio_1_1abm.html#aa0d7e3de7f9fed998985776d664ee313ac0ff1599838f84547b6668a463198617">PCR</a>
@@ -594,37 +594,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aaf972255c1cfcdc64f54f9efeaec0705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf972255c1cfcdc64f54f9efeaec0705">&#9670;&nbsp;</a></span>ExposureType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705">mio::abm::ExposureType</a> : std::uint32_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="namespacemio_1_1abm.html#aaf972255c1cfcdc64f54f9efeaec0705" title="ExposureType in ABM.">ExposureType</a> in ABM. </p>
-<p>can be used as 0-based index </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf972255c1cfcdc64f54f9efeaec0705a18f2c901a0893097e2ef30ac53f4086a"></a>NoProtection&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaf972255c1cfcdc64f54f9efeaec0705a7274449ce8f5d4a4a17e3a73944863f9"></a>NaturalInfection&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaf972255c1cfcdc64f54f9efeaec0705aea59b072b3b9842a710ae6569dd6c3f6"></a>GenericVaccine&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaf972255c1cfcdc64f54f9efeaec0705ae93f994f01c537c4e2f7d8528c3eb5e9"></a>Count&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <a id="ad1ae0779f53a827b524e1f0925b9d704"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad1ae0779f53a827b524e1f0925b9d704">&#9670;&nbsp;</a></span>InfectionState</h2>
 
@@ -756,6 +725,37 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ae5dfbb686f6e9d6e642193be9af23424ac0464da06a277b350de740a3dc020aff"></a>Surgical&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae5dfbb686f6e9d6e642193be9af23424a1d6b24108d6625b11513d0648ce07bfc"></a>FFP2&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae5dfbb686f6e9d6e642193be9af23424ae93f994f01c537c4e2f7d8528c3eb5e9"></a>Count&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3bf2b22aabaa39684a4ef82d9a064649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf2b22aabaa39684a4ef82d9a064649">&#9670;&nbsp;</a></span>ProtectionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649">mio::abm::ProtectionType</a> : std::uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="namespacemio_1_1abm.html#a3bf2b22aabaa39684a4ef82d9a064649" title="ProtectionType in ABM.">ProtectionType</a> in ABM. </p>
+<p>can be used as 0-based index </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3bf2b22aabaa39684a4ef82d9a064649a18f2c901a0893097e2ef30ac53f4086a"></a>NoProtection&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3bf2b22aabaa39684a4ef82d9a064649a7274449ce8f5d4a4a17e3a73944863f9"></a>NaturalInfection&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3bf2b22aabaa39684a4ef82d9a064649aea59b072b3b9842a710ae6569dd6c3f6"></a>GenericVaccine&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3bf2b22aabaa39684a4ef82d9a064649ae93f994f01c537c4e2f7d8528c3eb5e9"></a>Count&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

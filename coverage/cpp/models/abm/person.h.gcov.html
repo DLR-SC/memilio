@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-11 13:14:23</td>
+            <td class="headerValue">2024-11-18 12:45:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -93,7 +93,7 @@
 <a name="31"><span class="lineNum">      31 </span>            : #include &quot;memilio/io/default_serialize.h&quot;</a>
 <a name="32"><span class="lineNum">      32 </span>            : #include &quot;abm/time.h&quot;</a>
 <a name="33"><span class="lineNum">      33 </span>            : #include &quot;abm/test_type.h&quot;</a>
-<a name="34"><span class="lineNum">      34 </span>            : #include &quot;abm/vaccine.h&quot;</a>
+<a name="34"><span class="lineNum">      34 </span>            : #include &quot;abm/protection_event.h&quot;</a>
 <a name="35"><span class="lineNum">      35 </span>            : #include &quot;abm/intervention_type.h&quot;</a>
 <a name="36"><span class="lineNum">      36 </span>            : #include &quot;abm/mask.h&quot;</a>
 <a name="37"><span class="lineNum">      37 </span>            : #include &quot;abm/mobility_data.h&quot;</a>
@@ -141,16 +141,16 @@
 <a name="79"><span class="lineNum">      79 </span>            :     const Infection&amp; get_infection() const;</a>
 <a name="80"><span class="lineNum">      80 </span>            : </a>
 <a name="81"><span class="lineNum">      81 </span>            :     /**</a>
-<a name="82"><span class="lineNum">      82 </span>            :      * @brief Get all Vaccination%s of the Person.</a>
-<a name="83"><span class="lineNum">      83 </span>            :      * @return A vector with all Vaccination%s.</a>
+<a name="82"><span class="lineNum">      82 </span>            :      * @brief Get all vaccinations of the Person.</a>
+<a name="83"><span class="lineNum">      83 </span>            :      * @return A vector with all vaccinations.</a>
 <a name="84"><span class="lineNum">      84 </span>            :      * @{</a>
 <a name="85"><span class="lineNum">      85 </span>            :      */</a>
-<a name="86"><span class="lineNum">      86 </span>            :     std::vector&lt;Vaccination&gt;&amp; get_vaccinations()</a>
+<a name="86"><span class="lineNum">      86 </span>            :     std::vector&lt;ProtectionEvent&gt;&amp; get_vaccinations()</a>
 <a name="87"><span class="lineNum">      87 </span>            :     {</a>
 <a name="88"><span class="lineNum">      88 </span>            :         return m_vaccinations;</a>
 <a name="89"><span class="lineNum">      89 </span>            :     }</a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span>            :     const std::vector&lt;Vaccination&gt;&amp; get_vaccinations() const</a>
+<a name="91"><span class="lineNum">      91 </span>            :     const std::vector&lt;ProtectionEvent&gt;&amp; get_vaccinations() const</a>
 <a name="92"><span class="lineNum">      92 </span>            :     {</a>
 <a name="93"><span class="lineNum">      93 </span>            :         return m_vaccinations;</a>
 <a name="94"><span class="lineNum">      94 </span>            :     }</a>
@@ -180,9 +180,9 @@
 <a name="118"><span class="lineNum">     118 </span>            :      * @brief Get the AgeGroup of this Person.</a>
 <a name="119"><span class="lineNum">     119 </span>            :      * @return AgeGroup of the Person.</a>
 <a name="120"><span class="lineNum">     120 </span>            :      */</a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      10044 :     AgeGroup get_age() const</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      10035 :     AgeGroup get_age() const</span></a>
 <a name="122"><span class="lineNum">     122 </span>            :     {</a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      10044 :         return m_age;</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      10035 :         return m_age;</span></a>
 <a name="124"><span class="lineNum">     124 </span>            :     }</a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
 <a name="126"><span class="lineNum">     126 </span>            :     /**</a>
@@ -191,9 +191,9 @@
 <a name="129"><span class="lineNum">     129 </span>            :      */</a>
 <a name="130"><span class="lineNum">     130 </span>            :     LocationId get_location() const;</a>
 <a name="131"><span class="lineNum">     131 </span>            : </a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      10737 :     LocationType get_location_type() const</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      10701 :     LocationType get_location_type() const</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :     {</a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">      10737 :         return m_location_type;</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">      10701 :         return m_location_type;</span></a>
 <a name="135"><span class="lineNum">     135 </span>            :     }</a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
 <a name="137"><span class="lineNum">     137 </span>            :     /**</a>
@@ -206,9 +206,9 @@
 <a name="144"><span class="lineNum">     144 </span>            :      * @brief Get the time the Person has been at its current Location.</a>
 <a name="145"><span class="lineNum">     145 </span>            :      * @return TimeSpan the Person has been at the Location.</a>
 <a name="146"><span class="lineNum">     146 </span>            :      */</a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         72 :     TimeSpan get_time_at_location() const</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         81 :     TimeSpan get_time_at_location() const</span></a>
 <a name="148"><span class="lineNum">     148 </span>            :     {</a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         72 :         return m_time_at_location;</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         81 :         return m_time_at_location;</span></a>
 <a name="150"><span class="lineNum">     150 </span>            :     }</a>
 <a name="151"><span class="lineNum">     151 </span>            : </a>
 <a name="152"><span class="lineNum">     152 </span>            :     /**</a>
@@ -294,9 +294,9 @@
 <a name="232"><span class="lineNum">     232 </span>            :      * @param[in] params Parameter that includes the length of a quarantine.</a>
 <a name="233"><span class="lineNum">     233 </span>            :      * @return True if the Person is in quarantine.</a>
 <a name="234"><span class="lineNum">     234 </span>            :      */</a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">       1674 :     bool is_in_quarantine(TimePoint t, const Parameters&amp; params) const</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">       1647 :     bool is_in_quarantine(TimePoint t, const Parameters&amp; params) const</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :     {</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">       1674 :         return t &lt; m_home_isolation_start + params.get&lt;mio::abm::QuarantineDuration&gt;();</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">       1647 :         return t &lt; m_home_isolation_start + params.get&lt;mio::abm::QuarantineDuration&gt;();</span></a>
 <a name="238"><span class="lineNum">     238 </span>            :     }</a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
 <a name="240"><span class="lineNum">     240 </span>            :     /**</a>
@@ -370,9 +370,9 @@
 <a name="308"><span class="lineNum">     308 </span>            :      * @param[in] intervention_type The #InterventionType.</a>
 <a name="309"><span class="lineNum">     309 </span>            :      * @return The probability that the Person complies to an Intervention.</a>
 <a name="310"><span class="lineNum">     310 </span>            :      */</a>
-<a name="311"><span class="lineNum">     311 </span><span class="lineCov">        657 :     ScalarType get_compliance(InterventionType intervention_type) const</span></a>
+<a name="311"><span class="lineNum">     311 </span><span class="lineCov">        666 :     ScalarType get_compliance(InterventionType intervention_type) const</span></a>
 <a name="312"><span class="lineNum">     312 </span>            :     {</a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">        657 :         return m_compliance[static_cast&lt;uint32_t&gt;(intervention_type)];</span></a>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">        666 :         return m_compliance[static_cast&lt;uint32_t&gt;(intervention_type)];</span></a>
 <a name="314"><span class="lineNum">     314 </span>            :     }</a>
 <a name="315"><span class="lineNum">     315 </span>            : </a>
 <a name="316"><span class="lineNum">     316 </span>            :     /**</a>
@@ -400,13 +400,13 @@
 <a name="338"><span class="lineNum">     338 </span>            :     ScalarType get_protection_factor(TimePoint t, VirusVariant virus, const Parameters&amp; params) const;</a>
 <a name="339"><span class="lineNum">     339 </span>            : </a>
 <a name="340"><span class="lineNum">     340 </span>            :     /**</a>
-<a name="341"><span class="lineNum">     341 </span>            :      * @brief Add a new #Vaccination</a>
-<a name="342"><span class="lineNum">     342 </span>            :      * @param[in] v ExposureType (i. e. vaccine) the person takes.</a>
-<a name="343"><span class="lineNum">     343 </span>            :      * @param[in] t TimePoint of the Vaccination.</a>
+<a name="341"><span class="lineNum">     341 </span>            :      * @brief Add a new vaccination</a>
+<a name="342"><span class="lineNum">     342 </span>            :      * @param[in] v ProtectionType (i. e. vaccine) the person takes.</a>
+<a name="343"><span class="lineNum">     343 </span>            :      * @param[in] t TimePoint of the vaccination.</a>
 <a name="344"><span class="lineNum">     344 </span>            :      */</a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         18 :     void add_new_vaccination(ExposureType v, TimePoint t)</span></a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         18 :     void add_new_vaccination(ProtectionType v, TimePoint t)</span></a>
 <a name="346"><span class="lineNum">     346 </span>            :     {</a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         18 :         m_vaccinations.push_back(Vaccination(v, t));</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         18 :         m_vaccinations.push_back(ProtectionEvent(v, t));</span></a>
 <a name="348"><span class="lineNum">     348 </span><span class="lineCov">         18 :     }</span></a>
 <a name="349"><span class="lineNum">     349 </span>            : </a>
 <a name="350"><span class="lineNum">     350 </span>            :     /**</a>
@@ -422,10 +422,10 @@
 <a name="360"><span class="lineNum">     360 </span>            :      * @brief Set the transport mode the Person used to get to its current Location.</a>
 <a name="361"><span class="lineNum">     361 </span>            :      * @param[in] mode TransportMode the Person used to get to its current Location.</a>
 <a name="362"><span class="lineNum">     362 </span>            :      */</a>
-<a name="363"><span class="lineNum">     363 </span><span class="lineCov">        333 :     void set_last_transport_mode(const mio::abm::TransportMode mode)</span></a>
+<a name="363"><span class="lineNum">     363 </span><span class="lineCov">        351 :     void set_last_transport_mode(const mio::abm::TransportMode mode)</span></a>
 <a name="364"><span class="lineNum">     364 </span>            :     {</a>
-<a name="365"><span class="lineNum">     365 </span><span class="lineCov">        333 :         m_last_transport_mode = mode;</span></a>
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">        333 :     }</span></a>
+<a name="365"><span class="lineNum">     365 </span><span class="lineCov">        351 :         m_last_transport_mode = mode;</span></a>
+<a name="366"><span class="lineNum">     366 </span><span class="lineCov">        351 :     }</span></a>
 <a name="367"><span class="lineNum">     367 </span>            : </a>
 <a name="368"><span class="lineNum">     368 </span>            :     /**</a>
 <a name="369"><span class="lineNum">     369 </span>            :      * @brief Get this persons RandomNumberGenerator counter.</a>
@@ -437,9 +437,9 @@
 <a name="375"><span class="lineNum">     375 </span>            :     }</a>
 <a name="376"><span class="lineNum">     376 </span>            : </a>
 <a name="377"><span class="lineNum">     377 </span>            :     /**</a>
-<a name="378"><span class="lineNum">     378 </span>            :      * @brief Get the latest #ExposureType and its initial TimePoint of the Person.</a>
+<a name="378"><span class="lineNum">     378 </span>            :      * @brief Get the latest #ProtectionType and its initial TimePoint of the Person.</a>
 <a name="379"><span class="lineNum">     379 </span>            :      */</a>
-<a name="380"><span class="lineNum">     380 </span>            :     std::pair&lt;ExposureType, TimePoint&gt; get_latest_protection() const;</a>
+<a name="380"><span class="lineNum">     380 </span>            :     ProtectionEvent get_latest_protection() const;</a>
 <a name="381"><span class="lineNum">     381 </span>            : </a>
 <a name="382"><span class="lineNum">     382 </span>            :     /// This method is used by the default serialization feature.</a>
 <a name="383"><span class="lineNum">     383 </span><span class="lineCov">         18 :     auto default_serialize()</span></a>
@@ -487,7 +487,7 @@
 <a name="425"><span class="lineNum">     425 </span>            :     LocationType m_location_type; ///&lt; Type of the current Location.</a>
 <a name="426"><span class="lineNum">     426 </span>            :     std::vector&lt;LocationId&gt; m_assigned_locations; /**! Vector with the indices of the assigned Locations so that the</a>
 <a name="427"><span class="lineNum">     427 </span>            :     Person always visits the same Home or School etc. */</a>
-<a name="428"><span class="lineNum">     428 </span>            :     std::vector&lt;Vaccination&gt; m_vaccinations; ///&lt; Vector with all Vaccination%s the Person has received.</a>
+<a name="428"><span class="lineNum">     428 </span>            :     std::vector&lt;ProtectionEvent&gt; m_vaccinations; ///&lt; Vector with all vaccinations the Person has received.</a>
 <a name="429"><span class="lineNum">     429 </span>            :     std::vector&lt;Infection&gt; m_infections; ///&lt; Vector with all Infection%s the Person had.</a>
 <a name="430"><span class="lineNum">     430 </span>            :     TimePoint m_home_isolation_start; ///&lt; TimePoint when the Person started isolation at home.</a>
 <a name="431"><span class="lineNum">     431 </span>            :     AgeGroup m_age; ///&lt; AgeGroup the Person belongs to.</a>
