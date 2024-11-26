@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-26 12:07:37</td>
+            <td class="headerValue">2024-11-26 13:56:51</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">460</td>
-            <td class="headerCovTableEntry">480</td>
-            <td class="headerCovTableEntryHi">95.8 %</td>
+            <td class="headerCovTableEntry">462</td>
+            <td class="headerCovTableEntry">482</td>
+            <td class="headerCovTableEntryHi">95.9 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -892,16 +892,20 @@
               <td class="coverFnHi">1</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::array&lt;bool, 64ul&gt; &gt;(std::array&lt;bool, 64ul&gt; const&amp;, int)</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::array&lt;bool, 8ul&gt; &gt;(std::array&lt;bool, 8ul&gt; const&amp;, int)</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::tuple&lt;int, double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; &gt;(std::tuple&lt;int, double, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; const&amp;, int)</a></td>
               <td class="coverFnHi">1</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::vector&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::allocator&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; &gt; &gt;(std::vector&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::allocator&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; &gt; const&amp;, int)</a></td>
               <td class="coverFnLo">0</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::vector&lt;bool, std::allocator&lt;bool&gt; &gt; &gt;(std::vector&lt;bool, std::allocator&lt;bool&gt; &gt; const&amp;, int)</a></td>
-              <td class="coverFnHi">18</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#482">boost::outcome_v2::basic_result&lt;Json::Value, mio::IOStatus, boost::outcome_v2::policy::all_narrow&gt; mio::serialize_json&lt;std::vector&lt;double, std::allocator&lt;double&gt; &gt; &gt;(std::vector&lt;double, std::allocator&lt;double&gt; &gt; const&amp;, int)</a></td>
@@ -1164,6 +1168,14 @@
               <td class="coverFnHi">1</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::array&lt;bool, 64ul&gt;, (void*)0&gt;(mio::JsonContext&amp;, std::array&lt;bool, 64ul&gt; const&amp;)</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::array&lt;bool, 8ul&gt;, (void*)0&gt;(mio::JsonContext&amp;, std::array&lt;bool, 8ul&gt; const&amp;)</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::vector&lt;mio::DampingSampling&lt;double&gt;, std::allocator&lt;mio::DampingSampling&lt;double&gt; &gt; &gt;, (void*)0&gt;(mio::JsonContext&amp;, std::vector&lt;mio::DampingSampling&lt;double&gt;, std::allocator&lt;mio::DampingSampling&lt;double&gt; &gt; &gt; const&amp;)</a></td>
               <td class="coverFnLo">0</td>
             </tr>
@@ -1202,10 +1214,6 @@
     <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::vector&lt;std::pair&lt;mio::abm::TimePoint, mio::abm::InfectionState&gt;, std::allocator&lt;std::pair&lt;mio::abm::TimePoint, mio::abm::InfectionState&gt; &gt; &gt;, (void*)0&gt;(mio::JsonContext&amp;, std::vector&lt;std::pair&lt;mio::abm::TimePoint, mio::abm::InfectionState&gt;, std::allocator&lt;std::pair&lt;mio::abm::TimePoint, mio::abm::InfectionState&gt; &gt; &gt; const&amp;)</a></td>
               <td class="coverFnHi">9</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::vector&lt;bool, std::allocator&lt;bool&gt; &gt;, (void*)0&gt;(mio::JsonContext&amp;, std::vector&lt;bool, std::allocator&lt;bool&gt; &gt; const&amp;)</a></td>
-              <td class="coverFnHi">18</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="json_serializer.h.gcov.html#406">void mio::serialize_internal&lt;std::vector&lt;double, std::allocator&lt;double&gt; &gt;, (void*)0&gt;(mio::JsonContext&amp;, std::vector&lt;double, std::allocator&lt;double&gt; &gt; const&amp;)</a></td>
