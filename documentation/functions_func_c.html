@@ -123,7 +123,9 @@ $(function() {
 , <a class="el" href="structad_1_1operations_1_1ad__sub__pa.html#a33088b4029a9b760158a1efa477e6ad2">ad::operations::ad_sub_pa&lt; AD_TAPE_REAL &gt;</a>
 </li>
 <li>calculate_compartments()
-: <a class="el" href="classmio_1_1lsecir_1_1Model.html#ad0b749fcc1028077b7568c21d0cab265">mio::lsecir::Model&lt; LctStates &gt;</a>
+: <a class="el" href="classmio_1_1glsecir_1_1Model.html#aff554ab3a7cdbd26d08ba6aec8f98c7b">mio::glsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</a>
+, <a class="el" href="classmio_1_1LctInfectionState.html#a96fe8d4a5483c842607a73504f4d22ec">mio::LctInfectionState&lt; InfectionStates, Ns &gt;</a>
+, <a class="el" href="classmio_1_1lsecir_1_1Model.html#ad0b749fcc1028077b7568c21d0cab265">mio::lsecir::Model&lt; LctStates &gt;</a>
 </li>
 <li>calculate_EIR()
 : <a class="el" href="classmio_1_1iseir_1_1Model.html#a0d75663e7cef40916f0b18e1d3b41e86">mio::iseir::Model&lt; FP &gt;</a>
@@ -158,6 +160,8 @@ $(function() {
 <li>check_constraints()
 : <a class="el" href="classmio_1_1abm_1_1Parameters.html#ad00ba2740215d679b48ca8c029381475">mio::abm::Parameters</a>
 , <a class="el" href="structmio_1_1CompartmentalModel.html#a19c74cdb58685cef3e410e77fb2c246f">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
+, <a class="el" href="classmio_1_1glsecir_1_1Model.html#ae9518cffb2cd37b29c5e705865ec0e5a">mio::glsecir::Model&lt; NumExposed, NumInfectedNoSymptoms, NumInfectedSymptoms, NumInfectedSevere, NumInfectedCritical &gt;</a>
+, <a class="el" href="classmio_1_1glsecir_1_1Parameters.html#a3194ce941712e5a154a9edaeaba4fd52">mio::glsecir::Parameters</a>
 , <a class="el" href="classmio_1_1isecir_1_1Model.html#a31ac84e9be3c2fa27d9e4915daa2f744">mio::isecir::Model</a>
 , <a class="el" href="classmio_1_1isecir_1_1Parameters.html#a775719389e8ddae007b81ccf70170750">mio::isecir::Parameters</a>
 , <a class="el" href="classmio_1_1LctPopulations.html#a766431dcebef4866413d960f3cf9378c">mio::LctPopulations&lt; FP, LctStates &gt;</a>
@@ -219,7 +223,7 @@ $(function() {
 : <a class="el" href="classmio_1_1ColumnVectorShape.html#a6060d48b8cd69a45da76f7a617d8af61">mio::ColumnVectorShape</a>
 </li>
 <li>CompartmentalModel()
-: <a class="el" href="structmio_1_1CompartmentalModel.html#a20ae8fdf1a9487e841c1a5f889fe253d">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
+: <a class="el" href="structmio_1_1CompartmentalModel.html#a0b1286b9ccb3f02086efe5442cdbada7">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>
 </li>
 <li>compress_vector()
 : <a class="el" href="classmio_1_1lsecir_1_1Model.html#ad5f3649b23d5dea8d2398ef235b7abb3">mio::lsecir::Model&lt; LctStates &gt;</a>
@@ -265,7 +269,7 @@ $(function() {
 </li>
 <li>create()
 : <a class="el" href="classad_1_1exception.html#a55474cebdc7ad02b75c29564d7741784">ad::exception</a>
-, <a class="el" href="structad_1_1internal_1_1blob__tape.html#aa78aa791b64bd9d27b1d6cd041a26f9f">ad::internal::blob_tape&lt; AD_TAPE_REAL, AD_ADJOINT_REAL &gt;</a>
+, <a class="el" href="structad_1_1internal_1_1blob__tape.html#a72a868aea4d46a237e8555d3f337cbdd">ad::internal::blob_tape&lt; AD_TAPE_REAL, AD_ADJOINT_REAL &gt;</a>
 , <a class="el" href="classad_1_1reference__constructor__wrapper.html#a9d32b50a253144798d84b28f431b8b1f">ad::reference_constructor_wrapper&lt; TYPE &gt;</a>
 , <a class="el" href="classad_1_1reference__constructor__wrapper_3_01void_01_5_01_4.html#a43dabeec5c817adc62869082223d0bf3">ad::reference_constructor_wrapper&lt; void * &gt;</a>
 , <a class="el" href="structmio_1_1DefaultFactory.html#a2efb1cf54a17187a088f857491b8a6e0">mio::DefaultFactory&lt; T &gt;</a>

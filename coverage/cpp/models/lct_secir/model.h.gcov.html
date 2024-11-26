@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">162</td>
-            <td class="headerCovTableEntry">162</td>
+            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntry">131</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-18 12:45:26</td>
+            <td class="headerValue">2024-11-26 12:07:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">103</td>
@@ -147,14 +147,14 @@
 <a name="85"><span class="lineNum">      85 </span>            :      * @param[in] t The current time.</a>
 <a name="86"><span class="lineNum">      86 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
 <a name="87"><span class="lineNum">      87 </span>            :      */</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        237 :     void get_derivatives(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y, ScalarType t,</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        243 :     void get_derivatives(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y, ScalarType t,</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :                          Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const override</a>
 <a name="90"><span class="lineNum">      90 </span>            :     {</a>
 <a name="91"><span class="lineNum">      91 </span>            :         // Vectors are sorted such that we first have all InfectionState%s for AgeGroup 0,</a>
 <a name="92"><span class="lineNum">      92 </span>            :         // afterwards all for AgeGroup 1 and so on.</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">        237 :         dydt.setZero();</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">        237 :         get_derivatives_impl(pop, y, t, dydt);</span></a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">        237 :     }</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">        243 :         dydt.setZero();</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">        243 :         get_derivatives_impl(pop, y, t, dydt);</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">        243 :     }</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
 <a name="97"><span class="lineNum">      97 </span>            :     /**</a>
 <a name="98"><span class="lineNum">      98 </span>            :      * @brief Cumulates a simulation result with subcompartments to produce a result that divides the population only</a>
@@ -215,264 +215,228 @@
 <a name="153"><span class="lineNum">     153 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
 <a name="154"><span class="lineNum">     154 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
 <a name="155"><span class="lineNum">     155 </span>            : </a>
-<a name="156"><span class="lineNum">     156 </span>            :         // Specify first indices of the vector slices considered.</a>
-<a name="157"><span class="lineNum">     157 </span>            :         // First index of the group Group in an vector including all subcompartments.</a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         32 :         Eigen::Index first_index_group_subcomps = this-&gt;populations.template get_first_index_of_group&lt;Group&gt;();</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         32 :         Eigen::Index count_InfStates            = (Eigen::Index)InfectionState::Count;</span></a>
-<a name="160"><span class="lineNum">     160 </span>            :         // First index of the group Group in an vector including all compartments without a resolution</a>
-<a name="161"><span class="lineNum">     161 </span>            :         // in subcompartments.</a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         32 :         Eigen::Index first_index_group_comps = Group * count_InfStates;</span></a>
-<a name="163"><span class="lineNum">     163 </span>            : </a>
-<a name="164"><span class="lineNum">     164 </span>            :         // Use segment of the vector subcompartments of each InfectionState and sum up the values of subcompartments.</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         32 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::Susceptible] =</span></a>
-<a name="166"><span class="lineNum">     166 </span>            :             subcompartments[first_index_group_subcomps];</a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         64 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::Exposed] =</span></a>
-<a name="168"><span class="lineNum">     168 </span>            :             subcompartments</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         32 :                 .segment(first_index_group_subcomps +</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">         32 :                              LctStateGroup::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         32 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::Exposed&gt;())</span></a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">         64 :                 .sum();</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">         64 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::InfectedNoSymptoms] =</span></a>
-<a name="174"><span class="lineNum">     174 </span>            :             subcompartments</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">         32 :                 .segment(first_index_group_subcomps +</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">         32 :                              LctStateGroup::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">         32 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">         64 :                 .sum();</span></a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         64 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::InfectedSymptoms] =</span></a>
-<a name="180"><span class="lineNum">     180 </span>            :             subcompartments</a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">         32 :                 .segment(first_index_group_subcomps +</span></a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         32 :                              LctStateGroup::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         32 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</span></a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">         64 :                 .sum();</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         64 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::InfectedSevere] =</span></a>
-<a name="186"><span class="lineNum">     186 </span>            :             subcompartments</a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         32 :                 .segment(first_index_group_subcomps +</span></a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">         32 :                              LctStateGroup::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         32 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;())</span></a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">         64 :                 .sum();</span></a>
-<a name="191"><span class="lineNum">     191 </span><span class="lineCov">         64 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::InfectedCritical] =</span></a>
-<a name="192"><span class="lineNum">     192 </span>            :             subcompartments</a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">         32 :                 .segment(first_index_group_subcomps +</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         32 :                              LctStateGroup::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">         32 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;())</span></a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">         64 :                 .sum();</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">         32 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::Recovered] =</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">         64 :             subcompartments[first_index_group_subcomps +</span></a>
-<a name="199"><span class="lineNum">     199 </span><span class="lineCov">         32 :                             LctStateGroup::template get_first_index&lt;InfectionState::Recovered&gt;()];</span></a>
-<a name="200"><span class="lineNum">     200 </span><span class="lineCov">         32 :         compartments[first_index_group_comps + (Eigen::Index)InfectionState::Dead] =</span></a>
-<a name="201"><span class="lineNum">     201 </span><span class="lineCov">         64 :             subcompartments[first_index_group_subcomps +</span></a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">         32 :                             LctStateGroup::template get_first_index&lt;InfectionState::Dead&gt;()];</span></a>
-<a name="203"><span class="lineNum">     203 </span>            :         // Function call for next group if applicable.</a>
-<a name="204"><span class="lineNum">     204 </span>            :         if constexpr (Group + 1 &lt; num_groups) {</a>
-<a name="205"><span class="lineNum">     205 </span><span class="lineCov">         13 :             compress_vector&lt;Group + 1&gt;(subcompartments, compartments);</span></a>
-<a name="206"><span class="lineNum">     206 </span>            :         }</a>
-<a name="207"><span class="lineNum">     207 </span><span class="lineCov">         32 :     }</span></a>
-<a name="208"><span class="lineNum">     208 </span>            : </a>
-<a name="209"><span class="lineNum">     209 </span>            :     /**</a>
-<a name="210"><span class="lineNum">     210 </span>            :      * @brief Evaluates the right-hand-side f of the ODE dydt = f(y, t) recursively for each group.</a>
-<a name="211"><span class="lineNum">     211 </span>            :      *</a>
-<a name="212"><span class="lineNum">     212 </span>            :      * See also the function get_derivative.</a>
-<a name="213"><span class="lineNum">     213 </span>            :      * For each group, one slice of the output vector is calculated.</a>
-<a name="214"><span class="lineNum">     214 </span>            :      * @tparam group The group specifying the slice of the vector being considered.  </a>
-<a name="215"><span class="lineNum">     215 </span>            :      * @param[in] pop The current state of the population in the geographic unit we are considering.</a>
-<a name="216"><span class="lineNum">     216 </span>            :      * @param[in] y The current state of the model (or a subpopulation) as a flat array.</a>
-<a name="217"><span class="lineNum">     217 </span>            :      * @param[in] t The current time.</a>
-<a name="218"><span class="lineNum">     218 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
-<a name="219"><span class="lineNum">     219 </span>            :      */</a>
-<a name="220"><span class="lineNum">     220 </span>            :     template &lt;size_t Group = 0&gt;</a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineCov">        264 :     void get_derivatives_impl(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y,</span></a>
-<a name="222"><span class="lineNum">     222 </span>            :                               ScalarType t, Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const</a>
-<a name="223"><span class="lineNum">     223 </span>            :     {</a>
-<a name="224"><span class="lineNum">     224 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
-<a name="225"><span class="lineNum">     225 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
-<a name="226"><span class="lineNum">     226 </span>            : </a>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">        264 :         size_t first_index_group = this-&gt;populations.template get_first_index_of_group&lt;Group&gt;();</span></a>
-<a name="228"><span class="lineNum">     228 </span><span class="lineCov">        264 :         auto params              = this-&gt;parameters;</span></a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">        264 :         ScalarType flow          = 0;</span></a>
-<a name="230"><span class="lineNum">     230 </span>            : </a>
-<a name="231"><span class="lineNum">     231 </span>            :         // Indices of first subcompartment of the InfectionState for the group in the vectors.</a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">        264 :         size_t Ei_first_index = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Exposed&gt;();</span></a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineCov">        264 :         size_t INSi_first_index =</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        264 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;();</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">        264 :         size_t ISyi_first_index =</span></a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">        264 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;();</span></a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        264 :         size_t ISevi_first_index =</span></a>
-<a name="238"><span class="lineNum">     238 </span><span class="lineCov">        264 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSevere&gt;();</span></a>
-<a name="239"><span class="lineNum">     239 </span><span class="lineCov">        264 :         size_t ICri_first_index =</span></a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">        264 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedCritical&gt;();</span></a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">        264 :         size_t Ri = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Recovered&gt;();</span></a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">        264 :         size_t Di = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Dead&gt;();</span></a>
-<a name="243"><span class="lineNum">     243 </span>            : </a>
-<a name="244"><span class="lineNum">     244 </span>            :         // Calculate derivative of the Susceptible compartment.</a>
-<a name="245"><span class="lineNum">     245 </span><span class="lineCov">        264 :         interact&lt;Group, 0&gt;(pop, y, t, dydt);</span></a>
-<a name="246"><span class="lineNum">     246 </span>            : </a>
-<a name="247"><span class="lineNum">     247 </span>            :         // Calculate derivative of the Exposed compartment.</a>
-<a name="248"><span class="lineNum">     248 </span><span class="lineCov">        264 :         dydt[Ei_first_index] = -dydt[first_index_group];</span></a>
-<a name="249"><span class="lineNum">     249 </span><span class="lineCov">        653 :         for (size_t subcomp = 0; subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::Exposed&gt;();</span></a>
-<a name="250"><span class="lineNum">     250 </span>            :              subcomp++) {</a>
-<a name="251"><span class="lineNum">     251 </span>            :             // Variable flow stores the value of the flow from one subcompartment to the next one.</a>
-<a name="252"><span class="lineNum">     252 </span>            :             // Ei_first_index + subcomp is always the index of a (sub-)compartment of Exposed and Ei_first_index</a>
-<a name="253"><span class="lineNum">     253 </span>            :             // + subcomp + 1 can also be the index of the first (sub-)compartment of InfectedNoSymptoms.</a>
-<a name="254"><span class="lineNum">     254 </span><span class="lineCov">        389 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::Exposed&gt;() *</span></a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">        389 :                    (1 / params.template get&lt;TimeExposed&gt;()[Group]) * y[Ei_first_index + subcomp];</span></a>
-<a name="256"><span class="lineNum">     256 </span>            :             // Subtract flow from dydt[Ei_first_index + subcomp] and add to next subcompartment.</a>
-<a name="257"><span class="lineNum">     257 </span><span class="lineCov">        389 :             dydt[Ei_first_index + subcomp] -= flow;</span></a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        389 :             dydt[Ei_first_index + subcomp + 1] = flow;</span></a>
-<a name="259"><span class="lineNum">     259 </span>            :         }</a>
-<a name="260"><span class="lineNum">     260 </span>            : </a>
-<a name="261"><span class="lineNum">     261 </span>            :         // Calculate derivative of the InfectedNoSymptoms compartment.</a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        264 :         for (size_t subcomp = 0;</span></a>
-<a name="263"><span class="lineNum">     263 </span><span class="lineCov">        778 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;();</span></a>
-<a name="264"><span class="lineNum">     264 </span>            :              subcomp++) {</a>
-<a name="265"><span class="lineNum">     265 </span><span class="lineCov">        514 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;() *</span></a>
-<a name="266"><span class="lineNum">     266 </span><span class="lineCov">        514 :                    (1 / params.template get&lt;TimeInfectedNoSymptoms&gt;()[Group]) * y[INSi_first_index + subcomp];</span></a>
-<a name="267"><span class="lineNum">     267 </span><span class="lineCov">        514 :             dydt[INSi_first_index + subcomp] -= flow;</span></a>
-<a name="268"><span class="lineNum">     268 </span><span class="lineCov">        514 :             dydt[INSi_first_index + subcomp + 1] = flow;</span></a>
-<a name="269"><span class="lineNum">     269 </span>            :         }</a>
-<a name="270"><span class="lineNum">     270 </span>            : </a>
-<a name="271"><span class="lineNum">     271 </span>            :         // Calculate derivative of the InfectedSymptoms compartment.</a>
-<a name="272"><span class="lineNum">     272 </span>            :         // Flow from last (sub-) compartment of C must be split between</a>
-<a name="273"><span class="lineNum">     273 </span>            :         // the first subcompartment of InfectedSymptoms and Recovered.</a>
-<a name="274"><span class="lineNum">     274 </span><span class="lineCov">        264 :         dydt[Ri] = dydt[ISyi_first_index] * params.template get&lt;RecoveredPerInfectedNoSymptoms&gt;()[Group];</span></a>
-<a name="275"><span class="lineNum">     275 </span><span class="lineCov">        264 :         dydt[ISyi_first_index] =</span></a>
-<a name="276"><span class="lineNum">     276 </span><span class="lineCov">        264 :             dydt[ISyi_first_index] * (1 - params.template get&lt;RecoveredPerInfectedNoSymptoms&gt;()[Group]);</span></a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">        264 :         for (size_t subcomp = 0;</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">        533 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;(); subcomp++) {</span></a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">        269 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;() *</span></a>
-<a name="280"><span class="lineNum">     280 </span><span class="lineCov">        269 :                    (1 / params.template get&lt;TimeInfectedSymptoms&gt;()[Group]) * y[ISyi_first_index + subcomp];</span></a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineCov">        269 :             dydt[ISyi_first_index + subcomp] -= flow;</span></a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">        269 :             dydt[ISyi_first_index + subcomp + 1] = flow;</span></a>
-<a name="283"><span class="lineNum">     283 </span>            :         }</a>
+<a name="156"><span class="lineNum">     156 </span>            :         // Define first index of the group Group in a vector including all compartments without a resolution</a>
+<a name="157"><span class="lineNum">     157 </span>            :         // in subcompartments.</a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         32 :         Eigen::Index count_InfStates         = (Eigen::Index)InfectionState::Count;</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         32 :         Eigen::Index first_index_group_comps = Group * count_InfStates;</span></a>
+<a name="160"><span class="lineNum">     160 </span>            : </a>
+<a name="161"><span class="lineNum">     161 </span>            :         // Use function from the LctState of the Group to calculate the vector without subcompartments</a>
+<a name="162"><span class="lineNum">     162 </span>            :         // using the corresponding vector with subcompartments.</a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">         64 :         compartments.segment(first_index_group_comps, count_InfStates) =</span></a>
+<a name="164"><span class="lineNum">     164 </span>            :             LctStateGroup::calculate_compartments(subcompartments.segment(</a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         32 :                 this-&gt;populations.template get_first_index_of_group&lt;Group&gt;(), LctStateGroup::Count));</span></a>
+<a name="166"><span class="lineNum">     166 </span>            : </a>
+<a name="167"><span class="lineNum">     167 </span>            :         // Function call for next group if applicable.</a>
+<a name="168"><span class="lineNum">     168 </span>            :         if constexpr (Group + 1 &lt; num_groups) {</a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         13 :             compress_vector&lt;Group + 1&gt;(subcompartments, compartments);</span></a>
+<a name="170"><span class="lineNum">     170 </span>            :         }</a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         32 :     }</span></a>
+<a name="172"><span class="lineNum">     172 </span>            : </a>
+<a name="173"><span class="lineNum">     173 </span>            :     /**</a>
+<a name="174"><span class="lineNum">     174 </span>            :      * @brief Evaluates the right-hand-side f of the ODE dydt = f(y, t) recursively for each group.</a>
+<a name="175"><span class="lineNum">     175 </span>            :      *</a>
+<a name="176"><span class="lineNum">     176 </span>            :      * See also the function get_derivative.</a>
+<a name="177"><span class="lineNum">     177 </span>            :      * For each group, one slice of the output vector is calculated.</a>
+<a name="178"><span class="lineNum">     178 </span>            :      * @tparam group The group specifying the slice of the vector being considered.  </a>
+<a name="179"><span class="lineNum">     179 </span>            :      * @param[in] pop The current state of the population in the geographic unit we are considering.</a>
+<a name="180"><span class="lineNum">     180 </span>            :      * @param[in] y The current state of the model (or a subpopulation) as a flat array.</a>
+<a name="181"><span class="lineNum">     181 </span>            :      * @param[in] t The current time.</a>
+<a name="182"><span class="lineNum">     182 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
+<a name="183"><span class="lineNum">     183 </span>            :      */</a>
+<a name="184"><span class="lineNum">     184 </span>            :     template &lt;size_t Group = 0&gt;</a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        270 :     void get_derivatives_impl(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y,</span></a>
+<a name="186"><span class="lineNum">     186 </span>            :                               ScalarType t, Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const</a>
+<a name="187"><span class="lineNum">     187 </span>            :     {</a>
+<a name="188"><span class="lineNum">     188 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
+<a name="189"><span class="lineNum">     189 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
+<a name="190"><span class="lineNum">     190 </span>            : </a>
+<a name="191"><span class="lineNum">     191 </span><span class="lineCov">        270 :         size_t first_index_group = this-&gt;populations.template get_first_index_of_group&lt;Group&gt;();</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">        270 :         auto params              = this-&gt;parameters;</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">        270 :         ScalarType flow          = 0;</span></a>
+<a name="194"><span class="lineNum">     194 </span>            : </a>
+<a name="195"><span class="lineNum">     195 </span>            :         // Indices of first subcompartment of the InfectionState for the group in the vectors.</a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">        270 :         size_t Ei_first_index = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Exposed&gt;();</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">        270 :         size_t INSi_first_index =</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">        270 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;();</span></a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineCov">        270 :         size_t ISyi_first_index =</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineCov">        270 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;();</span></a>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">        270 :         size_t ISevi_first_index =</span></a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">        270 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSevere&gt;();</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">        270 :         size_t ICri_first_index =</span></a>
+<a name="204"><span class="lineNum">     204 </span><span class="lineCov">        270 :             first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedCritical&gt;();</span></a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">        270 :         size_t Ri = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Recovered&gt;();</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">        270 :         size_t Di = first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Dead&gt;();</span></a>
+<a name="207"><span class="lineNum">     207 </span>            : </a>
+<a name="208"><span class="lineNum">     208 </span>            :         // Calculate derivative of the Susceptible compartment.</a>
+<a name="209"><span class="lineNum">     209 </span><span class="lineCov">        270 :         interact&lt;Group, 0&gt;(pop, y, t, dydt);</span></a>
+<a name="210"><span class="lineNum">     210 </span>            : </a>
+<a name="211"><span class="lineNum">     211 </span>            :         // Calculate derivative of the Exposed compartment.</a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">        270 :         dydt[Ei_first_index] = -dydt[first_index_group];</span></a>
+<a name="213"><span class="lineNum">     213 </span><span class="lineCov">        665 :         for (size_t subcomp = 0; subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::Exposed&gt;();</span></a>
+<a name="214"><span class="lineNum">     214 </span>            :              subcomp++) {</a>
+<a name="215"><span class="lineNum">     215 </span>            :             // Variable flow stores the value of the flow from one subcompartment to the next one.</a>
+<a name="216"><span class="lineNum">     216 </span>            :             // Ei_first_index + subcomp is always the index of a (sub-)compartment of Exposed and Ei_first_index</a>
+<a name="217"><span class="lineNum">     217 </span>            :             // + subcomp + 1 can also be the index of the first (sub-)compartment of InfectedNoSymptoms.</a>
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">        395 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::Exposed&gt;() *</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">        395 :                    (1 / params.template get&lt;TimeExposed&gt;()[Group]) * y[Ei_first_index + subcomp];</span></a>
+<a name="220"><span class="lineNum">     220 </span>            :             // Subtract flow from dydt[Ei_first_index + subcomp] and add to next subcompartment.</a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">        395 :             dydt[Ei_first_index + subcomp] -= flow;</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">        395 :             dydt[Ei_first_index + subcomp + 1] = flow;</span></a>
+<a name="223"><span class="lineNum">     223 </span>            :         }</a>
+<a name="224"><span class="lineNum">     224 </span>            : </a>
+<a name="225"><span class="lineNum">     225 </span>            :         // Calculate derivative of the InfectedNoSymptoms compartment.</a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineCov">        270 :         for (size_t subcomp = 0;</span></a>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">        790 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;();</span></a>
+<a name="228"><span class="lineNum">     228 </span>            :              subcomp++) {</a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">        520 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;() *</span></a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">        520 :                    (1 / params.template get&lt;TimeInfectedNoSymptoms&gt;()[Group]) * y[INSi_first_index + subcomp];</span></a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineCov">        520 :             dydt[INSi_first_index + subcomp] -= flow;</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">        520 :             dydt[INSi_first_index + subcomp + 1] = flow;</span></a>
+<a name="233"><span class="lineNum">     233 </span>            :         }</a>
+<a name="234"><span class="lineNum">     234 </span>            : </a>
+<a name="235"><span class="lineNum">     235 </span>            :         // Calculate derivative of the InfectedSymptoms compartment.</a>
+<a name="236"><span class="lineNum">     236 </span>            :         // Flow from last (sub-) compartment of C must be split between</a>
+<a name="237"><span class="lineNum">     237 </span>            :         // the first subcompartment of InfectedSymptoms and Recovered.</a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">        270 :         dydt[Ri] = dydt[ISyi_first_index] * params.template get&lt;RecoveredPerInfectedNoSymptoms&gt;()[Group];</span></a>
+<a name="239"><span class="lineNum">     239 </span><span class="lineCov">        270 :         dydt[ISyi_first_index] =</span></a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">        270 :             dydt[ISyi_first_index] * (1 - params.template get&lt;RecoveredPerInfectedNoSymptoms&gt;()[Group]);</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">        270 :         for (size_t subcomp = 0;</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">        545 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;(); subcomp++) {</span></a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">        275 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;() *</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">        275 :                    (1 / params.template get&lt;TimeInfectedSymptoms&gt;()[Group]) * y[ISyi_first_index + subcomp];</span></a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineCov">        275 :             dydt[ISyi_first_index + subcomp] -= flow;</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">        275 :             dydt[ISyi_first_index + subcomp + 1] = flow;</span></a>
+<a name="247"><span class="lineNum">     247 </span>            :         }</a>
+<a name="248"><span class="lineNum">     248 </span>            : </a>
+<a name="249"><span class="lineNum">     249 </span>            :         // Calculate derivative of the InfectedSevere compartment.</a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">        270 :         dydt[Ri] += dydt[ISevi_first_index] * (1 - params.template get&lt;SeverePerInfectedSymptoms&gt;()[Group]);</span></a>
+<a name="251"><span class="lineNum">     251 </span><span class="lineCov">        270 :         dydt[ISevi_first_index] = dydt[ISevi_first_index] * params.template get&lt;SeverePerInfectedSymptoms&gt;()[Group];</span></a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">        270 :         for (size_t subcomp = 0;</span></a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">        545 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;(); subcomp++) {</span></a>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">        275 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;() *</span></a>
+<a name="255"><span class="lineNum">     255 </span><span class="lineCov">        275 :                    (1 / params.template get&lt;TimeInfectedSevere&gt;()[Group]) * y[ISevi_first_index + subcomp];</span></a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">        275 :             dydt[ISevi_first_index + subcomp] -= flow;</span></a>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">        275 :             dydt[ISevi_first_index + subcomp + 1] = flow;</span></a>
+<a name="258"><span class="lineNum">     258 </span>            :         }</a>
+<a name="259"><span class="lineNum">     259 </span>            : </a>
+<a name="260"><span class="lineNum">     260 </span>            :         // Calculate derivative of the InfectedCritical compartment.</a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">        270 :         dydt[Ri] += dydt[ICri_first_index] * (1 - params.template get&lt;CriticalPerSevere&gt;()[Group]);</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        270 :         dydt[ICri_first_index] = dydt[ICri_first_index] * params.template get&lt;CriticalPerSevere&gt;()[Group];</span></a>
+<a name="263"><span class="lineNum">     263 </span><span class="lineCov">        270 :         for (size_t subcomp = 0;</span></a>
+<a name="264"><span class="lineNum">     264 </span><span class="lineCov">        755 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() - 1;</span></a>
+<a name="265"><span class="lineNum">     265 </span>            :              subcomp++) {</a>
+<a name="266"><span class="lineNum">     266 </span><span class="lineCov">        485 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() *</span></a>
+<a name="267"><span class="lineNum">     267 </span><span class="lineCov">        485 :                    (1 / params.template get&lt;TimeInfectedCritical&gt;()[Group]) * y[ICri_first_index + subcomp];</span></a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">        485 :             dydt[ICri_first_index + subcomp] -= flow;</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">        485 :             dydt[ICri_first_index + subcomp + 1] = flow;</span></a>
+<a name="270"><span class="lineNum">     270 </span>            :         }</a>
+<a name="271"><span class="lineNum">     271 </span>            :         // Last flow from InfectedCritical has to be divided between Recovered and Dead.</a>
+<a name="272"><span class="lineNum">     272 </span>            :         // Must be calculated separately in order not to overwrite the already calculated values ​​for Recovered.</a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">        270 :         flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() *</span></a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">        270 :                (1 / params.template get&lt;TimeInfectedCritical&gt;()[Group]) * y[Ri - 1];</span></a>
+<a name="275"><span class="lineNum">     275 </span><span class="lineCov">        270 :         dydt[Ri - 1] -= flow;</span></a>
+<a name="276"><span class="lineNum">     276 </span><span class="lineCov">        270 :         dydt[Ri] = dydt[Ri] + (1 - params.template get&lt;DeathsPerCritical&gt;()[Group]) * flow;</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">        270 :         dydt[Di] = params.template get&lt;DeathsPerCritical&gt;()[Group] * flow;</span></a>
+<a name="278"><span class="lineNum">     278 </span>            : </a>
+<a name="279"><span class="lineNum">     279 </span>            :         // Function call for next group if applicable.</a>
+<a name="280"><span class="lineNum">     280 </span>            :         if constexpr (Group + 1 &lt; num_groups) {</a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineCov">         27 :             get_derivatives_impl&lt;Group + 1&gt;(pop, y, t, dydt);</span></a>
+<a name="282"><span class="lineNum">     282 </span>            :         }</a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">        540 :     }</span></a>
 <a name="284"><span class="lineNum">     284 </span>            : </a>
-<a name="285"><span class="lineNum">     285 </span>            :         // Calculate derivative of the InfectedSevere compartment.</a>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">        264 :         dydt[Ri] += dydt[ISevi_first_index] * (1 - params.template get&lt;SeverePerInfectedSymptoms&gt;()[Group]);</span></a>
-<a name="287"><span class="lineNum">     287 </span><span class="lineCov">        264 :         dydt[ISevi_first_index] = dydt[ISevi_first_index] * params.template get&lt;SeverePerInfectedSymptoms&gt;()[Group];</span></a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineCov">        264 :         for (size_t subcomp = 0;</span></a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">        533 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;(); subcomp++) {</span></a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">        269 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;() *</span></a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">        269 :                    (1 / params.template get&lt;TimeInfectedSevere&gt;()[Group]) * y[ISevi_first_index + subcomp];</span></a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">        269 :             dydt[ISevi_first_index + subcomp] -= flow;</span></a>
-<a name="293"><span class="lineNum">     293 </span><span class="lineCov">        269 :             dydt[ISevi_first_index + subcomp + 1] = flow;</span></a>
-<a name="294"><span class="lineNum">     294 </span>            :         }</a>
-<a name="295"><span class="lineNum">     295 </span>            : </a>
-<a name="296"><span class="lineNum">     296 </span>            :         // Calculate derivative of the InfectedCritical compartment.</a>
-<a name="297"><span class="lineNum">     297 </span><span class="lineCov">        264 :         dydt[Ri] += dydt[ICri_first_index] * (1 - params.template get&lt;CriticalPerSevere&gt;()[Group]);</span></a>
-<a name="298"><span class="lineNum">     298 </span><span class="lineCov">        264 :         dydt[ICri_first_index] = dydt[ICri_first_index] * params.template get&lt;CriticalPerSevere&gt;()[Group];</span></a>
-<a name="299"><span class="lineNum">     299 </span><span class="lineCov">        264 :         for (size_t subcomp = 0;</span></a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">        749 :              subcomp &lt; LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() - 1;</span></a>
-<a name="301"><span class="lineNum">     301 </span>            :              subcomp++) {</a>
-<a name="302"><span class="lineNum">     302 </span><span class="lineCov">        485 :             flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() *</span></a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">        485 :                    (1 / params.template get&lt;TimeInfectedCritical&gt;()[Group]) * y[ICri_first_index + subcomp];</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">        485 :             dydt[ICri_first_index + subcomp] -= flow;</span></a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">        485 :             dydt[ICri_first_index + subcomp + 1] = flow;</span></a>
-<a name="306"><span class="lineNum">     306 </span>            :         }</a>
-<a name="307"><span class="lineNum">     307 </span>            :         // Last flow from InfectedCritical has to be divided between Recovered and Dead.</a>
-<a name="308"><span class="lineNum">     308 </span>            :         // Must be calculated separately in order not to overwrite the already calculated values ​​for Recovered.</a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">        264 :         flow = (ScalarType)LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() *</span></a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">        264 :                (1 / params.template get&lt;TimeInfectedCritical&gt;()[Group]) * y[Ri - 1];</span></a>
-<a name="311"><span class="lineNum">     311 </span><span class="lineCov">        264 :         dydt[Ri - 1] -= flow;</span></a>
-<a name="312"><span class="lineNum">     312 </span><span class="lineCov">        264 :         dydt[Ri] = dydt[Ri] + (1 - params.template get&lt;DeathsPerCritical&gt;()[Group]) * flow;</span></a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">        264 :         dydt[Di] = params.template get&lt;DeathsPerCritical&gt;()[Group] * flow;</span></a>
-<a name="314"><span class="lineNum">     314 </span>            : </a>
-<a name="315"><span class="lineNum">     315 </span>            :         // Function call for next group if applicable.</a>
-<a name="316"><span class="lineNum">     316 </span>            :         if constexpr (Group + 1 &lt; num_groups) {</a>
-<a name="317"><span class="lineNum">     317 </span><span class="lineCov">         27 :             get_derivatives_impl&lt;Group + 1&gt;(pop, y, t, dydt);</span></a>
-<a name="318"><span class="lineNum">     318 </span>            :         }</a>
-<a name="319"><span class="lineNum">     319 </span><span class="lineCov">        528 :     }</span></a>
-<a name="320"><span class="lineNum">     320 </span>            : </a>
-<a name="321"><span class="lineNum">     321 </span>            :     /**</a>
-<a name="322"><span class="lineNum">     322 </span>            :      * @brief Calculates the derivative of the Susceptible compartment for Group1.</a>
-<a name="323"><span class="lineNum">     323 </span>            :      *</a>
-<a name="324"><span class="lineNum">     324 </span>            :      * This is done recursively by calculating the interaction terms with each group.</a>
-<a name="325"><span class="lineNum">     325 </span>            :      * @tparam Group1 The group for which the derivative of the Susceptible compartment should be calculated. </a>
-<a name="326"><span class="lineNum">     326 </span>            :      * @tparam Group2 The group that Group1 interacts with. </a>
-<a name="327"><span class="lineNum">     327 </span>            :      * @param[in] pop The current state of the population in the geographic unit we are considering.</a>
-<a name="328"><span class="lineNum">     328 </span>            :      * @param[in] y The current state of the model (or a subpopulation) as a flat array.</a>
-<a name="329"><span class="lineNum">     329 </span>            :      * @param[in] t The current time.</a>
-<a name="330"><span class="lineNum">     330 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
-<a name="331"><span class="lineNum">     331 </span>            :      */</a>
-<a name="332"><span class="lineNum">     332 </span>            :     template &lt;size_t Group1, size_t Group2 = 0&gt;</a>
-<a name="333"><span class="lineNum">     333 </span><span class="lineCov">        344 :     void interact(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y, ScalarType t,</span></a>
-<a name="334"><span class="lineNum">     334 </span>            :                   Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const</a>
-<a name="335"><span class="lineNum">     335 </span>            :     {</a>
-<a name="336"><span class="lineNum">     336 </span>            :         static_assert((Group1 &lt; num_groups) &amp;&amp; (Group1 &gt;= 0) &amp;&amp; (Group2 &lt; num_groups) &amp;&amp; (Group2 &gt;= 0),</a>
-<a name="337"><span class="lineNum">     337 </span>            :                       &quot;The template parameters Group1 &amp; Group2 should be valid.&quot;);</a>
-<a name="338"><span class="lineNum">     338 </span>            :         using LctStateGroup2            = type_at_index_t&lt;Group2, LctStates...&gt;;</a>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">        344 :         size_t Si_1                     = this-&gt;populations.template get_first_index_of_group&lt;Group1&gt;();</span></a>
-<a name="340"><span class="lineNum">     340 </span><span class="lineCov">        344 :         ScalarType infectedNoSymptoms_2 = 0;</span></a>
-<a name="341"><span class="lineNum">     341 </span><span class="lineCov">        344 :         ScalarType infectedSymptoms_2   = 0;</span></a>
-<a name="342"><span class="lineNum">     342 </span><span class="lineCov">        344 :         auto params                     = this-&gt;parameters;</span></a>
-<a name="343"><span class="lineNum">     343 </span>            : </a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">        344 :         size_t first_index_group2 = this-&gt;populations.template get_first_index_of_group&lt;Group2&gt;();</span></a>
-<a name="345"><span class="lineNum">     345 </span>            : </a>
-<a name="346"><span class="lineNum">     346 </span>            :         // Calculate sum of all subcompartments for InfectedNoSymptoms of Group2.</a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">        344 :         infectedNoSymptoms_2 =</span></a>
-<a name="348"><span class="lineNum">     348 </span><span class="lineCov">        344 :             pop.segment(first_index_group2 +</span></a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">        344 :                             LctStateGroup2::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">        344 :                         LctStateGroup2::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</span></a>
-<a name="351"><span class="lineNum">     351 </span><span class="lineCov">        344 :                 .sum();</span></a>
-<a name="352"><span class="lineNum">     352 </span>            :         // Calculate sum of all subcompartments for InfectedSymptoms of Group2.</a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">        344 :         infectedSymptoms_2 =</span></a>
-<a name="354"><span class="lineNum">     354 </span><span class="lineCov">        344 :             pop.segment(first_index_group2 +</span></a>
-<a name="355"><span class="lineNum">     355 </span><span class="lineCov">        344 :                             LctStateGroup2::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">        344 :                         LctStateGroup2::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</span></a>
-<a name="357"><span class="lineNum">     357 </span><span class="lineCov">        344 :                 .sum();</span></a>
-<a name="358"><span class="lineNum">     358 </span>            :         // Size of the Subpopulation Group2 without dead people.</a>
-<a name="359"><span class="lineNum">     359 </span><span class="lineCov">        344 :         double N_2            = pop.segment(first_index_group2, LctStateGroup2::Count - 1).sum();</span></a>
-<a name="360"><span class="lineNum">     360 </span><span class="lineCov">        344 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
-<a name="361"><span class="lineNum">     361 </span><span class="lineCov">        344 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">        688 :         dydt[Si_1] += -y[Si_1] / N_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</span></a>
-<a name="363"><span class="lineNum">     363 </span><span class="lineCov">        688 :                       params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</span></a>
-<a name="364"><span class="lineNum">     364 </span><span class="lineCov">        344 :                           static_cast&lt;Eigen::Index&gt;(Group1), static_cast&lt;Eigen::Index&gt;(Group2)) *</span></a>
-<a name="365"><span class="lineNum">     365 </span><span class="lineCov">        344 :                       (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</span></a>
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">        344 :                        params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</span></a>
-<a name="367"><span class="lineNum">     367 </span>            :         // Function call for next interacting group if applicable.</a>
-<a name="368"><span class="lineNum">     368 </span>            :         if constexpr (Group2 + 1 &lt; num_groups) {</a>
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">         80 :             interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</span></a>
+<a name="285"><span class="lineNum">     285 </span>            :     /**</a>
+<a name="286"><span class="lineNum">     286 </span>            :      * @brief Calculates the derivative of the Susceptible compartment for Group1.</a>
+<a name="287"><span class="lineNum">     287 </span>            :      *</a>
+<a name="288"><span class="lineNum">     288 </span>            :      * This is done recursively by calculating the interaction terms with each group.</a>
+<a name="289"><span class="lineNum">     289 </span>            :      * @tparam Group1 The group for which the derivative of the Susceptible compartment should be calculated. </a>
+<a name="290"><span class="lineNum">     290 </span>            :      * @tparam Group2 The group that Group1 interacts with. </a>
+<a name="291"><span class="lineNum">     291 </span>            :      * @param[in] pop The current state of the population in the geographic unit we are considering.</a>
+<a name="292"><span class="lineNum">     292 </span>            :      * @param[in] y The current state of the model (or a subpopulation) as a flat array.</a>
+<a name="293"><span class="lineNum">     293 </span>            :      * @param[in] t The current time.</a>
+<a name="294"><span class="lineNum">     294 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
+<a name="295"><span class="lineNum">     295 </span>            :      */</a>
+<a name="296"><span class="lineNum">     296 </span>            :     template &lt;size_t Group1, size_t Group2 = 0&gt;</a>
+<a name="297"><span class="lineNum">     297 </span><span class="lineCov">        350 :     void interact(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y, ScalarType t,</span></a>
+<a name="298"><span class="lineNum">     298 </span>            :                   Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const</a>
+<a name="299"><span class="lineNum">     299 </span>            :     {</a>
+<a name="300"><span class="lineNum">     300 </span>            :         static_assert((Group1 &lt; num_groups) &amp;&amp; (Group1 &gt;= 0) &amp;&amp; (Group2 &lt; num_groups) &amp;&amp; (Group2 &gt;= 0),</a>
+<a name="301"><span class="lineNum">     301 </span>            :                       &quot;The template parameters Group1 &amp; Group2 should be valid.&quot;);</a>
+<a name="302"><span class="lineNum">     302 </span>            :         using LctStateGroup2            = type_at_index_t&lt;Group2, LctStates...&gt;;</a>
+<a name="303"><span class="lineNum">     303 </span><span class="lineCov">        350 :         size_t Si_1                     = this-&gt;populations.template get_first_index_of_group&lt;Group1&gt;();</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">        350 :         ScalarType infectedNoSymptoms_2 = 0;</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">        350 :         ScalarType infectedSymptoms_2   = 0;</span></a>
+<a name="306"><span class="lineNum">     306 </span><span class="lineCov">        350 :         auto params                     = this-&gt;parameters;</span></a>
+<a name="307"><span class="lineNum">     307 </span>            : </a>
+<a name="308"><span class="lineNum">     308 </span><span class="lineCov">        350 :         size_t first_index_group2 = this-&gt;populations.template get_first_index_of_group&lt;Group2&gt;();</span></a>
+<a name="309"><span class="lineNum">     309 </span>            : </a>
+<a name="310"><span class="lineNum">     310 </span>            :         // Calculate sum of all subcompartments for InfectedNoSymptoms of Group2.</a>
+<a name="311"><span class="lineNum">     311 </span><span class="lineCov">        350 :         infectedNoSymptoms_2 =</span></a>
+<a name="312"><span class="lineNum">     312 </span><span class="lineCov">        350 :             pop.segment(first_index_group2 +</span></a>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">        350 :                             LctStateGroup2::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">        350 :                         LctStateGroup2::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">        350 :                 .sum();</span></a>
+<a name="316"><span class="lineNum">     316 </span>            :         // Calculate sum of all subcompartments for InfectedSymptoms of Group2.</a>
+<a name="317"><span class="lineNum">     317 </span><span class="lineCov">        350 :         infectedSymptoms_2 =</span></a>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">        350 :             pop.segment(first_index_group2 +</span></a>
+<a name="319"><span class="lineNum">     319 </span><span class="lineCov">        350 :                             LctStateGroup2::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">        350 :                         LctStateGroup2::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">        350 :                 .sum();</span></a>
+<a name="322"><span class="lineNum">     322 </span>            :         // Size of the Subpopulation Group2 without dead people.</a>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">        350 :         double N_2            = pop.segment(first_index_group2, LctStateGroup2::Count - 1).sum();</span></a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">        350 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
+<a name="325"><span class="lineNum">     325 </span><span class="lineCov">        350 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">        700 :         dydt[Si_1] += -y[Si_1] / N_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</span></a>
+<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        700 :                       params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</span></a>
+<a name="328"><span class="lineNum">     328 </span><span class="lineCov">        350 :                           static_cast&lt;Eigen::Index&gt;(Group1), static_cast&lt;Eigen::Index&gt;(Group2)) *</span></a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        350 :                       (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</span></a>
+<a name="330"><span class="lineNum">     330 </span><span class="lineCov">        350 :                        params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</span></a>
+<a name="331"><span class="lineNum">     331 </span>            :         // Function call for next interacting group if applicable.</a>
+<a name="332"><span class="lineNum">     332 </span>            :         if constexpr (Group2 + 1 &lt; num_groups) {</a>
+<a name="333"><span class="lineNum">     333 </span><span class="lineCov">         80 :             interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</span></a>
+<a name="334"><span class="lineNum">     334 </span>            :         }</a>
+<a name="335"><span class="lineNum">     335 </span><span class="lineCov">        700 :     }</span></a>
+<a name="336"><span class="lineNum">     336 </span>            : </a>
+<a name="337"><span class="lineNum">     337 </span>            :     /**</a>
+<a name="338"><span class="lineNum">     338 </span>            :      * @brief Checks whether LctState of a group satisfies all constraints. </a>
+<a name="339"><span class="lineNum">     339 </span>            :      *  Recursively, it checks that all groups satisfy the constraints.</a>
+<a name="340"><span class="lineNum">     340 </span>            :      *</a>
+<a name="341"><span class="lineNum">     341 </span>            :      * @tparam group The group for which the constraints should be checked.</a>
+<a name="342"><span class="lineNum">     342 </span>            :      * @return Returns true if one or more constraints are not satisfied, false otherwise.</a>
+<a name="343"><span class="lineNum">     343 </span>            :      */</a>
+<a name="344"><span class="lineNum">     344 </span>            :     template &lt;size_t Group = 0&gt;</a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         22 :     bool check_constraints_impl() const</span></a>
+<a name="346"><span class="lineNum">     346 </span>            :     {</a>
+<a name="347"><span class="lineNum">     347 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
+<a name="348"><span class="lineNum">     348 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
+<a name="349"><span class="lineNum">     349 </span>            : </a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">         22 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</span></a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;,</span></a>
+<a name="352"><span class="lineNum">     352 </span>            :                         Group);</a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="354"><span class="lineNum">     354 </span>            :         }</a>
+<a name="355"><span class="lineNum">     355 </span><span class="lineCov">         21 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</span></a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;,</span></a>
+<a name="357"><span class="lineNum">     357 </span>            :                         Group);</a>
+<a name="358"><span class="lineNum">     358 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="359"><span class="lineNum">     359 </span>            :         }</a>
+<a name="360"><span class="lineNum">     360 </span><span class="lineCov">         20 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</span></a>
+<a name="361"><span class="lineNum">     361 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;, Group);</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="363"><span class="lineNum">     363 </span>            :         }</a>
+<a name="364"><span class="lineNum">     364 </span>            : </a>
+<a name="365"><span class="lineNum">     365 </span>            :         if constexpr (Group == num_groups - 1) {</a>
+<a name="366"><span class="lineNum">     366 </span><span class="lineCov">          9 :             return false;</span></a>
+<a name="367"><span class="lineNum">     367 </span>            :         }</a>
+<a name="368"><span class="lineNum">     368 </span>            :         else {</a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">         10 :             return check_constraints_impl&lt;Group + 1&gt;();</span></a>
 <a name="370"><span class="lineNum">     370 </span>            :         }</a>
-<a name="371"><span class="lineNum">     371 </span><span class="lineCov">        688 :     }</span></a>
-<a name="372"><span class="lineNum">     372 </span>            : </a>
-<a name="373"><span class="lineNum">     373 </span>            :     /**</a>
-<a name="374"><span class="lineNum">     374 </span>            :      * @brief Checks whether LctState of a group satisfies all constraints. </a>
-<a name="375"><span class="lineNum">     375 </span>            :      *  Recursively, it checks that all groups satisfy the constraints.</a>
-<a name="376"><span class="lineNum">     376 </span>            :      *</a>
-<a name="377"><span class="lineNum">     377 </span>            :      * @tparam group The group for which the constraints should be checked.</a>
-<a name="378"><span class="lineNum">     378 </span>            :      * @return Returns true if one or more constraints are not satisfied, false otherwise.</a>
-<a name="379"><span class="lineNum">     379 </span>            :      */</a>
-<a name="380"><span class="lineNum">     380 </span>            :     template &lt;size_t Group = 0&gt;</a>
-<a name="381"><span class="lineNum">     381 </span><span class="lineCov">         22 :     bool check_constraints_impl() const</span></a>
-<a name="382"><span class="lineNum">     382 </span>            :     {</a>
-<a name="383"><span class="lineNum">     383 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
-<a name="384"><span class="lineNum">     384 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
-<a name="385"><span class="lineNum">     385 </span>            : </a>
-<a name="386"><span class="lineNum">     386 </span><span class="lineCov">         22 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</span></a>
-<a name="387"><span class="lineNum">     387 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;,</span></a>
-<a name="388"><span class="lineNum">     388 </span>            :                         Group);</a>
-<a name="389"><span class="lineNum">     389 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="390"><span class="lineNum">     390 </span>            :         }</a>
-<a name="391"><span class="lineNum">     391 </span><span class="lineCov">         21 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</span></a>
-<a name="392"><span class="lineNum">     392 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;,</span></a>
-<a name="393"><span class="lineNum">     393 </span>            :                         Group);</a>
-<a name="394"><span class="lineNum">     394 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="395"><span class="lineNum">     395 </span>            :         }</a>
-<a name="396"><span class="lineNum">     396 </span><span class="lineCov">         20 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</span></a>
-<a name="397"><span class="lineNum">     397 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;, Group);</span></a>
-<a name="398"><span class="lineNum">     398 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="399"><span class="lineNum">     399 </span>            :         }</a>
-<a name="400"><span class="lineNum">     400 </span>            : </a>
-<a name="401"><span class="lineNum">     401 </span>            :         if constexpr (Group == num_groups - 1) {</a>
-<a name="402"><span class="lineNum">     402 </span><span class="lineCov">          9 :             return false;</span></a>
-<a name="403"><span class="lineNum">     403 </span>            :         }</a>
-<a name="404"><span class="lineNum">     404 </span>            :         else {</a>
-<a name="405"><span class="lineNum">     405 </span><span class="lineCov">         10 :             return check_constraints_impl&lt;Group + 1&gt;();</span></a>
-<a name="406"><span class="lineNum">     406 </span>            :         }</a>
-<a name="407"><span class="lineNum">     407 </span>            :     }</a>
-<a name="408"><span class="lineNum">     408 </span>            : };</a>
-<a name="409"><span class="lineNum">     409 </span>            : </a>
-<a name="410"><span class="lineNum">     410 </span>            : } // namespace lsecir</a>
-<a name="411"><span class="lineNum">     411 </span>            : } // namespace mio</a>
-<a name="412"><span class="lineNum">     412 </span>            : </a>
-<a name="413"><span class="lineNum">     413 </span>            : #endif // LCTSECIR_MODEL_H</a>
+<a name="371"><span class="lineNum">     371 </span>            :     }</a>
+<a name="372"><span class="lineNum">     372 </span>            : };</a>
+<a name="373"><span class="lineNum">     373 </span>            : </a>
+<a name="374"><span class="lineNum">     374 </span>            : } // namespace lsecir</a>
+<a name="375"><span class="lineNum">     375 </span>            : } // namespace mio</a>
+<a name="376"><span class="lineNum">     376 </span>            : </a>
+<a name="377"><span class="lineNum">     377 </span>            : #endif // LCTSECIR_MODEL_H</a>
 </pre>
       </td>
     </tr>

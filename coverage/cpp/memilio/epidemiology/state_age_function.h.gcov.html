@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-18 12:45:26</td>
+            <td class="headerValue">2024-11-26 12:07:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">58</td>
@@ -785,14 +785,14 @@
 <a name="723"><span class="lineNum">     723 </span>            :      * @param[in] state_age Time at which the function is evaluated.</a>
 <a name="724"><span class="lineNum">     724 </span>            :      * @return Evaluation of the function at state_age. </a>
 <a name="725"><span class="lineNum">     725 </span>            :      */</a>
-<a name="726"><span class="lineNum">     726 </span><span class="lineCov">      18341 :     ScalarType eval(ScalarType state_age) override</span></a>
+<a name="726"><span class="lineNum">     726 </span><span class="lineCov">      16413 :     ScalarType eval(ScalarType state_age) override</span></a>
 <a name="727"><span class="lineNum">     727 </span>            :     {</a>
-<a name="728"><span class="lineNum">     728 </span><span class="lineCov">      18341 :         if (state_age &lt; 0) {</span></a>
+<a name="728"><span class="lineNum">     728 </span><span class="lineCov">      16413 :         if (state_age &lt; 0) {</span></a>
 <a name="729"><span class="lineNum">     729 </span><span class="lineCov">         20 :             return 0;</span></a>
 <a name="730"><span class="lineNum">     730 </span>            :         }</a>
-<a name="731"><span class="lineNum">     731 </span><span class="lineCov">      18321 :         int shape = (int)m_distribution_parameter;</span></a>
-<a name="732"><span class="lineNum">     732 </span><span class="lineCov">      18321 :         return std::pow(state_age / m_scale, shape - 1) / (m_scale * boost::math::factorial&lt;ScalarType&gt;(shape - 1)) *</span></a>
-<a name="733"><span class="lineNum">     733 </span><span class="lineCov">      18321 :                std::exp(-state_age / m_scale);</span></a>
+<a name="731"><span class="lineNum">     731 </span><span class="lineCov">      16393 :         int shape = (int)m_distribution_parameter;</span></a>
+<a name="732"><span class="lineNum">     732 </span><span class="lineCov">      16393 :         return std::pow(state_age / m_scale, shape - 1) / (m_scale * boost::math::factorial&lt;ScalarType&gt;(shape - 1)) *</span></a>
+<a name="733"><span class="lineNum">     733 </span><span class="lineCov">      16393 :                std::exp(-state_age / m_scale);</span></a>
 <a name="734"><span class="lineNum">     734 </span>            :     }</a>
 <a name="735"><span class="lineNum">     735 </span>            : </a>
 <a name="736"><span class="lineNum">     736 </span>            :     /**</a>
@@ -813,8 +813,8 @@
 <a name="751"><span class="lineNum">     751 </span><span class="lineCov">        238 :         ScalarType support_max = (ScalarType)dt * (int)(mean / dt);</span></a>
 <a name="752"><span class="lineNum">     752 </span>            : </a>
 <a name="753"><span class="lineNum">     753 </span><span class="lineCov">        238 :         if (!floating_point_equal(m_support_tol, tol, 1e-14) || floating_point_equal(m_support_max, -1., 1e-14)) {</span></a>
-<a name="754"><span class="lineNum">     754 </span><span class="lineCov">       8593 :             while (eval(support_max) &gt;= tol) {</span></a>
-<a name="755"><span class="lineNum">     755 </span><span class="lineCov">       8355 :                 support_max += dt;</span></a>
+<a name="754"><span class="lineNum">     754 </span><span class="lineCov">       7647 :             while (eval(support_max) &gt;= tol) {</span></a>
+<a name="755"><span class="lineNum">     755 </span><span class="lineCov">       7409 :                 support_max += dt;</span></a>
 <a name="756"><span class="lineNum">     756 </span>            :             }</a>
 <a name="757"><span class="lineNum">     757 </span>            : </a>
 <a name="758"><span class="lineNum">     758 </span><span class="lineCov">        238 :             m_support_max = support_max;</span></a>

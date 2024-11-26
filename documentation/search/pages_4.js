@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['ode_20seair_20compartment_20model_4626',['ODE SEAIR compartment model',['../md__home_runner_work_memilio_memilio_cpp_models_ode_seair_README.html',1,'']]],
-  ['ode_20seir_20compartment_20model_4627',['ODE SEIR compartment model',['../md__home_runner_work_memilio_memilio_cpp_models_ode_seir_README.html',1,'']]],
-  ['ode_20sir_20compartment_20model_4628',['ODE SIR compartment model',['../md__home_runner_work_memilio_memilio_cpp_models_ode_sir_README.html',1,'']]],
-  ['ode_2dbased_20secir_2dtype_20model_4629',['ODE-based SECIR-type model',['../md__home_runner_work_memilio_memilio_cpp_models_ode_secir_README.html',1,'']]]
+  ['math_20classes_4652',['Math classes',['../md__home_runner_work_memilio_memilio_cpp_memilio_math_README.html',1,'']]],
+  ['memilio_20_2d_20a_20high_20performance_20modular_20epidemics_20simulation_20software_4653',['MEmilio - a high performance Modular EpideMIcs simuLatIOn software',['../index.html',1,'']]],
+  ['memilio_20c_2b_2b_4654',['MEmilio C++',['../md__home_runner_work_memilio_memilio_cpp_README.html',1,'']]],
+  ['memilio_20c_2b_2b_20io_4655',['MEmilio C++ IO',['../md__home_runner_work_memilio_memilio_cpp_memilio_io_README.html',1,'']]],
+  ['memilio_20c_2b_2b_20mobility_4656',['MEmilio C++ mobility',['../md__home_runner_work_memilio_memilio_cpp_memilio_mobility_README.html',1,'']]],
+  ['memilio_20c_2b_2b_20modelling_20framework_4657',['MEmilio C++ modelling framework',['../md__home_runner_work_memilio_memilio_cpp_memilio_README.html',1,'']]],
+  ['memilio_20documentation_4658',['MEmilio Documentation',['../md_README.html',1,'']]],
+  ['memilio_20models_4659',['MEmilio Models',['../md__home_runner_work_memilio_memilio_cpp_models_README.html',1,'']]]
 ];

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-18 12:45:26</td>
+            <td class="headerValue">2024-11-26 12:07:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">48</td>
@@ -350,9 +350,9 @@
 <a name="288"><span class="lineNum">     288 </span>            :             }</a>
 <a name="289"><span class="lineNum">     289 </span>            :             else {</a>
 <a name="290"><span class="lineNum">     290 </span>            :                 // Approximate integral with non-standard scheme.</a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">       9024 :                 for (Eigen::Index i = num_time_points - calc_time_index; i &lt; num_time_points; i++) {</span></a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       8792 :                     state_age = (num_time_points - i) * m_dt;</span></a>
-<a name="293"><span class="lineNum">     293 </span><span class="lineCov">       8792 :                     sum += erlang.eval(state_age) * m_flows[i][idx_incoming_flow];</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">       8042 :                 for (Eigen::Index i = num_time_points - calc_time_index; i &lt; num_time_points; i++) {</span></a>
+<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       7810 :                     state_age = (num_time_points - i) * m_dt;</span></a>
+<a name="293"><span class="lineNum">     293 </span><span class="lineCov">       7810 :                     sum += erlang.eval(state_age) * m_flows[i][idx_incoming_flow];</span></a>
 <a name="294"><span class="lineNum">     294 </span>            :                 }</a>
 <a name="295"><span class="lineNum">     295 </span><span class="lineCov">        232 :                 init[first_index + j] = 1. / (num_subcompartments * transition_rate) * sum;</span></a>
 <a name="296"><span class="lineNum">     296 </span><span class="lineCov">        232 :                 if (init[first_index + j] &lt; 0) {</span></a>

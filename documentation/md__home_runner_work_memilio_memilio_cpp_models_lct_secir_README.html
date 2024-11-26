@@ -95,21 +95,21 @@ $(function() {
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">$\xi_{I_{NS}}$   </td><td class="markdownTableBodyNone"><code>RelativeTransmissionNoSymptoms</code>   </td><td class="markdownTableBodyNone">Proportion of nonsymptomatically infected people who are not isolated.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">$\xi_{I_{Sy}}$   </td><td class="markdownTableBodyNone"><code>RiskOfInfectionFromSymptomatic</code>   </td><td class="markdownTableBodyNone">Proportion of infected people with symptomps who are not isolated.    </td></tr>
+<td class="markdownTableBodyNone">$\xi_{I_{Sy}}$   </td><td class="markdownTableBodyNone"><code>RiskOfInfectionFromSymptomatic</code>   </td><td class="markdownTableBodyNone">Proportion of infected people with symptoms who are not isolated.    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">$N$   </td><td class="markdownTableBodyNone"><code>m_N0</code>   </td><td class="markdownTableBodyNone">Total population.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">$D$   </td><td class="markdownTableBodyNone"><code>D</code>   </td><td class="markdownTableBodyNone">Number of death people.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">$n_E$   </td><td class="markdownTableBodyNone"><code>NumExposed</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the Exposed compartment.    </td></tr>
+<td class="markdownTableBodyNone">$n_E$   </td><td class="markdownTableBodyNone">Defined in <code>LctStates</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the Exposed compartment.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">$n_{NS}$   </td><td class="markdownTableBodyNone"><code>NumInfectedNoSymptoms</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedNoSymptoms compartment.    </td></tr>
+<td class="markdownTableBodyNone">$n_{NS}$   </td><td class="markdownTableBodyNone">Defined in <code>LctStates</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedNoSymptoms compartment.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">$n_{Sy}$   </td><td class="markdownTableBodyNone"><code>NumInfectedSymptoms</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedSymptoms compartment.    </td></tr>
+<td class="markdownTableBodyNone">$n_{Sy}$   </td><td class="markdownTableBodyNone">Defined in <code>LctStates</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedSymptoms compartment.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">$n_{Sev}$   </td><td class="markdownTableBodyNone"><code>NumInfectedSevere</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedSevere compartment.    </td></tr>
+<td class="markdownTableBodyNone">$n_{Sev}$   </td><td class="markdownTableBodyNone">Defined in <code>LctStates</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedSevere compartment.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">$n_{Cr}$   </td><td class="markdownTableBodyNone"><code>NumInfectedCritical</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedCritical compartment.    </td></tr>
+<td class="markdownTableBodyNone">$n_{Cr}$   </td><td class="markdownTableBodyNone">Defined in <code>LctStates</code>   </td><td class="markdownTableBodyNone">Number of subcompartments of the InfectedCritical compartment.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">$T_E$   </td><td class="markdownTableBodyNone"><code>TimeExposed</code>   </td><td class="markdownTableBodyNone">Average time in days an individual stays in the Exposed compartment.    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -130,10 +130,10 @@ $(function() {
 <td class="markdownTableBodyNone">$\mu_{I_{Cr}}^{D}$   </td><td class="markdownTableBodyNone"><code>DeathsPerCritical</code>   </td><td class="markdownTableBodyNone">Probability of dying when in compartment InfectedCritical.   </td></tr>
 </table>
 <p>The notation of the compartments with indices here stands for subcompartments and not for age groups. Accordingly, $I_{NS,n_{NS}}$, for example, stands for the number of people in the $n_{NS}$-th subcompartment of the InfectedNoSymptoms compartment.</p>
-<h1><a class="anchor" id="autotoc_md49"></a>
+<h1><a class="anchor" id="autotoc_md52"></a>
 Examples</h1>
 <p>A simple example can be found at <a href="../../examples/lct_secir.cpp">LCT minimal example</a>.</p>
-<h1><a class="anchor" id="autotoc_md50"></a>
+<h1><a class="anchor" id="autotoc_md53"></a>
 Initialization</h1>
 <ul>
 <li>The file <a href="parameters_io.h">parameters_io</a> provides functionality to compute an initial value vector for the LCT-SECIR model based on real data.</li>

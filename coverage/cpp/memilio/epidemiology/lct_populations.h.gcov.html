@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-18 12:45:26</td>
+            <td class="headerValue">2024-11-26 12:07:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">141</td>
@@ -170,11 +170,11 @@
 <a name="108"><span class="lineNum">     108 </span>            :     * @return The index of the first entry of group in the flat array.</a>
 <a name="109"><span class="lineNum">     109 </span>            :     */</a>
 <a name="110"><span class="lineNum">     110 </span>            :     template &lt;size_t Group&gt;</a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">       2038 :     size_t get_first_index_of_group() const</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">       2056 :     size_t get_first_index_of_group() const</span></a>
 <a name="112"><span class="lineNum">     112 </span>            :     {</a>
 <a name="113"><span class="lineNum">     113 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
 <a name="114"><span class="lineNum">     114 </span>            :         if constexpr (Group == 0) {</a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">       1318 :             return 0;</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">       1336 :             return 0;</span></a>
 <a name="116"><span class="lineNum">     116 </span>            :         }</a>
 <a name="117"><span class="lineNum">     117 </span>            :         else {</a>
 <a name="118"><span class="lineNum">     118 </span><span class="lineCov">        720 :             return get_first_index_of_group&lt;Group - 1&gt;() + type_at_index_t&lt;Group - 1, LctStatesGroups&gt;::Count;</span></a>
