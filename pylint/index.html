@@ -7261,12 +7261,12 @@ from memilio.epidata import modifyDataframeSeries as mdfs
                 <td><pre>Similar lines in 2 files
 ==memilio.epidata.getCaseData:[238:244]
 ==memilio.epidata.getDIVIData:[141:147]
+    try:
+        df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
+            df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
+    except ValueError:
         try:
-            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
-                df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
-        except ValueError:
-            try:
-                df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
+            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
             </tr>
             
             <tr>
@@ -7522,7 +7522,9 @@ import pandas as pd
 
 from memilio.epidata import defaultDict as dd
 from memilio.epidata import geoModificationGermany as geoger
-from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
+from memilio.epidata import getDataIntoPandasDataFrame as gd
+
+# activate CoW for more predictable behaviour of pandas DataFrames</pre></td>
             </tr>
             
             <tr>

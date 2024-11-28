@@ -1002,10 +1002,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a8bbdf3fcd0a42bff2a78978703924783"><td class="memTemplParams" colspan="2">template&lt;typename FP , class Graph , class NodeF , class EdgeF &gt; </td></tr>
 <tr class="memitem:a8bbdf3fcd0a42bff2a78978703924783"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a8bbdf3fcd0a42bff2a78978703924783">make_graph_sim_stochastic</a> (FP t0, FP dt, <a class="el" href="classmio_1_1Graph.html">Graph</a> &amp;&amp;g, NodeF &amp;&amp;node_func, EdgeF &amp;&amp;edge_func)</td></tr>
 <tr class="separator:a8bbdf3fcd0a42bff2a78978703924783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc1e5644deaefcfcc6da0260337a080"><td class="memTemplParams" colspan="2">template&lt;class MultiIndex &gt; </td></tr>
-<tr class="memitem:a5bc1e5644deaefcfcc6da0260337a080"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1IndexRange.html">IndexRange</a>&lt; MultiIndex &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a5bc1e5644deaefcfcc6da0260337a080">make_index_range</a> (const MultiIndex &amp;dimensions)</td></tr>
-<tr class="memdesc:a5bc1e5644deaefcfcc6da0260337a080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classmio_1_1Range.html" title="immutable random access range, e.g.">Range</a> that can be used to iterate over all MultiIndices in the given dimensions.  <a href="namespacemio.html#a5bc1e5644deaefcfcc6da0260337a080">More...</a><br /></td></tr>
-<tr class="separator:a5bc1e5644deaefcfcc6da0260337a080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa6c95149ff963ad3cf01f21359b2d0"><td class="memTemplParams" colspan="2">template&lt;class... Categories&gt; </td></tr>
+<tr class="memitem:a6aa6c95149ff963ad3cf01f21359b2d0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1IndexRange.html">IndexRange</a>&lt; <a class="el" href="classmio_1_1Index.html">Index</a>&lt; Categories... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a6aa6c95149ff963ad3cf01f21359b2d0">make_index_range</a> (const <a class="el" href="classmio_1_1Index.html">Index</a>&lt; Categories... &gt; &amp;dimensions)</td></tr>
+<tr class="memdesc:a6aa6c95149ff963ad3cf01f21359b2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a range that can be used to iterate over all MultiIndices in the given dimensions.  <a href="namespacemio.html#a6aa6c95149ff963ad3cf01f21359b2d0">More...</a><br /></td></tr>
+<tr class="separator:a6aa6c95149ff963ad3cf01f21359b2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0338301e1b85d878784670ffbceb4750"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
 <tr class="memitem:a0338301e1b85d878784670ffbceb4750"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a0338301e1b85d878784670ffbceb4750">make_mobility_damping_vector</a> (<a class="el" href="classmio_1_1ColumnVectorShape.html">ColumnVectorShape</a> shape, V &amp;&amp;groups)</td></tr>
 <tr class="memdesc:a0338301e1b85d878784670ffbceb4750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make mobility coefficient damping vector from dampings by group.  <a href="namespacemio.html#a0338301e1b85d878784670ffbceb4750">More...</a><br /></td></tr>
@@ -5643,31 +5643,38 @@ template&lt;typename FP , class Graph , class NodeF , class EdgeF &gt; </div>
 
 </div>
 </div>
-<a id="a5bc1e5644deaefcfcc6da0260337a080"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bc1e5644deaefcfcc6da0260337a080">&#9670;&nbsp;</a></span>make_index_range()</h2>
+<a id="a6aa6c95149ff963ad3cf01f21359b2d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aa6c95149ff963ad3cf01f21359b2d0">&#9670;&nbsp;</a></span>make_index_range()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MultiIndex &gt; </div>
+template&lt;class... Categories&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmio_1_1IndexRange.html">IndexRange</a>&lt;MultiIndex&gt; mio::make_index_range </td>
+          <td class="memname"><a class="el" href="classmio_1_1IndexRange.html">IndexRange</a>&lt;<a class="el" href="classmio_1_1Index.html">Index</a>&lt;Categories...&gt; &gt; mio::make_index_range </td>
           <td>(</td>
-          <td class="paramtype">const MultiIndex &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmio_1_1Index.html">Index</a>&lt; Categories... &gt; &amp;&#160;</td>
           <td class="paramname"><em>dimensions</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a <a class="el" href="classmio_1_1Range.html" title="immutable random access range, e.g.">Range</a> that can be used to iterate over all MultiIndices in the given dimensions. </p>
-<p>The range for each <a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> i in the MultiIndex is determined by [0, d_i), where d_i is the dimension of i. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Construct a range that can be used to iterate over all MultiIndices in the given dimensions. </p>
+<p>The range spans over [0, d) for each category in the MultiIndex, where d is that category's value in dimensions. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dimensions</td><td>A MultiIndex that contains the dimension for each Category. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dimensions</td><td>A MultiIndex that contains the dimension for each category. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Categories</td><td>All categories of the given MultiIndex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterable range over the given dimensions. </dd></dl>
 
 </div>
 </div>
