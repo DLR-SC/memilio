@@ -319,53 +319,54 @@ $(function() {
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                .sum();</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="comment">// Size of the Subpopulation Group2 without dead people.</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordtype">double</span> N_2            = pop.segment(first_index_group2, LctStateGroup2::Count - 1).sum();</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> season_val = 1 + params.template get&lt;Seasonality&gt;() *</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                                        <a class="code" href="namespacead_1_1internal.html#a0fd81132bd4b9509ab6744ff9ca11643">sin</a>(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        dydt[Si_1] += -y[Si_1] / N_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                      params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                          <span class="keyword">static_cast&lt;</span>Eigen::Index<span class="keyword">&gt;</span>(Group1), <span class="keyword">static_cast&lt;</span>Eigen::Index<span class="keyword">&gt;</span>(Group2)) *</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                      (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                       params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="comment">// Function call for next interacting group if applicable.</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">if</span> constexpr (Group2 + 1 &lt; <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a>) {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        }</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> Group = 0&gt;</div>
-<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">  345</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">check_constraints_impl</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        static_assert((Group &lt; <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a>) &amp;&amp; (Group &gt;= 0), <span class="stringliteral">&quot;The template parameter Group should be valid.&quot;</span>);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        <span class="keyword">using</span> LctStateGroup = <a class="code" href="namespacemio.html#a49caa280ba5357645388c8cb56d4da17">type_at_index_t</a>&lt;Group, LctStates...&gt;;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;</span>,</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                        Group);</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;</span>,</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                        Group);</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        }</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;</span>, Group);</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keywordflow">if</span> constexpr (Group == <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a> - 1) {</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        }</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordflow">return</span> check_constraints_impl&lt;Group + 1&gt;();</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        }</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    }</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;};</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;} <span class="comment">// namespace lsecir</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;} <span class="comment">// namespace mio</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LCTSECIR_MODEL_H</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> divN_2   = (N_2 &lt; Limits&lt;ScalarType&gt;::zero_tolerance()) ? 0.0 : 1.0 / N_2;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> season_val = 1 + params.template get&lt;Seasonality&gt;() *</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                                        <a class="code" href="namespacead_1_1internal.html#a0fd81132bd4b9509ab6744ff9ca11643">sin</a>(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        dydt[Si_1] += -y[Si_1] * divN_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                      params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                          <span class="keyword">static_cast&lt;</span>Eigen::Index<span class="keyword">&gt;</span>(Group1), <span class="keyword">static_cast&lt;</span>Eigen::Index<span class="keyword">&gt;</span>(Group2)) *</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                      (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                       params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="comment">// Function call for next interacting group if applicable.</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">if</span> constexpr (Group2 + 1 &lt; <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a>) {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> Group = 0&gt;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">  346</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">check_constraints_impl</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        static_assert((Group &lt; <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a>) &amp;&amp; (Group &gt;= 0), <span class="stringliteral">&quot;The template parameter Group should be valid.&quot;</span>);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keyword">using</span> LctStateGroup = <a class="code" href="namespacemio.html#a49caa280ba5357645388c8cb56d4da17">type_at_index_t</a>&lt;Group, LctStates...&gt;;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;</span>,</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                        Group);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;</span>,</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                        Group);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">if</span> (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;</span>, Group);</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordflow">if</span> constexpr (Group == <a class="code" href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">num_groups</a> - 1) {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        }</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <span class="keywordflow">return</span> check_constraints_impl&lt;Group + 1&gt;();</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;};</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;} <span class="comment">// namespace lsecir</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;} <span class="comment">// namespace mio</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LCTSECIR_MODEL_H</span></div>
 <div class="ttc" id="aclassmio_1_1LctPopulations_html"><div class="ttname"><a href="classmio_1_1LctPopulations.html">mio::LctPopulations</a></div><div class="ttdoc">A class template for compartment populations of LCT models.</div><div class="ttdef"><b>Definition:</b> lct_populations.h:57</div></div>
 <div class="ttc" id="aclassmio_1_1LctPopulations_html_a8dbf5b8ad2061f175bbd68717b53a164"><div class="ttname"><a href="classmio_1_1LctPopulations.html#a8dbf5b8ad2061f175bbd68717b53a164">mio::LctPopulations::get_num_compartments</a></div><div class="ttdeci">size_t get_num_compartments() const</div><div class="ttdoc">get_num_compartments Returns the number of compartments.</div><div class="ttdef"><b>Definition:</b> lct_populations.h:76</div></div>
 <div class="ttc" id="aclassmio_1_1TimeSeries_html"><div class="ttname"><a href="classmio_1_1TimeSeries.html">mio::TimeSeries&lt; ScalarType &gt;</a></div></div>
@@ -376,7 +377,7 @@ $(function() {
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html">mio::lsecir::Model</a></div><div class="ttdoc">Class that defines an LCT-SECIR model.</div><div class="ttdef"><b>Definition:</b> model.h:53</div></div>
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a04209f83145f8657a2da1448ba7405bd"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a04209f83145f8657a2da1448ba7405bd">mio::lsecir::Model::num_groups</a></div><div class="ttdeci">static constexpr size_t num_groups</div><div class="ttdef"><b>Definition:</b> model.h:59</div></div>
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a151b41ffb161d5cf714872f0dde6ecc3"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a151b41ffb161d5cf714872f0dde6ecc3">mio::lsecir::Model::interact</a></div><div class="ttdeci">void interact(Eigen::Ref&lt; const Vector&lt; ScalarType &gt;&gt; pop, Eigen::Ref&lt; const Vector&lt; ScalarType &gt;&gt; y, ScalarType t, Eigen::Ref&lt; Vector&lt; ScalarType &gt;&gt; dydt) const</div><div class="ttdoc">Calculates the derivative of the Susceptible compartment for Group1.</div><div class="ttdef"><b>Definition:</b> model.h:297</div></div>
-<div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a4c070109d1ab4ccce2f1cbfb54213bb5"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">mio::lsecir::Model::check_constraints_impl</a></div><div class="ttdeci">bool check_constraints_impl() const</div><div class="ttdoc">Checks whether LctState of a group satisfies all constraints.</div><div class="ttdef"><b>Definition:</b> model.h:345</div></div>
+<div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a4c070109d1ab4ccce2f1cbfb54213bb5"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a4c070109d1ab4ccce2f1cbfb54213bb5">mio::lsecir::Model::check_constraints_impl</a></div><div class="ttdeci">bool check_constraints_impl() const</div><div class="ttdoc">Checks whether LctState of a group satisfies all constraints.</div><div class="ttdef"><b>Definition:</b> model.h:346</div></div>
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a649f402444bbd710502d377be6290cd6"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a649f402444bbd710502d377be6290cd6">mio::lsecir::Model::get_derivatives_impl</a></div><div class="ttdeci">void get_derivatives_impl(Eigen::Ref&lt; const Vector&lt; ScalarType &gt;&gt; pop, Eigen::Ref&lt; const Vector&lt; ScalarType &gt;&gt; y, ScalarType t, Eigen::Ref&lt; Vector&lt; ScalarType &gt;&gt; dydt) const</div><div class="ttdoc">Evaluates the right-hand-side f of the ODE dydt = f(y, t) recursively for each group.</div><div class="ttdef"><b>Definition:</b> model.h:185</div></div>
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a932154e66bb7c46a8d9b7d97c89f81bf"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a932154e66bb7c46a8d9b7d97c89f81bf">mio::lsecir::Model::Model</a></div><div class="ttdeci">Model(const Populations &amp;pop, const ParameterSet &amp;params)</div><div class="ttdoc">Constructor using Populations and ParameterSet.</div><div class="ttdef"><b>Definition:</b> model.h:72</div></div>
 <div class="ttc" id="aclassmio_1_1lsecir_1_1Model_html_a9fa379322c4041672cb4485098c4c39d"><div class="ttname"><a href="classmio_1_1lsecir_1_1Model.html#a9fa379322c4041672cb4485098c4c39d">mio::lsecir::Model::Model</a></div><div class="ttdeci">Model()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> model.h:63</div></div>

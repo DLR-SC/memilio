@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">131</td>
-            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntry">132</td>
+            <td class="headerCovTableEntry">132</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-29 10:36:44</td>
+            <td class="headerValue">2024-12-06 13:45:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">103</td>
@@ -383,60 +383,61 @@
 <a name="321"><span class="lineNum">     321 </span><span class="lineCov">        350 :                 .sum();</span></a>
 <a name="322"><span class="lineNum">     322 </span>            :         // Size of the Subpopulation Group2 without dead people.</a>
 <a name="323"><span class="lineNum">     323 </span><span class="lineCov">        350 :         double N_2            = pop.segment(first_index_group2, LctStateGroup2::Count - 1).sum();</span></a>
-<a name="324"><span class="lineNum">     324 </span><span class="lineCov">        350 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
-<a name="325"><span class="lineNum">     325 </span><span class="lineCov">        350 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
-<a name="326"><span class="lineNum">     326 </span><span class="lineCov">        700 :         dydt[Si_1] += -y[Si_1] / N_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</span></a>
-<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        700 :                       params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</span></a>
-<a name="328"><span class="lineNum">     328 </span><span class="lineCov">        350 :                           static_cast&lt;Eigen::Index&gt;(Group1), static_cast&lt;Eigen::Index&gt;(Group2)) *</span></a>
-<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        350 :                       (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</span></a>
-<a name="330"><span class="lineNum">     330 </span><span class="lineCov">        350 :                        params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</span></a>
-<a name="331"><span class="lineNum">     331 </span>            :         // Function call for next interacting group if applicable.</a>
-<a name="332"><span class="lineNum">     332 </span>            :         if constexpr (Group2 + 1 &lt; num_groups) {</a>
-<a name="333"><span class="lineNum">     333 </span><span class="lineCov">         80 :             interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</span></a>
-<a name="334"><span class="lineNum">     334 </span>            :         }</a>
-<a name="335"><span class="lineNum">     335 </span><span class="lineCov">        700 :     }</span></a>
-<a name="336"><span class="lineNum">     336 </span>            : </a>
-<a name="337"><span class="lineNum">     337 </span>            :     /**</a>
-<a name="338"><span class="lineNum">     338 </span>            :      * @brief Checks whether LctState of a group satisfies all constraints. </a>
-<a name="339"><span class="lineNum">     339 </span>            :      *  Recursively, it checks that all groups satisfy the constraints.</a>
-<a name="340"><span class="lineNum">     340 </span>            :      *</a>
-<a name="341"><span class="lineNum">     341 </span>            :      * @tparam group The group for which the constraints should be checked.</a>
-<a name="342"><span class="lineNum">     342 </span>            :      * @return Returns true if one or more constraints are not satisfied, false otherwise.</a>
-<a name="343"><span class="lineNum">     343 </span>            :      */</a>
-<a name="344"><span class="lineNum">     344 </span>            :     template &lt;size_t Group = 0&gt;</a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         22 :     bool check_constraints_impl() const</span></a>
-<a name="346"><span class="lineNum">     346 </span>            :     {</a>
-<a name="347"><span class="lineNum">     347 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
-<a name="348"><span class="lineNum">     348 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
-<a name="349"><span class="lineNum">     349 </span>            : </a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">         22 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</span></a>
-<a name="351"><span class="lineNum">     351 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;,</span></a>
-<a name="352"><span class="lineNum">     352 </span>            :                         Group);</a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="354"><span class="lineNum">     354 </span>            :         }</a>
-<a name="355"><span class="lineNum">     355 </span><span class="lineCov">         21 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</span></a>
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;,</span></a>
-<a name="357"><span class="lineNum">     357 </span>            :                         Group);</a>
-<a name="358"><span class="lineNum">     358 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="359"><span class="lineNum">     359 </span>            :         }</a>
-<a name="360"><span class="lineNum">     360 </span><span class="lineCov">         20 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</span></a>
-<a name="361"><span class="lineNum">     361 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;, Group);</span></a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">          1 :             return true;</span></a>
-<a name="363"><span class="lineNum">     363 </span>            :         }</a>
-<a name="364"><span class="lineNum">     364 </span>            : </a>
-<a name="365"><span class="lineNum">     365 </span>            :         if constexpr (Group == num_groups - 1) {</a>
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">          9 :             return false;</span></a>
-<a name="367"><span class="lineNum">     367 </span>            :         }</a>
-<a name="368"><span class="lineNum">     368 </span>            :         else {</a>
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">         10 :             return check_constraints_impl&lt;Group + 1&gt;();</span></a>
-<a name="370"><span class="lineNum">     370 </span>            :         }</a>
-<a name="371"><span class="lineNum">     371 </span>            :     }</a>
-<a name="372"><span class="lineNum">     372 </span>            : };</a>
-<a name="373"><span class="lineNum">     373 </span>            : </a>
-<a name="374"><span class="lineNum">     374 </span>            : } // namespace lsecir</a>
-<a name="375"><span class="lineNum">     375 </span>            : } // namespace mio</a>
-<a name="376"><span class="lineNum">     376 </span>            : </a>
-<a name="377"><span class="lineNum">     377 </span>            : #endif // LCTSECIR_MODEL_H</a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">        350 :         const double divN_2   = (N_2 &lt; Limits&lt;ScalarType&gt;::zero_tolerance()) ? 0.0 : 1.0 / N_2;</span></a>
+<a name="325"><span class="lineNum">     325 </span><span class="lineCov">        350 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">        350 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
+<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        700 :         dydt[Si_1] += -y[Si_1] * divN_2 * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;()[Group1] *</span></a>
+<a name="328"><span class="lineNum">     328 </span><span class="lineCov">        700 :                       params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(</span></a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        350 :                           static_cast&lt;Eigen::Index&gt;(Group1), static_cast&lt;Eigen::Index&gt;(Group2)) *</span></a>
+<a name="330"><span class="lineNum">     330 </span><span class="lineCov">        350 :                       (params.template get&lt;RelativeTransmissionNoSymptoms&gt;()[Group2] * infectedNoSymptoms_2 +</span></a>
+<a name="331"><span class="lineNum">     331 </span><span class="lineCov">        350 :                        params.template get&lt;RiskOfInfectionFromSymptomatic&gt;()[Group2] * infectedSymptoms_2);</span></a>
+<a name="332"><span class="lineNum">     332 </span>            :         // Function call for next interacting group if applicable.</a>
+<a name="333"><span class="lineNum">     333 </span>            :         if constexpr (Group2 + 1 &lt; num_groups) {</a>
+<a name="334"><span class="lineNum">     334 </span><span class="lineCov">         80 :             interact&lt;Group1, Group2 + 1&gt;(pop, y, t, dydt);</span></a>
+<a name="335"><span class="lineNum">     335 </span>            :         }</a>
+<a name="336"><span class="lineNum">     336 </span><span class="lineCov">        700 :     }</span></a>
+<a name="337"><span class="lineNum">     337 </span>            : </a>
+<a name="338"><span class="lineNum">     338 </span>            :     /**</a>
+<a name="339"><span class="lineNum">     339 </span>            :      * @brief Checks whether LctState of a group satisfies all constraints. </a>
+<a name="340"><span class="lineNum">     340 </span>            :      *  Recursively, it checks that all groups satisfy the constraints.</a>
+<a name="341"><span class="lineNum">     341 </span>            :      *</a>
+<a name="342"><span class="lineNum">     342 </span>            :      * @tparam group The group for which the constraints should be checked.</a>
+<a name="343"><span class="lineNum">     343 </span>            :      * @return Returns true if one or more constraints are not satisfied, false otherwise.</a>
+<a name="344"><span class="lineNum">     344 </span>            :      */</a>
+<a name="345"><span class="lineNum">     345 </span>            :     template &lt;size_t Group = 0&gt;</a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">         22 :     bool check_constraints_impl() const</span></a>
+<a name="347"><span class="lineNum">     347 </span>            :     {</a>
+<a name="348"><span class="lineNum">     348 </span>            :         static_assert((Group &lt; num_groups) &amp;&amp; (Group &gt;= 0), &quot;The template parameter Group should be valid.&quot;);</a>
+<a name="349"><span class="lineNum">     349 </span>            :         using LctStateGroup = type_at_index_t&lt;Group, LctStates...&gt;;</a>
+<a name="350"><span class="lineNum">     350 </span>            : </a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineCov">         22 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Susceptible&gt;() != 1) {</span></a>
+<a name="352"><span class="lineNum">     352 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Susceptibles of group {} should be one!&quot;,</span></a>
+<a name="353"><span class="lineNum">     353 </span>            :                         Group);</a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="355"><span class="lineNum">     355 </span>            :         }</a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">         21 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Recovered&gt;() != 1) {</span></a>
+<a name="357"><span class="lineNum">     357 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Recovered of group {} should be one!&quot;,</span></a>
+<a name="358"><span class="lineNum">     358 </span>            :                         Group);</a>
+<a name="359"><span class="lineNum">     359 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="360"><span class="lineNum">     360 </span>            :         }</a>
+<a name="361"><span class="lineNum">     361 </span><span class="lineCov">         20 :         if (LctStateGroup::template get_num_subcompartments&lt;InfectionState::Dead&gt;() != 1) {</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: The number of subcompartments for Dead of group {} should be one!&quot;, Group);</span></a>
+<a name="363"><span class="lineNum">     363 </span><span class="lineCov">          1 :             return true;</span></a>
+<a name="364"><span class="lineNum">     364 </span>            :         }</a>
+<a name="365"><span class="lineNum">     365 </span>            : </a>
+<a name="366"><span class="lineNum">     366 </span>            :         if constexpr (Group == num_groups - 1) {</a>
+<a name="367"><span class="lineNum">     367 </span><span class="lineCov">          9 :             return false;</span></a>
+<a name="368"><span class="lineNum">     368 </span>            :         }</a>
+<a name="369"><span class="lineNum">     369 </span>            :         else {</a>
+<a name="370"><span class="lineNum">     370 </span><span class="lineCov">         10 :             return check_constraints_impl&lt;Group + 1&gt;();</span></a>
+<a name="371"><span class="lineNum">     371 </span>            :         }</a>
+<a name="372"><span class="lineNum">     372 </span>            :     }</a>
+<a name="373"><span class="lineNum">     373 </span>            : };</a>
+<a name="374"><span class="lineNum">     374 </span>            : </a>
+<a name="375"><span class="lineNum">     375 </span>            : } // namespace lsecir</a>
+<a name="376"><span class="lineNum">     376 </span>            : } // namespace mio</a>
+<a name="377"><span class="lineNum">     377 </span>            : </a>
+<a name="378"><span class="lineNum">     378 </span>            : #endif // LCTSECIR_MODEL_H</a>
 </pre>
       </td>
     </tr>
