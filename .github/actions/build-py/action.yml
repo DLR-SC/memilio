@@ -9,9 +9,7 @@ runs:
   steps:    
     - name: Install dependencies
       shell: bash
-      run: |
-        sudo apt-get -qq update
-        sudo apt-get -qq -y install ninja-build clang-14
+      run: yum install ninja-build clang-14 -qy
     - name: Make artifact dir
       shell: bash
       run: |

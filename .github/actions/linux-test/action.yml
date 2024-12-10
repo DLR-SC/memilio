@@ -53,8 +53,6 @@ runs:
       run: |
         if [[ "${{ inputs.coverage }}" == "ON" ]]; then
           cd cpp/build
-          # specify gcov version corresponding to inputs "gcc"-"latest" from linux-build for CodeCoverage.cmake 
-          export GCOV_PATH=/usr/bin/gcov-11
           cmake --build . --target coverage/fast
         fi
     - name: Upload test report
