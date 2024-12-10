@@ -39,10 +39,6 @@ runs:
       run: |
         sudo apt-get -qq update
         sudo apt-get -qq -y install lcov ccache
-        if [[ "${{ inputs.coverage }}" == "ON" ]]; then
-          # specify gcov version corresponding to inputs "gcc" and "latest" for CodeCoverage.cmake 
-          export GCOV_PATH=/usr/bin/gcov-11
-        fi
         if [[ "${{ inputs.optional-dependencies }}" == "ON" ]]; then
           sudo apt-get -qq -y install libhdf5-dev 
         fi

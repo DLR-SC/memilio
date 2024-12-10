@@ -18,7 +18,7 @@ runs:
     - name: Build Python Wheels
       shell: bash
       run: |
-        if [ "${{ inputs.package }}" != "generation" ]; then
+        if [ "${{ inputs.package }}" == "generation" ]; then
           # set clang as compiler to avoid warnings/errors during AST generation. the C compiler is probably not needed
           export CXX=clang++
           export C=clang
