@@ -27,8 +27,10 @@ runs:
       shell: bash
       run: |
         sudo apt-get -qq update
-        sudo apt-get -qq -y install libhdf5-10* wget gnupg lcov libasan6
-        sudo apt-get -qq update
+        sudo apt-get -qq -y install libhdf5-10* wget gnupg
+        if  [ "${{ inputs.coverage }}" == "ON" ]; then
+          sudo apt-get -qq -y install g++-11 gcc-11 lcov libasan6
+        fi
     - name: Download built test directory
       uses: actions/download-artifact@v4
       with:
