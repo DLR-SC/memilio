@@ -91,7 +91,8 @@ setup(
         'pyxlsb',
         'wget',
         'twill==3.1',
-        'PyQt6',
+        # PyQt6: versions after 6.6.1 on manylinux_2_28_x86_64 require python 3.9
+        'PyQt6<=6.6.1',
         'python-calamine',
         pymagic
     ],
