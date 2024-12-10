@@ -12,10 +12,8 @@ runs:
       run: |
         sudo apt-get -qq update
         sudo apt-get -qq -y install libhdf5-10* wget gnupg
-        if  [ "${{ inputs.coverage }}" == "ON" ]; then
-          sudo apt-get -qq -y install lcov libasan6
-        fi
-        sudo apt-get -qq update
+        # additional dependencies for test coverage 
+        sudo apt-get -qq -y install libasan6
     - name: Download examples directory
       uses: actions/download-artifact@v4
       with:
