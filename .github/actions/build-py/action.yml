@@ -9,7 +9,9 @@ runs:
   steps:    
     - name: Install dependencies
       shell: bash
-      run: yum install ninja-build -qy
+      run: |
+        sudo apt-get -qq update
+        sudo apt-get -qq -y install ninja-build clang-14
     - name: Make artifact dir
       shell: bash
       run: |
@@ -18,12 +20,12 @@ runs:
     - name: Build Python Wheels
       shell: bash
       run: |
+        cd pycode/memilio-${{ inputs.package }}/
         if [ "${{ inputs.package }}" == "generation" ]; then
           # set clang as compiler to avoid warnings/errors during AST generation. the C compiler is probably not needed
           export CXX=clang++
-          export C=clang
-        fi  
-        cd pycode/memilio-${{ inputs.package }}/
+          export CC=clang
+        fi
         /opt/python/cp38-cp38/bin/python setup.py bdist_wheel
         /opt/python/cp311-cp311/bin/python setup.py bdist_wheel
         # Exclude memilio-generation, because its a pure python package, cmake is only used in the build process to retrieve data from cpp
