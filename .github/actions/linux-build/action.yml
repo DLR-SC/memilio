@@ -96,12 +96,12 @@ runs:
           echo "unknown value for action input: compiler"
           exit 1
         fi
-        if [[ "${{ inputs.coverage }}" == "ON" ]]; then
-          # specify gcov version corresponding to inputs "gcc"-"latest" for CodeCoverage.cmake 
-          export GCOV_PATH=/usr/bin/gcov-11
-        fi
         mkdir -p build && cd build
         cmake -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_BUILD_TYPE=${{ inputs.config }} -DMEMILIO_ENABLE_IPOPT=ON -DMEMILIO_TEST_COVERAGE=${{ inputs.coverage }} -DMEMILIO_SANITIZE_ADDRESS=${{ inputs.sanitizers }} -DMEMILIO_SANITIZE_UNDEFINED=${{ inputs.sanitizers }} -DMEMILIO_USE_BUNDLED_JSONCPP=${{ inputs.optional-dependencies }} -DMEMILIO_ENABLE_OPENMP=${{ inputs.openmp }} ..
+        if [[ "${{ inputs.coverage }}" == "ON" ]]; then
+          # specify gcov version corresponding to inputs "gcc"-"latest" for CodeCoverage.cmake 
+          cmake -DGCOV_PATH=/usr/bin/gcov-11 ..
+        fi
         make -j4
     - name: create build dir archive
       shell: bash
