@@ -18,6 +18,11 @@ runs:
     - name: Build Python Wheels
       shell: bash
       run: |
+        if [ "${{ inputs.package }}" != "generation" ]; then
+          # set clang as compiler to avoid warnings/errors during AST generation. the C compiler is probably not needed
+          export CXX=clang++
+          export C=clang
+        fi  
         cd pycode/memilio-${{ inputs.package }}/
         /opt/python/cp38-cp38/bin/python setup.py bdist_wheel
         /opt/python/cp311-cp311/bin/python setup.py bdist_wheel
