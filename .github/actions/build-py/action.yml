@@ -9,7 +9,7 @@ runs:
   steps:    
     - name: Install dependencies
       shell: bash
-      run: yum install ninja-build clang-14 -qy
+      run: yum install ninja-build clang -qy
     - name: Make artifact dir
       shell: bash
       run: |
