@@ -91,6 +91,8 @@ setup(
         'pyxlsb',
         'wget',
         'twill==3.1',
+        'PyQt6-sip<13.9',
+        'PyQt6',
         'python-calamine',
         pymagic
     ],
