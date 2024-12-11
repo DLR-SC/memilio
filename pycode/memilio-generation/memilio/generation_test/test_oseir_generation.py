@@ -43,12 +43,17 @@ class TestOseirGeneration(unittest.TestCase):
     test_dir = tempfile.TemporaryDirectory(dir=project_path)
     build_dir = tempfile.TemporaryDirectory(dir=test_dir.name)
 
+    # set environment variables such that cmake chooses a clang compiler. the C compiler is probably not needed
+    cmake_env = os.environ.copy()
+    cmake_env["CXX"] = "clang++"
+    cmake_env["CC"] = "clang"
+    
     # run cmake
     cmake_cmd = ["cmake", os.path.join(
         project_path, "pycode/memilio-generation"), "-Wno-dev"]
 
     cmake_cmd_result = subprocess.run(
-        cmake_cmd, stdout=subprocess.PIPE, cwd=build_dir.name)
+        cmake_cmd, cwd=build_dir.name, env=cmake_env)
     cmake_cmd_result.check_returncode()
 
     @patch('memilio.generation.scanner.utility.try_get_compilation_database_path')
