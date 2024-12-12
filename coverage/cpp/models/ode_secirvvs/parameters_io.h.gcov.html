@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">473</td>
-            <td class="headerCovTableEntry">482</td>
-            <td class="headerCovTableEntryHi">98.1 %</td>
+            <td class="headerCovTableEntry">462</td>
+            <td class="headerCovTableEntry">483</td>
+            <td class="headerCovTableEntryHi">95.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-06 13:45:16</td>
+            <td class="headerValue">2024-12-12 09:36:27</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -79,8 +79,8 @@
 <a name="17"><span class="lineNum">      17 </span>            : * See the License for the specific language governing permissions and</a>
 <a name="18"><span class="lineNum">      18 </span>            : * limitations under the License.</a>
 <a name="19"><span class="lineNum">      19 </span>            : */</a>
-<a name="20"><span class="lineNum">      20 </span>            : #ifndef ODESECIRVVS_PARAMETERS_IO_H</a>
-<a name="21"><span class="lineNum">      21 </span>            : #define ODESECIRVVS_PARAMETERS_IO_H</a>
+<a name="20"><span class="lineNum">      20 </span>            : #ifndef MIO_ODE_SECIRVVS_PARAMETERS_IO_H</a>
+<a name="21"><span class="lineNum">      21 </span>            : #define MIO_ODE_SECIRVVS_PARAMETERS_IO_H</a>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : #include &quot;memilio/config.h&quot;</a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
@@ -538,12 +538,12 @@
 <a name="476"><span class="lineNum">     476 </span><span class="lineCov">        693 :             for (auto i = AgeGroup(0); i &lt; num_groups; i++) {</span></a>
 <a name="477"><span class="lineNum">     477 </span>            : </a>
 <a name="478"><span class="lineNum">     478 </span><span class="lineCov">       1188 :                 double S_v = std::min(</span></a>
-<a name="479"><span class="lineNum">     479 </span><span class="lineCov">       1188 :                     model[region].parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;()[{i, SimulationDay(0)}] +</span></a>
+<a name="479"><span class="lineNum">     479 </span><span class="lineCov">       1188 :                     model[region].parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;()[{i, SimulationDay(0)}] +</span></a>
 <a name="480"><span class="lineNum">     480 </span>            :                         vnum_rec[region][size_t(i)],</a>
 <a name="481"><span class="lineNum">     481 </span>            :                     num_population[region][size_t(i)]);</a>
 <a name="482"><span class="lineNum">     482 </span><span class="lineCov">        594 :                 double S_pv = std::max(</span></a>
-<a name="483"><span class="lineNum">     483 </span><span class="lineCov">       2376 :                     model[region].parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;()[{i, SimulationDay(0)}] -</span></a>
-<a name="484"><span class="lineNum">     484 </span><span class="lineCov">       1188 :                         model[region].parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;()[{i, SimulationDay(0)}],</span></a>
+<a name="483"><span class="lineNum">     483 </span><span class="lineCov">       2376 :                     model[region].parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;()[{i, SimulationDay(0)}] -</span></a>
+<a name="484"><span class="lineNum">     484 </span><span class="lineCov">       1188 :                         model[region].parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;()[{i, SimulationDay(0)}],</span></a>
 <a name="485"><span class="lineNum">     485 </span><span class="lineCov">       1188 :                     0.0); // use std::max with 0</span></a>
 <a name="486"><span class="lineNum">     486 </span>            :                 double S;</a>
 <a name="487"><span class="lineNum">     487 </span><span class="lineCov">        594 :                 if (num_population[region][size_t(i)] - S_pv - S_v &lt; 0.0) {</span></a>
@@ -643,7 +643,7 @@
 <a name="581"><span class="lineNum">     581 </span><span class="lineCov">       1188 :                     S * model[region].populations[{i, InfectionState::InfectedCriticalNaive}] * denom_HU;</span></a>
 <a name="582"><span class="lineNum">     582 </span>            : </a>
 <a name="583"><span class="lineNum">     583 </span><span class="lineCov">        594 :                 model[region].populations[{i, InfectionState::SusceptibleImprovedImmunity}] =</span></a>
-<a name="584"><span class="lineNum">     584 </span><span class="lineCov">       1782 :                     model[region].parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;()[{i, SimulationDay(0)}] +</span></a>
+<a name="584"><span class="lineNum">     584 </span><span class="lineCov">       1782 :                     model[region].parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;()[{i, SimulationDay(0)}] +</span></a>
 <a name="585"><span class="lineNum">     585 </span><span class="lineCov">       1188 :                     model[region].populations[{i, InfectionState::SusceptibleImprovedImmunity}] -</span></a>
 <a name="586"><span class="lineNum">     586 </span><span class="lineCov">       1782 :                     (model[region].populations[{i, InfectionState::InfectedSymptomsNaive}] +</span></a>
 <a name="587"><span class="lineNum">     587 </span><span class="lineCov">       1782 :                      model[region].populations[{i, InfectionState::InfectedSymptomsPartialImmunity}] +</span></a>
@@ -735,53 +735,53 @@
 <a name="673"><span class="lineNum">     673 </span>            :  * @param[in] num_days Number of days for which the simulation is run.</a>
 <a name="674"><span class="lineNum">     674 </span>            :  */</a>
 <a name="675"><span class="lineNum">     675 </span>            : template &lt;typename FP = double&gt;</a>
-<a name="676"><span class="lineNum">     676 </span><span class="lineCov">         91 : IOResult&lt;void&gt; set_vaccination_data(std::vector&lt;Model&lt;FP&gt;&gt;&amp; model, const std::vector&lt;VaccinationDataEntry&gt;&amp; vacc_data,</span></a>
+<a name="676"><span class="lineNum">     676 </span><span class="lineCov">         90 : IOResult&lt;void&gt; set_vaccination_data(std::vector&lt;Model&lt;FP&gt;&gt;&amp; model, const std::vector&lt;VaccinationDataEntry&gt;&amp; vacc_data,</span></a>
 <a name="677"><span class="lineNum">     677 </span>            :                                     Date date, const std::vector&lt;int&gt;&amp; vregion, int num_days)</a>
 <a name="678"><span class="lineNum">     678 </span>            : {</a>
-<a name="679"><span class="lineNum">     679 </span><span class="lineCov">         91 :     auto num_groups = model[0].parameters.get_num_groups();</span></a>
+<a name="679"><span class="lineNum">     679 </span><span class="lineCov">         90 :     auto num_groups = model[0].parameters.get_num_groups();</span></a>
 <a name="680"><span class="lineNum">     680 </span>            : </a>
 <a name="681"><span class="lineNum">     681 </span>            :     // type conversion from UncertainValue -&gt; FP -&gt; int</a>
-<a name="682"><span class="lineNum">     682 </span><span class="lineCov">         91 :     auto days_until_effective1 = static_cast&lt;int&gt;(</span></a>
-<a name="683"><span class="lineNum">     683 </span><span class="lineCov">         91 :         static_cast&lt;FP&gt;(model[0].parameters.template get&lt;DaysUntilEffectivePartialImmunity&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
-<a name="684"><span class="lineNum">     684 </span><span class="lineCov">         91 :     auto days_until_effective2 = static_cast&lt;int&gt;(</span></a>
-<a name="685"><span class="lineNum">     685 </span><span class="lineCov">         91 :         static_cast&lt;FP&gt;(model[0].parameters.template get&lt;DaysUntilEffectiveImprovedImmunity&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
-<a name="686"><span class="lineNum">     686 </span><span class="lineCov">         91 :     auto vaccination_distance =</span></a>
-<a name="687"><span class="lineNum">     687 </span><span class="lineCov">         91 :         static_cast&lt;int&gt;(static_cast&lt;FP&gt;(model[0].parameters.template get&lt;VaccinationGap&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
+<a name="682"><span class="lineNum">     682 </span><span class="lineCov">         90 :     auto days_until_effective1 = static_cast&lt;int&gt;(</span></a>
+<a name="683"><span class="lineNum">     683 </span><span class="lineCov">         90 :         static_cast&lt;FP&gt;(model[0].parameters.template get&lt;DaysUntilEffectivePartialImmunity&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
+<a name="684"><span class="lineNum">     684 </span><span class="lineCov">         90 :     auto days_until_effective2 = static_cast&lt;int&gt;(</span></a>
+<a name="685"><span class="lineNum">     685 </span><span class="lineCov">         90 :         static_cast&lt;FP&gt;(model[0].parameters.template get&lt;DaysUntilEffectiveImprovedImmunity&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
+<a name="686"><span class="lineNum">     686 </span><span class="lineCov">         90 :     auto vaccination_distance =</span></a>
+<a name="687"><span class="lineNum">     687 </span><span class="lineCov">         90 :         static_cast&lt;int&gt;(static_cast&lt;FP&gt;(model[0].parameters.template get&lt;VaccinationGap&lt;FP&gt;&gt;()[AgeGroup(0)]));</span></a>
 <a name="688"><span class="lineNum">     688 </span>            : </a>
 <a name="689"><span class="lineNum">     689 </span>            :     // iterate over regions (e.g., counties)</a>
-<a name="690"><span class="lineNum">     690 </span><span class="lineCov">        182 :     for (size_t i = 0; i &lt; model.size(); ++i) {</span></a>
+<a name="690"><span class="lineNum">     690 </span><span class="lineCov">        180 :     for (size_t i = 0; i &lt; model.size(); ++i) {</span></a>
 <a name="691"><span class="lineNum">     691 </span>            :         // iterate over age groups in region</a>
-<a name="692"><span class="lineNum">     692 </span><span class="lineCov">        632 :         for (auto g = AgeGroup(0); g &lt; num_groups; ++g) {</span></a>
+<a name="692"><span class="lineNum">     692 </span><span class="lineCov">        630 :         for (auto g = AgeGroup(0); g &lt; num_groups; ++g) {</span></a>
 <a name="693"><span class="lineNum">     693 </span>            : </a>
-<a name="694"><span class="lineNum">     694 </span><span class="lineCov">        541 :             model[i].parameters.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;().resize(SimulationDay(num_days + 1));</span></a>
-<a name="695"><span class="lineNum">     695 </span><span class="lineCov">        541 :             model[i].parameters.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;().resize(SimulationDay(num_days + 1));</span></a>
-<a name="696"><span class="lineNum">     696 </span><span class="lineCov">       3144 :             for (auto d = SimulationDay(0); d &lt; SimulationDay(num_days + 1); ++d) {</span></a>
-<a name="697"><span class="lineNum">     697 </span><span class="lineCov">       2603 :                 model[i].parameters.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{g, d}] = 0.0;</span></a>
-<a name="698"><span class="lineNum">     698 </span><span class="lineCov">       2603 :                 model[i].parameters.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{g, d}]  = 0.0;</span></a>
+<a name="694"><span class="lineNum">     694 </span><span class="lineCov">        540 :             model[i].parameters.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;().resize(SimulationDay(num_days + 1));</span></a>
+<a name="695"><span class="lineNum">     695 </span><span class="lineCov">        540 :             model[i].parameters.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;().resize(SimulationDay(num_days + 1));</span></a>
+<a name="696"><span class="lineNum">     696 </span><span class="lineCov">       3132 :             for (auto d = SimulationDay(0); d &lt; SimulationDay(num_days + 1); ++d) {</span></a>
+<a name="697"><span class="lineNum">     697 </span><span class="lineCov">       2592 :                 model[i].parameters.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{g, d}] = 0.0;</span></a>
+<a name="698"><span class="lineNum">     698 </span><span class="lineCov">       2592 :                 model[i].parameters.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{g, d}]    = 0.0;</span></a>
 <a name="699"><span class="lineNum">     699 </span>            :             }</a>
 <a name="700"><span class="lineNum">     700 </span>            :         }</a>
 <a name="701"><span class="lineNum">     701 </span>            :     }</a>
 <a name="702"><span class="lineNum">     702 </span>            : </a>
-<a name="703"><span class="lineNum">     703 </span><span class="lineCov">         91 :     auto max_date_entry = std::max_element(vacc_data.begin(), vacc_data.end(), [](auto&amp;&amp; a, auto&amp;&amp; b) {</span></a>
-<a name="704"><span class="lineNum">     704 </span><span class="lineCov">      49600 :         return a.date &lt; b.date;</span></a>
+<a name="703"><span class="lineNum">     703 </span><span class="lineCov">         90 :     auto max_date_entry = std::max_element(vacc_data.begin(), vacc_data.end(), [](auto&amp;&amp; a, auto&amp;&amp; b) {</span></a>
+<a name="704"><span class="lineNum">     704 </span><span class="lineCov">      46728 :         return a.date &lt; b.date;</span></a>
 <a name="705"><span class="lineNum">     705 </span>            :     });</a>
-<a name="706"><span class="lineNum">     706 </span><span class="lineCov">         91 :     if (max_date_entry == vacc_data.end()) {</span></a>
+<a name="706"><span class="lineNum">     706 </span><span class="lineCov">         90 :     if (max_date_entry == vacc_data.end()) {</span></a>
 <a name="707"><span class="lineNum">     707 </span><span class="lineNoCov">          0 :         return failure(StatusCode::InvalidFileFormat, &quot;Vaccination data file is empty.&quot;);</span></a>
 <a name="708"><span class="lineNum">     708 </span>            :     }</a>
-<a name="709"><span class="lineNum">     709 </span><span class="lineCov">         91 :     auto max_date = max_date_entry-&gt;date;</span></a>
+<a name="709"><span class="lineNum">     709 </span><span class="lineCov">         90 :     auto max_date = max_date_entry-&gt;date;</span></a>
 <a name="710"><span class="lineNum">     710 </span>            : </a>
-<a name="711"><span class="lineNum">     711 </span><span class="lineCov">      49782 :     for (auto&amp;&amp; vacc_data_entry : vacc_data) {</span></a>
-<a name="712"><span class="lineNum">     712 </span><span class="lineCov">     129223 :         auto it      = std::find_if(vregion.begin(), vregion.end(), [&amp;vacc_data_entry](auto&amp;&amp; r) {</span></a>
-<a name="713"><span class="lineNum">     713 </span><span class="lineCov">     124277 :             return r == 0 || (vacc_data_entry.county_id &amp;&amp; vacc_data_entry.county_id == regions::CountyId(r)) ||</span></a>
-<a name="714"><span class="lineNum">     714 </span><span class="lineCov">     129201 :                    (vacc_data_entry.state_id &amp;&amp; vacc_data_entry.state_id == regions::StateId(r)) ||</span></a>
-<a name="715"><span class="lineNum">     715 </span><span class="lineCov">     124222 :                    (vacc_data_entry.district_id &amp;&amp; vacc_data_entry.district_id == regions::DistrictId(r));</span></a>
+<a name="711"><span class="lineNum">     711 </span><span class="lineCov">      46908 :     for (auto&amp;&amp; vacc_data_entry : vacc_data) {</span></a>
+<a name="712"><span class="lineNum">     712 </span><span class="lineCov">     118674 :         auto it      = std::find_if(vregion.begin(), vregion.end(), [&amp;vacc_data_entry](auto&amp;&amp; r) {</span></a>
+<a name="713"><span class="lineNum">     713 </span><span class="lineCov">     114183 :             return r == 0 || (vacc_data_entry.county_id &amp;&amp; vacc_data_entry.county_id == regions::CountyId(r)) ||</span></a>
+<a name="714"><span class="lineNum">     714 </span><span class="lineCov">     120582 :                    (vacc_data_entry.state_id &amp;&amp; vacc_data_entry.state_id == regions::StateId(r)) ||</span></a>
+<a name="715"><span class="lineNum">     715 </span><span class="lineCov">     116091 :                    (vacc_data_entry.district_id &amp;&amp; vacc_data_entry.district_id == regions::DistrictId(r));</span></a>
 <a name="716"><span class="lineNum">     716 </span>            :         });</a>
-<a name="717"><span class="lineNum">     717 </span><span class="lineCov">      49691 :         auto date_df = vacc_data_entry.date;</span></a>
-<a name="718"><span class="lineNum">     718 </span><span class="lineCov">      49691 :         if (it != vregion.end()) {</span></a>
-<a name="719"><span class="lineNum">     719 </span><span class="lineCov">      49691 :             auto region_idx = size_t(it - vregion.begin());</span></a>
-<a name="720"><span class="lineNum">     720 </span><span class="lineCov">      49691 :             auto age        = vacc_data_entry.age_group;</span></a>
+<a name="717"><span class="lineNum">     717 </span><span class="lineCov">      46818 :         auto date_df = vacc_data_entry.date;</span></a>
+<a name="718"><span class="lineNum">     718 </span><span class="lineCov">      46818 :         if (it != vregion.end()) {</span></a>
+<a name="719"><span class="lineNum">     719 </span><span class="lineCov">      46818 :             auto region_idx = size_t(it - vregion.begin());</span></a>
+<a name="720"><span class="lineNum">     720 </span><span class="lineCov">      46818 :             auto age        = vacc_data_entry.age_group;</span></a>
 <a name="721"><span class="lineNum">     721 </span>            : </a>
-<a name="722"><span class="lineNum">     722 </span><span class="lineCov">     288276 :             for (size_t d = 0; d &lt; (size_t)num_days + 1; ++d) {</span></a>
+<a name="722"><span class="lineNum">     722 </span><span class="lineCov">     267156 :             for (size_t d = 0; d &lt; (size_t)num_days + 1; ++d) {</span></a>
 <a name="723"><span class="lineNum">     723 </span>            :                 int days_plus;</a>
 <a name="724"><span class="lineNum">     724 </span>            :                 // In the following, second dose means previous 'full immunization', now 'Grundimmunisierung'.</a>
 <a name="725"><span class="lineNum">     725 </span>            :                 // ---</a>
@@ -796,17 +796,17 @@
 <a name="734"><span class="lineNum">     734 </span>            :                 // a person whose second dose is reported at start_date + simulation_day - days_until_effective1 + vaccination_distance</a>
 <a name="735"><span class="lineNum">     735 </span>            :                 // had the first dose on start_date + simulation_day - days_until_effective1. Furthermore, he/she has the full protection</a>
 <a name="736"><span class="lineNum">     736 </span>            :                 // of the first dose at day X = start_date + simulation_day</a>
-<a name="737"><span class="lineNum">     737 </span>            :                 // Storing its value in get&lt;DailyFirstVaccination&gt;() will eventually (in the simulation)</a>
-<a name="738"><span class="lineNum">     738 </span>            :                 // transfer the difference (between get&lt;DailyFirstVaccination&gt;() at d and d-1) of</a>
+<a name="737"><span class="lineNum">     737 </span>            :                 // Storing its value in get&lt;DailyPartialVaccinations&gt;() will eventually (in the simulation)</a>
+<a name="738"><span class="lineNum">     738 </span>            :                 // transfer the difference (between get&lt;DailyPartialVaccinations&gt;() at d and d-1) of</a>
 <a name="739"><span class="lineNum">     739 </span>            :                 // N susceptible individuals to 'Susceptible Partially Vaccinated' state at day d; see secir_vaccinated.h</a>
-<a name="740"><span class="lineNum">     740 </span><span class="lineCov">     238585 :                 auto offset_first_date =</span></a>
-<a name="741"><span class="lineNum">     741 </span><span class="lineCov">     238585 :                     offset_date_by_days(date, (int)d - days_until_effective1 + vaccination_distance);</span></a>
-<a name="742"><span class="lineNum">     742 </span><span class="lineCov">     238585 :                 if (max_date &gt;= offset_first_date) {</span></a>
+<a name="740"><span class="lineNum">     740 </span><span class="lineCov">     220338 :                 auto offset_first_date =</span></a>
+<a name="741"><span class="lineNum">     741 </span><span class="lineCov">     220338 :                     offset_date_by_days(date, (int)d - days_until_effective1 + vaccination_distance);</span></a>
+<a name="742"><span class="lineNum">     742 </span><span class="lineCov">     220338 :                 if (max_date &gt;= offset_first_date) {</span></a>
 <a name="743"><span class="lineNum">     743 </span>            :                     // Option 1: considered offset_first_date is available in input data frame</a>
-<a name="744"><span class="lineNum">     744 </span><span class="lineCov">      14970 :                     if (date_df == offset_first_date) {</span></a>
-<a name="745"><span class="lineNum">     745 </span><span class="lineCov">          6 :                         model[region_idx]</span></a>
-<a name="746"><span class="lineNum">     746 </span><span class="lineCov">          6 :                             .parameters.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] =</span></a>
-<a name="747"><span class="lineNum">     747 </span><span class="lineCov">          6 :                             vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="744"><span class="lineNum">     744 </span><span class="lineCov">      13950 :                     if (date_df == offset_first_date) {</span></a>
+<a name="745"><span class="lineNum">     745 </span><span class="lineNoCov">          0 :                         model[region_idx]</span></a>
+<a name="746"><span class="lineNum">     746 </span><span class="lineNoCov">          0 :                             .parameters.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] =</span></a>
+<a name="747"><span class="lineNum">     747 </span><span class="lineNoCov">          0 :                             vacc_data_entry.num_vaccinations_completed;</span></a>
 <a name="748"><span class="lineNum">     748 </span>            :                     }</a>
 <a name="749"><span class="lineNum">     749 </span>            :                 }</a>
 <a name="750"><span class="lineNum">     750 </span>            :                 else { // offset_first_date &gt; max_date</a>
@@ -815,283 +815,284 @@
 <a name="753"><span class="lineNum">     753 </span>            :                     // the the number of vaccinationes at day d (N days after max_date) will be:</a>
 <a name="754"><span class="lineNum">     754 </span>            :                     // total number of vaccinations up to day max_date + N * number of vaccinations ON max_date</a>
 <a name="755"><span class="lineNum">     755 </span>            :                     // (where the latter is computed as the difference between the total number at max_date and max_date-1)</a>
-<a name="756"><span class="lineNum">     756 </span><span class="lineCov">     223615 :                     days_plus = get_offset_in_days(offset_first_date, max_date);</span></a>
-<a name="757"><span class="lineNum">     757 </span><span class="lineCov">     223615 :                     if (date_df == offset_date_by_days(max_date, -1)) {</span></a>
-<a name="758"><span class="lineNum">     758 </span><span class="lineCov">       2435 :                         model[region_idx]</span></a>
-<a name="759"><span class="lineNum">     759 </span><span class="lineCov">       4870 :                             .parameters.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] -=</span></a>
-<a name="760"><span class="lineNum">     760 </span><span class="lineCov">       2435 :                             days_plus * vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="756"><span class="lineNum">     756 </span><span class="lineCov">     206388 :                     days_plus = get_offset_in_days(offset_first_date, max_date);</span></a>
+<a name="757"><span class="lineNum">     757 </span><span class="lineCov">     206388 :                     if (date_df == offset_date_by_days(max_date, -1)) {</span></a>
+<a name="758"><span class="lineNum">     758 </span><span class="lineCov">       2430 :                         model[region_idx]</span></a>
+<a name="759"><span class="lineNum">     759 </span><span class="lineCov">       4860 :                             .parameters.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] -=</span></a>
+<a name="760"><span class="lineNum">     760 </span><span class="lineCov">       2430 :                             days_plus * vacc_data_entry.num_vaccinations_completed;</span></a>
 <a name="761"><span class="lineNum">     761 </span>            :                     }</a>
-<a name="762"><span class="lineNum">     762 </span><span class="lineCov">     221180 :                     else if (date_df == max_date) {</span></a>
-<a name="763"><span class="lineNum">     763 </span><span class="lineCov">       2435 :                         model[region_idx]</span></a>
-<a name="764"><span class="lineNum">     764 </span><span class="lineCov">       4870 :                             .parameters.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] +=</span></a>
-<a name="765"><span class="lineNum">     765 </span><span class="lineCov">       2435 :                             (days_plus + 1) * vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="762"><span class="lineNum">     762 </span><span class="lineCov">     203958 :                     else if (date_df == max_date) {</span></a>
+<a name="763"><span class="lineNum">     763 </span><span class="lineCov">       2430 :                         model[region_idx]</span></a>
+<a name="764"><span class="lineNum">     764 </span><span class="lineCov">       4860 :                             .parameters.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] +=</span></a>
+<a name="765"><span class="lineNum">     765 </span><span class="lineCov">       2430 :                             (days_plus + 1) * vacc_data_entry.num_vaccinations_completed;</span></a>
 <a name="766"><span class="lineNum">     766 </span>            :                     }</a>
 <a name="767"><span class="lineNum">     767 </span>            :                 }</a>
 <a name="768"><span class="lineNum">     768 </span>            : </a>
 <a name="769"><span class="lineNum">     769 </span>            :                 // a person whose second dose is reported at start_date + simulation_day - days_until_effective2</a>
 <a name="770"><span class="lineNum">     770 </span>            :                 // has the full protection of the second dose at day X = start_date + simulation_day</a>
-<a name="771"><span class="lineNum">     771 </span>            :                 // Storing its value in get&lt;DailyFullVaccination&gt;() will eventually (in the simulation)</a>
-<a name="772"><span class="lineNum">     772 </span>            :                 // transfer the difference (between get&lt;DailyFullVaccination&gt;() at d and d-1) of</a>
+<a name="771"><span class="lineNum">     771 </span>            :                 // Storing its value in get&lt;DailyFullVaccinations&gt;() will eventually (in the simulation)</a>
+<a name="772"><span class="lineNum">     772 </span>            :                 // transfer the difference (between get&lt;DailyFullVaccinations&gt;() at d and d-1) of</a>
 <a name="773"><span class="lineNum">     773 </span>            :                 // N susceptible, partially vaccinated individuals to 'SusceptibleImprovedImmunity' state at day d; see secir_vaccinated.h</a>
-<a name="774"><span class="lineNum">     774 </span><span class="lineCov">     238585 :                 auto offset_full_date = offset_date_by_days(date, (int)d - days_until_effective2);</span></a>
-<a name="775"><span class="lineNum">     775 </span><span class="lineCov">     238585 :                 if (max_date &gt;= offset_full_date) {</span></a>
+<a name="774"><span class="lineNum">     774 </span><span class="lineCov">     220338 :                 auto offset_full_date = offset_date_by_days(date, (int)d - days_until_effective2);</span></a>
+<a name="775"><span class="lineNum">     775 </span><span class="lineCov">     220338 :                 if (max_date &gt;= offset_full_date) {</span></a>
 <a name="776"><span class="lineNum">     776 </span>            :                     // Option 1: considered offset_full_date is available in input data frame</a>
-<a name="777"><span class="lineNum">     777 </span><span class="lineCov">     238574 :                     if (date_df == offset_full_date) {</span></a>
-<a name="778"><span class="lineNum">     778 </span><span class="lineCov">       2440 :                         model[region_idx].parameters.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] =</span></a>
-<a name="779"><span class="lineNum">     779 </span><span class="lineCov">       2440 :                             vacc_data_entry.num_vaccinations_completed;</span></a>
-<a name="780"><span class="lineNum">     780 </span>            :                     }</a>
-<a name="781"><span class="lineNum">     781 </span>            :                 }</a>
-<a name="782"><span class="lineNum">     782 </span>            :                 else { // offset_full_date &gt; max_full_date</a>
-<a name="783"><span class="lineNum">     783 </span>            :                     // Option 2: considered offset_full_date is NOT available in input data frame</a>
-<a name="784"><span class="lineNum">     784 </span><span class="lineCov">         11 :                     days_plus = get_offset_in_days(offset_full_date, max_date);</span></a>
-<a name="785"><span class="lineNum">     785 </span><span class="lineCov">         11 :                     if (date_df == offset_date_by_days(max_date, -1)) {</span></a>
-<a name="786"><span class="lineNum">     786 </span><span class="lineCov">          1 :                         model[region_idx]</span></a>
-<a name="787"><span class="lineNum">     787 </span><span class="lineCov">          2 :                             .parameters.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] -=</span></a>
-<a name="788"><span class="lineNum">     788 </span><span class="lineCov">          1 :                             days_plus * vacc_data_entry.num_vaccinations_completed;</span></a>
-<a name="789"><span class="lineNum">     789 </span>            :                     }</a>
-<a name="790"><span class="lineNum">     790 </span><span class="lineCov">         10 :                     else if (date_df == max_date) {</span></a>
-<a name="791"><span class="lineNum">     791 </span><span class="lineCov">          1 :                         model[region_idx]</span></a>
-<a name="792"><span class="lineNum">     792 </span><span class="lineCov">          2 :                             .parameters.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] +=</span></a>
-<a name="793"><span class="lineNum">     793 </span><span class="lineCov">          1 :                             (days_plus + 1) * vacc_data_entry.num_vaccinations_completed;</span></a>
-<a name="794"><span class="lineNum">     794 </span>            :                     }</a>
-<a name="795"><span class="lineNum">     795 </span>            :                 }</a>
-<a name="796"><span class="lineNum">     796 </span>            :             }</a>
-<a name="797"><span class="lineNum">     797 </span>            :         }</a>
-<a name="798"><span class="lineNum">     798 </span>            :     }</a>
-<a name="799"><span class="lineNum">     799 </span><span class="lineCov">        182 :     return success();</span></a>
-<a name="800"><span class="lineNum">     800 </span>            : }</a>
-<a name="801"><span class="lineNum">     801 </span>            : </a>
-<a name="802"><span class="lineNum">     802 </span>            : /**</a>
-<a name="803"><span class="lineNum">     803 </span>            :  * @brief Reads vaccination data from a file and sets it for each model.</a>
-<a name="804"><span class="lineNum">     804 </span>            :  * </a>
-<a name="805"><span class="lineNum">     805 </span>            :  * @tparam FP Floating point type used in the Model objects.</a>
-<a name="806"><span class="lineNum">     806 </span>            :  * @param[in, out] model Vector of Model objects in which the vaccination data is set.</a>
-<a name="807"><span class="lineNum">     807 </span>            :  * @param[in] path Path to vaccination data file.</a>
-<a name="808"><span class="lineNum">     808 </span>            :  * @param[in] date Start date for the simulation.</a>
-<a name="809"><span class="lineNum">     809 </span>            :  * @param[in] vregion Vector of region identifiers.</a>
-<a name="810"><span class="lineNum">     810 </span>            :  * @param[in] num_days Number of days for which the simulation is run.</a>
-<a name="811"><span class="lineNum">     811 </span>            :  */</a>
-<a name="812"><span class="lineNum">     812 </span>            : template &lt;typename FP = double&gt;</a>
-<a name="813"><span class="lineNum">     813 </span><span class="lineCov">         55 : IOResult&lt;void&gt; set_vaccination_data(std::vector&lt;Model&lt;FP&gt;&gt;&amp; model, const std::string&amp; path, Date date,</span></a>
-<a name="814"><span class="lineNum">     814 </span>            :                                     const std::vector&lt;int&gt;&amp; vregion, int num_days)</a>
-<a name="815"><span class="lineNum">     815 </span>            : {</a>
-<a name="816"><span class="lineNum">     816 </span><span class="lineCov">         55 :     BOOST_OUTCOME_TRY(auto&amp;&amp; vacc_data, read_vaccination_data(path));</span></a>
-<a name="817"><span class="lineNum">     817 </span><span class="lineCov">         55 :     BOOST_OUTCOME_TRY(set_vaccination_data(model, vacc_data, date, vregion, num_days));</span></a>
-<a name="818"><span class="lineNum">     818 </span><span class="lineCov">        110 :     return success();</span></a>
-<a name="819"><span class="lineNum">     819 </span><span class="lineCov">         55 : }</span></a>
-<a name="820"><span class="lineNum">     820 </span>            : </a>
-<a name="821"><span class="lineNum">     821 </span>            : } // namespace details</a>
-<a name="822"><span class="lineNum">     822 </span>            : </a>
-<a name="823"><span class="lineNum">     823 </span>            : #ifdef MEMILIO_HAS_HDF5</a>
-<a name="824"><span class="lineNum">     824 </span>            : </a>
-<a name="825"><span class="lineNum">     825 </span>            : /**</a>
-<a name="826"><span class="lineNum">     826 </span>            : * @brief Uses the initialisation method, which uses the reported data to set the initial conditions for the model for a given day. </a>
-<a name="827"><span class="lineNum">     827 </span>            : * The initialisation is applied for a predefined number of days and finally saved in a timeseries for each region. In the end,</a>
-<a name="828"><span class="lineNum">     828 </span>            : * we save the files &quot;Results_rki.h5&quot; and &quot;Results_rki_sum.h5&quot; in the results_dir.</a>
-<a name="829"><span class="lineNum">     829 </span>            : * Results_rki.h5 contains a time series for each region and Results_rki_sum.h5 contains the sum of all regions.</a>
-<a name="830"><span class="lineNum">     830 </span>            : * @param[in] models Vector of models in which the data is set. Copy is made to avoid changing the original model.</a>
-<a name="831"><span class="lineNum">     831 </span>            : * @param[in] results_dir Path to result files.</a>
-<a name="832"><span class="lineNum">     832 </span>            : * @param[in] counties Vector of keys of the counties of interest.</a>
-<a name="833"><span class="lineNum">     833 </span>            : * @param[in] date Date for which the data should be read.</a>
-<a name="834"><span class="lineNum">     834 </span>            : * @param[in] scaling_factor_inf Factors by which to scale the confirmed cases of rki data.</a>
-<a name="835"><span class="lineNum">     835 </span>            : * @param[in] scaling_factor_icu Factor by which to scale the icu cases of divi data.</a>
-<a name="836"><span class="lineNum">     836 </span>            : * @param[in] num_days Number of days to be simulated/initialized.</a>
-<a name="837"><span class="lineNum">     837 </span>            : * @param[in] divi_data_path Path to DIVI file.</a>
-<a name="838"><span class="lineNum">     838 </span>            : * @param[in] confirmed_cases_path Path to confirmed cases file.</a>
-<a name="839"><span class="lineNum">     839 </span>            : * @param[in] population_data_path Path to population data file.</a>
-<a name="840"><span class="lineNum">     840 </span>            : * @param[in] vaccination_data_path Path to vaccination data file.</a>
-<a name="841"><span class="lineNum">     841 </span>            : */</a>
-<a name="842"><span class="lineNum">     842 </span>            : template &lt;class Model&gt;</a>
-<a name="843"><span class="lineNum">     843 </span><span class="lineCov">         18 : IOResult&lt;void&gt; export_input_data_county_timeseries(</span></a>
-<a name="844"><span class="lineNum">     844 </span>            :     std::vector&lt;Model&gt; models, const std::string&amp; results_dir, const std::vector&lt;int&gt;&amp; counties, Date date,</a>
-<a name="845"><span class="lineNum">     845 </span>            :     const std::vector&lt;double&gt;&amp; scaling_factor_inf, const double scaling_factor_icu, const int num_days,</a>
-<a name="846"><span class="lineNum">     846 </span>            :     const std::string&amp; divi_data_path, const std::string&amp; confirmed_cases_path, const std::string&amp; population_data_path,</a>
-<a name="847"><span class="lineNum">     847 </span>            :     const std::string&amp; vaccination_data_path = &quot;&quot;)</a>
-<a name="848"><span class="lineNum">     848 </span>            : {</a>
-<a name="849"><span class="lineNum">     849 </span><span class="lineCov">         18 :     const auto num_groups = (size_t)models[0].parameters.get_num_groups();</span></a>
-<a name="850"><span class="lineNum">     850 </span><span class="lineCov">         18 :     assert(scaling_factor_inf.size() == num_groups);</span></a>
-<a name="851"><span class="lineNum">     851 </span><span class="lineCov">         18 :     assert(num_groups == ConfirmedCasesDataEntry::age_group_names.size());</span></a>
-<a name="852"><span class="lineNum">     852 </span><span class="lineCov">         18 :     assert(models.size() == counties.size());</span></a>
-<a name="853"><span class="lineNum">     853 </span><span class="lineCov">         72 :     std::vector&lt;TimeSeries&lt;double&gt;&gt; extrapolated_data(</span></a>
-<a name="854"><span class="lineNum">     854 </span><span class="lineCov">         18 :         models.size(), TimeSeries&lt;double&gt;::zero(num_days + 1, (size_t)InfectionState::Count * num_groups));</span></a>
-<a name="855"><span class="lineNum">     855 </span>            : </a>
-<a name="856"><span class="lineNum">     856 </span><span class="lineCov">         18 :     BOOST_OUTCOME_TRY(auto&amp;&amp; case_data, read_confirmed_cases_data(confirmed_cases_path));</span></a>
-<a name="857"><span class="lineNum">     857 </span><span class="lineCov">         18 :     BOOST_OUTCOME_TRY(auto&amp;&amp; population_data, details::read_population_data(population_data_path, counties));</span></a>
-<a name="858"><span class="lineNum">     858 </span>            : </a>
-<a name="859"><span class="lineNum">     859 </span>            :     // empty vector if set_vaccination_data is not set</a>
-<a name="860"><span class="lineNum">     860 </span><span class="lineCov">         18 :     std::vector&lt;VaccinationDataEntry&gt; vacc_data;</span></a>
-<a name="861"><span class="lineNum">     861 </span><span class="lineCov">         18 :     if (!vaccination_data_path.empty()) {</span></a>
-<a name="862"><span class="lineNum">     862 </span><span class="lineCov">         18 :         BOOST_OUTCOME_TRY(vacc_data, read_vaccination_data(vaccination_data_path));</span></a>
-<a name="863"><span class="lineNum">     863 </span><span class="lineCov">         18 :     }</span></a>
-<a name="864"><span class="lineNum">     864 </span>            : </a>
-<a name="865"><span class="lineNum">     865 </span><span class="lineCov">         90 :     for (int t = 0; t &lt;= num_days; ++t) {</span></a>
-<a name="866"><span class="lineNum">     866 </span><span class="lineCov">         36 :         auto offset_day = offset_date_by_days(date, t);</span></a>
-<a name="867"><span class="lineNum">     867 </span>            : </a>
-<a name="868"><span class="lineNum">     868 </span><span class="lineCov">         36 :         if (!vaccination_data_path.empty()) {</span></a>
-<a name="869"><span class="lineNum">     869 </span><span class="lineCov">         36 :             BOOST_OUTCOME_TRY(details::set_vaccination_data(models, vacc_data, offset_day, counties, num_days));</span></a>
-<a name="870"><span class="lineNum">     870 </span><span class="lineCov">         36 :         }</span></a>
-<a name="871"><span class="lineNum">     871 </span>            : </a>
-<a name="872"><span class="lineNum">     872 </span>            :         // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
-<a name="873"><span class="lineNum">     873 </span>            :         // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
-<a name="874"><span class="lineNum">     874 </span><span class="lineCov">         36 :         if (offset_day &gt; Date(2020, 4, 23)) {</span></a>
-<a name="875"><span class="lineNum">     875 </span><span class="lineCov">         27 :             BOOST_OUTCOME_TRY(details::set_divi_data(models, divi_data_path, counties, offset_day, scaling_factor_icu));</span></a>
-<a name="876"><span class="lineNum">     876 </span><span class="lineCov">         27 :         }</span></a>
-<a name="877"><span class="lineNum">     877 </span>            :         else {</a>
-<a name="878"><span class="lineNum">     878 </span><span class="lineCov">         18 :             log_warning(&quot;No DIVI data available for for date: {}-{}-{}&quot;, offset_day.day, offset_day.month,</span></a>
-<a name="879"><span class="lineNum">     879 </span>            :                         offset_day.year);</a>
-<a name="880"><span class="lineNum">     880 </span>            :         }</a>
-<a name="881"><span class="lineNum">     881 </span>            : </a>
-<a name="882"><span class="lineNum">     882 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(</span></a>
-<a name="883"><span class="lineNum">     883 </span>            :             details::set_confirmed_cases_data(models, case_data, counties, offset_day, scaling_factor_inf, true));</a>
-<a name="884"><span class="lineNum">     884 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_population_data(models, population_data, case_data, counties, offset_day));</span></a>
-<a name="885"><span class="lineNum">     885 </span>            : </a>
-<a name="886"><span class="lineNum">     886 </span><span class="lineCov">         72 :         for (size_t r = 0; r &lt; counties.size(); r++) {</span></a>
-<a name="887"><span class="lineNum">     887 </span><span class="lineCov">         36 :             extrapolated_data[r][t] = models[r].get_initial_values();</span></a>
-<a name="888"><span class="lineNum">     888 </span>            :             // in set_population_data the number of death individuals is subtracted from the SusceptibleImprovedImmunity compartment.</a>
-<a name="889"><span class="lineNum">     889 </span>            :             // Since we should be independent whether we consider them or not, we add them back here before we save the data.</a>
-<a name="890"><span class="lineNum">     890 </span><span class="lineCov">        252 :             for (size_t age = 0; age &lt; num_groups; age++) {</span></a>
-<a name="891"><span class="lineNum">     891 </span><span class="lineCov">        216 :                 extrapolated_data[r][t][(size_t)InfectionState::SusceptibleImprovedImmunity +</span></a>
-<a name="892"><span class="lineNum">     892 </span><span class="lineCov">        432 :                                         age * (size_t)InfectionState::Count] +=</span></a>
-<a name="893"><span class="lineNum">     893 </span><span class="lineCov">        216 :                     extrapolated_data[r][t][(size_t)InfectionState::DeadNaive + age * (size_t)InfectionState::Count];</span></a>
-<a name="894"><span class="lineNum">     894 </span>            :             }</a>
-<a name="895"><span class="lineNum">     895 </span>            :         }</a>
-<a name="896"><span class="lineNum">     896 </span>            :     }</a>
-<a name="897"><span class="lineNum">     897 </span><span class="lineCov">         36 :     BOOST_OUTCOME_TRY(save_result(extrapolated_data, counties, static_cast&lt;int&gt;(num_groups),</span></a>
-<a name="898"><span class="lineNum">     898 </span>            :                                   path_join(results_dir, &quot;Results_rki.h5&quot;)));</a>
-<a name="899"><span class="lineNum">     899 </span>            : </a>
-<a name="900"><span class="lineNum">     900 </span><span class="lineCov">         90 :     auto extrapolated_rki_data_sum = sum_nodes(std::vector&lt;std::vector&lt;TimeSeries&lt;double&gt;&gt;&gt;{extrapolated_data});</span></a>
-<a name="901"><span class="lineNum">     901 </span><span class="lineCov">        144 :     BOOST_OUTCOME_TRY(save_result({extrapolated_rki_data_sum[0][0]}, {0}, static_cast&lt;int&gt;(num_groups),</span></a>
-<a name="902"><span class="lineNum">     902 </span>            :                                   path_join(results_dir, &quot;Results_rki_sum.h5&quot;)));</a>
-<a name="903"><span class="lineNum">     903 </span>            : </a>
-<a name="904"><span class="lineNum">     904 </span><span class="lineCov">         36 :     return success();</span></a>
-<a name="905"><span class="lineNum">     905 </span><span class="lineCov">         18 : }</span></a>
-<a name="906"><span class="lineNum">     906 </span>            : #else</a>
-<a name="907"><span class="lineNum">     907 </span>            : template &lt;class Model&gt;</a>
-<a name="908"><span class="lineNum">     908 </span>            : IOResult&lt;void&gt; export_input_data_county_timeseries(std::vector&lt;Model&gt;, const std::string&amp;, const std::vector&lt;int&gt;&amp;,</a>
-<a name="909"><span class="lineNum">     909 </span>            :                                                    Date, const std::vector&lt;double&gt;&amp;, const double, const int,</a>
-<a name="910"><span class="lineNum">     910 </span>            :                                                    const std::string&amp;, const std::string&amp;, const std::string&amp;,</a>
-<a name="911"><span class="lineNum">     911 </span>            :                                                    const std::string&amp;)</a>
-<a name="912"><span class="lineNum">     912 </span>            : {</a>
-<a name="913"><span class="lineNum">     913 </span>            :     mio::log_warning(&quot;HDF5 not available. Cannot export time series of extrapolated real data.&quot;);</a>
-<a name="914"><span class="lineNum">     914 </span>            :     return success();</a>
-<a name="915"><span class="lineNum">     915 </span>            : }</a>
-<a name="916"><span class="lineNum">     916 </span>            : </a>
-<a name="917"><span class="lineNum">     917 </span>            : #endif //MEMILIO_HAS_HDF5</a>
-<a name="918"><span class="lineNum">     918 </span>            : </a>
-<a name="919"><span class="lineNum">     919 </span>            : /**</a>
-<a name="920"><span class="lineNum">     920 </span>            :     * Reads compartments for German counties at a specified date from data files.</a>
-<a name="921"><span class="lineNum">     921 </span>            :     * Estimates all compartments from available data using the model parameters, so the </a>
-<a name="922"><span class="lineNum">     922 </span>            :     * model parameters must be set before calling this function.</a>
-<a name="923"><span class="lineNum">     923 </span>            :     * Uses data files that contain centered 7-day moving average.</a>
-<a name="924"><span class="lineNum">     924 </span>            :     * @param[in, out] model Vector of SECIRVVS models, one per county.</a>
-<a name="925"><span class="lineNum">     925 </span>            :     * @param[in] date Date for which the data should be read.</a>
-<a name="926"><span class="lineNum">     926 </span>            :     * @param[in] county Ids of the counties.</a>
-<a name="927"><span class="lineNum">     927 </span>            :     * @param[in] scaling_factor_inf Factor of confirmed cases to account for undetected cases in each county.</a>
-<a name="928"><span class="lineNum">     928 </span>            :     * @param[in] scaling_factor_icu Factor of ICU cases to account for underreporting.</a>
-<a name="929"><span class="lineNum">     929 </span>            :     * @param[in] dir Directory that contains the data files.</a>
-<a name="930"><span class="lineNum">     930 </span>            :     * @param[in] num_days Number of days to be simulated; required to load data for vaccinations during the simulation.</a>
-<a name="931"><span class="lineNum">     931 </span>            :     * @param[in] export_time_series If true, reads data for each day of simulation and writes it in the same directory as the input files.</a>
-<a name="932"><span class="lineNum">     932 </span>            :     */</a>
-<a name="933"><span class="lineNum">     933 </span>            : template &lt;class Model&gt;</a>
-<a name="934"><span class="lineNum">     934 </span><span class="lineCov">         27 : IOResult&lt;void&gt; read_input_data_county(std::vector&lt;Model&gt;&amp; model, Date date, const std::vector&lt;int&gt;&amp; county,</span></a>
-<a name="935"><span class="lineNum">     935 </span>            :                                       const std::vector&lt;double&gt;&amp; scaling_factor_inf, double scaling_factor_icu,</a>
-<a name="936"><span class="lineNum">     936 </span>            :                                       const std::string&amp; dir, int num_days, bool export_time_series = false)</a>
-<a name="937"><span class="lineNum">     937 </span>            : {</a>
-<a name="938"><span class="lineNum">     938 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_vaccination_data(</span></a>
-<a name="939"><span class="lineNum">     939 </span>            :         model, path_join(dir, &quot;pydata/Germany&quot;, &quot;all_county_ageinf_vacc_ma7.json&quot;), date, county, num_days));</a>
-<a name="940"><span class="lineNum">     940 </span>            : </a>
-<a name="941"><span class="lineNum">     941 </span>            :     // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
-<a name="942"><span class="lineNum">     942 </span>            :     // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
-<a name="943"><span class="lineNum">     943 </span><span class="lineCov">         27 :     if (date &gt; Date(2020, 4, 23)) {</span></a>
-<a name="944"><span class="lineNum">     944 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_divi_data(model, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_divi_ma7.json&quot;),</span></a>
-<a name="945"><span class="lineNum">     945 </span>            :                                                  county, date, scaling_factor_icu));</a>
-<a name="946"><span class="lineNum">     946 </span><span class="lineCov">         18 :     }</span></a>
-<a name="947"><span class="lineNum">     947 </span>            :     else {</a>
-<a name="948"><span class="lineNum">     948 </span><span class="lineCov">         18 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
-<a name="949"><span class="lineNum">     949 </span>            :     }</a>
-<a name="950"><span class="lineNum">     950 </span>            : </a>
-<a name="951"><span class="lineNum">     951 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(</span></a>
-<a name="952"><span class="lineNum">     952 </span>            :         model, path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;), county, date, scaling_factor_inf));</a>
-<a name="953"><span class="lineNum">     953 </span><span class="lineCov">         81 :     BOOST_OUTCOME_TRY(</span></a>
-<a name="954"><span class="lineNum">     954 </span>            :         details::set_population_data(model, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_current_population.json&quot;),</a>
-<a name="955"><span class="lineNum">     955 </span>            :                                      path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;), county, date));</a>
-<a name="956"><span class="lineNum">     956 </span>            : </a>
-<a name="957"><span class="lineNum">     957 </span><span class="lineCov">         27 :     if (export_time_series) {</span></a>
-<a name="958"><span class="lineNum">     958 </span>            :         // Use only if extrapolated real data is needed for comparison. EXPENSIVE !</a>
-<a name="959"><span class="lineNum">     959 </span>            :         // Run time equals run time of the previous functions times the num_days !</a>
-<a name="960"><span class="lineNum">     960 </span>            :         // (This only represents the vectorization of the previous function over all simulation days...)</a>
-<a name="961"><span class="lineNum">     961 </span><span class="lineNoCov">          0 :         log_warning(&quot;Exporting time series of extrapolated real data. This may take some minutes. &quot;</span></a>
-<a name="962"><span class="lineNum">     962 </span>            :                     &quot;For simulation runs over the same time period, deactivate it.&quot;);</a>
-<a name="963"><span class="lineNum">     963 </span><span class="lineNoCov">          0 :         BOOST_OUTCOME_TRY(</span></a>
-<a name="964"><span class="lineNum">     964 </span>            :             export_input_data_county_timeseries(model, dir, county, date, scaling_factor_inf, scaling_factor_icu,</a>
-<a name="965"><span class="lineNum">     965 </span>            :                                                 num_days, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_divi_ma7.json&quot;),</a>
-<a name="966"><span class="lineNum">     966 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;),</a>
-<a name="967"><span class="lineNum">     967 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;county_current_population.json&quot;),</a>
-<a name="968"><span class="lineNum">     968 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;all_county_ageinf_vacc_ma7.json&quot;)));</a>
-<a name="969"><span class="lineNum">     969 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="970"><span class="lineNum">     970 </span>            : </a>
-<a name="971"><span class="lineNum">     971 </span><span class="lineCov">         54 :     return success();</span></a>
-<a name="972"><span class="lineNum">     972 </span><span class="lineCov">         27 : }</span></a>
-<a name="973"><span class="lineNum">     973 </span>            : </a>
-<a name="974"><span class="lineNum">     974 </span>            : /**</a>
-<a name="975"><span class="lineNum">     975 </span>            :     * Reads compartments for German counties at a specified date from data files.</a>
-<a name="976"><span class="lineNum">     976 </span>            :     * Estimates all compartments from available data using the model parameters, so the </a>
-<a name="977"><span class="lineNum">     977 </span>            :     * model parameters must be set before calling this function.</a>
-<a name="978"><span class="lineNum">     978 </span>            :     * Uses data files that contain centered 7-day moving average.</a>
-<a name="979"><span class="lineNum">     979 </span>            :     * @param[in, out] model Vector of SECIRVVS models, one per county.</a>
-<a name="980"><span class="lineNum">     980 </span>            :     * @param[in] date Date for which the data should be read.</a>
-<a name="981"><span class="lineNum">     981 </span>            :     * @param[in] node_ids Ids of the nodes.</a>
-<a name="982"><span class="lineNum">     982 </span>            :     * @param[in] scaling_factor_inf Factor of confirmed cases to account for undetected cases in each county.</a>
-<a name="983"><span class="lineNum">     983 </span>            :     * @param[in] scaling_factor_icu Factor of ICU cases to account for underreporting.</a>
-<a name="984"><span class="lineNum">     984 </span>            :     * @param[in] dir Directory that contains the data files.</a>
-<a name="985"><span class="lineNum">     985 </span>            :     * @param[in] num_days Number of days to be simulated; required to load data for vaccinations during the simulation.</a>
-<a name="986"><span class="lineNum">     986 </span>            :     * @param[in] export_time_series If true, reads data for each day of simulation and writes it in the same directory as the input files.</a>
-<a name="987"><span class="lineNum">     987 </span>            :     */</a>
-<a name="988"><span class="lineNum">     988 </span>            : template &lt;class Model&gt;</a>
-<a name="989"><span class="lineNum">     989 </span><span class="lineCov">         27 : IOResult&lt;void&gt; read_input_data(std::vector&lt;Model&gt;&amp; model, Date date, const std::vector&lt;int&gt;&amp; node_ids,</span></a>
-<a name="990"><span class="lineNum">     990 </span>            :                                const std::vector&lt;double&gt;&amp; scaling_factor_inf, double scaling_factor_icu,</a>
-<a name="991"><span class="lineNum">     991 </span>            :                                const std::string&amp; data_dir, int num_days, bool export_time_series = false)</a>
-<a name="992"><span class="lineNum">     992 </span>            : {</a>
-<a name="993"><span class="lineNum">     993 </span>            : </a>
-<a name="994"><span class="lineNum">     994 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(</span></a>
-<a name="995"><span class="lineNum">     995 </span>            :         details::set_vaccination_data(model, path_join(data_dir, &quot;vaccination_data.json&quot;), date, node_ids, num_days));</a>
-<a name="996"><span class="lineNum">     996 </span>            : </a>
-<a name="997"><span class="lineNum">     997 </span>            :     // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
-<a name="998"><span class="lineNum">     998 </span>            :     // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
-<a name="999"><span class="lineNum">     999 </span><span class="lineCov">         27 :     if (date &gt; Date(2020, 4, 23)) {</span></a>
-<a name="1000"><span class="lineNum">    1000 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_divi_data(model, path_join(data_dir, &quot;critical_cases.json&quot;), node_ids, date,</span></a>
-<a name="1001"><span class="lineNum">    1001 </span>            :                                                  scaling_factor_icu));</a>
-<a name="1002"><span class="lineNum">    1002 </span><span class="lineCov">         18 :     }</span></a>
-<a name="1003"><span class="lineNum">    1003 </span>            :     else {</a>
-<a name="1004"><span class="lineNum">    1004 </span><span class="lineCov">         18 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
-<a name="1005"><span class="lineNum">    1005 </span>            :     }</a>
-<a name="1006"><span class="lineNum">    1006 </span>            : </a>
-<a name="1007"><span class="lineNum">    1007 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(model, path_join(data_dir, &quot;confirmed_cases.json&quot;), node_ids,</span></a>
-<a name="1008"><span class="lineNum">    1008 </span>            :                                                         date, scaling_factor_inf));</a>
-<a name="1009"><span class="lineNum">    1009 </span><span class="lineCov">         81 :     BOOST_OUTCOME_TRY(details::set_population_data(model, path_join(data_dir, &quot;population_data.json&quot;),</span></a>
-<a name="1010"><span class="lineNum">    1010 </span>            :                                                    path_join(data_dir, &quot;confirmed_cases.json&quot;), node_ids, date));</a>
-<a name="1011"><span class="lineNum">    1011 </span>            : </a>
-<a name="1012"><span class="lineNum">    1012 </span><span class="lineCov">         27 :     if (export_time_series) {</span></a>
-<a name="1013"><span class="lineNum">    1013 </span>            :         // Use only if extrapolated real data is needed for comparison. EXPENSIVE !</a>
-<a name="1014"><span class="lineNum">    1014 </span>            :         // Run time equals run time of the previous functions times the num_days !</a>
-<a name="1015"><span class="lineNum">    1015 </span>            :         // (This only represents the vectorization of the previous function over all simulation days...)</a>
-<a name="1016"><span class="lineNum">    1016 </span><span class="lineNoCov">          0 :         log_warning(&quot;Exporting time series of extrapolated real data. This may take some minutes. &quot;</span></a>
-<a name="1017"><span class="lineNum">    1017 </span>            :                     &quot;For simulation runs over the same time period, deactivate it.&quot;);</a>
-<a name="1018"><span class="lineNum">    1018 </span><span class="lineNoCov">          0 :         BOOST_OUTCOME_TRY(export_input_data_county_timeseries(</span></a>
-<a name="1019"><span class="lineNum">    1019 </span>            :             model, data_dir, node_ids, date, scaling_factor_inf, scaling_factor_icu, num_days,</a>
-<a name="1020"><span class="lineNum">    1020 </span>            :             path_join(data_dir, &quot;divi_data.json&quot;), path_join(data_dir, &quot;confirmed_cases.json&quot;),</a>
-<a name="1021"><span class="lineNum">    1021 </span>            :             path_join(data_dir, &quot;population_data.json&quot;), path_join(data_dir, &quot;vaccination_data.json&quot;)));</a>
-<a name="1022"><span class="lineNum">    1022 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="1023"><span class="lineNum">    1023 </span>            : </a>
-<a name="1024"><span class="lineNum">    1024 </span><span class="lineCov">         54 :     return success();</span></a>
-<a name="1025"><span class="lineNum">    1025 </span><span class="lineCov">         27 : }</span></a>
-<a name="1026"><span class="lineNum">    1026 </span>            : </a>
-<a name="1027"><span class="lineNum">    1027 </span>            : } // namespace osecirvvs</a>
-<a name="1028"><span class="lineNum">    1028 </span>            : } // namespace mio</a>
-<a name="1029"><span class="lineNum">    1029 </span>            : </a>
-<a name="1030"><span class="lineNum">    1030 </span>            : #endif // MEMILIO_HAS_JSONCPP</a>
-<a name="1031"><span class="lineNum">    1031 </span>            : </a>
-<a name="1032"><span class="lineNum">    1032 </span>            : #endif // ODESECIRVVS_PARAMETERS_IO_H</a>
+<a name="777"><span class="lineNum">     777 </span><span class="lineCov">     220338 :                     if (date_df == offset_full_date) {</span></a>
+<a name="778"><span class="lineNum">     778 </span><span class="lineCov">       2430 :                         model[region_idx]</span></a>
+<a name="779"><span class="lineNum">     779 </span><span class="lineCov">       2430 :                             .parameters.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] =</span></a>
+<a name="780"><span class="lineNum">     780 </span><span class="lineCov">       2430 :                             vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="781"><span class="lineNum">     781 </span>            :                     }</a>
+<a name="782"><span class="lineNum">     782 </span>            :                 }</a>
+<a name="783"><span class="lineNum">     783 </span>            :                 else { // offset_full_date &gt; max_full_date</a>
+<a name="784"><span class="lineNum">     784 </span>            :                     // Option 2: considered offset_full_date is NOT available in input data frame</a>
+<a name="785"><span class="lineNum">     785 </span><span class="lineNoCov">          0 :                     days_plus = get_offset_in_days(offset_full_date, max_date);</span></a>
+<a name="786"><span class="lineNum">     786 </span><span class="lineNoCov">          0 :                     if (date_df == offset_date_by_days(max_date, -1)) {</span></a>
+<a name="787"><span class="lineNum">     787 </span><span class="lineNoCov">          0 :                         model[region_idx]</span></a>
+<a name="788"><span class="lineNum">     788 </span><span class="lineNoCov">          0 :                             .parameters.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] -=</span></a>
+<a name="789"><span class="lineNum">     789 </span><span class="lineNoCov">          0 :                             days_plus * vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="790"><span class="lineNum">     790 </span>            :                     }</a>
+<a name="791"><span class="lineNum">     791 </span><span class="lineNoCov">          0 :                     else if (date_df == max_date) {</span></a>
+<a name="792"><span class="lineNum">     792 </span><span class="lineNoCov">          0 :                         model[region_idx]</span></a>
+<a name="793"><span class="lineNum">     793 </span><span class="lineNoCov">          0 :                             .parameters.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{age, SimulationDay(d)}] +=</span></a>
+<a name="794"><span class="lineNum">     794 </span><span class="lineNoCov">          0 :                             (days_plus + 1) * vacc_data_entry.num_vaccinations_completed;</span></a>
+<a name="795"><span class="lineNum">     795 </span>            :                     }</a>
+<a name="796"><span class="lineNum">     796 </span>            :                 }</a>
+<a name="797"><span class="lineNum">     797 </span>            :             }</a>
+<a name="798"><span class="lineNum">     798 </span>            :         }</a>
+<a name="799"><span class="lineNum">     799 </span>            :     }</a>
+<a name="800"><span class="lineNum">     800 </span><span class="lineCov">        180 :     return success();</span></a>
+<a name="801"><span class="lineNum">     801 </span>            : }</a>
+<a name="802"><span class="lineNum">     802 </span>            : </a>
+<a name="803"><span class="lineNum">     803 </span>            : /**</a>
+<a name="804"><span class="lineNum">     804 </span>            :  * @brief Reads vaccination data from a file and sets it for each model.</a>
+<a name="805"><span class="lineNum">     805 </span>            :  * </a>
+<a name="806"><span class="lineNum">     806 </span>            :  * @tparam FP Floating point type used in the Model objects.</a>
+<a name="807"><span class="lineNum">     807 </span>            :  * @param[in, out] model Vector of Model objects in which the vaccination data is set.</a>
+<a name="808"><span class="lineNum">     808 </span>            :  * @param[in] path Path to vaccination data file.</a>
+<a name="809"><span class="lineNum">     809 </span>            :  * @param[in] date Start date for the simulation.</a>
+<a name="810"><span class="lineNum">     810 </span>            :  * @param[in] vregion Vector of region identifiers.</a>
+<a name="811"><span class="lineNum">     811 </span>            :  * @param[in] num_days Number of days for which the simulation is run.</a>
+<a name="812"><span class="lineNum">     812 </span>            :  */</a>
+<a name="813"><span class="lineNum">     813 </span>            : template &lt;typename FP = double&gt;</a>
+<a name="814"><span class="lineNum">     814 </span><span class="lineCov">         54 : IOResult&lt;void&gt; set_vaccination_data(std::vector&lt;Model&lt;FP&gt;&gt;&amp; model, const std::string&amp; path, Date date,</span></a>
+<a name="815"><span class="lineNum">     815 </span>            :                                     const std::vector&lt;int&gt;&amp; vregion, int num_days)</a>
+<a name="816"><span class="lineNum">     816 </span>            : {</a>
+<a name="817"><span class="lineNum">     817 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(auto&amp;&amp; vacc_data, read_vaccination_data(path));</span></a>
+<a name="818"><span class="lineNum">     818 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(set_vaccination_data(model, vacc_data, date, vregion, num_days));</span></a>
+<a name="819"><span class="lineNum">     819 </span><span class="lineCov">        108 :     return success();</span></a>
+<a name="820"><span class="lineNum">     820 </span><span class="lineCov">         54 : }</span></a>
+<a name="821"><span class="lineNum">     821 </span>            : </a>
+<a name="822"><span class="lineNum">     822 </span>            : } // namespace details</a>
+<a name="823"><span class="lineNum">     823 </span>            : </a>
+<a name="824"><span class="lineNum">     824 </span>            : #ifdef MEMILIO_HAS_HDF5</a>
+<a name="825"><span class="lineNum">     825 </span>            : </a>
+<a name="826"><span class="lineNum">     826 </span>            : /**</a>
+<a name="827"><span class="lineNum">     827 </span>            : * @brief Uses the initialisation method, which uses the reported data to set the initial conditions for the model for a given day. </a>
+<a name="828"><span class="lineNum">     828 </span>            : * The initialisation is applied for a predefined number of days and finally saved in a timeseries for each region. In the end,</a>
+<a name="829"><span class="lineNum">     829 </span>            : * we save the files &quot;Results_rki.h5&quot; and &quot;Results_rki_sum.h5&quot; in the results_dir.</a>
+<a name="830"><span class="lineNum">     830 </span>            : * Results_rki.h5 contains a time series for each region and Results_rki_sum.h5 contains the sum of all regions.</a>
+<a name="831"><span class="lineNum">     831 </span>            : * @param[in] models Vector of models in which the data is set. Copy is made to avoid changing the original model.</a>
+<a name="832"><span class="lineNum">     832 </span>            : * @param[in] results_dir Path to result files.</a>
+<a name="833"><span class="lineNum">     833 </span>            : * @param[in] counties Vector of keys of the counties of interest.</a>
+<a name="834"><span class="lineNum">     834 </span>            : * @param[in] date Date for which the data should be read.</a>
+<a name="835"><span class="lineNum">     835 </span>            : * @param[in] scaling_factor_inf Factors by which to scale the confirmed cases of rki data.</a>
+<a name="836"><span class="lineNum">     836 </span>            : * @param[in] scaling_factor_icu Factor by which to scale the icu cases of divi data.</a>
+<a name="837"><span class="lineNum">     837 </span>            : * @param[in] num_days Number of days to be simulated/initialized.</a>
+<a name="838"><span class="lineNum">     838 </span>            : * @param[in] divi_data_path Path to DIVI file.</a>
+<a name="839"><span class="lineNum">     839 </span>            : * @param[in] confirmed_cases_path Path to confirmed cases file.</a>
+<a name="840"><span class="lineNum">     840 </span>            : * @param[in] population_data_path Path to population data file.</a>
+<a name="841"><span class="lineNum">     841 </span>            : * @param[in] vaccination_data_path Path to vaccination data file.</a>
+<a name="842"><span class="lineNum">     842 </span>            : */</a>
+<a name="843"><span class="lineNum">     843 </span>            : template &lt;class Model&gt;</a>
+<a name="844"><span class="lineNum">     844 </span><span class="lineCov">         18 : IOResult&lt;void&gt; export_input_data_county_timeseries(</span></a>
+<a name="845"><span class="lineNum">     845 </span>            :     std::vector&lt;Model&gt; models, const std::string&amp; results_dir, const std::vector&lt;int&gt;&amp; counties, Date date,</a>
+<a name="846"><span class="lineNum">     846 </span>            :     const std::vector&lt;double&gt;&amp; scaling_factor_inf, const double scaling_factor_icu, const int num_days,</a>
+<a name="847"><span class="lineNum">     847 </span>            :     const std::string&amp; divi_data_path, const std::string&amp; confirmed_cases_path, const std::string&amp; population_data_path,</a>
+<a name="848"><span class="lineNum">     848 </span>            :     const std::string&amp; vaccination_data_path = &quot;&quot;)</a>
+<a name="849"><span class="lineNum">     849 </span>            : {</a>
+<a name="850"><span class="lineNum">     850 </span><span class="lineCov">         18 :     const auto num_groups = (size_t)models[0].parameters.get_num_groups();</span></a>
+<a name="851"><span class="lineNum">     851 </span><span class="lineCov">         18 :     assert(scaling_factor_inf.size() == num_groups);</span></a>
+<a name="852"><span class="lineNum">     852 </span><span class="lineCov">         18 :     assert(num_groups == ConfirmedCasesDataEntry::age_group_names.size());</span></a>
+<a name="853"><span class="lineNum">     853 </span><span class="lineCov">         18 :     assert(models.size() == counties.size());</span></a>
+<a name="854"><span class="lineNum">     854 </span><span class="lineCov">         72 :     std::vector&lt;TimeSeries&lt;double&gt;&gt; extrapolated_data(</span></a>
+<a name="855"><span class="lineNum">     855 </span><span class="lineCov">         18 :         models.size(), TimeSeries&lt;double&gt;::zero(num_days + 1, (size_t)InfectionState::Count * num_groups));</span></a>
+<a name="856"><span class="lineNum">     856 </span>            : </a>
+<a name="857"><span class="lineNum">     857 </span><span class="lineCov">         18 :     BOOST_OUTCOME_TRY(auto&amp;&amp; case_data, read_confirmed_cases_data(confirmed_cases_path));</span></a>
+<a name="858"><span class="lineNum">     858 </span><span class="lineCov">         18 :     BOOST_OUTCOME_TRY(auto&amp;&amp; population_data, details::read_population_data(population_data_path, counties));</span></a>
+<a name="859"><span class="lineNum">     859 </span>            : </a>
+<a name="860"><span class="lineNum">     860 </span>            :     // empty vector if set_vaccination_data is not set</a>
+<a name="861"><span class="lineNum">     861 </span><span class="lineCov">         18 :     std::vector&lt;VaccinationDataEntry&gt; vacc_data;</span></a>
+<a name="862"><span class="lineNum">     862 </span><span class="lineCov">         18 :     if (!vaccination_data_path.empty()) {</span></a>
+<a name="863"><span class="lineNum">     863 </span><span class="lineCov">         18 :         BOOST_OUTCOME_TRY(vacc_data, read_vaccination_data(vaccination_data_path));</span></a>
+<a name="864"><span class="lineNum">     864 </span><span class="lineCov">         18 :     }</span></a>
+<a name="865"><span class="lineNum">     865 </span>            : </a>
+<a name="866"><span class="lineNum">     866 </span><span class="lineCov">         90 :     for (int t = 0; t &lt;= num_days; ++t) {</span></a>
+<a name="867"><span class="lineNum">     867 </span><span class="lineCov">         36 :         auto offset_day = offset_date_by_days(date, t);</span></a>
+<a name="868"><span class="lineNum">     868 </span>            : </a>
+<a name="869"><span class="lineNum">     869 </span><span class="lineCov">         36 :         if (!vaccination_data_path.empty()) {</span></a>
+<a name="870"><span class="lineNum">     870 </span><span class="lineCov">         36 :             BOOST_OUTCOME_TRY(details::set_vaccination_data(models, vacc_data, offset_day, counties, num_days));</span></a>
+<a name="871"><span class="lineNum">     871 </span><span class="lineCov">         36 :         }</span></a>
+<a name="872"><span class="lineNum">     872 </span>            : </a>
+<a name="873"><span class="lineNum">     873 </span>            :         // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
+<a name="874"><span class="lineNum">     874 </span>            :         // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
+<a name="875"><span class="lineNum">     875 </span><span class="lineCov">         36 :         if (offset_day &gt; Date(2020, 4, 23)) {</span></a>
+<a name="876"><span class="lineNum">     876 </span><span class="lineCov">         27 :             BOOST_OUTCOME_TRY(details::set_divi_data(models, divi_data_path, counties, offset_day, scaling_factor_icu));</span></a>
+<a name="877"><span class="lineNum">     877 </span><span class="lineCov">         27 :         }</span></a>
+<a name="878"><span class="lineNum">     878 </span>            :         else {</a>
+<a name="879"><span class="lineNum">     879 </span><span class="lineCov">         18 :             log_warning(&quot;No DIVI data available for for date: {}-{}-{}&quot;, offset_day.day, offset_day.month,</span></a>
+<a name="880"><span class="lineNum">     880 </span>            :                         offset_day.year);</a>
+<a name="881"><span class="lineNum">     881 </span>            :         }</a>
+<a name="882"><span class="lineNum">     882 </span>            : </a>
+<a name="883"><span class="lineNum">     883 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(</span></a>
+<a name="884"><span class="lineNum">     884 </span>            :             details::set_confirmed_cases_data(models, case_data, counties, offset_day, scaling_factor_inf, true));</a>
+<a name="885"><span class="lineNum">     885 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_population_data(models, population_data, case_data, counties, offset_day));</span></a>
+<a name="886"><span class="lineNum">     886 </span>            : </a>
+<a name="887"><span class="lineNum">     887 </span><span class="lineCov">         72 :         for (size_t r = 0; r &lt; counties.size(); r++) {</span></a>
+<a name="888"><span class="lineNum">     888 </span><span class="lineCov">         36 :             extrapolated_data[r][t] = models[r].get_initial_values();</span></a>
+<a name="889"><span class="lineNum">     889 </span>            :             // in set_population_data the number of death individuals is subtracted from the SusceptibleImprovedImmunity compartment.</a>
+<a name="890"><span class="lineNum">     890 </span>            :             // Since we should be independent whether we consider them or not, we add them back here before we save the data.</a>
+<a name="891"><span class="lineNum">     891 </span><span class="lineCov">        252 :             for (size_t age = 0; age &lt; num_groups; age++) {</span></a>
+<a name="892"><span class="lineNum">     892 </span><span class="lineCov">        216 :                 extrapolated_data[r][t][(size_t)InfectionState::SusceptibleImprovedImmunity +</span></a>
+<a name="893"><span class="lineNum">     893 </span><span class="lineCov">        432 :                                         age * (size_t)InfectionState::Count] +=</span></a>
+<a name="894"><span class="lineNum">     894 </span><span class="lineCov">        216 :                     extrapolated_data[r][t][(size_t)InfectionState::DeadNaive + age * (size_t)InfectionState::Count];</span></a>
+<a name="895"><span class="lineNum">     895 </span>            :             }</a>
+<a name="896"><span class="lineNum">     896 </span>            :         }</a>
+<a name="897"><span class="lineNum">     897 </span>            :     }</a>
+<a name="898"><span class="lineNum">     898 </span><span class="lineCov">         36 :     BOOST_OUTCOME_TRY(save_result(extrapolated_data, counties, static_cast&lt;int&gt;(num_groups),</span></a>
+<a name="899"><span class="lineNum">     899 </span>            :                                   path_join(results_dir, &quot;Results_rki.h5&quot;)));</a>
+<a name="900"><span class="lineNum">     900 </span>            : </a>
+<a name="901"><span class="lineNum">     901 </span><span class="lineCov">         90 :     auto extrapolated_rki_data_sum = sum_nodes(std::vector&lt;std::vector&lt;TimeSeries&lt;double&gt;&gt;&gt;{extrapolated_data});</span></a>
+<a name="902"><span class="lineNum">     902 </span><span class="lineCov">        144 :     BOOST_OUTCOME_TRY(save_result({extrapolated_rki_data_sum[0][0]}, {0}, static_cast&lt;int&gt;(num_groups),</span></a>
+<a name="903"><span class="lineNum">     903 </span>            :                                   path_join(results_dir, &quot;Results_rki_sum.h5&quot;)));</a>
+<a name="904"><span class="lineNum">     904 </span>            : </a>
+<a name="905"><span class="lineNum">     905 </span><span class="lineCov">         36 :     return success();</span></a>
+<a name="906"><span class="lineNum">     906 </span><span class="lineCov">         18 : }</span></a>
+<a name="907"><span class="lineNum">     907 </span>            : #else</a>
+<a name="908"><span class="lineNum">     908 </span>            : template &lt;class Model&gt;</a>
+<a name="909"><span class="lineNum">     909 </span>            : IOResult&lt;void&gt; export_input_data_county_timeseries(std::vector&lt;Model&gt;, const std::string&amp;, const std::vector&lt;int&gt;&amp;,</a>
+<a name="910"><span class="lineNum">     910 </span>            :                                                    Date, const std::vector&lt;double&gt;&amp;, const double, const int,</a>
+<a name="911"><span class="lineNum">     911 </span>            :                                                    const std::string&amp;, const std::string&amp;, const std::string&amp;,</a>
+<a name="912"><span class="lineNum">     912 </span>            :                                                    const std::string&amp;)</a>
+<a name="913"><span class="lineNum">     913 </span>            : {</a>
+<a name="914"><span class="lineNum">     914 </span>            :     mio::log_warning(&quot;HDF5 not available. Cannot export time series of extrapolated real data.&quot;);</a>
+<a name="915"><span class="lineNum">     915 </span>            :     return success();</a>
+<a name="916"><span class="lineNum">     916 </span>            : }</a>
+<a name="917"><span class="lineNum">     917 </span>            : </a>
+<a name="918"><span class="lineNum">     918 </span>            : #endif //MEMILIO_HAS_HDF5</a>
+<a name="919"><span class="lineNum">     919 </span>            : </a>
+<a name="920"><span class="lineNum">     920 </span>            : /**</a>
+<a name="921"><span class="lineNum">     921 </span>            :     * Reads compartments for German counties at a specified date from data files.</a>
+<a name="922"><span class="lineNum">     922 </span>            :     * Estimates all compartments from available data using the model parameters, so the </a>
+<a name="923"><span class="lineNum">     923 </span>            :     * model parameters must be set before calling this function.</a>
+<a name="924"><span class="lineNum">     924 </span>            :     * Uses data files that contain centered 7-day moving average.</a>
+<a name="925"><span class="lineNum">     925 </span>            :     * @param[in, out] model Vector of SECIRVVS models, one per county.</a>
+<a name="926"><span class="lineNum">     926 </span>            :     * @param[in] date Date for which the data should be read.</a>
+<a name="927"><span class="lineNum">     927 </span>            :     * @param[in] county Ids of the counties.</a>
+<a name="928"><span class="lineNum">     928 </span>            :     * @param[in] scaling_factor_inf Factor of confirmed cases to account for undetected cases in each county.</a>
+<a name="929"><span class="lineNum">     929 </span>            :     * @param[in] scaling_factor_icu Factor of ICU cases to account for underreporting.</a>
+<a name="930"><span class="lineNum">     930 </span>            :     * @param[in] dir Directory that contains the data files.</a>
+<a name="931"><span class="lineNum">     931 </span>            :     * @param[in] num_days Number of days to be simulated; required to load data for vaccinations during the simulation.</a>
+<a name="932"><span class="lineNum">     932 </span>            :     * @param[in] export_time_series If true, reads data for each day of simulation and writes it in the same directory as the input files.</a>
+<a name="933"><span class="lineNum">     933 </span>            :     */</a>
+<a name="934"><span class="lineNum">     934 </span>            : template &lt;class Model&gt;</a>
+<a name="935"><span class="lineNum">     935 </span><span class="lineCov">         27 : IOResult&lt;void&gt; read_input_data_county(std::vector&lt;Model&gt;&amp; model, Date date, const std::vector&lt;int&gt;&amp; county,</span></a>
+<a name="936"><span class="lineNum">     936 </span>            :                                       const std::vector&lt;double&gt;&amp; scaling_factor_inf, double scaling_factor_icu,</a>
+<a name="937"><span class="lineNum">     937 </span>            :                                       const std::string&amp; dir, int num_days, bool export_time_series = false)</a>
+<a name="938"><span class="lineNum">     938 </span>            : {</a>
+<a name="939"><span class="lineNum">     939 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_vaccination_data(</span></a>
+<a name="940"><span class="lineNum">     940 </span>            :         model, path_join(dir, &quot;pydata/Germany&quot;, &quot;all_county_ageinf_vacc_ma7.json&quot;), date, county, num_days));</a>
+<a name="941"><span class="lineNum">     941 </span>            : </a>
+<a name="942"><span class="lineNum">     942 </span>            :     // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
+<a name="943"><span class="lineNum">     943 </span>            :     // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
+<a name="944"><span class="lineNum">     944 </span><span class="lineCov">         27 :     if (date &gt; Date(2020, 4, 23)) {</span></a>
+<a name="945"><span class="lineNum">     945 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_divi_data(model, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_divi_ma7.json&quot;),</span></a>
+<a name="946"><span class="lineNum">     946 </span>            :                                                  county, date, scaling_factor_icu));</a>
+<a name="947"><span class="lineNum">     947 </span><span class="lineCov">         18 :     }</span></a>
+<a name="948"><span class="lineNum">     948 </span>            :     else {</a>
+<a name="949"><span class="lineNum">     949 </span><span class="lineCov">         18 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
+<a name="950"><span class="lineNum">     950 </span>            :     }</a>
+<a name="951"><span class="lineNum">     951 </span>            : </a>
+<a name="952"><span class="lineNum">     952 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(</span></a>
+<a name="953"><span class="lineNum">     953 </span>            :         model, path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;), county, date, scaling_factor_inf));</a>
+<a name="954"><span class="lineNum">     954 </span><span class="lineCov">         81 :     BOOST_OUTCOME_TRY(</span></a>
+<a name="955"><span class="lineNum">     955 </span>            :         details::set_population_data(model, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_current_population.json&quot;),</a>
+<a name="956"><span class="lineNum">     956 </span>            :                                      path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;), county, date));</a>
+<a name="957"><span class="lineNum">     957 </span>            : </a>
+<a name="958"><span class="lineNum">     958 </span><span class="lineCov">         27 :     if (export_time_series) {</span></a>
+<a name="959"><span class="lineNum">     959 </span>            :         // Use only if extrapolated real data is needed for comparison. EXPENSIVE !</a>
+<a name="960"><span class="lineNum">     960 </span>            :         // Run time equals run time of the previous functions times the num_days !</a>
+<a name="961"><span class="lineNum">     961 </span>            :         // (This only represents the vectorization of the previous function over all simulation days...)</a>
+<a name="962"><span class="lineNum">     962 </span><span class="lineNoCov">          0 :         log_warning(&quot;Exporting time series of extrapolated real data. This may take some minutes. &quot;</span></a>
+<a name="963"><span class="lineNum">     963 </span>            :                     &quot;For simulation runs over the same time period, deactivate it.&quot;);</a>
+<a name="964"><span class="lineNum">     964 </span><span class="lineNoCov">          0 :         BOOST_OUTCOME_TRY(</span></a>
+<a name="965"><span class="lineNum">     965 </span>            :             export_input_data_county_timeseries(model, dir, county, date, scaling_factor_inf, scaling_factor_icu,</a>
+<a name="966"><span class="lineNum">     966 </span>            :                                                 num_days, path_join(dir, &quot;pydata/Germany&quot;, &quot;county_divi_ma7.json&quot;),</a>
+<a name="967"><span class="lineNum">     967 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;),</a>
+<a name="968"><span class="lineNum">     968 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;county_current_population.json&quot;),</a>
+<a name="969"><span class="lineNum">     969 </span>            :                                                 path_join(dir, &quot;pydata/Germany&quot;, &quot;all_county_ageinf_vacc_ma7.json&quot;)));</a>
+<a name="970"><span class="lineNum">     970 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="971"><span class="lineNum">     971 </span>            : </a>
+<a name="972"><span class="lineNum">     972 </span><span class="lineCov">         54 :     return success();</span></a>
+<a name="973"><span class="lineNum">     973 </span><span class="lineCov">         27 : }</span></a>
+<a name="974"><span class="lineNum">     974 </span>            : </a>
+<a name="975"><span class="lineNum">     975 </span>            : /**</a>
+<a name="976"><span class="lineNum">     976 </span>            :     * Reads compartments for German counties at a specified date from data files.</a>
+<a name="977"><span class="lineNum">     977 </span>            :     * Estimates all compartments from available data using the model parameters, so the </a>
+<a name="978"><span class="lineNum">     978 </span>            :     * model parameters must be set before calling this function.</a>
+<a name="979"><span class="lineNum">     979 </span>            :     * Uses data files that contain centered 7-day moving average.</a>
+<a name="980"><span class="lineNum">     980 </span>            :     * @param[in, out] model Vector of SECIRVVS models, one per county.</a>
+<a name="981"><span class="lineNum">     981 </span>            :     * @param[in] date Date for which the data should be read.</a>
+<a name="982"><span class="lineNum">     982 </span>            :     * @param[in] node_ids Ids of the nodes.</a>
+<a name="983"><span class="lineNum">     983 </span>            :     * @param[in] scaling_factor_inf Factor of confirmed cases to account for undetected cases in each county.</a>
+<a name="984"><span class="lineNum">     984 </span>            :     * @param[in] scaling_factor_icu Factor of ICU cases to account for underreporting.</a>
+<a name="985"><span class="lineNum">     985 </span>            :     * @param[in] dir Directory that contains the data files.</a>
+<a name="986"><span class="lineNum">     986 </span>            :     * @param[in] num_days Number of days to be simulated; required to load data for vaccinations during the simulation.</a>
+<a name="987"><span class="lineNum">     987 </span>            :     * @param[in] export_time_series If true, reads data for each day of simulation and writes it in the same directory as the input files.</a>
+<a name="988"><span class="lineNum">     988 </span>            :     */</a>
+<a name="989"><span class="lineNum">     989 </span>            : template &lt;class Model&gt;</a>
+<a name="990"><span class="lineNum">     990 </span><span class="lineCov">         27 : IOResult&lt;void&gt; read_input_data(std::vector&lt;Model&gt;&amp; model, Date date, const std::vector&lt;int&gt;&amp; node_ids,</span></a>
+<a name="991"><span class="lineNum">     991 </span>            :                                const std::vector&lt;double&gt;&amp; scaling_factor_inf, double scaling_factor_icu,</a>
+<a name="992"><span class="lineNum">     992 </span>            :                                const std::string&amp; data_dir, int num_days, bool export_time_series = false)</a>
+<a name="993"><span class="lineNum">     993 </span>            : {</a>
+<a name="994"><span class="lineNum">     994 </span>            : </a>
+<a name="995"><span class="lineNum">     995 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(</span></a>
+<a name="996"><span class="lineNum">     996 </span>            :         details::set_vaccination_data(model, path_join(data_dir, &quot;vaccination_data.json&quot;), date, node_ids, num_days));</a>
+<a name="997"><span class="lineNum">     997 </span>            : </a>
+<a name="998"><span class="lineNum">     998 </span>            :     // TODO: Reuse more code, e.g., set_divi_data (in secir) and a set_divi_data (here) only need a different ModelType.</a>
+<a name="999"><span class="lineNum">     999 </span>            :     // TODO: add option to set ICU data from confirmed cases if DIVI or other data is not available.</a>
+<a name="1000"><span class="lineNum">    1000 </span><span class="lineCov">         27 :     if (date &gt; Date(2020, 4, 23)) {</span></a>
+<a name="1001"><span class="lineNum">    1001 </span><span class="lineCov">         36 :         BOOST_OUTCOME_TRY(details::set_divi_data(model, path_join(data_dir, &quot;critical_cases.json&quot;), node_ids, date,</span></a>
+<a name="1002"><span class="lineNum">    1002 </span>            :                                                  scaling_factor_icu));</a>
+<a name="1003"><span class="lineNum">    1003 </span><span class="lineCov">         18 :     }</span></a>
+<a name="1004"><span class="lineNum">    1004 </span>            :     else {</a>
+<a name="1005"><span class="lineNum">    1005 </span><span class="lineCov">         18 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
+<a name="1006"><span class="lineNum">    1006 </span>            :     }</a>
+<a name="1007"><span class="lineNum">    1007 </span>            : </a>
+<a name="1008"><span class="lineNum">    1008 </span><span class="lineCov">         54 :     BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(model, path_join(data_dir, &quot;confirmed_cases.json&quot;), node_ids,</span></a>
+<a name="1009"><span class="lineNum">    1009 </span>            :                                                         date, scaling_factor_inf));</a>
+<a name="1010"><span class="lineNum">    1010 </span><span class="lineCov">         81 :     BOOST_OUTCOME_TRY(details::set_population_data(model, path_join(data_dir, &quot;population_data.json&quot;),</span></a>
+<a name="1011"><span class="lineNum">    1011 </span>            :                                                    path_join(data_dir, &quot;confirmed_cases.json&quot;), node_ids, date));</a>
+<a name="1012"><span class="lineNum">    1012 </span>            : </a>
+<a name="1013"><span class="lineNum">    1013 </span><span class="lineCov">         27 :     if (export_time_series) {</span></a>
+<a name="1014"><span class="lineNum">    1014 </span>            :         // Use only if extrapolated real data is needed for comparison. EXPENSIVE !</a>
+<a name="1015"><span class="lineNum">    1015 </span>            :         // Run time equals run time of the previous functions times the num_days !</a>
+<a name="1016"><span class="lineNum">    1016 </span>            :         // (This only represents the vectorization of the previous function over all simulation days...)</a>
+<a name="1017"><span class="lineNum">    1017 </span><span class="lineNoCov">          0 :         log_warning(&quot;Exporting time series of extrapolated real data. This may take some minutes. &quot;</span></a>
+<a name="1018"><span class="lineNum">    1018 </span>            :                     &quot;For simulation runs over the same time period, deactivate it.&quot;);</a>
+<a name="1019"><span class="lineNum">    1019 </span><span class="lineNoCov">          0 :         BOOST_OUTCOME_TRY(export_input_data_county_timeseries(</span></a>
+<a name="1020"><span class="lineNum">    1020 </span>            :             model, data_dir, node_ids, date, scaling_factor_inf, scaling_factor_icu, num_days,</a>
+<a name="1021"><span class="lineNum">    1021 </span>            :             path_join(data_dir, &quot;divi_data.json&quot;), path_join(data_dir, &quot;confirmed_cases.json&quot;),</a>
+<a name="1022"><span class="lineNum">    1022 </span>            :             path_join(data_dir, &quot;population_data.json&quot;), path_join(data_dir, &quot;vaccination_data.json&quot;)));</a>
+<a name="1023"><span class="lineNum">    1023 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="1024"><span class="lineNum">    1024 </span>            : </a>
+<a name="1025"><span class="lineNum">    1025 </span><span class="lineCov">         54 :     return success();</span></a>
+<a name="1026"><span class="lineNum">    1026 </span><span class="lineCov">         27 : }</span></a>
+<a name="1027"><span class="lineNum">    1027 </span>            : </a>
+<a name="1028"><span class="lineNum">    1028 </span>            : } // namespace osecirvvs</a>
+<a name="1029"><span class="lineNum">    1029 </span>            : } // namespace mio</a>
+<a name="1030"><span class="lineNum">    1030 </span>            : </a>
+<a name="1031"><span class="lineNum">    1031 </span>            : #endif // MEMILIO_HAS_JSONCPP</a>
+<a name="1032"><span class="lineNum">    1032 </span>            : </a>
+<a name="1033"><span class="lineNum">    1033 </span>            : #endif // MIO_ODE_SECIRVVS_PARAMETERS_IO_H</a>
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-06 13:45:16</td>
+            <td class="headerValue">2024-12-12 09:36:27</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">94</td>
@@ -79,8 +79,8 @@
 <a name="17"><span class="lineNum">      17 </span>            : * See the License for the specific language governing permissions and</a>
 <a name="18"><span class="lineNum">      18 </span>            : * limitations under the License.</a>
 <a name="19"><span class="lineNum">      19 </span>            : */</a>
-<a name="20"><span class="lineNum">      20 </span>            : #ifndef ODESECIRVVS_ANALYZE_RESULT_H</a>
-<a name="21"><span class="lineNum">      21 </span>            : #define ODESECIRVVS_ANALYZE_RESULT_H</a>
+<a name="20"><span class="lineNum">      20 </span>            : #ifndef MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</a>
+<a name="21"><span class="lineNum">      21 </span>            : #define MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</a>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : #include &quot;ode_secirvvs/infection_state.h&quot;</a>
 <a name="24"><span class="lineNum">      24 </span>            : #include &quot;ode_secirvvs/parameters.h&quot;</a>
@@ -104,7 +104,7 @@
 <a name="42"><span class="lineNum">      42 </span><span class="lineCov">          9 :     auto num_nodes  = ensemble_params[0].size();</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">          9 :     auto num_groups = (size_t)ensemble_params[0][0].parameters.get_num_groups();</span></a>
 <a name="44"><span class="lineNum">      44 </span><span class="lineCov">          9 :     auto num_days   = ensemble_params[0][0]</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          9 :                         .parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;()</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          9 :                         .parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;()</span></a>
 <a name="46"><span class="lineNum">      46 </span><span class="lineCov">          9 :                         .template size&lt;mio::SimulationDay&gt;();</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
 <a name="48"><span class="lineNum">      48 </span><span class="lineCov">         18 :     std::vector&lt;double&gt; single_element_ensemble(num_runs);</span></a>
@@ -123,8 +123,8 @@
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">      92331 :     };</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">         18 :     for (size_t node = 0; node &lt; num_nodes; node++) {</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          9 :         percentile[node].parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;().resize(num_days);</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          9 :         percentile[node].parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;().resize(num_days);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          9 :         percentile[node].parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;().resize(num_days);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          9 :         percentile[node].parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;().resize(num_days);</span></a>
 <a name="66"><span class="lineNum">      66 </span>            : </a>
 <a name="67"><span class="lineNum">      67 </span><span class="lineCov">         54 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(num_groups); i++) {</span></a>
 <a name="68"><span class="lineNum">      68 </span>            :             //Population</a>
@@ -231,11 +231,11 @@
 <a name="169"><span class="lineNum">     169 </span><span class="lineCov">      45045 :             for (auto day = SimulationDay(0); day &lt; num_days; ++day) {</span></a>
 <a name="170"><span class="lineNum">     170 </span><span class="lineCov">      45000 :                 param_percentil(</span></a>
 <a name="171"><span class="lineNum">     171 </span><span class="lineCov">     495000 :                     node, [ i, day ](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">     495000 :                         return model.parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;()[{i, day}];</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">     495000 :                         return model.parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;()[{i, day}];</span></a>
 <a name="173"><span class="lineNum">     173 </span>            :                     });</a>
 <a name="174"><span class="lineNum">     174 </span><span class="lineCov">      45000 :                 param_percentil(</span></a>
 <a name="175"><span class="lineNum">     175 </span><span class="lineCov">     495000 :                     node, [ i, day ](auto&amp;&amp; model) -&gt; auto&amp; {</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">     495000 :                         return model.parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;()[{i, day}];</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">     495000 :                         return model.parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;()[{i, day}];</span></a>
 <a name="177"><span class="lineNum">     177 </span>            :                     });</a>
 <a name="178"><span class="lineNum">     178 </span>            :             }</a>
 <a name="179"><span class="lineNum">     179 </span>            :             //virus variants</a>
@@ -271,7 +271,7 @@
 <a name="209"><span class="lineNum">     209 </span>            : } // namespace osecirvvs</a>
 <a name="210"><span class="lineNum">     210 </span>            : } // namespace mio</a>
 <a name="211"><span class="lineNum">     211 </span>            : </a>
-<a name="212"><span class="lineNum">     212 </span>            : #endif //ODESECIRVVS</a>
+<a name="212"><span class="lineNum">     212 </span>            : #endif //MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</a>
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-06 13:45:16</td>
+            <td class="headerValue">2024-12-12 09:36:27</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -96,34 +96,34 @@
 <a name="34"><span class="lineNum">      34 </span><span class="lineCov">         48 :     return path.string();</span></a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineCov">         24 : }</span></a>
 <a name="36"><span class="lineNum">      36 </span>            : </a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         62 : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path, std::string&amp; abs_path)</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         71 : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path, std::string&amp; abs_path)</span></a>
 <a name="38"><span class="lineNum">      38 </span>            : {</a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">         62 :     boost::filesystem::path dir(rel_path);</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">         62 :     boost::system::error_code ec;</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">         62 :     bool created = boost::filesystem::create_directory(dir, ec);</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         62 :     if (ec) {</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">         71 :     boost::filesystem::path dir(rel_path);</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">         71 :     boost::system::error_code ec;</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">         71 :     bool created = boost::filesystem::create_directory(dir, ec);</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         71 :     if (ec) {</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :         return failure(ec, rel_path);</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :     }</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         62 :     abs_path = boost::filesystem::canonical(dir, ec).string();</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         62 :     if (ec) {</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         71 :     abs_path = boost::filesystem::canonical(dir, ec).string();</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         71 :     if (ec) {</span></a>
 <a name="47"><span class="lineNum">      47 </span><span class="lineNoCov">          0 :         return failure(ec, rel_path);</span></a>
 <a name="48"><span class="lineNum">      48 </span>            :     }</a>
 <a name="49"><span class="lineNum">      49 </span>            : </a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">         62 :     if (created) {</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">         96 :         log_info(&quot;Directory '{:s}' was created.&quot;, dir.string());</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">         71 :     if (created) {</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        114 :         log_info(&quot;Directory '{:s}' was created.&quot;, dir.string());</span></a>
 <a name="52"><span class="lineNum">      52 </span>            :     }</a>
 <a name="53"><span class="lineNum">      53 </span>            :     else {</a>
 <a name="54"><span class="lineNum">      54 </span><span class="lineCov">         28 :         log_info(&quot;Directory '{:s}' already exists.&quot;, dir.string(), mio::get_current_dir_name());</span></a>
 <a name="55"><span class="lineNum">      55 </span>            :     }</a>
 <a name="56"><span class="lineNum">      56 </span>            : </a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">         62 :     return success(created);</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         62 : }</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">         71 :     return success(created);</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">         71 : }</span></a>
 <a name="59"><span class="lineNum">      59 </span>            : </a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         52 : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path)</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         61 : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path)</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : {</a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         52 :     std::string abs_path;</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        104 :     return create_directory(rel_path, abs_path);</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         52 : }</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         61 :     std::string abs_path;</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        122 :     return create_directory(rel_path, abs_path);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         61 : }</span></a>
 <a name="65"><span class="lineNum">      65 </span>            : </a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">         12 : bool file_exists(std::string const&amp; rel_path, std::string&amp; abs_path)</span></a>
 <a name="67"><span class="lineNum">      67 </span>            : {</a>

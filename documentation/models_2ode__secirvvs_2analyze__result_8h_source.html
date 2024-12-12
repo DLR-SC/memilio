@@ -89,8 +89,8 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* See the License for the specific language governing permissions and</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* limitations under the License.</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef ODESECIRVVS_ANALYZE_RESULT_H</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define ODESECIRVVS_ANALYZE_RESULT_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__secirvvs_2infection__state_8h.html">ode_secirvvs/infection_state.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__secirvvs_2parameters_8h.html">ode_secirvvs/parameters.h</a>&quot;</span></div>
@@ -108,7 +108,7 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">auto</span> num_nodes  = ensemble_params[0].size();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">auto</span> num_groups = (size_t)ensemble_params[0][0].parameters.get_num_groups();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">auto</span> num_days   = ensemble_params[0][0]</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        .parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;()</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        .parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;()</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        .<span class="keyword">template</span> size&lt;mio::SimulationDay&gt;();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;double&gt; single_element_ensemble(num_runs);</div>
@@ -127,8 +127,8 @@ $(function() {
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> node = 0; node &lt; num_nodes; node++) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        percentile[node].parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;().resize(num_days);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        percentile[node].parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;().resize(num_days);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        percentile[node].parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;().resize(num_days);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        percentile[node].parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;().resize(num_days);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(0); i &lt; <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(num_groups); i++) {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment">//Population</span></div>
@@ -235,11 +235,11 @@ $(function() {
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> day = <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(0); day &lt; num_days; ++day) {</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                param_percentil(</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    node, [ i, day ](<span class="keyword">auto</span>&amp;&amp; model) -&gt; <span class="keyword">auto</span>&amp; {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                        <span class="keywordflow">return</span> model.parameters.template get&lt;DailyFirstVaccination&lt;double&gt;&gt;()[{i, day}];</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                        <span class="keywordflow">return</span> model.parameters.template get&lt;DailyPartialVaccinations&lt;double&gt;&gt;()[{i, day}];</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    });</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                param_percentil(</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    node, [ i, day ](<span class="keyword">auto</span>&amp;&amp; model) -&gt; <span class="keyword">auto</span>&amp; {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        <span class="keywordflow">return</span> model.parameters.template get&lt;DailyFullVaccination&lt;double&gt;&gt;()[{i, day}];</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        <span class="keywordflow">return</span> model.parameters.template get&lt;DailyFullVaccinations&lt;double&gt;&gt;()[{i, day}];</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    });</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            }</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="comment">//virus variants</span></div>
@@ -275,7 +275,7 @@ $(function() {
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;} <span class="comment">// namespace osecirvvs</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;} <span class="comment">// namespace mio</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ODESECIRVVS</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MIO_ODE_SECIRVVS_ANALYZE_RESULT_H</span></div>
 <div class="ttc" id="aclassmio_1_1Index_html"><div class="ttname"><a href="classmio_1_1Index.html">mio::Index</a></div><div class="ttdoc">An Index with more than one template parameter combines several Index objects.</div><div class="ttdef"><b>Definition:</b> index.h:120</div></div>
 <div class="ttc" id="aclassmio_1_1SimulationDay_html"><div class="ttname"><a href="classmio_1_1SimulationDay.html">mio::SimulationDay</a></div><div class="ttdoc">Represents the simulation time as an integer index.</div><div class="ttdef"><b>Definition:</b> simulation_day.h:32</div></div>
 <div class="ttc" id="aclassmio_1_1osecirvvs_1_1Model_html"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Model.html">mio::osecirvvs::Model</a></div><div class="ttdef"><b>Definition:</b> model.h:92</div></div>

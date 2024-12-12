@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This model extends the basic SECIR model by adding vaccinations and allowing the implicit modeling of a newly arriving variant that takes hold.</p>
-<p>Vaccinations are modeled by adding compartments for partially and fully vaccinated persons. <code>Partially and fully vaccinated</code> is to be understood in this context as the person having received a first and second vaccine shot as in 2021. These model lines can be reused by resetting parameters. Persons that have recovered from the disease are treated as fully vaccinated from that time forward. Vaccinated persons are added on every day of simulation, see parameters <code>DailyFirstVaccination</code> and <code>DailyFullVaccination</code>. All groups can get an infection or get reinfected. Vaccinated persons are less likely to develop symptoms. E.g., the probability to develop symptoms when carrying the virus is the base probability from the SECIR model multiplied with the <code>ReducInfectedSymptomsPartialImmunity</code> parameter.</p>
+<p>Vaccinations are modeled by adding compartments for partially and fully vaccinated persons. <code>Partially and fully vaccinated</code> is to be understood in this context as the person having received a first and second vaccine shot as in 2021. These model lines can be reused by resetting parameters. Persons that have recovered from the disease are treated as fully vaccinated from that time forward. Vaccinated persons are added on every day of simulation, see parameters <code>DailyPartialVaccinations</code> and <code>DailyFullVaccinations</code>. All groups can get an infection or get reinfected. Vaccinated persons are less likely to develop symptoms. E.g., the probability to develop symptoms when carrying the virus is the base probability from the SECIR model multiplied with the <code>ReducInfectedSymptomsPartialImmunity</code> parameter.</p>
 <p>The ratio of two variants can change over time, which affects the average transmissiblity of the disease. Infectiousness of different variants can be set in the parameters.</p>
 <p>Below is an overview of the model architecture and its compartments.</p>
 <p><img src="https://github.com/SciCompMod/memilio/assets/69154294/5d1b72ec-2f45-44a4-8eba-b77533c9e6cf" alt="SECIRVVS_model" class="inline"/> </p><table class="markdownTable">
@@ -110,7 +110,7 @@ $(function() {
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">$\kappa$   </td><td class="markdownTableBodyNone"><code>ReducTimeInfectedMild</code>   </td><td class="markdownTableBodyNone">Reduction factor for time intervals for specific partial and improved immunity compartments.   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md60"></a>
+<h1><a class="anchor" id="autotoc_md61"></a>
 Examples</h1>
 <p>The extended model is used in the 2021_vaccination_sarscov2_delta_germany simulation. An easier example can be found in <a href="../../examples/ode_secirvvs.cpp">examples/ode_secirvvs.cpp</a></p>
 <p>Examples of the basic SECIR model can be found at:</p>

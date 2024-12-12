@@ -89,8 +89,8 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* See the License for the specific language governing permissions and</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* limitations under the License.</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef ODESECIRVVS_MODEL_H</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define ODESECIRVVS_MODEL_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef MIO_ODE_SECIRVVS_MODEL_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define MIO_ODE_SECIRVVS_MODEL_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flow__model_8h.html">memilio/compartments/flow_model.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memilio_2compartments_2simulation_8h.html">memilio/compartments/simulation.h</a>&quot;</span></div>
@@ -659,254 +659,255 @@ $(function() {
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;            <span class="keywordtype">double</span> first_vacc;</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            <span class="keywordtype">double</span> full_vacc;</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            <span class="keywordflow">if</span> (t_idx == <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(0)) {</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                first_vacc = params.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}];</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                full_vacc  = params.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}];</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                first_vacc = params.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}];</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                full_vacc  = params.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}];</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;            }</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                first_vacc = params.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}] -</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                             params.template get&lt;DailyFirstVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx - <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(1)}];</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                full_vacc = params.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}] -</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                            params.template get&lt;DailyFullVaccination&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx - <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(1)}];</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;            }</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;            <span class="keywordflow">if</span> (last_value(count * i + S) - first_vacc &lt; 0) {</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                <span class="keyword">auto</span> corrected = 0.99 * last_value(count * i + S);</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;too many first vaccinated at time {}: setting first_vacc from {} to {}&quot;</span>, t, first_vacc,</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                            corrected);</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                first_vacc = corrected;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;            }</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;            last_value(count * i + S) -= first_vacc;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;            last_value(count * i + SV) += first_vacc;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;            <span class="keywordflow">if</span> (last_value(count * i + SV) - full_vacc &lt; 0) {</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;                <span class="keyword">auto</span> corrected = 0.99 * last_value(count * i + SV);</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;too many fully vaccinated at time {}: setting full_vacc from {} to {}&quot;</span>, t, full_vacc,</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                            corrected);</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                full_vacc = corrected;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;            }</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;            last_value(count * i + SV) -= full_vacc;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;            last_value(count * i + R) += full_vacc;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;        }</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    }</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
-<div class="line"><a name="l00667"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">  667</a></span>&#160;    Eigen::Ref&lt;Vector&lt;FP&gt;&gt; <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">advance</a>(FP tmax)</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    {</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;        <span class="keyword">auto</span>&amp; t_end_dyn_npis   = this-&gt;get_model().parameters.get_end_dynamic_npis();</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="keyword">auto</span>&amp; dyn_npis         = this-&gt;get_model().parameters.template get&lt;DynamicNPIsInfectedSymptoms&lt;FP&gt;&gt;();</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        <span class="keyword">auto</span>&amp; contact_patterns = this-&gt;get_model().parameters.template get&lt;ContactPatterns&lt;FP&gt;&gt;();</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <span class="comment">// const size_t num_groups = (size_t)this-&gt;get_model().parameters.get_num_groups();</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        <span class="comment">// in the apply_variant function, we adjust the TransmissionProbabilityOnContact parameter. We need to store</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="comment">// the base value to use it in the apply_variant function and also to reset the parameter after the simulation.</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keyword">auto</span> base_infectiousness = this-&gt;get_model().parameters.template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;();</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> delay_npi_implementation;</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <span class="keyword">auto</span> t        = BaseT::get_result().get_last_time();</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> dt = dyn_npis.get_thresholds().size() &gt; 0 ? dyn_npis.get_interval().get() : tmax;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keywordflow">while</span> (t &lt; tmax) {</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            <span class="keyword">auto</span> dt_eff = <a class="code" href="namespacead_1_1internal.html#a7ba0a5b242bd0af8fe3f76bcc798c956">std::min</a>({dt, tmax - t, m_t_last_npi_check + dt - t});</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            <span class="keywordflow">if</span> (dt_eff &gt;= 1.0) {</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                dt_eff = 1.0;</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;            }</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160; </div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;            <span class="keywordflow">if</span> (t == 0) {</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                <span class="comment">//this-&gt;apply_vaccination(t); // done in init now?</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                this-&gt;apply_variant(t, base_infectiousness);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;            }</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;            BaseT::advance(t + dt_eff);</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <span class="keywordflow">if</span> (t + 0.5 + dt_eff - <a class="code" href="namespacead_1_1internal.html#a73da6e5a789cf313a8639610d7f18c5b">std::floor</a>(t + 0.5) &gt;= 1) {</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                this-&gt;apply_vaccination(t + 0.5 + dt_eff);</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                this-&gt;apply_variant(t, base_infectiousness);</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;            }</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160; </div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;            <span class="keywordflow">if</span> (t &gt; 0) {</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                delay_npi_implementation =</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                    this-&gt;get_model().parameters.template get&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;();</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;            }</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// DynamicNPIs for t=0 are &#39;misused&#39; to be from-start NPIs. I.e., do not enforce delay.</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                delay_npi_implementation = 0;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;            }</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            t = t + dt_eff;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            <span class="keywordflow">if</span> (dyn_npis.get_thresholds().size() &gt; 0) {</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacemio.html#a25921aa2ea732bff75b46b5b6732fd0e">floating_point_greater_equal</a>(t, m_t_last_npi_check + dt)) {</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                    <span class="keywordflow">if</span> (t &lt; t_end_dyn_npis) {</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                        <span class="keyword">auto</span> inf_rel = get_infections_relative&lt;FP&gt;(*<span class="keyword">this</span>, t, this-&gt;get_result().get_last_value()) *</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                                       dyn_npis.get_base_value();</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                        <span class="keyword">auto</span> exceeded_threshold = dyn_npis.get_max_exceeded_threshold(inf_rel);</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                        <span class="keywordflow">if</span> (exceeded_threshold != dyn_npis.get_thresholds().end() &amp;&amp;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                            (exceeded_threshold-&gt;first &gt; m_dynamic_npi.first ||</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                             t &gt; <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>(m_dynamic_npi.second))) { <span class="comment">//old npi was weaker or is expired</span></div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                            <span class="keyword">auto</span> t_start = <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(t + delay_npi_implementation);</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                            <span class="keyword">auto</span> t_end   = t_start + <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(dyn_npis.get_duration());</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                            this-&gt;get_model().parameters.get_start_commuter_detection() = (<a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>)t_start;</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                            this-&gt;get_model().parameters.get_end_commuter_detection()   = (<a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>)t_end;</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                            m_dynamic_npi = std::make_pair(exceeded_threshold-&gt;first, t_end);</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                            <a class="code" href="namespacemio.html#a964b42164d9f96774552df5bcf02e934">implement_dynamic_npis</a>(contact_patterns.get_cont_freq_mat(), exceeded_threshold-&gt;second,</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                                                   t_start, t_end, [](<span class="keyword">auto</span>&amp; g) {</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                                                       return make_contact_damping_matrix(g);</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                                                   });</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                        }</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                    }</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                    m_t_last_npi_check = t;</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                }</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            }</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                m_t_last_npi_check = t;</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            }</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        }</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        <span class="comment">// reset TransmissionProbabilityOnContact. This is important for the graph simulation where the advance</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        <span class="comment">// function is called multiple times for the same model.</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;        this-&gt;get_model().parameters.template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;() = base_infectiousness;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160; </div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        <span class="keywordflow">return</span> this-&gt;get_result().get_last_value();</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160; </div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00743"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">  743</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">m_t_last_npi_check</a>;</div>
-<div class="line"><a name="l00744"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#a4c2f781a9835ad1c66d269b5ee95b4fd">  744</a></span>&#160;    std::pair&lt;double, SimulationTime&gt; m_dynamic_npi = {-<a class="code" href="namespacead_1_1internal.html#aa51c892c87b65f08c37a87e280c8b123">std::numeric_limits&lt;double&gt;::max</a>(), <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(0)};</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;};</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160; </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = ScalarType&gt;</div>
-<div class="line"><a name="l00760"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">  760</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">simulate</a>(FP t0, FP tmax, FP dt, <span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Model.html">Model&lt;FP&gt;</a>&amp; model,</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                     std::shared_ptr&lt;<a class="code" href="classmio_1_1IntegratorCore.html">IntegratorCore&lt;FP&gt;</a>&gt; integrator = <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;{</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keywordflow">return</span> mio::simulate&lt;FP, Model&lt;FP&gt;, <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP&gt;</a>&gt;(t0, tmax, dt, model, integrator);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;}</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = ScalarType&gt;</div>
-<div class="line"><a name="l00779"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">  779</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">simulate_flows</a>(FP t0, FP tmax, FP dt, <span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Model.html">Model&lt;FP&gt;</a>&amp; model,</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                           std::shared_ptr&lt;<a class="code" href="classmio_1_1IntegratorCore.html">IntegratorCore&lt;FP&gt;</a>&gt; integrator = <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;{</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    <span class="keywordflow">return</span> mio::simulate_flows&lt;FP, Model&lt;FP&gt;, <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, mio::FlowSimulation&lt;FP, Model&lt;FP&gt;</a>&gt;&gt;&gt;(t0, tmax, dt, model,</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                                                                                                  integrator);</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;}</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">//see declaration above.</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP, <span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00788"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">  788</a></span>&#160;FP <a class="code" href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">get_infections_relative</a>(<span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, Base&gt;</a>&amp; sim, FP <span class="comment">/*t*/</span>, <span class="keyword">const</span> Eigen::Ref&lt;<span class="keyword">const</span> <a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt;&amp; y)</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;{</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    FP sum_inf = 0;</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(0); i &lt; sim.get_model().parameters.get_num_groups(); ++i) {</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsNaive});</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsNaiveConfirmed});</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsPartialImmunity});</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsImprovedImmunity});</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        sum_inf +=</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;            sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsPartialImmunityConfirmed});</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        sum_inf +=</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;            sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsImprovedImmunityConfirmed});</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    }</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keyword">auto</span> inf_rel = sum_inf / sim.get_model().populations.get_total();</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160; </div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keywordflow">return</span> inf_rel;</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;}</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = <span class="keywordtype">double</span>, <span class="keyword">class</span> Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</div>
-<div class="line"><a name="l00817"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">  817</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">get_mobility_factors</a>(<span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;Base&gt;</a>&amp; sim, FP <span class="comment">/*t*/</span>, <span class="keyword">const</span> Eigen::Ref&lt;<span class="keyword">const</span> <a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt;&amp; y)</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;{</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    <span class="keyword">auto</span>&amp; params = sim.get_model().parameters;</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    <span class="comment">//parameters as arrays</span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keyword">auto</span>&amp; p_asymp   = params.template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keyword">auto</span>&amp; p_inf     = params.template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keyword">auto</span>&amp; p_inf_max = params.template get&lt;MaxRiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    <span class="comment">//slice of InfectedNoSymptoms</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    <span class="keyword">auto</span> y_INS = <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsNaive),</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)}) +</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                 <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsPartialImmunity),</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)}) +</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                 <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsImprovedImmunity),</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)});</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; </div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="comment">//compute isolation, same as infection risk from main model</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="keyword">auto</span> test_and_trace_required =</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        ((1 - p_asymp) / params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TimeInfectedNoSymptoms.html">TimeInfectedNoSymptoms&lt;FP&gt;</a>&gt;().array().template cast&lt;double&gt;() *</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;         y_INS.array())</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;            .sum();</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    <span class="keyword">auto</span> riskFromInfectedSymptomatic =</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        <a class="code" href="namespacemio.html#a472d6437e9b34e277b8ccc551b0630b8">smoother_cosine</a>(test_and_trace_required, <span class="keywordtype">double</span>(params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacity.html">TestAndTraceCapacity&lt;FP&gt;</a>&gt;()),</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                        params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacity.html">TestAndTraceCapacity&lt;FP&gt;</a>&gt;() *</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                            params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacityMaxRiskSymptoms.html">TestAndTraceCapacityMaxRiskSymptoms&lt;FP&gt;</a>&gt;(),</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                        p_inf.matrix(), p_inf_max.matrix());</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;    <span class="comment">//set factor for infected</span></div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;    <span class="keyword">auto</span> factors = Eigen::VectorXd::Ones(y.rows()).eval();</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsNaive), Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())),</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                    Eigen::Index(InfectionState::Count)})</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsPartialImmunity),</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;                    Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)})</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsImprovedImmunity),</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;                    Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)})</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <span class="keywordflow">return</span> factors;</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;}</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160; </div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = <span class="keywordtype">double</span>, <span class="keyword">class</span> Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</div>
-<div class="line"><a name="l00859"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">  859</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">test_commuters</a>(<a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, Base&gt;</a>&amp; sim, Eigen::Ref&lt;<a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt; mobile_population, FP time)</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;{</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keyword">auto</span>&amp; model       = sim.get_model();</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keyword">auto</span> nondetection = 1.0;</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    <span class="keywordflow">if</span> (time &gt;= model.parameters.get_start_commuter_detection() &amp;&amp;</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        time &lt; model.parameters.get_end_commuter_detection()) {</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        nondetection = (double)model.parameters.get_commuter_nondetection();</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    }</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(0); i &lt; model.parameters.get_num_groups(); ++i) {</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        <span class="keyword">auto</span> ISyNi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsNaive});</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        <span class="keyword">auto</span> ISyNCi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsNaiveConfirmed});</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;        <span class="keyword">auto</span> INSNi  = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsNaive});</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        <span class="keyword">auto</span> INSNCi = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsNaiveConfirmed});</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160; </div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;        <span class="keyword">auto</span> ISPIi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsPartialImmunity});</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        <span class="keyword">auto</span> ISPICi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsPartialImmunityConfirmed});</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;        <span class="keyword">auto</span> INSPIi = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsPartialImmunity});</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        <span class="keyword">auto</span> INSPICi =</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;            model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsPartialImmunityConfirmed});</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160; </div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;        <span class="keyword">auto</span> ISyIIi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsImprovedImmunity});</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;        <span class="keyword">auto</span> ISyIICi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsImprovedImmunityConfirmed});</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;        <span class="keyword">auto</span> INSIIi  = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsImprovedImmunity});</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;        <span class="keyword">auto</span> INSIICi =</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;            model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsImprovedImmunityConfirmed});</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160; </div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;        <span class="comment">//put detected commuters in their own compartment so they don&#39;t contribute to infections in their home node</span></div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;        sim.get_result().get_last_value()[ISyNi] -= mobile_population[ISyNi] * (1 - nondetection);</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        sim.get_result().get_last_value()[ISyNCi] += mobile_population[ISyNi] * (1 - nondetection);</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        sim.get_result().get_last_value()[INSNi] -= mobile_population[INSNi] * (1 - nondetection);</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;        sim.get_result().get_last_value()[INSNCi] += mobile_population[INSNi] * (1 - nondetection);</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160; </div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;        sim.get_result().get_last_value()[ISPIi] -= mobile_population[ISPIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        sim.get_result().get_last_value()[ISPICi] += mobile_population[ISPIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;        sim.get_result().get_last_value()[INSPIi] -= mobile_population[INSPIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        sim.get_result().get_last_value()[INSPICi] += mobile_population[INSPIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160; </div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        sim.get_result().get_last_value()[ISyIIi] -= mobile_population[ISyIIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        sim.get_result().get_last_value()[ISyIICi] += mobile_population[ISyIIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;        sim.get_result().get_last_value()[INSIIi] -= mobile_population[INSIIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;        sim.get_result().get_last_value()[INSIICi] += mobile_population[INSIIi] * (1 - nondetection);</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160; </div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;        <span class="comment">//reduce the number of commuters</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;        mobile_population[ISyNi] *= nondetection;</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;        mobile_population[INSNi] *= nondetection;</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160; </div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;        mobile_population[ISPIi] *= nondetection;</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        mobile_population[INSPIi] *= nondetection;</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160; </div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;        mobile_population[ISyIIi] *= nondetection;</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;        mobile_population[INSIIi] *= nondetection;</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    }</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;}</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160; </div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;} <span class="comment">// namespace osecirvvs</span></div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;} <span class="comment">// namespace mio</span></div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160; </div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//ODESECIRVVS_MODEL_H</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                first_vacc =</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                    params.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}] -</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                    params.template get&lt;DailyPartialVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx - <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(1)}];</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                full_vacc = params.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx}] -</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                            params.template get&lt;DailyFullVaccinations&lt;FP&gt;&gt;()[{(<a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>)i, t_idx - <a class="code" href="classmio_1_1SimulationDay.html">SimulationDay</a>(1)}];</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;            }</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160; </div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            <span class="keywordflow">if</span> (last_value(count * i + S) - first_vacc &lt; 0) {</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                <span class="keyword">auto</span> corrected = 0.99 * last_value(count * i + S);</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;too many first vaccinated at time {}: setting first_vacc from {} to {}&quot;</span>, t, first_vacc,</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                            corrected);</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                first_vacc = corrected;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;            }</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;            last_value(count * i + S) -= first_vacc;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            last_value(count * i + SV) += first_vacc;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; </div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">if</span> (last_value(count * i + SV) - full_vacc &lt; 0) {</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                <span class="keyword">auto</span> corrected = 0.99 * last_value(count * i + SV);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                <a class="code" href="namespacemio.html#a34f961d5004bf46cf1cee1133671f8bc">log_warning</a>(<span class="stringliteral">&quot;too many fully vaccinated at time {}: setting full_vacc from {} to {}&quot;</span>, t, full_vacc,</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                            corrected);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                full_vacc = corrected;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            }</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;            last_value(count * i + SV) -= full_vacc;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;            last_value(count * i + R) += full_vacc;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;        }</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    }</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
+<div class="line"><a name="l00668"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">  668</a></span>&#160;    Eigen::Ref&lt;Vector&lt;FP&gt;&gt; <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">advance</a>(FP tmax)</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    {</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="keyword">auto</span>&amp; t_end_dyn_npis   = this-&gt;get_model().parameters.get_end_dynamic_npis();</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        <span class="keyword">auto</span>&amp; dyn_npis         = this-&gt;get_model().parameters.template get&lt;DynamicNPIsInfectedSymptoms&lt;FP&gt;&gt;();</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <span class="keyword">auto</span>&amp; contact_patterns = this-&gt;get_model().parameters.template get&lt;ContactPatterns&lt;FP&gt;&gt;();</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        <span class="comment">// const size_t num_groups = (size_t)this-&gt;get_model().parameters.get_num_groups();</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="comment">// in the apply_variant function, we adjust the TransmissionProbabilityOnContact parameter. We need to store</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="comment">// the base value to use it in the apply_variant function and also to reset the parameter after the simulation.</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        <span class="keyword">auto</span> base_infectiousness = this-&gt;get_model().parameters.template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;();</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> delay_npi_implementation;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keyword">auto</span> t        = BaseT::get_result().get_last_time();</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> dt = dyn_npis.get_thresholds().size() &gt; 0 ? dyn_npis.get_interval().get() : tmax;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <span class="keywordflow">while</span> (t &lt; tmax) {</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            <span class="keyword">auto</span> dt_eff = <a class="code" href="namespacead_1_1internal.html#a7ba0a5b242bd0af8fe3f76bcc798c956">std::min</a>({dt, tmax - t, m_t_last_npi_check + dt - t});</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;            <span class="keywordflow">if</span> (dt_eff &gt;= 1.0) {</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                dt_eff = 1.0;</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;            }</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;            <span class="keywordflow">if</span> (t == 0) {</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                <span class="comment">//this-&gt;apply_vaccination(t); // done in init now?</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                this-&gt;apply_variant(t, base_infectiousness);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;            }</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            BaseT::advance(t + dt_eff);</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;            <span class="keywordflow">if</span> (t + 0.5 + dt_eff - <a class="code" href="namespacead_1_1internal.html#a73da6e5a789cf313a8639610d7f18c5b">std::floor</a>(t + 0.5) &gt;= 1) {</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                this-&gt;apply_vaccination(t + 0.5 + dt_eff);</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                this-&gt;apply_variant(t, base_infectiousness);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;            }</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160; </div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            <span class="keywordflow">if</span> (t &gt; 0) {</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                delay_npi_implementation =</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                    this-&gt;get_model().parameters.template get&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;();</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;            }</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// DynamicNPIs for t=0 are &#39;misused&#39; to be from-start NPIs. I.e., do not enforce delay.</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                delay_npi_implementation = 0;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            }</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            t = t + dt_eff;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            <span class="keywordflow">if</span> (dyn_npis.get_thresholds().size() &gt; 0) {</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacemio.html#a25921aa2ea732bff75b46b5b6732fd0e">floating_point_greater_equal</a>(t, m_t_last_npi_check + dt)) {</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    <span class="keywordflow">if</span> (t &lt; t_end_dyn_npis) {</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                        <span class="keyword">auto</span> inf_rel = get_infections_relative&lt;FP&gt;(*<span class="keyword">this</span>, t, this-&gt;get_result().get_last_value()) *</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                                       dyn_npis.get_base_value();</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                        <span class="keyword">auto</span> exceeded_threshold = dyn_npis.get_max_exceeded_threshold(inf_rel);</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                        <span class="keywordflow">if</span> (exceeded_threshold != dyn_npis.get_thresholds().end() &amp;&amp;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                            (exceeded_threshold-&gt;first &gt; m_dynamic_npi.first ||</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                             t &gt; <a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>(m_dynamic_npi.second))) { <span class="comment">//old npi was weaker or is expired</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160; </div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                            <span class="keyword">auto</span> t_start = <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(t + delay_npi_implementation);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                            <span class="keyword">auto</span> t_end   = t_start + <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(dyn_npis.get_duration());</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                            this-&gt;get_model().parameters.get_start_commuter_detection() = (<a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>)t_start;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                            this-&gt;get_model().parameters.get_end_commuter_detection()   = (<a class="code" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>)t_end;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                            m_dynamic_npi = std::make_pair(exceeded_threshold-&gt;first, t_end);</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                            <a class="code" href="namespacemio.html#a964b42164d9f96774552df5bcf02e934">implement_dynamic_npis</a>(contact_patterns.get_cont_freq_mat(), exceeded_threshold-&gt;second,</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                                                   t_start, t_end, [](<span class="keyword">auto</span>&amp; g) {</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                                                       return make_contact_damping_matrix(g);</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                                                   });</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                        }</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                    }</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                    m_t_last_npi_check = t;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                }</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            }</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                m_t_last_npi_check = t;</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            }</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        }</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        <span class="comment">// reset TransmissionProbabilityOnContact. This is important for the graph simulation where the advance</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;        <span class="comment">// function is called multiple times for the same model.</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        this-&gt;get_model().parameters.template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;() = base_infectiousness;</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        <span class="keywordflow">return</span> this-&gt;get_result().get_last_value();</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    }</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00744"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">  744</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">m_t_last_npi_check</a>;</div>
+<div class="line"><a name="l00745"></a><span class="lineno"><a class="line" href="classmio_1_1osecirvvs_1_1Simulation.html#a4c2f781a9835ad1c66d269b5ee95b4fd">  745</a></span>&#160;    std::pair&lt;double, SimulationTime&gt; m_dynamic_npi = {-<a class="code" href="namespacead_1_1internal.html#aa51c892c87b65f08c37a87e280c8b123">std::numeric_limits&lt;double&gt;::max</a>(), <a class="code" href="classmio_1_1SimulationTime.html">SimulationTime</a>(0)};</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;};</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160; </div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = ScalarType&gt;</div>
+<div class="line"><a name="l00761"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">  761</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">simulate</a>(FP t0, FP tmax, FP dt, <span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Model.html">Model&lt;FP&gt;</a>&amp; model,</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                     std::shared_ptr&lt;<a class="code" href="classmio_1_1IntegratorCore.html">IntegratorCore&lt;FP&gt;</a>&gt; integrator = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;{</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">return</span> mio::simulate&lt;FP, Model&lt;FP&gt;, <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP&gt;</a>&gt;(t0, tmax, dt, model, integrator);</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;}</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160; </div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = ScalarType&gt;</div>
+<div class="line"><a name="l00780"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">  780</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">simulate_flows</a>(FP t0, FP tmax, FP dt, <span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Model.html">Model&lt;FP&gt;</a>&amp; model,</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                           std::shared_ptr&lt;<a class="code" href="classmio_1_1IntegratorCore.html">IntegratorCore&lt;FP&gt;</a>&gt; integrator = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;{</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    <span class="keywordflow">return</span> mio::simulate_flows&lt;FP, Model&lt;FP&gt;, <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, mio::FlowSimulation&lt;FP, Model&lt;FP&gt;</a>&gt;&gt;&gt;(t0, tmax, dt, model,</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                                                                                                  integrator);</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;}</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160; </div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">//see declaration above.</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP, <span class="keyword">class</span> Base&gt;</div>
+<div class="line"><a name="l00789"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">  789</a></span>&#160;FP <a class="code" href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">get_infections_relative</a>(<span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, Base&gt;</a>&amp; sim, FP <span class="comment">/*t*/</span>, <span class="keyword">const</span> Eigen::Ref&lt;<span class="keyword">const</span> <a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt;&amp; y)</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;{</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;    FP sum_inf = 0;</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(0); i &lt; sim.get_model().parameters.get_num_groups(); ++i) {</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsNaive});</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsNaiveConfirmed});</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsPartialImmunity});</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        sum_inf += sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsImprovedImmunity});</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        sum_inf +=</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;            sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsPartialImmunityConfirmed});</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        sum_inf +=</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;            sim.get_model().populations.get_from(y, {i, InfectionState::InfectedSymptomsImprovedImmunityConfirmed});</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    }</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="keyword">auto</span> inf_rel = sum_inf / sim.get_model().populations.get_total();</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordflow">return</span> inf_rel;</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;}</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = <span class="keywordtype">double</span>, <span class="keyword">class</span> Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</div>
+<div class="line"><a name="l00818"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">  818</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">get_mobility_factors</a>(<span class="keyword">const</span> <a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;Base&gt;</a>&amp; sim, FP <span class="comment">/*t*/</span>, <span class="keyword">const</span> Eigen::Ref&lt;<span class="keyword">const</span> <a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt;&amp; y)</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160; </div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;{</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    <span class="keyword">auto</span>&amp; params = sim.get_model().parameters;</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="comment">//parameters as arrays</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keyword">auto</span>&amp; p_asymp   = params.template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keyword">auto</span>&amp; p_inf     = params.template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    <span class="keyword">auto</span>&amp; p_inf_max = params.template get&lt;MaxRiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;().array().template cast&lt;FP&gt;();</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    <span class="comment">//slice of InfectedNoSymptoms</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    <span class="keyword">auto</span> y_INS = <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsNaive),</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)}) +</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                 <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsPartialImmunity),</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)}) +</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                 <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(y, {Eigen::Index(InfectionState::InfectedNoSymptomsImprovedImmunity),</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                           Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)});</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160; </div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="comment">//compute isolation, same as infection risk from main model</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    <span class="keyword">auto</span> test_and_trace_required =</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        ((1 - p_asymp) / params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TimeInfectedNoSymptoms.html">TimeInfectedNoSymptoms&lt;FP&gt;</a>&gt;().array().template cast&lt;double&gt;() *</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;         y_INS.array())</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;            .sum();</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    <span class="keyword">auto</span> riskFromInfectedSymptomatic =</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        <a class="code" href="namespacemio.html#a472d6437e9b34e277b8ccc551b0630b8">smoother_cosine</a>(test_and_trace_required, <span class="keywordtype">double</span>(params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacity.html">TestAndTraceCapacity&lt;FP&gt;</a>&gt;()),</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                        params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacity.html">TestAndTraceCapacity&lt;FP&gt;</a>&gt;() *</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                            params.template <a class="code" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a>&lt;<a class="code" href="structmio_1_1osecirvvs_1_1TestAndTraceCapacityMaxRiskSymptoms.html">TestAndTraceCapacityMaxRiskSymptoms&lt;FP&gt;</a>&gt;(),</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;                        p_inf.matrix(), p_inf_max.matrix());</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160; </div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;    <span class="comment">//set factor for infected</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <span class="keyword">auto</span> factors = Eigen::VectorXd::Ones(y.rows()).eval();</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsNaive), Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())),</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;                    Eigen::Index(InfectionState::Count)})</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsPartialImmunity),</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;                    Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)})</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <a class="code" href="namespacemio.html#a743eeec3a91821cb14fd831740b17827">slice</a>(factors, {Eigen::Index(InfectionState::InfectedSymptomsImprovedImmunity),</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;                    Eigen::Index(<span class="keywordtype">size_t</span>(params.get_num_groups())), Eigen::Index(InfectionState::Count)})</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;        .array() = riskFromInfectedSymptomatic;</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    <span class="keywordflow">return</span> factors;</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;}</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160; </div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> FP = <span class="keywordtype">double</span>, <span class="keyword">class</span> Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</div>
+<div class="line"><a name="l00860"></a><span class="lineno"><a class="line" href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">  860</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">test_commuters</a>(<a class="code" href="classmio_1_1osecirvvs_1_1Simulation.html">Simulation&lt;FP, Base&gt;</a>&amp; sim, Eigen::Ref&lt;<a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector&lt;FP&gt;</a>&gt; mobile_population, FP time)</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;{</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keyword">auto</span>&amp; model       = sim.get_model();</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    <span class="keyword">auto</span> nondetection = 1.0;</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="keywordflow">if</span> (time &gt;= model.parameters.get_start_commuter_detection() &amp;&amp;</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        time &lt; model.parameters.get_end_commuter_detection()) {</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        nondetection = (double)model.parameters.get_commuter_nondetection();</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;    }</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code" href="structmio_1_1AgeGroup.html">AgeGroup</a>(0); i &lt; model.parameters.get_num_groups(); ++i) {</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        <span class="keyword">auto</span> ISyNi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsNaive});</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;        <span class="keyword">auto</span> ISyNCi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsNaiveConfirmed});</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        <span class="keyword">auto</span> INSNi  = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsNaive});</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        <span class="keyword">auto</span> INSNCi = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsNaiveConfirmed});</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160; </div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        <span class="keyword">auto</span> ISPIi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsPartialImmunity});</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;        <span class="keyword">auto</span> ISPICi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsPartialImmunityConfirmed});</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        <span class="keyword">auto</span> INSPIi = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsPartialImmunity});</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;        <span class="keyword">auto</span> INSPICi =</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;            model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsPartialImmunityConfirmed});</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160; </div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;        <span class="keyword">auto</span> ISyIIi  = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsImprovedImmunity});</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;        <span class="keyword">auto</span> ISyIICi = model.populations.get_flat_index({i, InfectionState::InfectedSymptomsImprovedImmunityConfirmed});</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;        <span class="keyword">auto</span> INSIIi  = model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsImprovedImmunity});</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;        <span class="keyword">auto</span> INSIICi =</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;            model.populations.get_flat_index({i, InfectionState::InfectedNoSymptomsImprovedImmunityConfirmed});</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160; </div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;        <span class="comment">//put detected commuters in their own compartment so they don&#39;t contribute to infections in their home node</span></div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        sim.get_result().get_last_value()[ISyNi] -= mobile_population[ISyNi] * (1 - nondetection);</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        sim.get_result().get_last_value()[ISyNCi] += mobile_population[ISyNi] * (1 - nondetection);</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;        sim.get_result().get_last_value()[INSNi] -= mobile_population[INSNi] * (1 - nondetection);</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;        sim.get_result().get_last_value()[INSNCi] += mobile_population[INSNi] * (1 - nondetection);</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160; </div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        sim.get_result().get_last_value()[ISPIi] -= mobile_population[ISPIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;        sim.get_result().get_last_value()[ISPICi] += mobile_population[ISPIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        sim.get_result().get_last_value()[INSPIi] -= mobile_population[INSPIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        sim.get_result().get_last_value()[INSPICi] += mobile_population[INSPIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160; </div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        sim.get_result().get_last_value()[ISyIIi] -= mobile_population[ISyIIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;        sim.get_result().get_last_value()[ISyIICi] += mobile_population[ISyIIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;        sim.get_result().get_last_value()[INSIIi] -= mobile_population[INSIIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;        sim.get_result().get_last_value()[INSIICi] += mobile_population[INSIIi] * (1 - nondetection);</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160; </div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;        <span class="comment">//reduce the number of commuters</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;        mobile_population[ISyNi] *= nondetection;</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;        mobile_population[INSNi] *= nondetection;</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160; </div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        mobile_population[ISPIi] *= nondetection;</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;        mobile_population[INSPIi] *= nondetection;</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160; </div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;        mobile_population[ISyIIi] *= nondetection;</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;        mobile_population[INSIIi] *= nondetection;</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    }</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;}</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160; </div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;} <span class="comment">// namespace osecirvvs</span></div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;} <span class="comment">// namespace mio</span></div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160; </div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MIO_ODE_SECIRVVS_MODEL_H</span></div>
 <div class="ttc" id="aclassmio_1_1ContactMatrixGroup_html"><div class="ttname"><a href="classmio_1_1ContactMatrixGroup.html">mio::ContactMatrixGroup</a></div><div class="ttdoc">represents a collection of contact frequency matrices that whose sum is the total number of contacts.</div><div class="ttdef"><b>Definition:</b> contact_matrix.h:533</div></div>
 <div class="ttc" id="aclassmio_1_1CustomIndexArray_html"><div class="ttname"><a href="classmio_1_1CustomIndexArray.html">mio::CustomIndexArray</a></div><div class="ttdoc">A class template for an array with custom indices.</div><div class="ttdef"><b>Definition:</b> custom_index_array.h:156</div></div>
 <div class="ttc" id="aclassmio_1_1FlowModel_html"><div class="ttname"><a href="classmio_1_1FlowModel.html">mio::FlowModel</a></div><div class="ttdoc">A FlowModel is a CompartmentalModel defined by the flows between compartments.</div><div class="ttdef"><b>Definition:</b> flow_model.h:74</div></div>
@@ -928,8 +929,8 @@ $(function() {
 <div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_a29ea41d6a3f66aa36957d8ad0569e5b0"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#a29ea41d6a3f66aa36957d8ad0569e5b0">mio::osecirvvs::Simulation::apply_vaccination</a></div><div class="ttdeci">void apply_vaccination(double t)</div><div class="ttdef"><b>Definition:</b> model.h:611</div></div>
 <div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_a6f9c5a76b500205d9fe84e1cb5689785"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#a6f9c5a76b500205d9fe84e1cb5689785">mio::osecirvvs::Simulation::Simulation</a></div><div class="ttdeci">Simulation(mio::osecirvvs::Model&lt; FP &gt; const &amp;model, FP t0=0., FP dt=0.1)</div><div class="ttdoc">construct a simulation.</div><div class="ttdef"><b>Definition:</b> model.h:574</div></div>
 <div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_a8c9126764ae05b69325253cfe5743d1e"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#a8c9126764ae05b69325253cfe5743d1e">mio::osecirvvs::Simulation::apply_variant</a></div><div class="ttdeci">void apply_variant(const double t, const CustomIndexArray&lt; UncertainValue&lt; FP &gt;, AgeGroup &gt; base_infectiousness)</div><div class="ttdoc">Applies the effect of a new variant of a disease to the transmission probability of the model.</div><div class="ttdef"><b>Definition:</b> model.h:592</div></div>
-<div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_aeb45e34266e4790b3dc7358a2130ed93"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">mio::osecirvvs::Simulation::m_t_last_npi_check</a></div><div class="ttdeci">double m_t_last_npi_check</div><div class="ttdef"><b>Definition:</b> model.h:743</div></div>
-<div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_af269604da19882533a5dee7adcc1341b"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">mio::osecirvvs::Simulation::advance</a></div><div class="ttdeci">Eigen::Ref&lt; Vector&lt; FP &gt; &gt; advance(FP tmax)</div><div class="ttdoc">advance simulation to tmax.</div><div class="ttdef"><b>Definition:</b> model.h:667</div></div>
+<div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_aeb45e34266e4790b3dc7358a2130ed93"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#aeb45e34266e4790b3dc7358a2130ed93">mio::osecirvvs::Simulation::m_t_last_npi_check</a></div><div class="ttdeci">double m_t_last_npi_check</div><div class="ttdef"><b>Definition:</b> model.h:744</div></div>
+<div class="ttc" id="aclassmio_1_1osecirvvs_1_1Simulation_html_af269604da19882533a5dee7adcc1341b"><div class="ttname"><a href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">mio::osecirvvs::Simulation::advance</a></div><div class="ttdeci">Eigen::Ref&lt; Vector&lt; FP &gt; &gt; advance(FP tmax)</div><div class="ttdoc">advance simulation to tmax.</div><div class="ttdef"><b>Definition:</b> model.h:668</div></div>
 <div class="ttc" id="aeigen__util_8h_html"><div class="ttname"><a href="eigen__util_8h.html">eigen_util.h</a></div></div>
 <div class="ttc" id="aflow__model_8h_html"><div class="ttname"><a href="flow__model_8h.html">flow_model.h</a></div></div>
 <div class="ttc" id="aflow__simulation_8h_html"><div class="ttname"><a href="flow__simulation_8h.html">flow_simulation.h</a></div></div>
@@ -946,11 +947,11 @@ $(function() {
 <div class="ttc" id="anamespacemio_1_1osecirvvs_html_a429bf3ed03ff6928629f5d786b547023a64258f14998958e173dffbdb2b36061f"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a429bf3ed03ff6928629f5d786b547023a64258f14998958e173dffbdb2b36061f">mio::osecirvvs::InfectionState::InfectedNoSymptomsNaiveConfirmed</a></div><div class="ttdeci">@ InfectedNoSymptomsNaiveConfirmed</div></div>
 <div class="ttc" id="anamespacemio_1_1osecirvvs_html_a429bf3ed03ff6928629f5d786b547023a94d73e217bbddb1d4bcd59bffa905a41"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a429bf3ed03ff6928629f5d786b547023a94d73e217bbddb1d4bcd59bffa905a41">mio::osecirvvs::InfectionState::InfectedNoSymptomsPartialImmunity</a></div><div class="ttdeci">@ InfectedNoSymptomsPartialImmunity</div></div>
 <div class="ttc" id="anamespacemio_1_1osecirvvs_html_a429bf3ed03ff6928629f5d786b547023ae93f994f01c537c4e2f7d8528c3eb5e9"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a429bf3ed03ff6928629f5d786b547023ae93f994f01c537c4e2f7d8528c3eb5e9">mio::osecirvvs::InfectionState::Count</a></div><div class="ttdeci">@ Count</div></div>
-<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a605e985c55e036a037d22666d2f0819a"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">mio::osecirvvs::test_commuters</a></div><div class="ttdeci">auto test_commuters(Simulation&lt; FP, Base &gt; &amp;sim, Eigen::Ref&lt; Vector&lt; FP &gt;&gt; mobile_population, FP time)</div><div class="ttdef"><b>Definition:</b> model.h:859</div></div>
-<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a850cbe387feac1daff1dba956894a10e"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">mio::osecirvvs::simulate_flows</a></div><div class="ttdeci">auto simulate_flows(FP t0, FP tmax, FP dt, const Model&lt; FP &gt; &amp;model, std::shared_ptr&lt; IntegratorCore&lt; FP &gt;&gt; integrator=nullptr)</div><div class="ttdoc">Specialization of simulate for SECIRVVS models using the FlowSimulation.</div><div class="ttdef"><b>Definition:</b> model.h:779</div></div>
-<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a9b06cd2d493434763b244c099fd58016"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">mio::osecirvvs::simulate</a></div><div class="ttdeci">auto simulate(FP t0, FP tmax, FP dt, const Model&lt; FP &gt; &amp;model, std::shared_ptr&lt; IntegratorCore&lt; FP &gt;&gt; integrator=nullptr)</div><div class="ttdoc">Specialization of simulate for SECIRVVS models using Simulation.</div><div class="ttdef"><b>Definition:</b> model.h:760</div></div>
-<div class="ttc" id="anamespacemio_1_1osecirvvs_html_af8fa12c276b8894aa3f825d3268d2136"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">mio::osecirvvs::get_mobility_factors</a></div><div class="ttdeci">auto get_mobility_factors(const Simulation&lt; Base &gt; &amp;sim, FP, const Eigen::Ref&lt; const Vector&lt; FP &gt;&gt; &amp;y)</div><div class="ttdoc">Get mobility factors.</div><div class="ttdef"><b>Definition:</b> model.h:817</div></div>
-<div class="ttc" id="anamespacemio_1_1osecirvvs_html_afccf8466b6ddb03795d76b9b54866e11"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">mio::osecirvvs::get_infections_relative</a></div><div class="ttdeci">FP get_infections_relative(const Simulation&lt; FP, Base &gt; &amp;model, FP t, const Eigen::Ref&lt; const Vector&lt; FP &gt;&gt; &amp;y)</div><div class="ttdoc">get percentage of infections per total population.</div><div class="ttdef"><b>Definition:</b> model.h:788</div></div>
+<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a605e985c55e036a037d22666d2f0819a"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a605e985c55e036a037d22666d2f0819a">mio::osecirvvs::test_commuters</a></div><div class="ttdeci">auto test_commuters(Simulation&lt; FP, Base &gt; &amp;sim, Eigen::Ref&lt; Vector&lt; FP &gt;&gt; mobile_population, FP time)</div><div class="ttdef"><b>Definition:</b> model.h:860</div></div>
+<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a850cbe387feac1daff1dba956894a10e"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a850cbe387feac1daff1dba956894a10e">mio::osecirvvs::simulate_flows</a></div><div class="ttdeci">auto simulate_flows(FP t0, FP tmax, FP dt, const Model&lt; FP &gt; &amp;model, std::shared_ptr&lt; IntegratorCore&lt; FP &gt;&gt; integrator=nullptr)</div><div class="ttdoc">Specialization of simulate for SECIRVVS models using the FlowSimulation.</div><div class="ttdef"><b>Definition:</b> model.h:780</div></div>
+<div class="ttc" id="anamespacemio_1_1osecirvvs_html_a9b06cd2d493434763b244c099fd58016"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#a9b06cd2d493434763b244c099fd58016">mio::osecirvvs::simulate</a></div><div class="ttdeci">auto simulate(FP t0, FP tmax, FP dt, const Model&lt; FP &gt; &amp;model, std::shared_ptr&lt; IntegratorCore&lt; FP &gt;&gt; integrator=nullptr)</div><div class="ttdoc">Specialization of simulate for SECIRVVS models using Simulation.</div><div class="ttdef"><b>Definition:</b> model.h:761</div></div>
+<div class="ttc" id="anamespacemio_1_1osecirvvs_html_af8fa12c276b8894aa3f825d3268d2136"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#af8fa12c276b8894aa3f825d3268d2136">mio::osecirvvs::get_mobility_factors</a></div><div class="ttdeci">auto get_mobility_factors(const Simulation&lt; Base &gt; &amp;sim, FP, const Eigen::Ref&lt; const Vector&lt; FP &gt;&gt; &amp;y)</div><div class="ttdoc">Get mobility factors.</div><div class="ttdef"><b>Definition:</b> model.h:818</div></div>
+<div class="ttc" id="anamespacemio_1_1osecirvvs_html_afccf8466b6ddb03795d76b9b54866e11"><div class="ttname"><a href="namespacemio_1_1osecirvvs.html#afccf8466b6ddb03795d76b9b54866e11">mio::osecirvvs::get_infections_relative</a></div><div class="ttdeci">FP get_infections_relative(const Simulation&lt; FP, Base &gt; &amp;model, FP t, const Eigen::Ref&lt; const Vector&lt; FP &gt;&gt; &amp;y)</div><div class="ttdoc">get percentage of infections per total population.</div><div class="ttdef"><b>Definition:</b> model.h:789</div></div>
 <div class="ttc" id="anamespacemio_html"><div class="ttname"><a href="namespacemio.html">mio</a></div><div class="ttdoc">A collection of classes to simplify handling of matrix shapes in meta programming.</div><div class="ttdef"><b>Definition:</b> compartmentalmodel.h:33</div></div>
 <div class="ttc" id="anamespacemio_html_a25921aa2ea732bff75b46b5b6732fd0e"><div class="ttname"><a href="namespacemio.html#a25921aa2ea732bff75b46b5b6732fd0e">mio::floating_point_greater_equal</a></div><div class="ttdeci">bool floating_point_greater_equal(T v1, T v2, T abs_tol=0, T rel_tol=std::numeric_limits&lt; T &gt;::min())</div><div class="ttdoc">compare two floating point values with tolerances.</div><div class="ttdef"><b>Definition:</b> floating_point.h:134</div></div>
 <div class="ttc" id="anamespacemio_html_a2f858e287c3935240954cf75cf53cfeb"><div class="ttname"><a href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">mio::Tag</a></div><div class="ttdeci">boost::outcome_v2::in_place_type_t&lt; T &gt; Tag</div><div class="ttdoc">Type that is used for overload resolution.</div><div class="ttdef"><b>Definition:</b> io.h:403</div></div>
