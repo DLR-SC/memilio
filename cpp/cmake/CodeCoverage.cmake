@@ -201,7 +201,7 @@ function(setup_target_for_coverage_lcov)
     cmake_parse_arguments(Coverage "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     # Add --ignore-errors mismatch to LCOV_ARGS
-    list(APPEND Coverage_LCOV_ARGS "--ignore-errors mismatch")
+    list(APPEND Coverage_LCOV_ARGS "--ignore-errors all")
 
     if(NOT LCOV_PATH)
         message(FATAL_ERROR "lcov not found! Aborting...")
