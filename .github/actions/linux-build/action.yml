@@ -38,7 +38,7 @@ runs:
       shell: bash
       run: |
         sudo apt-get -qq update
-        sudo apt-get -qq -y install lcov ccache
+        sudo apt-get -qq -y install lcov ccache gfortran-11
         if [[ "${{ inputs.optional-dependencies }}" == "ON" ]]; then
           sudo apt-get -qq -y install libhdf5-dev 
         fi
@@ -80,7 +80,6 @@ runs:
           if [[ "${{ inputs.version }}" == "min" ]]; then
             export CC=/usr/bin/gcc-9
             export CXX=/usr/bin/g++-9
-            export FC=/usr/bin/gfortran-9
           else        
             export CC=/usr/bin/gcc-11
             export CXX=/usr/bin/g++-11
