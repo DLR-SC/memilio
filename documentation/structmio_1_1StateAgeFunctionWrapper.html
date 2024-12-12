@@ -123,6 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa15f1ec647640170e956b070a78aa4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1StateAgeFunctionWrapper.html#aaa15f1ec647640170e956b070a78aa4f">set_state_age_function</a> (<a class="el" href="structmio_1_1StateAgeFunction.html">StateAgeFunction</a> &amp;new_function)</td></tr>
 <tr class="memdesc:aaa15f1ec647640170e956b070a78aa4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <a class="el" href="structmio_1_1StateAgeFunction.html" title="A generic function depending on the state age, i.e.">StateAgeFunction</a> object.  <a href="structmio_1_1StateAgeFunctionWrapper.html#aaa15f1ec647640170e956b070a78aa4f">More...</a><br /></td></tr>
 <tr class="separator:aaa15f1ec647640170e956b070a78aa4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca991a369276c3452de0afdcd2a64a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1StateAgeFunctionWrapper.html#a6ca991a369276c3452de0afdcd2a64a6">StateAgeFunctionWrapper</a> ()</td></tr>
+<tr class="separator:a6ca991a369276c3452de0afdcd2a64a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e2896a9d17e78c6af6df438989464ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1StateAgeFunctionWrapper.html#a7e2896a9d17e78c6af6df438989464ba">StateAgeFunctionWrapper</a> (<a class="el" href="structmio_1_1StateAgeFunction.html">StateAgeFunction</a> &amp;init_function)</td></tr>
 <tr class="memdesc:a7e2896a9d17e78c6af6df438989464ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="structmio_1_1StateAgeFunctionWrapper.html" title="Wrapper around StateAgeFunction so that one can work with an arbitrary StateAgeFunction.">StateAgeFunctionWrapper</a> object.  <a href="structmio_1_1StateAgeFunctionWrapper.html#a7e2896a9d17e78c6af6df438989464ba">More...</a><br /></td></tr>
 <tr class="separator:a7e2896a9d17e78c6af6df438989464ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,8 +151,25 @@ Private Attributes</h2></td></tr>
 <p>Example from IDE-SECIR model:</p>
 <p><a class="el" href="structmio_1_1ExponentialSurvivalFunction.html" title="Class that defines the survival function corresponding to the exponential distribution depending on t...">ExponentialSurvivalFunction</a> exponential(1.0); <a class="el" href="structmio_1_1StateAgeFunctionWrapper.html" title="Wrapper around StateAgeFunction so that one can work with an arbitrary StateAgeFunction.">StateAgeFunctionWrapper</a> prob(exponential); model.parameters.set&lt;mio::isecir::TransmissionProbabilityOnContact&gt;(prob); </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6ca991a369276c3452de0afdcd2a64a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca991a369276c3452de0afdcd2a64a6">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mio::StateAgeFunctionWrapper::StateAgeFunctionWrapper </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7e2896a9d17e78c6af6df438989464ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e2896a9d17e78c6af6df438989464ba">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2896a9d17e78c6af6df438989464ba">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +195,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a607df8934c5cc3f278a337ff9cf05783"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a607df8934c5cc3f278a337ff9cf05783">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a607df8934c5cc3f278a337ff9cf05783">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +215,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a3895b6a23e8403ff30cdd5ab57ea2ac5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3895b6a23e8403ff30cdd5ab57ea2ac5">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3895b6a23e8403ff30cdd5ab57ea2ac5">&#9670;&nbsp;</a></span>StateAgeFunctionWrapper() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

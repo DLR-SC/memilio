@@ -85,15 +85,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a31ac84e9be3c2fa27d9e4915daa2f744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a31ac84e9be3c2fa27d9e4915daa2f744">check_constraints</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt) const</td></tr>
 <tr class="memdesc:a31ac84e9be3c2fa27d9e4915daa2f744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints on model parameters and initial data.  <a href="classmio_1_1isecir_1_1Model.html#a31ac84e9be3c2fa27d9e4915daa2f744">More...</a><br /></td></tr>
 <tr class="separator:a31ac84e9be3c2fa27d9e4915daa2f744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affa8f3510cb2af19a98ba7462a012cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#affa8f3510cb2af19a98ba7462a012cfc">compute_compartment_from_flows</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, Eigen::Index idx_InfectionState, Eigen::Index idx_IncomingFlow, int idx_TransitionDistribution1, int idx_TransitionDistribution2=0)</td></tr>
-<tr class="memdesc:affa8f3510cb2af19a98ba7462a012cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the compartment specified in idx_InfectionState at the current time &ndash; only using historic flow values and disrespecting potential, previous compartment value.  <a href="classmio_1_1isecir_1_1Model.html#affa8f3510cb2af19a98ba7462a012cfc">More...</a><br /></td></tr>
-<tr class="separator:affa8f3510cb2af19a98ba7462a012cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fff197d7a79731b63365ddcd5997515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a0fff197d7a79731b63365ddcd5997515">compute_flow</a> (Eigen::Index idx_InfectionTransitions, Eigen::Index idx_IncomingFlow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
-<tr class="memdesc:a0fff197d7a79731b63365ddcd5997515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes size of a flow for the current last time value in m_transitions.  <a href="classmio_1_1isecir_1_1Model.html#a0fff197d7a79731b63365ddcd5997515">More...</a><br /></td></tr>
-<tr class="separator:a0fff197d7a79731b63365ddcd5997515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8305f12712589c2ac54315184634494f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a8305f12712589c2ac54315184634494f">compute_flow</a> (Eigen::Index idx_InfectionTransitions, Eigen::Index idx_IncomingFlow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, Eigen::Index current_time_index)</td></tr>
-<tr class="memdesc:a8305f12712589c2ac54315184634494f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes size of a flow.  <a href="classmio_1_1isecir_1_1Model.html#a8305f12712589c2ac54315184634494f">More...</a><br /></td></tr>
-<tr class="separator:a8305f12712589c2ac54315184634494f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeab050f6db1029f655f5da2b12c8ef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#abeab050f6db1029f655f5da2b12c8ef2">compute_compartment_from_flows</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, Eigen::Index idx_InfectionState, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> group, Eigen::Index idx_IncomingFlow, int idx_TransitionDistribution1, int idx_TransitionDistribution2=0)</td></tr>
+<tr class="memdesc:abeab050f6db1029f655f5da2b12c8ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the compartment specified in idx_InfectionState at the current time &ndash; only using historic flow values and disrespecting potential, previous compartment value.  <a href="classmio_1_1isecir_1_1Model.html#abeab050f6db1029f655f5da2b12c8ef2">More...</a><br /></td></tr>
+<tr class="separator:abeab050f6db1029f655f5da2b12c8ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05665d48282cbcec68135964dd8a0986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a05665d48282cbcec68135964dd8a0986">compute_flow</a> (Eigen::Index idx_InfectionTransitions, Eigen::Index idx_IncomingFlow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> group)</td></tr>
+<tr class="memdesc:a05665d48282cbcec68135964dd8a0986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes size of a flow for the current last time value in m_transitions.  <a href="classmio_1_1isecir_1_1Model.html#a05665d48282cbcec68135964dd8a0986">More...</a><br /></td></tr>
+<tr class="separator:a05665d48282cbcec68135964dd8a0986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18fb1022c4a3b92ab980476620d9e233"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a18fb1022c4a3b92ab980476620d9e233">compute_flow</a> (Eigen::Index idx_InfectionTransitions, Eigen::Index idx_IncomingFlow, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, Eigen::Index current_time_index, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> group)</td></tr>
+<tr class="memdesc:a18fb1022c4a3b92ab980476620d9e233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes size of a flow.  <a href="classmio_1_1isecir_1_1Model.html#a18fb1022c4a3b92ab980476620d9e233">More...</a><br /></td></tr>
+<tr class="separator:a18fb1022c4a3b92ab980476620d9e233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30d7fd6262353820a642c5a0ee96a38f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a30d7fd6262353820a642c5a0ee96a38f">compute_forceofinfection</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt, bool initialization=false)</td></tr>
 <tr class="memdesc:a30d7fd6262353820a642c5a0ee96a38f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes force of infection for the current last time in m_transitions.  <a href="classmio_1_1isecir_1_1Model.html#a30d7fd6262353820a642c5a0ee96a38f">More...</a><br /></td></tr>
 <tr class="separator:a30d7fd6262353820a642c5a0ee96a38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,15 +109,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a59cea760ab24c0e18e509ad90eedebe2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a59cea760ab24c0e18e509ad90eedebe2">get_initialization_method_compartments</a> ()</td></tr>
 <tr class="memdesc:a59cea760ab24c0e18e509ad90eedebe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the automatically selected initialization method.  <a href="classmio_1_1isecir_1_1Model.html#a59cea760ab24c0e18e509ad90eedebe2">More...</a><br /></td></tr>
 <tr class="separator:a59cea760ab24c0e18e509ad90eedebe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3328b24408a25661e384aa93cde4c7a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a3328b24408a25661e384aa93cde4c7a1">get_state_flat_index</a> (Eigen::Index state_idx, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> agegroup) const</td></tr>
+<tr class="memdesc:a3328b24408a25661e384aa93cde4c7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a flat index for the InfectionState <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>.  <a href="classmio_1_1isecir_1_1Model.html#a3328b24408a25661e384aa93cde4c7a1">More...</a><br /></td></tr>
+<tr class="separator:a3328b24408a25661e384aa93cde4c7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b7072a5091bd99ee8e8dc819568eaba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a5b7072a5091bd99ee8e8dc819568eaba">get_transition_flat_index</a> (Eigen::Index transition_idx, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> agegroup) const</td></tr>
+<tr class="memdesc:a5b7072a5091bd99ee8e8dc819568eaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a flat index for the InfectionTransition <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>.  <a href="classmio_1_1isecir_1_1Model.html#a5b7072a5091bd99ee8e8dc819568eaba">More...</a><br /></td></tr>
+<tr class="separator:a5b7072a5091bd99ee8e8dc819568eaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb9e12cd1e8a8e51c9fdba2d641cb4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a5bb9e12cd1e8a8e51c9fdba2d641cb4f">initial_compute_compartments</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
 <tr class="memdesc:a5bb9e12cd1e8a8e51c9fdba2d641cb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the values of compartments at initialization.  <a href="classmio_1_1isecir_1_1Model.html#a5bb9e12cd1e8a8e51c9fdba2d641cb4f">More...</a><br /></td></tr>
 <tr class="separator:a5bb9e12cd1e8a8e51c9fdba2d641cb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0646e30cd06199868d07ab35523734a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a0646e30cd06199868d07ab35523734a4">initial_compute_compartments_infection</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> dt)</td></tr>
 <tr class="memdesc:a0646e30cd06199868d07ab35523734a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the values of the infection compartments subset at initialization.  <a href="classmio_1_1isecir_1_1Model.html#a0646e30cd06199868d07ab35523734a4">More...</a><br /></td></tr>
 <tr class="separator:a0646e30cd06199868d07ab35523734a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5552b1cfa2077bfb2097d502a706d37f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a5552b1cfa2077bfb2097d502a706d37f">Model</a> (<a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&amp;init, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> N_init, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> deaths, <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> total_confirmed_cases=0, const <a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a> &amp;Parameterset_init=<a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a>())</td></tr>
-<tr class="memdesc:a5552b1cfa2077bfb2097d502a706d37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to create an IDE-SECIR model.  <a href="classmio_1_1isecir_1_1Model.html#a5552b1cfa2077bfb2097d502a706d37f">More...</a><br /></td></tr>
-<tr class="separator:a5552b1cfa2077bfb2097d502a706d37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9525c1cf95fc8da84708aeccff600a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#aae9525c1cf95fc8da84708aeccff600a">Model</a> (<a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &amp;&amp;init, <a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt; N_init, <a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt; deaths, size_t num_agegroups, <a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt; total_confirmed_cases=<a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;())</td></tr>
+<tr class="memdesc:aae9525c1cf95fc8da84708aeccff600a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to create an IDE-SECIR model.  <a href="classmio_1_1isecir_1_1Model.html#aae9525c1cf95fc8da84708aeccff600a">More...</a><br /></td></tr>
+<tr class="separator:aae9525c1cf95fc8da84708aeccff600a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a21dc62481c194f9923fbcc4343e6a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a7a21dc62481c194f9923fbcc4343e6a2">set_tol_for_support_max</a> (<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> new_tol)</td></tr>
 <tr class="memdesc:a7a21dc62481c194f9923fbcc4343e6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the tolerance used to calculate the maximum support of the <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>.  <a href="classmio_1_1isecir_1_1Model.html#a7a21dc62481c194f9923fbcc4343e6a2">More...</a><br /></td></tr>
 <tr class="separator:a7a21dc62481c194f9923fbcc4343e6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,13 +145,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a5f910fdb0dfda9b7eea8f1f0b4849a47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a5f910fdb0dfda9b7eea8f1f0b4849a47">m_populations</a></td></tr>
 <tr class="memdesc:a5f910fdb0dfda9b7eea8f1f0b4849a47"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> containing points of time and the corresponding number of.  <a href="classmio_1_1isecir_1_1Model.html#a5f910fdb0dfda9b7eea8f1f0b4849a47">More...</a><br /></td></tr>
 <tr class="separator:a5f910fdb0dfda9b7eea8f1f0b4849a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbddfc3905c086df0cf1e51c021f6e0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#adbddfc3905c086df0cf1e51c021f6e0c">m_total_confirmed_cases</a> {0}</td></tr>
-<tr class="memdesc:adbddfc3905c086df0cf1e51c021f6e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of confirmed cases at time t0.  <a href="classmio_1_1isecir_1_1Model.html#adbddfc3905c086df0cf1e51c021f6e0c">More...</a><br /></td></tr>
-<tr class="separator:adbddfc3905c086df0cf1e51c021f6e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b6b68020e812adf25f9782c5be5ac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a40b6b68020e812adf25f9782c5be5ac7">m_total_confirmed_cases</a></td></tr>
+<tr class="memdesc:a40b6b68020e812adf25f9782c5be5ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a> that contains the total number of confirmed cases at time t0 for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>.  <a href="classmio_1_1isecir_1_1Model.html#a40b6b68020e812adf25f9782c5be5ac7">More...</a><br /></td></tr>
+<tr class="separator:a40b6b68020e812adf25f9782c5be5ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7c1cbb3d211fbfb6392f126519e23ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#ac7c1cbb3d211fbfb6392f126519e23ae">m_transitions</a></td></tr>
-<tr class="memdesc:ac7c1cbb3d211fbfb6392f126519e23ae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> containing points of time and the corresponding number of transitions.  <a href="classmio_1_1isecir_1_1Model.html#ac7c1cbb3d211fbfb6392f126519e23ae">More...</a><br /></td></tr>
+<tr class="memdesc:ac7c1cbb3d211fbfb6392f126519e23ae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> containing points of time and the corresponding number of transitions for every.  <a href="classmio_1_1isecir_1_1Model.html#ac7c1cbb3d211fbfb6392f126519e23ae">More...</a><br /></td></tr>
 <tr class="separator:ac7c1cbb3d211fbfb6392f126519e23ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab71e0b655aaf34e34f01df5dfdeff322"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#ab71e0b655aaf34e34f01df5dfdeff322">parameters</a> {}</td></tr>
+<tr class="memitem:ab71e0b655aaf34e34f01df5dfdeff322"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#ab71e0b655aaf34e34f01df5dfdeff322">parameters</a> {<a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>(<a class="el" href="classmio_1_1isecir_1_1Model.html#af473412dd3ba4b1f0436c541f9249840">m_num_agegroups</a>)}</td></tr>
 <tr class="memdesc:ab71e0b655aaf34e34f01df5dfdeff322"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1ParameterSet.html" title="a set of parameters defined at compile time">ParameterSet</a> of <a class="el" href="classmio_1_1isecir_1_1Model.html">Model</a> <a class="el" href="classmio_1_1isecir_1_1Parameters.html" title="Parameters of an age-resolved SECIR/SECIHURD model.">Parameters</a>.  <a href="classmio_1_1isecir_1_1Model.html#ab71e0b655aaf34e34f01df5dfdeff322">More...</a><br /></td></tr>
 <tr class="separator:ab71e0b655aaf34e34f01df5dfdeff322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -156,33 +162,36 @@ Private Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a065fbcd241696d9aaa02eccef8f2df86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a065fbcd241696d9aaa02eccef8f2df86">update_compartment_from_flow</a> (<a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697">InfectionState</a> infectionState, std::vector&lt; <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73">InfectionTransition</a> &gt; const &amp;IncomingFlows, std::vector&lt; <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73">InfectionTransition</a> &gt; const &amp;OutgoingFlows)</td></tr>
-<tr class="memdesc:a065fbcd241696d9aaa02eccef8f2df86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the values of one compartment using flows.  <a href="classmio_1_1isecir_1_1Model.html#a065fbcd241696d9aaa02eccef8f2df86">More...</a><br /></td></tr>
-<tr class="separator:a065fbcd241696d9aaa02eccef8f2df86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f2fbeb09b450596f56b60f57fce76d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#ab7f2fbeb09b450596f56b60f57fce76d">update_compartment_from_flow</a> (<a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697">InfectionState</a> infectionState, std::vector&lt; <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73">InfectionTransition</a> &gt; const &amp;IncomingFlows, std::vector&lt; <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73">InfectionTransition</a> &gt; const &amp;OutgoingFlows, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> group)</td></tr>
+<tr class="memdesc:ab7f2fbeb09b450596f56b60f57fce76d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the values of one compartment using flows.  <a href="classmio_1_1isecir_1_1Model.html#ab7f2fbeb09b450596f56b60f57fce76d">More...</a><br /></td></tr>
+<tr class="separator:ab7f2fbeb09b450596f56b60f57fce76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24e9fd04784fd77bab8424fd8d2599dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a24e9fd04784fd77bab8424fd8d2599dd">m_forceofinfection</a> {0}</td></tr>
-<tr class="memdesc:a24e9fd04784fd77bab8424fd8d2599dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force of infection term needed for numerical scheme.  <a href="classmio_1_1isecir_1_1Model.html#a24e9fd04784fd77bab8424fd8d2599dd">More...</a><br /></td></tr>
-<tr class="separator:a24e9fd04784fd77bab8424fd8d2599dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9112ea2f61fe97fb5e1ccfce8e4a2d73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a9112ea2f61fe97fb5e1ccfce8e4a2d73">m_forceofinfection</a></td></tr>
+<tr class="memdesc:a9112ea2f61fe97fb5e1ccfce8e4a2d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force of infection term needed for numerical scheme.  <a href="classmio_1_1isecir_1_1Model.html#a9112ea2f61fe97fb5e1ccfce8e4a2d73">More...</a><br /></td></tr>
+<tr class="separator:a9112ea2f61fe97fb5e1ccfce8e4a2d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8488a4c5ad81d8f90f061df29c19a6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#af8488a4c5ad81d8f90f061df29c19a6e">m_initialization_method</a> {0}</td></tr>
 <tr class="memdesc:af8488a4c5ad81d8f90f061df29c19a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the index of the method used for the initialization of the model.  <a href="classmio_1_1isecir_1_1Model.html#af8488a4c5ad81d8f90f061df29c19a6e">More...</a><br /></td></tr>
 <tr class="separator:af8488a4c5ad81d8f90f061df29c19a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2153efbcfbed7df8ab91ca9ead82175"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#aa2153efbcfbed7df8ab91ca9ead82175">m_N</a> {0}</td></tr>
-<tr class="memdesc:aa2153efbcfbed7df8ab91ca9ead82175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total population size of the considered region.  <a href="classmio_1_1isecir_1_1Model.html#aa2153efbcfbed7df8ab91ca9ead82175">More...</a><br /></td></tr>
-<tr class="separator:aa2153efbcfbed7df8ab91ca9ead82175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694fe3ba2214528e7e292e223c5df176"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a694fe3ba2214528e7e292e223c5df176">m_N</a></td></tr>
+<tr class="memdesc:a694fe3ba2214528e7e292e223c5df176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the total population size of the considered region for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>.  <a href="classmio_1_1isecir_1_1Model.html#a694fe3ba2214528e7e292e223c5df176">More...</a><br /></td></tr>
+<tr class="separator:a694fe3ba2214528e7e292e223c5df176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af473412dd3ba4b1f0436c541f9249840"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#af473412dd3ba4b1f0436c541f9249840">m_num_agegroups</a></td></tr>
+<tr class="memdesc:af473412dd3ba4b1f0436c541f9249840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of Age Groups.  <a href="classmio_1_1isecir_1_1Model.html#af473412dd3ba4b1f0436c541f9249840">More...</a><br /></td></tr>
+<tr class="separator:af473412dd3ba4b1f0436c541f9249840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e97568761d0af6818194a93f1b51c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a16e97568761d0af6818194a93f1b51c7">m_tol</a> {1e-10}</td></tr>
 <tr class="memdesc:a16e97568761d0af6818194a93f1b51c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tolerance used to calculate the maximum support of the <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a>.  <a href="classmio_1_1isecir_1_1Model.html#a16e97568761d0af6818194a93f1b51c7">More...</a><br /></td></tr>
 <tr class="separator:a16e97568761d0af6818194a93f1b51c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af82f1687dcf6979cc16c139a92288200"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#af82f1687dcf6979cc16c139a92288200">m_transitiondistributions_derivative</a></td></tr>
-<tr class="memdesc:af82f1687dcf6979cc16c139a92288200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for.  <a href="classmio_1_1isecir_1_1Model.html#af82f1687dcf6979cc16c139a92288200">More...</a><br /></td></tr>
-<tr class="separator:af82f1687dcf6979cc16c139a92288200"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a4662cfd4ef9cb89c3471a47e85a7170f">m_transitiondistributions_in_forceofinfection</a></td></tr>
-<tr class="memdesc:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector.  <a href="classmio_1_1isecir_1_1Model.html#a4662cfd4ef9cb89c3471a47e85a7170f">More...</a><br /></td></tr>
-<tr class="separator:a4662cfd4ef9cb89c3471a47e85a7170f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#a904d52c6ae0b3d6c9c5280be491dafa8">m_transitiondistributions_support_max</a></td></tr>
-<tr class="memdesc:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the support_max.  <a href="classmio_1_1isecir_1_1Model.html#a904d52c6ae0b3d6c9c5280be491dafa8">More...</a><br /></td></tr>
-<tr class="separator:a904d52c6ae0b3d6c9c5280be491dafa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdeee7a4ad3ed4e46fceb7cbf7fced9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#abdeee7a4ad3ed4e46fceb7cbf7fced9f">m_transitiondistributions_derivative</a></td></tr>
+<tr class="memdesc:abdeee7a4ad3ed4e46fceb7cbf7fced9f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>.  <a href="classmio_1_1isecir_1_1Model.html#abdeee7a4ad3ed4e46fceb7cbf7fced9f">More...</a><br /></td></tr>
+<tr class="separator:abdeee7a4ad3ed4e46fceb7cbf7fced9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3afb0aaf9b6fe6c92fa66baa9b1c9d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; std::vector&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt; &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#af3afb0aaf9b6fe6c92fa66baa9b1c9d4">m_transitiondistributions_in_forceofinfection</a></td></tr>
+<tr class="memdesc:af3afb0aaf9b6fe6c92fa66baa9b1c9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>.  <a href="classmio_1_1isecir_1_1Model.html#af3afb0aaf9b6fe6c92fa66baa9b1c9d4">More...</a><br /></td></tr>
+<tr class="separator:af3afb0aaf9b6fe6c92fa66baa9b1c9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7daf23ee135ab36b32d1c9a8e0107ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; std::vector&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1isecir_1_1Model.html#aa7daf23ee135ab36b32d1c9a8e0107ee">m_transitiondistributions_support_max</a></td></tr>
+<tr class="memdesc:aa7daf23ee135ab36b32d1c9a8e0107ee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>.  <a href="classmio_1_1isecir_1_1Model.html#aa7daf23ee135ab36b32d1c9a8e0107ee">More...</a><br /></td></tr>
+<tr class="separator:aa7daf23ee135ab36b32d1c9a8e0107ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aeaa245527257d77cc8a2247decc03485"></a>
@@ -208,8 +217,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5552b1cfa2077bfb2097d502a706d37f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5552b1cfa2077bfb2097d502a706d37f">&#9670;&nbsp;</a></span>Model()</h2>
+<a id="aae9525c1cf95fc8da84708aeccff600a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9525c1cf95fc8da84708aeccff600a">&#9670;&nbsp;</a></span>Model()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,26 +232,26 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td>
           <td class="paramname"><em>N_init</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td>
           <td class="paramname"><em>deaths</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
-          <td class="paramname"><em>total_confirmed_cases</em> = <code>0</code>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num_agegroups</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a> &amp;&#160;</td>
-          <td class="paramname"><em>Parameterset_init</em> = <code><a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a>()</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt;&#160;</td>
+          <td class="paramname"><em>total_confirmed_cases</em> = <code><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>,&#160;<a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt;()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -256,10 +265,10 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">init</td><td><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> with the initial values of the number of individuals, which transit within one timestep dt from one compartment to another. Possible transitions are specified in <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73" title="The InfectionTransition enum describes the possible transitions of the infectious state of persons.">InfectionTransition</a>s. Considered time points should have the distance dt. The last time point determines the start time t0 of the simulation. The time history must reach a certain point in the past so that the simulation can be performed. A warning is displayed if the condition is violated. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">N_init</td><td>The population of the considered region. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">deaths</td><td>The total number of deaths at time t0. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">total_confirmed_cases</td><td>Total confirmed cases at time t0 can be set if it should be used for initialization. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">Parameterset_init</td><td>Used <a class="el" href="classmio_1_1isecir_1_1Parameters.html" title="Parameters of an age-resolved SECIR/SECIHURD model.">Parameters</a> for simulation. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N_init</td><td>A vector, containg the populations of the considered region, for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deaths</td><td>A vector, containg the total number of deaths at time t0, for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num_agegroups</td><td>The number of AgeGroups. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">total_confirmed_cases</td><td>A vector, containing the total confirmed cases at time t0 can be set if it should be used for initialization, for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -288,8 +297,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="affa8f3510cb2af19a98ba7462a012cfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affa8f3510cb2af19a98ba7462a012cfc">&#9670;&nbsp;</a></span>compute_compartment_from_flows()</h2>
+<a id="abeab050f6db1029f655f5da2b12c8ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeab050f6db1029f655f5da2b12c8ef2">&#9670;&nbsp;</a></span>compute_compartment_from_flows()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,6 +314,12 @@ Private Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">Eigen::Index&#160;</td>
           <td class="paramname"><em>idx_InfectionState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -338,6 +353,7 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time discretization step size. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_InfectionState</td><td>Specifies the considered <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>The <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a> for which we want to compute. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_IncomingFlow</td><td>Specifies the index of the infoming flow to <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a> in m_transitions. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_TransitionDistribution1</td><td>Specifies the index of the first relevant TransitionDistribution, related to a flow from the considered <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a> to any other <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a>. This index is also used for related probability. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_TransitionDistribution2</td><td>Specifies the index of the second relevant TransitionDistribution, related to a flow from the considered <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a> to any other <a class="el" href="namespacemio_1_1isecir.html#a4765e077a33191fc1125ca33a6ad8697" title="The InfectionState enum describes the possible categories for the infectious state of persons.">InfectionState</a> (in most cases to Recovered). Related probability is calculated via 1-probability[idx_TransitionDistribution1]. Sometimes the second index is not needed, e.g., if probability[idx_TransitionDistribution1]=1. </td></tr>
@@ -347,8 +363,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0fff197d7a79731b63365ddcd5997515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fff197d7a79731b63365ddcd5997515">&#9670;&nbsp;</a></span>compute_flow() <span class="overload">[1/2]</span></h2>
+<a id="a05665d48282cbcec68135964dd8a0986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05665d48282cbcec68135964dd8a0986">&#9670;&nbsp;</a></span>compute_flow() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,7 +385,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>group</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -386,14 +408,15 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_InfectionTransitions</td><td>Specifies the considered flow from <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73" title="The InfectionTransition enum describes the possible transitions of the infectious state of persons.">InfectionTransition</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_IncomingFlow</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> of the flow in <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73" title="The InfectionTransition enum describes the possible transitions of the infectious state of persons.">InfectionTransition</a>, which goes to the considered starting compartment of the flow specified in idx_InfectionTransitions. Size of considered flow is calculated via the value of this incoming flow. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step to compute flow for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>The Age Group for which we want to compute the flow. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a8305f12712589c2ac54315184634494f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8305f12712589c2ac54315184634494f">&#9670;&nbsp;</a></span>compute_flow() <span class="overload">[2/2]</span></h2>
+<a id="a18fb1022c4a3b92ab980476620d9e233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18fb1022c4a3b92ab980476620d9e233">&#9670;&nbsp;</a></span>compute_flow() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,7 +443,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Eigen::Index&#160;</td>
-          <td class="paramname"><em>current_time_index</em>&#160;</td>
+          <td class="paramname"><em>current_time_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>group</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -438,6 +467,7 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx_IncomingFlow</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> of the flow in <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73" title="The InfectionTransition enum describes the possible transitions of the infectious state of persons.">InfectionTransition</a>, which goes to the considered starting compartment of the flow specified in idx_InfectionTransitions. Size of considered flow is calculated via the value of this incoming flow. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step to compute flow for. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">current_time_index</td><td>The time index the flow should be computed for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>The Age group for which we want to compute the flow. </td></tr>
   </table>
   </dd>
 </dl>
@@ -527,7 +557,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets all required flows for the current last timestep in m_transitions. </p>
-<p>New values are stored in m_transitions. Most values are computed via the function <a class="el" href="classmio_1_1isecir_1_1Model.html#a8305f12712589c2ac54315184634494f" title="Computes size of a flow.">compute_flow()</a>.</p>
+<p>New values are stored in m_transitions. Most values are computed via the function <a class="el" href="classmio_1_1isecir_1_1Model.html#a18fb1022c4a3b92ab980476620d9e233" title="Computes size of a flow.">compute_flow()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Time step. </td></tr>
@@ -584,6 +614,82 @@ Private Attributes</h2></td></tr>
 <p>Returns the index of the automatically selected initialization method. </p>
 <p>The initialization method is selected automatically based on the different values that need to be set beforehand. Infection compartments are always computed through historic flow. Initialization methods for Susceptible and Recovered are tested in the following order: 1.) If a positive number for the total number of confirmed cases is set, Recovered is set according to that value and Susceptibles are derived. 2.) If Susceptibles are set, Recovered will be derived. 3.) If Recovered are set directly, Susceptibles are derived. 4.) If none of the above is set with positive value, the force of infection is used as in Messina et al (2021) to set the Susceptibles.</p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> representing the initialization method. </dd></dl>
+
+</div>
+</div>
+<a id="a3328b24408a25661e384aa93cde4c7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3328b24408a25661e384aa93cde4c7a1">&#9670;&nbsp;</a></span>get_state_flat_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mio::isecir::Model::get_state_flat_index </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Index&#160;</td>
+          <td class="paramname"><em>state_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>agegroup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a flat index for the InfectionState <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>. </p>
+<p>In the <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> we store a vector for each time point. In this vector we store the different InfectionStates for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. This function is used to get the right index in this vector for a specific <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a> and InfectionState.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state_idx</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> at which InfectionState we want to evaluate. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">agegroup</td><td>The agegroup for which we want to evaluate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b7072a5091bd99ee8e8dc819568eaba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b7072a5091bd99ee8e8dc819568eaba">&#9670;&nbsp;</a></span>get_transition_flat_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mio::isecir::Model::get_transition_flat_index </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Index&#160;</td>
+          <td class="paramname"><em>transition_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>agegroup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a flat index for the InfectionTransition <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>. </p>
+<p>In the <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> we store a vector for each time point. In this vector we store the different <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73" title="The InfectionTransition enum describes the possible transitions of the infectious state of persons.">InfectionTransition</a>s for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. This function is used to get the right index in this vector for a specific <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a> and InfectionTransition.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">transition_idx</td><td><a class="el" href="classmio_1_1Index.html" title="An Index with more than one template parameter combines several Index objects.">Index</a> determining which InfectionTransition we want to evaluate. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">agegroup</td><td>The agegroup for which we want to evaluate. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -750,8 +856,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a065fbcd241696d9aaa02eccef8f2df86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a065fbcd241696d9aaa02eccef8f2df86">&#9670;&nbsp;</a></span>update_compartment_from_flow()</h2>
+<a id="ab7f2fbeb09b450596f56b60f57fce76d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f2fbeb09b450596f56b60f57fce76d">&#9670;&nbsp;</a></span>update_compartment_from_flow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -775,7 +881,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; <a class="el" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73">InfectionTransition</a> &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>OutgoingFlows</em>&#160;</td>
+          <td class="paramname"><em>OutgoingFlows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&#160;</td>
+          <td class="paramname"><em>group</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -816,8 +928,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a24e9fd04784fd77bab8424fd8d2599dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24e9fd04784fd77bab8424fd8d2599dd">&#9670;&nbsp;</a></span>m_forceofinfection</h2>
+<a id="a9112ea2f61fe97fb5e1ccfce8e4a2d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9112ea2f61fe97fb5e1ccfce8e4a2d73">&#9670;&nbsp;</a></span>m_forceofinfection</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -826,7 +938,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> mio::isecir::Model::m_forceofinfection {0}</td>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_forceofinfection</td>
         </tr>
       </table>
   </td>
@@ -864,8 +976,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa2153efbcfbed7df8ab91ca9ead82175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2153efbcfbed7df8ab91ca9ead82175">&#9670;&nbsp;</a></span>m_N</h2>
+<a id="a694fe3ba2214528e7e292e223c5df176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694fe3ba2214528e7e292e223c5df176">&#9670;&nbsp;</a></span>m_N</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -874,7 +986,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> mio::isecir::Model::m_N {0}</td>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_N</td>
         </tr>
       </table>
   </td>
@@ -884,7 +996,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Total population size of the considered region. </p>
+<p>Vector containing the total population size of the considered region for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. </p>
+
+</div>
+</div>
+<a id="af473412dd3ba4b1f0436c541f9249840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af473412dd3ba4b1f0436c541f9249840">&#9670;&nbsp;</a></span>m_num_agegroups</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t mio::isecir::Model::m_num_agegroups</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of Age Groups. </p>
 
 </div>
 </div>
@@ -928,53 +1064,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="adbddfc3905c086df0cf1e51c021f6e0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbddfc3905c086df0cf1e51c021f6e0c">&#9670;&nbsp;</a></span>m_total_confirmed_cases</h2>
+<a id="a40b6b68020e812adf25f9782c5be5ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40b6b68020e812adf25f9782c5be5ac7">&#9670;&nbsp;</a></span>m_total_confirmed_cases</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a> mio::isecir::Model::m_total_confirmed_cases {0}</td>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_total_confirmed_cases</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Total number of confirmed cases at time t0. </p>
+<p><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a> that contains the total number of confirmed cases at time t0 for every <a class="el" href="structmio_1_1AgeGroup.html" title="The AgeGroup struct is used as a dynamically sized tag for all age dependent categories.">AgeGroup</a>. </p>
 
 </div>
 </div>
-<a id="af82f1687dcf6979cc16c139a92288200"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af82f1687dcf6979cc16c139a92288200">&#9670;&nbsp;</a></span>m_transitiondistributions_derivative</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt; mio::isecir::Model::m_transitiondistributions_derivative</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{std::vector&lt;std::vector&lt;ScalarType&gt;&gt;(</div>
-<div class="line">        (int)<a class="code" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">InfectionTransition::Count</a>,</div>
-<div class="line">        std::vector&lt;ScalarType&gt;(</div>
-<div class="line">            1, 0.))}</div>
-<div class="ttc" id="anamespacemio_1_1isecir_html_a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9"><div class="ttname"><a href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">mio::isecir::InfectionTransition::Count</a></div><div class="ttdeci">@ Count</div></div>
-</div><!-- fragment -->
-<p>Vector containing the approximated derivative for all <a class="el" href="structmio_1_1isecir_1_1TransitionDistributions.html" title="Transition distribution for each transition in InfectionTransition.">TransitionDistributions</a> for. </p>
-
-</div>
-</div>
-<a id="a4662cfd4ef9cb89c3471a47e85a7170f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4662cfd4ef9cb89c3471a47e85a7170f">&#9670;&nbsp;</a></span>m_transitiondistributions_in_forceofinfection</h2>
+<a id="abdeee7a4ad3ed4e46fceb7cbf7fced9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdeee7a4ad3ed4e46fceb7cbf7fced9f">&#9670;&nbsp;</a></span>m_transitiondistributions_derivative</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -983,7 +1090,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt; mio::isecir::Model::m_transitiondistributions_in_forceofinfection</td>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_transitiondistributions_derivative</td>
         </tr>
       </table>
   </td>
@@ -992,15 +1099,13 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        std::vector&lt;std::vector&lt;ScalarType&gt;&gt;(2, std::vector&lt;ScalarType&gt;(1, 0.))}</div>
-</div><!-- fragment -->
-<p>Vector. </p>
+
+<p><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>. </p>
 
 </div>
 </div>
-<a id="a904d52c6ae0b3d6c9c5280be491dafa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a904d52c6ae0b3d6c9c5280be491dafa8">&#9670;&nbsp;</a></span>m_transitiondistributions_support_max</h2>
+<a id="af3afb0aaf9b6fe6c92fa66baa9b1c9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3afb0aaf9b6fe6c92fa66baa9b1c9d4">&#9670;&nbsp;</a></span>m_transitiondistributions_in_forceofinfection</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1009,7 +1114,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; mio::isecir::Model::m_transitiondistributions_support_max</td>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;std::vector&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt; &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_transitiondistributions_in_forceofinfection</td>
         </tr>
       </table>
   </td>
@@ -1018,10 +1123,32 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        std::vector&lt;ScalarType&gt;((<span class="keywordtype">int</span>)<a class="code" href="namespacemio_1_1isecir.html#a4aa9050dca2db281bd2063a108869f73ae93f994f01c537c4e2f7d8528c3eb5e9">InfectionTransition::Count</a>, 0.)}</div>
-</div><!-- fragment -->
-<p>Vector containing the support_max. </p>
+
+<p><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>. </p>
+
+</div>
+</div>
+<a id="aa7daf23ee135ab36b32d1c9a8e0107ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7daf23ee135ab36b32d1c9a8e0107ee">&#9670;&nbsp;</a></span>m_transitiondistributions_support_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt;std::vector&lt;<a class="el" href="memilio_2config_8h.html#acd4f1d492d83a74716a42615e127d641">ScalarType</a>&gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>&gt; mio::isecir::Model::m_transitiondistributions_support_max</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a>. </p>
 
 </div>
 </div>
@@ -1037,7 +1164,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> containing points of time and the corresponding number of transitions. </p>
+<p><a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a> containing points of time and the corresponding number of transitions for every. </p>
 
 </div>
 </div>
@@ -1048,7 +1175,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a> mio::isecir::Model::parameters {}</td>
+          <td class="memname"><a class="el" href="classmio_1_1isecir_1_1Model.html#aeaa245527257d77cc8a2247decc03485">ParameterSet</a> mio::isecir::Model::parameters {<a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a>(<a class="el" href="classmio_1_1isecir_1_1Model.html#af473412dd3ba4b1f0436c541f9249840">m_num_agegroups</a>)}</td>
         </tr>
       </table>
 </div><div class="memdoc">
