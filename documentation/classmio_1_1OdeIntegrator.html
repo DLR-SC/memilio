@@ -103,7 +103,12 @@ Private Attributes</h2></td></tr>
 class mio::OdeIntegrator&lt; FP &gt;</h3>
 
 <p>Integrate initial value problems (IVP) of ordinary differential equations (ODE) of the form y' = f(y, t), y(t0) = y0. </p>
-<p>tparam FP a floating point type accepted by Eigen </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FP</td><td>a floating point type accepted by Eigen </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2385ee07909cf20ffaebb483333efe73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2385ee07909cf20ffaebb483333efe73">&#9670;&nbsp;</a></span>OdeIntegrator()</h2>
@@ -180,7 +185,7 @@ template&lt;typename FP  = double&gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>The rhs of the ODE. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tmax</td><td>Time end point. Must be greater than results.get_last_time(). </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">dt</td><td>Initial integration step size. May be changed by the <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">results</td><td>List of results. Must contain at least one time point. The last entry is used as intitial time and value. A new entry is added for each integration step. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">results</td><td>List of results. Must contain at least one time point. The last entry is used as initial time and value. A new entry is added for each integration step. </td></tr>
   </table>
   </dd>
 </dl>
