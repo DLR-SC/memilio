@@ -38,7 +38,7 @@ runs:
       shell: bash
       run: |
         sudo apt-get -qq update
-        sudo apt-get -qq -y install lcov ccache gfortran-11
+        sudo apt-get -qq -y install lcov ccache
         if [[ "${{ inputs.optional-dependencies }}" == "ON" ]]; then
           sudo apt-get -qq -y install libhdf5-dev 
         fi
@@ -46,7 +46,8 @@ runs:
           if [[ "${{ inputs.version }}" == "min" ]]; then
             sudo apt-get -qq -y install gcc-9
             sudo apt-get -qq -y install g++-9
-          else        
+          else
+            sudo apt-get -qq -y install gfortran-11        
             sudo apt-get -qq -y install gcc-11
             sudo apt-get -qq -y install g++-11
           fi
