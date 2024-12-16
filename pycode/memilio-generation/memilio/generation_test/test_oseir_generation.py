@@ -45,8 +45,6 @@ class TestOseirGeneration(unittest.TestCase):
 
     # set environment variables such that cmake chooses a clang compiler. the C compiler is probably not needed
     cmake_env = os.environ.copy()
-    cmake_env["CXX"] = "clang++"
-    cmake_env["CC"] = "clang"
     # run cmake
     cmake_cmd = ["cmake", os.path.join(
         project_path, "pycode/memilio-generation"), "-Wno-dev"]
