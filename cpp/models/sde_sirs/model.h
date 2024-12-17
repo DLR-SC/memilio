@@ -24,6 +24,7 @@
 #include "memilio/compartments/flow_model.h"
 #include "memilio/epidemiology/populations.h"
 #include "memilio/utils/random_number_generator.h"
+#include "memilio/utils/stl_util.h"
 #include "sde_sirs/infection_state.h"
 #include "sde_sirs/parameters.h"
 
@@ -82,6 +83,23 @@ public:
             (1.0 / params.get<TimeImmune>()) * y[(size_t)InfectionState::Recovered] +
                 sqrt((1.0 / params.get<TimeImmune>()) * y[(size_t)InfectionState::Recovered]) * inv_sqrt_dt * rs,
             0.0, y[(size_t)InfectionState::Recovered] / step_size);
+    }
+
+    void get_flows_denoised(Eigen::Ref<const Vector<>> pop, Eigen::Ref<const Vector<>> y, ScalarType t,
+                            Eigen::Ref<Vector<>> flows) const
+    {
+        auto& params         = this->parameters;
+        ScalarType coeffStoI = params.get<ContactPatterns>().get_matrix_at(t)(0, 0) *
+                               params.get<TransmissionProbabilityOnContact>() / populations.get_total();
+
+        flows[get_flat_flow_index<InfectionState::Susceptible, InfectionState::Infected>()] =
+            coeffStoI * y[(size_t)InfectionState::Susceptible] * pop[(size_t)InfectionState::Infected];
+
+        flows[get_flat_flow_index<InfectionState::Infected, InfectionState::Recovered>()] =
+            (1.0 / params.get<TimeInfected>()) * y[(size_t)InfectionState::Infected];
+
+        flows[get_flat_flow_index<InfectionState::Recovered, InfectionState::Susceptible>()] =
+            (1.0 / params.get<TimeImmune>()) * y[(size_t)InfectionState::Recovered];
     }
 
     ScalarType step_size; ///< A step size of the model with which the stochastic process is realized.

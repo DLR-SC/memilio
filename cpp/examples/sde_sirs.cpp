@@ -18,9 +18,11 @@
 * limitations under the License.
 */
 
+#include "memilio/math/euler.h"
 #include "memilio/utils/logging.h"
 #include "sde_sirs/model.h"
 #include "sde_sirs/simulation.h"
+#include <memory>
 
 int main()
 {
@@ -28,7 +30,7 @@ int main()
 
     double t0   = 0.;
     double tmax = 5.;
-    double dt   = 0.001;
+    double dt   = 0.1;
 
     double total_population = 10000;
 
@@ -50,7 +52,15 @@ int main()
 
     model.check_constraints();
 
-    auto ssirs = mio::ssirs::simulate(t0, tmax, dt, model);
+    auto ssirs = mio::ssirs::simulate_flows(t0, tmax, dt, model);
 
-    ssirs.print_table({"Susceptible", "Infected", "Recovered"});
+    ssirs[0].print_table({"Susceptible", "Infected", "Recovered"});
+    ssirs[1].print_table({"S-I", "I-R", "R-S"});
+
+    auto integrator = std::make_shared<mio::EulerIntegratorCore<double>>();
+    mio::FlowSimStoc<double, mio::ssirs::Model> sim(model, t0, dt);
+    sim.set_integrator(integrator);
+    sim.advance(tmax);
+    sim.get_result().print_table();
+    sim.get_flows().print_table();
 }

@@ -26,6 +26,9 @@
 #include "memilio/utils/flow.h"
 #include "memilio/utils/type_list.h"
 
+#include <array>
+#include <cassert>
+
 namespace mio
 {
 
@@ -57,6 +60,18 @@ using filtered_tuple_t = decltype(filter_tuple<OmittedTag>(std::declval<Tuple>()
 template <class OmittedTag, template <class...> class IndexTemplate, class Index>
 using filtered_index_t = decltype(as_index<IndexTemplate>(
     std::declval<filtered_tuple_t<OmittedTag, decltype(as_tuple(std::declval<Index>()))>>()));
+
+template <class Comp, class... Flows>
+std::array<Comp, sizeof...(Flows)> extract_sources(TypeList<Flows...>)
+{
+    return {Flows::source...};
+}
+
+template <class Comp, class... Flows>
+std::array<Comp, sizeof...(Flows)> extract_targets(TypeList<Flows...>)
+{
+    return {Flows::target...};
+}
 
 } //namespace details
 
@@ -187,6 +202,18 @@ public:
             const FlowIndex flow_index_dimensions = reduce_index<FlowIndex>(this->populations.size());
             return flatten_index(indices, flow_index_dimensions) * Flows::size() +
                    index_of_type_v<Flow<Source, Target>, Flows>;
+        }
+    }
+
+    Comp get_flow_source(size_t flat_flow_index) const
+    {
+        static const auto sources = details::extract_sources<Comp>(Flows{});
+        if constexpr (std::is_same_v<FlowIndex, Index<>>) {
+            assert(flat_flow_index < Flows::size());
+            return sources[flat_flow_index];
+        }
+        else {
+            return sources[flat_flow_index % Flows::size()];
         }
     }
 

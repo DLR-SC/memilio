@@ -22,6 +22,8 @@
 
 #include "memilio/compartments/flow_model.h"
 #include "memilio/compartments/simulation.h"
+#include "memilio/math/eigen.h"
+#include "memilio/utils/random_number_generator.h"
 
 namespace mio
 {
@@ -134,8 +136,8 @@ protected:
 
     Vector<FP> m_pop; ///< pre-allocated temporary, used in right_hand_side()
 
-private:
     mio::TimeSeries<FP> m_flow_result; ///< flow result of the simulation
+private:
 };
 
 /**
@@ -163,6 +165,62 @@ std::vector<TimeSeries<FP>> simulate_flows(FP t0, FP tmax, FP dt, Model const& m
     sim.advance(tmax);
     return {sim.get_result(), sim.get_flows()};
 }
+
+template <typename FP, class M>
+class FlowSimStoc : public mio::FlowSimulation<FP, M>
+{
+public:
+    using FlowSimulation<FP, M>::FlowSimulation;
+
+    Eigen::Ref<Vector<FP>> advance(FP tmax)
+    {
+        // the derivfunktion (i.e. the lambda passed to m_integrator.advance below) requires that there are at least
+        // as many entries in m_flow_result as in Base::m_result
+        assert(this->m_flow_result.get_num_time_points() == this->get_result().get_num_time_points());
+        auto result = this->get_ode_integrator().advance(
+            [this](auto&& flows, auto&& t, auto&& dflows_dt) {
+                // TODO: dedupe this section of code? (cp from FlowSimulation::advance)
+                const auto& pop_result = this->get_result();
+                const auto& model      = this->get_model();
+                // compute current population
+                //   flows contains the accumulated outflows of each compartment for each target compartment at time t.
+                //   Using that the ODEs are linear expressions of the flows, get_derivatives can compute the total change
+                //   in population from t0 to t.
+                //   To incorporate external changes to the last values of pop_result (e.g. by applying mobility), we only
+                //   calculate the change in population starting from the last available time point in m_result, instead
+                //   of starting at t0. To do that, the following difference of flows is used.
+                model.get_derivatives(flows - this->m_flow_result.get_value(pop_result.get_num_time_points() - 1),
+                                      this->m_pop); // note: overwrites values in pop
+                //   add the "initial" value of the ODEs (using last available time point in pop_result)
+                //     If no changes were made to the last value in m_result outside of FlowSimulation, the following
+                //     line computes the same as `model.get_derivatives(flows, x); x += model.get_initial_values();`.
+                this->m_pop += pop_result.get_last_value();
+                // compute the current change in flows with respect to the current population
+                dflows_dt.setZero();
+                // TODO: use regular get_flows
+                model.get_flows_denoised(this->m_pop, this->m_pop, t,
+                                         dflows_dt); // this result is used by the integrator
+                // use flows to compute and add stochastic component
+                const auto noise = mio::Vector<FP>::NullaryExpr(dflows_dt.size(), 1, [this]() {
+                    return mio::DistributionAdapter<std::normal_distribution<FP>>::get_instance()(m_rng, 0.0, 1.0);
+                });
+                dflows_dt.array() += dflows_dt.array().sqrt() / this->get_dt() * noise.array();
+                // limit stochastic effects to current population sizes to avoid negative populations
+                // this is ok, assuming that in the time step dt an Infection state can change at most once.
+                for (Eigen::Index i = 0; i < dflows_dt.size(); i++) {
+                    dflows_dt[i] =
+                        // TODO: do we actually have to divide pop by dt here? results appear more reasonable without
+                        std::clamp(dflows_dt[i], 0.0, this->m_pop[(size_t)model.get_flow_source(i)] / this->get_dt());
+                }
+            },
+            tmax, this->get_dt(), this->m_flow_result);
+        this->compute_population_results();
+        return result;
+    }
+
+private:
+    RandomNumberGenerator m_rng;
+};
 
 } // namespace mio
 
