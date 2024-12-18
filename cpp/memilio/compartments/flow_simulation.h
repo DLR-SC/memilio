@@ -204,7 +204,7 @@ public:
                 const auto noise = mio::Vector<FP>::NullaryExpr(dflows_dt.size(), 1, [this]() {
                     return mio::DistributionAdapter<std::normal_distribution<FP>>::get_instance()(m_rng, 0.0, 1.0);
                 });
-                dflows_dt.array() += dflows_dt.array().sqrt() / this->get_dt() * noise.array();
+                dflows_dt.array() += dflows_dt.array().sqrt() / sqrt(this->get_dt()) * noise.array();
                 // limit stochastic effects to current population sizes to avoid negative populations
                 // this is ok, assuming that in the time step dt an Infection state can change at most once.
                 for (Eigen::Index i = 0; i < dflows_dt.size(); i++) {
