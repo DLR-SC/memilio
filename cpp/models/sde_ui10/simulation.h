@@ -17,17 +17,17 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-#ifndef MIO_SDE_UI3_SIMULATION_H
-#define MIO_SDE_UI3_SIMULATION_H
+#ifndef MIO_SDE_UI10_SIMULATION_H
+#define MIO_SDE_UI10_SIMULATION_H
 
 #include "memilio/compartments/flow_simulation.h"
 #include "memilio/compartments/simulation.h"
 #include "memilio/math/euler.h"
-#include "sde_ui3/model.h"
+#include "sde_ui10/model.h"
 
 namespace mio
 {
-namespace sui3
+namespace sui10
 {
 
 /// @brief A specialized Simulation for mio::ssirs::Model.

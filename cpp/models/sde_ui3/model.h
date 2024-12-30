@@ -93,6 +93,68 @@ public:
                    Eigen::Ref<const Vector<>> y, ScalarType t,
                    Eigen::Ref<Vector<>> flows) const
     {
+auto& params         = this->parameters;
+        ScalarType coeffStoI_V1 = params.get<ContactPatterns>().get_matrix_at(t)(0, 0) *
+                               params.get<TransmissionProbabilityOnContactV1>() / populations.get_total();
+        ScalarType coeffStoI_V2 = params.get<ContactPatterns>().get_matrix_at(t)(0, 0) *
+                               params.get<TransmissionProbabilityOnContactV2>() / populations.get_total();
+        ScalarType coeffStoI_V3 = params.get<ContactPatterns>().get_matrix_at(t)(0, 0) *
+                               params.get<TransmissionProbabilityOnContactV3>() / populations.get_total();
+
+
+        ScalarType sum_infected_v1 = pop[(size_t)InfectionState::Infected_V1I0] + pop[(size_t)InfectionState::Infected_V1I1] 
+            + pop[(size_t)InfectionState::Infected_V1I2] + pop[(size_t)InfectionState::Infected_V1I3];
+        ScalarType sum_infected_v2 = pop[(size_t)InfectionState::Infected_V2I0] + pop[(size_t)InfectionState::Infected_V2I1] 
+            + pop[(size_t)InfectionState::Infected_V2I2] + pop[(size_t)InfectionState::Infected_V2I3];
+        ScalarType sum_infected_v3 = pop[(size_t)InfectionState::Infected_V3I0] + pop[(size_t)InfectionState::Infected_V3I1] 
+            + pop[(size_t)InfectionState::Infected_V3I2] + pop[(size_t)InfectionState::Infected_V3I3];
+
+        flows[get_flat_flow_index<InfectionState::Uninfected_I0, InfectionState::Infected_V1I0>()] = coeffStoI_V1 * y[(size_t)InfectionState::Uninfected_I0] * sum_infected_v1;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I0, InfectionState::Infected_V2I0>()] = coeffStoI_V2 * y[(size_t)InfectionState::Uninfected_I0] * sum_infected_v2;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I0, InfectionState::Infected_V3I0>()] = coeffStoI_V3 * y[(size_t)InfectionState::Uninfected_I0] * sum_infected_v3;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I1, InfectionState::Infected_V1I1>()] = coeffStoI_V1 * y[(size_t)InfectionState::Uninfected_I1] * sum_infected_v1;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I1, InfectionState::Infected_V2I1>()] = coeffStoI_V2 * y[(size_t)InfectionState::Uninfected_I1] * sum_infected_v2;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I1, InfectionState::Infected_V3I1>()] = coeffStoI_V3 * y[(size_t)InfectionState::Uninfected_I1] * sum_infected_v3;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I2, InfectionState::Infected_V1I2>()] = coeffStoI_V1 * y[(size_t)InfectionState::Uninfected_I2] * sum_infected_v1;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I2, InfectionState::Infected_V2I2>()] = coeffStoI_V2 * y[(size_t)InfectionState::Uninfected_I2] * sum_infected_v2;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I2, InfectionState::Infected_V3I2>()] = coeffStoI_V3 * y[(size_t)InfectionState::Uninfected_I2] * sum_infected_v3;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I3, InfectionState::Infected_V1I3>()] = coeffStoI_V1 * y[(size_t)InfectionState::Uninfected_I3] * sum_infected_v1;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I3, InfectionState::Infected_V2I3>()] = coeffStoI_V2 * y[(size_t)InfectionState::Uninfected_I3] * sum_infected_v2;
+        flows[get_flat_flow_index<InfectionState::Uninfected_I3, InfectionState::Infected_V3I3>()] = coeffStoI_V3 * y[(size_t)InfectionState::Uninfected_I3] * sum_infected_v3;
+        flows[get_flat_flow_index<InfectionState::Infected_V1I0, InfectionState::Infected_V2I0>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V1I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I1, InfectionState::Infected_V2I1>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V1I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I2, InfectionState::Infected_V2I2>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V1I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I3, InfectionState::Infected_V2I3>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V1I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I0, InfectionState::Infected_V1I0>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I0, InfectionState::Infected_V3I0>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I1, InfectionState::Infected_V1I1>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I1, InfectionState::Infected_V3I1>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I2, InfectionState::Infected_V1I2>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I2, InfectionState::Infected_V3I2>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I3, InfectionState::Infected_V1I3>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I3, InfectionState::Infected_V3I3>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V2I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I0, InfectionState::Infected_V2I0>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V3I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I1, InfectionState::Infected_V2I1>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V3I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I2, InfectionState::Infected_V2I2>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V3I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I3, InfectionState::Infected_V2I3>()] = params.get<ProbMutation>() * y[(size_t)InfectionState::Infected_V3I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I0, InfectionState::Uninfected_I1>()] = (1.0 / params.get<TimeInfectedV1>()) * y[(size_t)InfectionState::Infected_V1I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I1, InfectionState::Uninfected_I1>()] = (100.0 / params.get<TimeInfectedV1>()) * y[(size_t)InfectionState::Infected_V1I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I2, InfectionState::Uninfected_I2>()] = (100.0 / params.get<TimeInfectedV1>()) * y[(size_t)InfectionState::Infected_V1I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V1I3, InfectionState::Uninfected_I3>()] = (100.0 / params.get<TimeInfectedV1>()) * y[(size_t)InfectionState::Infected_V1I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I0, InfectionState::Uninfected_I2>()] = (1.0 / params.get<TimeInfectedV2>()) * y[(size_t)InfectionState::Infected_V2I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I1, InfectionState::Uninfected_I2>()] = (1.0 / params.get<TimeInfectedV2>()) * y[(size_t)InfectionState::Infected_V2I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I2, InfectionState::Uninfected_I2>()] = (100.0 / params.get<TimeInfectedV2>()) * y[(size_t)InfectionState::Infected_V2I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V2I3, InfectionState::Uninfected_I3>()] = (100.0 / params.get<TimeInfectedV2>()) * y[(size_t)InfectionState::Infected_V2I3];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I0, InfectionState::Uninfected_I3>()] = (1.0 / params.get<TimeInfectedV3>()) * y[(size_t)InfectionState::Infected_V3I0];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I1, InfectionState::Uninfected_I3>()] = (1.0 / params.get<TimeInfectedV3>()) * y[(size_t)InfectionState::Infected_V3I1];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I2, InfectionState::Uninfected_I3>()] = (1.0 / params.get<TimeInfectedV3>()) * y[(size_t)InfectionState::Infected_V3I2];
+        flows[get_flat_flow_index<InfectionState::Infected_V3I3, InfectionState::Uninfected_I3>()] = (100.0 / params.get<TimeInfectedV3>()) * y[(size_t)InfectionState::Infected_V3I3];
+    }
+
+    void get_flows_denoised(Eigen::Ref<const Vector<>> pop,
+                   Eigen::Ref<const Vector<>> y, ScalarType t,
+                   Eigen::Ref<Vector<>> flows) const
+    {
         auto& params         = this->parameters;
         ScalarType coeffStoI_V1 = params.get<ContactPatterns>().get_matrix_at(t)(0, 0) *
                                params.get<TransmissionProbabilityOnContactV1>() / populations.get_total();
