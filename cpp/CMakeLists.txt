@@ -163,7 +163,6 @@ if(MEMILIO_BUILD_MODELS)
     add_subdirectory(models/sde_sirs)
     add_subdirectory(models/sde_seirvv)    
     add_subdirectory(models/sde_ui3)
-    add_subdirectory(models/sde_ui10)
 endif()
 
 if(MEMILIO_BUILD_EXAMPLES)

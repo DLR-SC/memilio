@@ -42,10 +42,6 @@ add_executable(sde_ui3_example sde_ui3.cpp)
 target_link_libraries(sde_ui3_example PRIVATE memilio sde_ui3)
 target_compile_options(sde_ui3_example PRIVATE ${MEMILIO_CXX_FLAGS_ENABLE_WARNING_ERRORS})
 
-add_executable(sde_ui10_example sde_ui10.cpp)
-target_link_libraries(sde_ui10_example PRIVATE memilio sde_ui10)
-target_compile_options(sde_ui10_example PRIVATE ${MEMILIO_CXX_FLAGS_ENABLE_WARNING_ERRORS})
-
 add_executable(ode_seair_example ode_seair.cpp)
 target_link_libraries(ode_seair_example PRIVATE memilio ode_seair AD::AD)
 target_compile_options(ode_seair_example PRIVATE ${MEMILIO_CXX_FLAGS_ENABLE_WARNING_ERRORS})

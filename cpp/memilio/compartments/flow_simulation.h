@@ -210,7 +210,7 @@ public:
                 for (Eigen::Index i = 0; i < dflows_dt.size(); i++) {
                     dflows_dt[i] =
                         // TODO: do we actually have to divide pop by dt here? results appear more reasonable without
-                        std::clamp(dflows_dt[i], 0.0, this->m_pop[(size_t)model.get_flow_source(i)] / this->get_dt() / 3. * (1 - 1e-4));
+                        std::clamp(dflows_dt[i], 0.0, this->m_pop[(size_t)model.get_flow_source(i)] / this->get_dt() / 10. * (1 - 1e-4));
                 }
             },
             tmax, this->get_dt(), this->m_flow_result);

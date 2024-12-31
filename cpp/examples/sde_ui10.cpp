@@ -28,13 +28,13 @@ int main()
 
     double t0   = 0.;
     double tmax = 500.;
-    double dt   = 0.1;
+    double dt   = 1.0;
 
     double total_population = 10000;
 
     mio::log_info("Simulating SIR; t={} ... {} with dt = {}.", t0, tmax, dt);
 
-    mio::sui3::Model model;
+    mio::sui10::Model model;
 
     model.populations[{mio::Index<mio::sui10::InfectionState>(mio::sui10::InfectionState::Infected_V1I0)}]  = 100;
     model.populations[{mio::Index<mio::sui10::InfectionState>(mio::sui10::InfectionState::Uninfected_I0)}] = 
@@ -67,7 +67,7 @@ int main()
 
     model.check_constraints();
 
-    auto sui3 = mio::sui3::simulate_flows(t0, tmax, dt, model);
+    auto sui10 = mio::sui10::simulate_flows(t0, tmax, dt, model);
 
     //sui3[0].print_table({"Susceptible", "Infected", "Recovered"});
     //sui3[1].print_table({"S-I", "I-R", "R-S"});
