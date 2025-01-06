@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">35</td>
-            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntry">31</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">108</td>
@@ -152,37 +152,37 @@
 <a name="90"><span class="lineNum">      90 </span>            :      *  The size of the vector has to match the LctInfectionState.</a>
 <a name="91"><span class="lineNum">      91 </span>            :      * @return Vector with accumulated values for the InfectionStates.</a>
 <a name="92"><span class="lineNum">      92 </span>            :      */</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         45 :     static Vector&lt;ScalarType&gt; calculate_compartments(const Vector&lt;ScalarType&gt;&amp; subcompartments)</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         45 :     static Eigen::VectorX&lt;ScalarType&gt; calculate_compartments(const Eigen::VectorX&lt;ScalarType&gt;&amp; subcompartments)</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :     {</a>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">         45 :         assert(subcompartments.rows() == Count);</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         45 :         Vector&lt;ScalarType&gt; compartments((Eigen::Index)InfectionState::Count);</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         45 :         Eigen::VectorX&lt;ScalarType&gt; compartments((Eigen::Index)InfectionState::Count);</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :         // Use segment of the vector subcompartments of each InfectionState and sum up the values of subcompartments.</a>
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">         45 :         compartments[(Eigen::Index)InfectionState::Susceptible] = subcompartments[0];</span></a>
 <a name="100"><span class="lineNum">     100 </span><span class="lineCov">         90 :         compartments[(Eigen::Index)InfectionState::Exposed] =</span></a>
 <a name="101"><span class="lineNum">     101 </span>            :             subcompartments</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">         45 :                 .segment(get_first_index&lt;InfectionState::Exposed&gt;(), get_num_subcompartments&lt;InfectionState::Exposed&gt;())</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">         90 :                 .sum();</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">         90 :                 .segment(get_first_index&lt;InfectionState::Exposed&gt;(), get_num_subcompartments&lt;InfectionState::Exposed&gt;())</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">         45 :                 .sum();</span></a>
 <a name="104"><span class="lineNum">     104 </span><span class="lineCov">         90 :         compartments[(Eigen::Index)InfectionState::InfectedNoSymptoms] =</span></a>
 <a name="105"><span class="lineNum">     105 </span>            :             subcompartments</a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         45 :                 .segment(get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">         45 :                          get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         90 :                 .sum();</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         90 :                 .segment(get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="107"><span class="lineNum">     107 </span>            :                          get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         45 :                 .sum();</span></a>
 <a name="109"><span class="lineNum">     109 </span><span class="lineCov">         90 :         compartments[(Eigen::Index)InfectionState::InfectedSymptoms] =</span></a>
 <a name="110"><span class="lineNum">     110 </span>            :             subcompartments</a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         45 :                 .segment(get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         45 :                          get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         90 :                 .sum();</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         90 :                 .segment(get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="112"><span class="lineNum">     112 </span>            :                          get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         45 :                 .sum();</span></a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">         90 :         compartments[(Eigen::Index)InfectionState::InfectedSevere] =</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :             subcompartments</a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">         45 :                 .segment(get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         45 :                          get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;())</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         90 :                 .sum();</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">         90 :                 .segment(get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
+<a name="117"><span class="lineNum">     117 </span>            :                          get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;())</a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         45 :                 .sum();</span></a>
 <a name="119"><span class="lineNum">     119 </span><span class="lineCov">         90 :         compartments[(Eigen::Index)InfectionState::InfectedCritical] =</span></a>
 <a name="120"><span class="lineNum">     120 </span>            :             subcompartments</a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">         45 :                 .segment(get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">         45 :                          get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;())</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         90 :                 .sum();</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">         90 :                 .segment(get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
+<a name="122"><span class="lineNum">     122 </span>            :                          get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;())</a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         45 :                 .sum();</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">         45 :         compartments[(Eigen::Index)InfectionState::Recovered] =</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">         45 :             subcompartments[get_first_index&lt;InfectionState::Recovered&gt;()];</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">         45 :         compartments[(Eigen::Index)InfectionState::Dead] = subcompartments[get_first_index&lt;InfectionState::Dead&gt;()];</span></a>

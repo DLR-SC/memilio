@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">1261</td>
-            <td class="headerCovTableEntry">1396</td>
+            <td class="headerCovTableEntry">1259</td>
+            <td class="headerCovTableEntry">1394</td>
             <td class="headerCovTableEntryHi">90.3 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -717,15 +717,15 @@
 <a name="655"><span class="lineNum">     655 </span>            :  * @param bitset A bitset to be serialized.</a>
 <a name="656"><span class="lineNum">     656 </span>            :  */</a>
 <a name="657"><span class="lineNum">     657 </span>            : template &lt;class IOContext, size_t N&gt;</a>
-<a name="658"><span class="lineNum">     658 </span><span class="lineCov">         18 : void serialize_internal(IOContext&amp; io, const std::bitset&lt;N&gt; bitset)</span></a>
+<a name="658"><span class="lineNum">     658 </span><span class="lineCov">         36 : void serialize_internal(IOContext&amp; io, const std::bitset&lt;N&gt; bitset)</span></a>
 <a name="659"><span class="lineNum">     659 </span>            : {</a>
-<a name="660"><span class="lineNum">     660 </span><span class="lineCov">         18 :     std::array&lt;bool, N&gt; bits;</span></a>
-<a name="661"><span class="lineNum">     661 </span><span class="lineCov">        666 :     for (size_t i = 0; i &lt; N; i++) {</span></a>
-<a name="662"><span class="lineNum">     662 </span><span class="lineCov">        648 :         bits[i] = bitset[i];</span></a>
+<a name="660"><span class="lineNum">     660 </span><span class="lineCov">         36 :     std::array&lt;bool, N&gt; bits;</span></a>
+<a name="661"><span class="lineNum">     661 </span><span class="lineCov">       1332 :     for (size_t i = 0; i &lt; N; i++) {</span></a>
+<a name="662"><span class="lineNum">     662 </span><span class="lineCov">       1296 :         bits[i] = bitset[i];</span></a>
 <a name="663"><span class="lineNum">     663 </span>            :     }</a>
-<a name="664"><span class="lineNum">     664 </span><span class="lineCov">         54 :     auto obj = io.create_object(&quot;BitSet&quot;);</span></a>
-<a name="665"><span class="lineNum">     665 </span><span class="lineCov">         18 :     obj.add_list(&quot;bitset&quot;, bits.begin(), bits.end());</span></a>
-<a name="666"><span class="lineNum">     666 </span><span class="lineCov">         36 : }</span></a>
+<a name="664"><span class="lineNum">     664 </span><span class="lineCov">        108 :     auto obj = io.create_object(&quot;BitSet&quot;);</span></a>
+<a name="665"><span class="lineNum">     665 </span><span class="lineCov">         36 :     obj.add_list(&quot;bitset&quot;, bits.begin(), bits.end());</span></a>
+<a name="666"><span class="lineNum">     666 </span><span class="lineCov">         72 : }</span></a>
 <a name="667"><span class="lineNum">     667 </span>            : </a>
 <a name="668"><span class="lineNum">     668 </span>            : /**</a>
 <a name="669"><span class="lineNum">     669 </span>            :  * @brief Deserialize an std::bitset.</a>
@@ -849,128 +849,132 @@
 <a name="787"><span class="lineNum">     787 </span>            :  * @tparam C any type.</a>
 <a name="788"><span class="lineNum">     788 </span>            :  */</a>
 <a name="789"><span class="lineNum">     789 </span>            : template &lt;class C&gt;</a>
-<a name="790"><span class="lineNum">     790 </span>            : using is_container = is_expression_valid&lt;details::compare_iterators_t, C&gt;;</a>
-<a name="791"><span class="lineNum">     791 </span>            : </a>
-<a name="792"><span class="lineNum">     792 </span>            : /**</a>
-<a name="793"><span class="lineNum">     793 </span>            :  * serialize an STL compatible container.</a>
-<a name="794"><span class="lineNum">     794 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
-<a name="795"><span class="lineNum">     795 </span>            :  * @tparam Container the container type to be serialized. A container is anything with begin and end iterators.</a>
-<a name="796"><span class="lineNum">     796 </span>            :  * @param io an IO context.</a>
-<a name="797"><span class="lineNum">     797 </span>            :  * @param container a container to be serialized.</a>
-<a name="798"><span class="lineNum">     798 </span>            :  */</a>
-<a name="799"><span class="lineNum">     799 </span>            : template &lt;class IOContext, class Container,</a>
-<a name="800"><span class="lineNum">     800 </span>            :           std::enable_if_t&lt;conjunction_v&lt;is_container&lt;Container&gt;, negation&lt;has_serialize&lt;IOContext, Container&gt;&gt;&gt;,</a>
-<a name="801"><span class="lineNum">     801 </span>            :                            void*&gt; = nullptr&gt;</a>
-<a name="802"><span class="lineNum">     802 </span><span class="lineNoCov">          0 : void serialize_internal(IOContext&amp; io, const Container&amp; container)</span></a>
-<a name="803"><span class="lineNum">     803 </span>            : {</a>
-<a name="804"><span class="lineNum">     804 </span><span class="lineNoCov">          0 :     auto obj = io.create_object(&quot;List&quot;);</span></a>
-<a name="805"><span class="lineNum">     805 </span><span class="lineNoCov">          0 :     obj.add_list(&quot;Items&quot;, container.begin(), container.end());</span></a>
-<a name="806"><span class="lineNum">     806 </span><span class="lineNoCov">          0 : }</span></a>
-<a name="807"><span class="lineNum">     807 </span>            : </a>
-<a name="808"><span class="lineNum">     808 </span>            : /**</a>
-<a name="809"><span class="lineNum">     809 </span>            :  * deserialize an STL compatible container.</a>
-<a name="810"><span class="lineNum">     810 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
-<a name="811"><span class="lineNum">     811 </span>            :  * @tparam Container the container type to be deserialized. A container is anything with begin and end iterators.</a>
-<a name="812"><span class="lineNum">     812 </span>            :  * @param io an IO context.</a>
-<a name="813"><span class="lineNum">     813 </span>            :  * @param tag defines the type of the container to be serialized for overload resolution.</a>
-<a name="814"><span class="lineNum">     814 </span>            :  * @return restored container if successful, error otherwise.</a>
-<a name="815"><span class="lineNum">     815 </span>            :  */</a>
-<a name="816"><span class="lineNum">     816 </span>            : template &lt;</a>
-<a name="817"><span class="lineNum">     817 </span>            :     class IOContext, class Container,</a>
-<a name="818"><span class="lineNum">     818 </span>            :     std::enable_if_t&lt;(is_container&lt;Container&gt;::value &amp;&amp; !is_expression_valid&lt;serialize_t, IOContext, Container&gt;::value),</a>
-<a name="819"><span class="lineNum">     819 </span>            :                      void*&gt; = nullptr&gt;</a>
-<a name="820"><span class="lineNum">     820 </span><span class="lineNoCov">          0 : IOResult&lt;Container&gt; deserialize_internal(IOContext&amp; io, Tag&lt;Container&gt; /*tag*/)</span></a>
-<a name="821"><span class="lineNum">     821 </span>            : {</a>
-<a name="822"><span class="lineNum">     822 </span><span class="lineNoCov">          0 :     auto obj = io.expect_object(&quot;List&quot;);</span></a>
-<a name="823"><span class="lineNum">     823 </span><span class="lineNoCov">          0 :     auto i   = obj.expect_list(&quot;Items&quot;, Tag&lt;typename Container::value_type&gt;{});</span></a>
-<a name="824"><span class="lineNum">     824 </span>            :     return apply(</a>
-<a name="825"><span class="lineNum">     825 </span>            :         io,</a>
-<a name="826"><span class="lineNum">     826 </span><span class="lineNoCov">          0 :         [](auto&amp;&amp; i_) {</span></a>
-<a name="827"><span class="lineNum">     827 </span><span class="lineNoCov">          0 :             return Container(i_.begin(), i_.end());</span></a>
-<a name="828"><span class="lineNum">     828 </span>            :         },</a>
-<a name="829"><span class="lineNum">     829 </span><span class="lineNoCov">          0 :         i);</span></a>
-<a name="830"><span class="lineNum">     830 </span><span class="lineNoCov">          0 : }</span></a>
-<a name="831"><span class="lineNum">     831 </span>            : </a>
-<a name="832"><span class="lineNum">     832 </span>            : /**</a>
-<a name="833"><span class="lineNum">     833 </span>            :  * Save data that describes an object in a format determined by the given context.</a>
-<a name="834"><span class="lineNum">     834 </span>            :  * There must be provided for the type T either a free function `serialize_internal(io, t)`</a>
-<a name="835"><span class="lineNum">     835 </span>            :  * that can be found using argument dependent lookup (ADL) or a member function `t.serialize(io)`.</a>
-<a name="836"><span class="lineNum">     836 </span>            :  * The `serialize_internal` function or `serialize` member function provide the data that describes </a>
-<a name="837"><span class="lineNum">     837 </span>            :  * the object to the io context. The context stores the data in some unspecified format so that the </a>
-<a name="838"><span class="lineNum">     838 </span>            :  * objects can be reconstructed from it. The context also keeps track of any IO errors.</a>
-<a name="839"><span class="lineNum">     839 </span>            :  * `serialize_internal` overloads are already provided for many common types, e.g. STL containers </a>
-<a name="840"><span class="lineNum">     840 </span>            :  * or Eigen Matrices.</a>
-<a name="841"><span class="lineNum">     841 </span>            :  * `serialize` and `deserialize` are the main entry point into this IO framework,</a>
-<a name="842"><span class="lineNum">     842 </span>            :  * but there may be more convenient functions provided for specific IO contexts.</a>
-<a name="843"><span class="lineNum">     843 </span>            :  * These functions are not expected to use ADL, so should be called namespace qualified.</a>
-<a name="844"><span class="lineNum">     844 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
-<a name="845"><span class="lineNum">     845 </span>            :  * @tparam T any serializable type, i.e., that has a `serialize` member function or `serialize_internal` overload</a>
-<a name="846"><span class="lineNum">     846 </span>            :  * @param io io context that stores data from the object t in some unspecified format.</a>
-<a name="847"><span class="lineNum">     847 </span>            :  * @param t the object to be stored.</a>
-<a name="848"><span class="lineNum">     848 </span>            :  */</a>
-<a name="849"><span class="lineNum">     849 </span>            : template &lt;class IOContext, class T&gt;</a>
-<a name="850"><span class="lineNum">     850 </span><span class="lineCov">      12246 : void serialize(IOContext&amp; io, const T&amp; t)</span></a>
-<a name="851"><span class="lineNum">     851 </span>            : {</a>
-<a name="852"><span class="lineNum">     852 </span>            :     using mio::serialize_internal;</a>
-<a name="853"><span class="lineNum">     853 </span><span class="lineCov">      12246 :     serialize_internal(io, t);</span></a>
-<a name="854"><span class="lineNum">     854 </span><span class="lineCov">      12246 : }</span></a>
-<a name="855"><span class="lineNum">     855 </span>            : </a>
-<a name="856"><span class="lineNum">     856 </span>            : /**</a>
-<a name="857"><span class="lineNum">     857 </span>            :  * Restores an object from the data stored in an IO context.</a>
-<a name="858"><span class="lineNum">     858 </span>            :  * There must be provided for the type T either a free function `deserialize_internal(io, tag)`</a>
-<a name="859"><span class="lineNum">     859 </span>            :  * that can be found using argument dependent lookup (ADL) or a static member function `T::deserialize(io)`.</a>
-<a name="860"><span class="lineNum">     860 </span>            :  * The `deserialize_internal` function or `deserialize` member function retrieve the data needed to</a>
-<a name="861"><span class="lineNum">     861 </span>            :  * restore the object from the IO context. The context provides the data if it can and keeps track of errors.</a>
-<a name="862"><span class="lineNum">     862 </span>            :  * `deserialize_internal` overloads are already provided for many common types, e.g. STL containers </a>
-<a name="863"><span class="lineNum">     863 </span>            :  * or Eigen Matrices. </a>
-<a name="864"><span class="lineNum">     864 </span>            :  * `serialize` and `deserialize` are the main entry points into this IO framework,</a>
-<a name="865"><span class="lineNum">     865 </span>            :  * but there may be more convenient functions provided for specific IO contexts.</a>
-<a name="866"><span class="lineNum">     866 </span>            :  * These functions are not expected to use ADL, so should be called namespace qualified.</a>
-<a name="867"><span class="lineNum">     867 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
-<a name="868"><span class="lineNum">     868 </span>            :  * @tparam T any deserializable type, i.e., that has a `deserialize` member function or `deserialize_internal` overload</a>
-<a name="869"><span class="lineNum">     869 </span>            :  * @param io IO context that contains the data for an object of type T</a>
-<a name="870"><span class="lineNum">     870 </span>            :  * @param tag specifies the type to be restored from the data, for overload resolution only.</a>
-<a name="871"><span class="lineNum">     871 </span>            :  * @return the restored T if succesful, an error code otherwise.</a>
-<a name="872"><span class="lineNum">     872 </span>            :  */</a>
-<a name="873"><span class="lineNum">     873 </span>            : template &lt;class IOContext, class T&gt;</a>
-<a name="874"><span class="lineNum">     874 </span><span class="lineCov">    1638242 : IOResult&lt;T&gt; deserialize(IOContext&amp; io, Tag&lt;T&gt; tag)</span></a>
-<a name="875"><span class="lineNum">     875 </span>            : {</a>
-<a name="876"><span class="lineNum">     876 </span>            :     using mio::deserialize_internal;</a>
-<a name="877"><span class="lineNum">     877 </span><span class="lineCov">    1638242 :     return deserialize_internal(io, tag);</span></a>
-<a name="878"><span class="lineNum">     878 </span>            : }</a>
-<a name="879"><span class="lineNum">     879 </span>            : </a>
-<a name="880"><span class="lineNum">     880 </span>            : /**</a>
-<a name="881"><span class="lineNum">     881 </span>            :  * @brief Returns the current working directory name</a>
-<a name="882"><span class="lineNum">     882 </span>            :  */</a>
-<a name="883"><span class="lineNum">     883 </span>            : std::string get_current_dir_name();</a>
-<a name="884"><span class="lineNum">     884 </span>            : </a>
-<a name="885"><span class="lineNum">     885 </span>            : /**</a>
-<a name="886"><span class="lineNum">     886 </span>            :  * @brief Creates a directory in the file system</a>
-<a name="887"><span class="lineNum">     887 </span>            :  * @param rel_path path of directory relative to current working directory.</a>
-<a name="888"><span class="lineNum">     888 </span>            :  * @param abs_path Will contain the absolute path of the directory.</a>
-<a name="889"><span class="lineNum">     889 </span>            :  * @return true if the directory was created, false if it already exists, or any errors that occured.</a>
-<a name="890"><span class="lineNum">     890 </span>            :  */</a>
-<a name="891"><span class="lineNum">     891 </span>            : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path, std::string&amp; abs_path);</a>
-<a name="892"><span class="lineNum">     892 </span>            : </a>
-<a name="893"><span class="lineNum">     893 </span>            : /**</a>
-<a name="894"><span class="lineNum">     894 </span>            :  * @brief Creates a directory in the file system</a>
-<a name="895"><span class="lineNum">     895 </span>            :  * @param rel_path path of directory relative to current working directory.</a>
-<a name="896"><span class="lineNum">     896 </span>            :  * @return true if the directory was created, false if it already exists, or any errors that occured.</a>
-<a name="897"><span class="lineNum">     897 </span>            :  */</a>
-<a name="898"><span class="lineNum">     898 </span>            : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path);</a>
-<a name="899"><span class="lineNum">     899 </span>            : </a>
-<a name="900"><span class="lineNum">     900 </span>            : /**</a>
-<a name="901"><span class="lineNum">     901 </span>            :  * Check if a file exists.</a>
-<a name="902"><span class="lineNum">     902 </span>            :  * Also computes the absolute path of the file.</a>
-<a name="903"><span class="lineNum">     903 </span>            :  * @param[in] rel_path relative path to the file.</a>
-<a name="904"><span class="lineNum">     904 </span>            :  * @param[out] abs_path absolute path, computed by the function.</a>
-<a name="905"><span class="lineNum">     905 </span>            :  * @return true if the file exists.</a>
-<a name="906"><span class="lineNum">     906 </span>            :  */</a>
-<a name="907"><span class="lineNum">     907 </span>            : bool file_exists(std::string const&amp; rel_path, std::string&amp; abs_path);</a>
-<a name="908"><span class="lineNum">     908 </span>            : </a>
-<a name="909"><span class="lineNum">     909 </span>            : } // namespace mio</a>
-<a name="910"><span class="lineNum">     910 </span>            : </a>
-<a name="911"><span class="lineNum">     911 </span>            : #endif</a>
+<a name="790"><span class="lineNum">     790 </span>            : using is_container =</a>
+<a name="791"><span class="lineNum">     791 </span>            :     conjunction&lt;is_expression_valid&lt;details::compare_iterators_t, C&gt;,</a>
+<a name="792"><span class="lineNum">     792 </span>            :                 std::is_constructible&lt;C, decltype(std::declval&lt;C&gt;().begin()), decltype(std::declval&lt;C&gt;().end())&gt;,</a>
+<a name="793"><span class="lineNum">     793 </span>            :                 // Eigen types may pass as container, but we want to handle them separately</a>
+<a name="794"><span class="lineNum">     794 </span>            :                 negation&lt;std::is_base_of&lt;Eigen::EigenBase&lt;C&gt;, C&gt;&gt;&gt;;</a>
+<a name="795"><span class="lineNum">     795 </span>            : </a>
+<a name="796"><span class="lineNum">     796 </span>            : /**</a>
+<a name="797"><span class="lineNum">     797 </span>            :  * serialize an STL compatible container.</a>
+<a name="798"><span class="lineNum">     798 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
+<a name="799"><span class="lineNum">     799 </span>            :  * @tparam Container the container type to be serialized. A container is anything with begin and end iterators.</a>
+<a name="800"><span class="lineNum">     800 </span>            :  * @param io an IO context.</a>
+<a name="801"><span class="lineNum">     801 </span>            :  * @param container a container to be serialized.</a>
+<a name="802"><span class="lineNum">     802 </span>            :  */</a>
+<a name="803"><span class="lineNum">     803 </span>            : template &lt;class IOContext, class Container,</a>
+<a name="804"><span class="lineNum">     804 </span>            :           std::enable_if_t&lt;conjunction_v&lt;is_container&lt;Container&gt;, negation&lt;has_serialize&lt;IOContext, Container&gt;&gt;&gt;,</a>
+<a name="805"><span class="lineNum">     805 </span>            :                            void*&gt; = nullptr&gt;</a>
+<a name="806"><span class="lineNum">     806 </span><span class="lineNoCov">          0 : void serialize_internal(IOContext&amp; io, const Container&amp; container)</span></a>
+<a name="807"><span class="lineNum">     807 </span>            : {</a>
+<a name="808"><span class="lineNum">     808 </span><span class="lineNoCov">          0 :     auto obj = io.create_object(&quot;List&quot;);</span></a>
+<a name="809"><span class="lineNum">     809 </span><span class="lineNoCov">          0 :     obj.add_list(&quot;Items&quot;, container.begin(), container.end());</span></a>
+<a name="810"><span class="lineNum">     810 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="811"><span class="lineNum">     811 </span>            : </a>
+<a name="812"><span class="lineNum">     812 </span>            : /**</a>
+<a name="813"><span class="lineNum">     813 </span>            :  * deserialize an STL compatible container.</a>
+<a name="814"><span class="lineNum">     814 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
+<a name="815"><span class="lineNum">     815 </span>            :  * @tparam Container the container type to be deserialized. A container is anything with begin and end iterators.</a>
+<a name="816"><span class="lineNum">     816 </span>            :  * @param io an IO context.</a>
+<a name="817"><span class="lineNum">     817 </span>            :  * @param tag defines the type of the container to be serialized for overload resolution.</a>
+<a name="818"><span class="lineNum">     818 </span>            :  * @return restored container if successful, error otherwise.</a>
+<a name="819"><span class="lineNum">     819 </span>            :  */</a>
+<a name="820"><span class="lineNum">     820 </span>            : template &lt;</a>
+<a name="821"><span class="lineNum">     821 </span>            :     class IOContext, class Container,</a>
+<a name="822"><span class="lineNum">     822 </span>            :     std::enable_if_t&lt;(is_container&lt;Container&gt;::value &amp;&amp; !is_expression_valid&lt;serialize_t, IOContext, Container&gt;::value),</a>
+<a name="823"><span class="lineNum">     823 </span>            :                      void*&gt; = nullptr&gt;</a>
+<a name="824"><span class="lineNum">     824 </span><span class="lineNoCov">          0 : IOResult&lt;Container&gt; deserialize_internal(IOContext&amp; io, Tag&lt;Container&gt; /*tag*/)</span></a>
+<a name="825"><span class="lineNum">     825 </span>            : {</a>
+<a name="826"><span class="lineNum">     826 </span><span class="lineNoCov">          0 :     auto obj = io.expect_object(&quot;List&quot;);</span></a>
+<a name="827"><span class="lineNum">     827 </span><span class="lineNoCov">          0 :     auto i   = obj.expect_list(&quot;Items&quot;, Tag&lt;typename Container::value_type&gt;{});</span></a>
+<a name="828"><span class="lineNum">     828 </span>            :     return apply(</a>
+<a name="829"><span class="lineNum">     829 </span>            :         io,</a>
+<a name="830"><span class="lineNum">     830 </span><span class="lineNoCov">          0 :         [](auto&amp;&amp; i_) {</span></a>
+<a name="831"><span class="lineNum">     831 </span><span class="lineNoCov">          0 :             return Container(i_.begin(), i_.end());</span></a>
+<a name="832"><span class="lineNum">     832 </span>            :         },</a>
+<a name="833"><span class="lineNum">     833 </span><span class="lineNoCov">          0 :         i);</span></a>
+<a name="834"><span class="lineNum">     834 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="835"><span class="lineNum">     835 </span>            : </a>
+<a name="836"><span class="lineNum">     836 </span>            : /**</a>
+<a name="837"><span class="lineNum">     837 </span>            :  * Save data that describes an object in a format determined by the given context.</a>
+<a name="838"><span class="lineNum">     838 </span>            :  * There must be provided for the type T either a free function `serialize_internal(io, t)`</a>
+<a name="839"><span class="lineNum">     839 </span>            :  * that can be found using argument dependent lookup (ADL) or a member function `t.serialize(io)`.</a>
+<a name="840"><span class="lineNum">     840 </span>            :  * The `serialize_internal` function or `serialize` member function provide the data that describes </a>
+<a name="841"><span class="lineNum">     841 </span>            :  * the object to the io context. The context stores the data in some unspecified format so that the </a>
+<a name="842"><span class="lineNum">     842 </span>            :  * objects can be reconstructed from it. The context also keeps track of any IO errors.</a>
+<a name="843"><span class="lineNum">     843 </span>            :  * `serialize_internal` overloads are already provided for many common types, e.g. STL containers </a>
+<a name="844"><span class="lineNum">     844 </span>            :  * or Eigen Matrices.</a>
+<a name="845"><span class="lineNum">     845 </span>            :  * `serialize` and `deserialize` are the main entry point into this IO framework,</a>
+<a name="846"><span class="lineNum">     846 </span>            :  * but there may be more convenient functions provided for specific IO contexts.</a>
+<a name="847"><span class="lineNum">     847 </span>            :  * These functions are not expected to use ADL, so should be called namespace qualified.</a>
+<a name="848"><span class="lineNum">     848 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
+<a name="849"><span class="lineNum">     849 </span>            :  * @tparam T any serializable type, i.e., that has a `serialize` member function or `serialize_internal` overload</a>
+<a name="850"><span class="lineNum">     850 </span>            :  * @param io io context that stores data from the object t in some unspecified format.</a>
+<a name="851"><span class="lineNum">     851 </span>            :  * @param t the object to be stored.</a>
+<a name="852"><span class="lineNum">     852 </span>            :  */</a>
+<a name="853"><span class="lineNum">     853 </span>            : template &lt;class IOContext, class T&gt;</a>
+<a name="854"><span class="lineNum">     854 </span><span class="lineCov">      12246 : void serialize(IOContext&amp; io, const T&amp; t)</span></a>
+<a name="855"><span class="lineNum">     855 </span>            : {</a>
+<a name="856"><span class="lineNum">     856 </span>            :     using mio::serialize_internal;</a>
+<a name="857"><span class="lineNum">     857 </span><span class="lineCov">      12246 :     serialize_internal(io, t);</span></a>
+<a name="858"><span class="lineNum">     858 </span><span class="lineCov">      12246 : }</span></a>
+<a name="859"><span class="lineNum">     859 </span>            : </a>
+<a name="860"><span class="lineNum">     860 </span>            : /**</a>
+<a name="861"><span class="lineNum">     861 </span>            :  * Restores an object from the data stored in an IO context.</a>
+<a name="862"><span class="lineNum">     862 </span>            :  * There must be provided for the type T either a free function `deserialize_internal(io, tag)`</a>
+<a name="863"><span class="lineNum">     863 </span>            :  * that can be found using argument dependent lookup (ADL) or a static member function `T::deserialize(io)`.</a>
+<a name="864"><span class="lineNum">     864 </span>            :  * The `deserialize_internal` function or `deserialize` member function retrieve the data needed to</a>
+<a name="865"><span class="lineNum">     865 </span>            :  * restore the object from the IO context. The context provides the data if it can and keeps track of errors.</a>
+<a name="866"><span class="lineNum">     866 </span>            :  * `deserialize_internal` overloads are already provided for many common types, e.g. STL containers </a>
+<a name="867"><span class="lineNum">     867 </span>            :  * or Eigen Matrices. </a>
+<a name="868"><span class="lineNum">     868 </span>            :  * `serialize` and `deserialize` are the main entry points into this IO framework,</a>
+<a name="869"><span class="lineNum">     869 </span>            :  * but there may be more convenient functions provided for specific IO contexts.</a>
+<a name="870"><span class="lineNum">     870 </span>            :  * These functions are not expected to use ADL, so should be called namespace qualified.</a>
+<a name="871"><span class="lineNum">     871 </span>            :  * @tparam IOContext a type that models the IOContext concept.</a>
+<a name="872"><span class="lineNum">     872 </span>            :  * @tparam T any deserializable type, i.e., that has a `deserialize` member function or `deserialize_internal` overload</a>
+<a name="873"><span class="lineNum">     873 </span>            :  * @param io IO context that contains the data for an object of type T</a>
+<a name="874"><span class="lineNum">     874 </span>            :  * @param tag specifies the type to be restored from the data, for overload resolution only.</a>
+<a name="875"><span class="lineNum">     875 </span>            :  * @return the restored T if succesful, an error code otherwise.</a>
+<a name="876"><span class="lineNum">     876 </span>            :  */</a>
+<a name="877"><span class="lineNum">     877 </span>            : template &lt;class IOContext, class T&gt;</a>
+<a name="878"><span class="lineNum">     878 </span><span class="lineCov">    1638242 : IOResult&lt;T&gt; deserialize(IOContext&amp; io, Tag&lt;T&gt; tag)</span></a>
+<a name="879"><span class="lineNum">     879 </span>            : {</a>
+<a name="880"><span class="lineNum">     880 </span>            :     using mio::deserialize_internal;</a>
+<a name="881"><span class="lineNum">     881 </span><span class="lineCov">    1638242 :     return deserialize_internal(io, tag);</span></a>
+<a name="882"><span class="lineNum">     882 </span>            : }</a>
+<a name="883"><span class="lineNum">     883 </span>            : </a>
+<a name="884"><span class="lineNum">     884 </span>            : /**</a>
+<a name="885"><span class="lineNum">     885 </span>            :  * @brief Returns the current working directory name</a>
+<a name="886"><span class="lineNum">     886 </span>            :  */</a>
+<a name="887"><span class="lineNum">     887 </span>            : std::string get_current_dir_name();</a>
+<a name="888"><span class="lineNum">     888 </span>            : </a>
+<a name="889"><span class="lineNum">     889 </span>            : /**</a>
+<a name="890"><span class="lineNum">     890 </span>            :  * @brief Creates a directory in the file system</a>
+<a name="891"><span class="lineNum">     891 </span>            :  * @param rel_path path of directory relative to current working directory.</a>
+<a name="892"><span class="lineNum">     892 </span>            :  * @param abs_path Will contain the absolute path of the directory.</a>
+<a name="893"><span class="lineNum">     893 </span>            :  * @return true if the directory was created, false if it already exists, or any errors that occured.</a>
+<a name="894"><span class="lineNum">     894 </span>            :  */</a>
+<a name="895"><span class="lineNum">     895 </span>            : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path, std::string&amp; abs_path);</a>
+<a name="896"><span class="lineNum">     896 </span>            : </a>
+<a name="897"><span class="lineNum">     897 </span>            : /**</a>
+<a name="898"><span class="lineNum">     898 </span>            :  * @brief Creates a directory in the file system</a>
+<a name="899"><span class="lineNum">     899 </span>            :  * @param rel_path path of directory relative to current working directory.</a>
+<a name="900"><span class="lineNum">     900 </span>            :  * @return true if the directory was created, false if it already exists, or any errors that occured.</a>
+<a name="901"><span class="lineNum">     901 </span>            :  */</a>
+<a name="902"><span class="lineNum">     902 </span>            : IOResult&lt;bool&gt; create_directory(std::string const&amp; rel_path);</a>
+<a name="903"><span class="lineNum">     903 </span>            : </a>
+<a name="904"><span class="lineNum">     904 </span>            : /**</a>
+<a name="905"><span class="lineNum">     905 </span>            :  * Check if a file exists.</a>
+<a name="906"><span class="lineNum">     906 </span>            :  * Also computes the absolute path of the file.</a>
+<a name="907"><span class="lineNum">     907 </span>            :  * @param[in] rel_path relative path to the file.</a>
+<a name="908"><span class="lineNum">     908 </span>            :  * @param[out] abs_path absolute path, computed by the function.</a>
+<a name="909"><span class="lineNum">     909 </span>            :  * @return true if the file exists.</a>
+<a name="910"><span class="lineNum">     910 </span>            :  */</a>
+<a name="911"><span class="lineNum">     911 </span>            : bool file_exists(std::string const&amp; rel_path, std::string&amp; abs_path);</a>
+<a name="912"><span class="lineNum">     912 </span>            : </a>
+<a name="913"><span class="lineNum">     913 </span>            : } // namespace mio</a>
+<a name="914"><span class="lineNum">     914 </span>            : </a>
+<a name="915"><span class="lineNum">     915 </span>            : #endif</a>
 </pre>
       </td>
     </tr>

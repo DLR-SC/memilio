@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">151</td>
-            <td class="headerCovTableEntry">151</td>
+            <td class="headerCovTableEntry">147</td>
+            <td class="headerCovTableEntry">147</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -145,37 +145,37 @@
 <a name="83"><span class="lineNum">      83 </span><span class="lineCov">          7 :         auto params = this-&gt;parameters;</span></a>
 <a name="84"><span class="lineNum">      84 </span>            : </a>
 <a name="85"><span class="lineNum">      85 </span>            :         // --- Check that the dimensions are consistent. ---</a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          7 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;() !=</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">         14 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;() !=</span></a>
 <a name="87"><span class="lineNum">      87 </span><span class="lineCov">          7 :             params.template get&lt;StartingProbabilitiesExposed&gt;().rows()) {</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          2 :             log_error(&quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for &quot;</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          1 :             log_error(&quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for &quot;</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :                       &quot;the Exposed &quot;</a>
 <a name="90"><span class="lineNum">      90 </span>            :                       &quot;compartment.&quot;);</a>
 <a name="91"><span class="lineNum">      91 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="92"><span class="lineNum">      92 </span>            :         }</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">          6 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;() !=</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         12 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;() !=</span></a>
 <a name="94"><span class="lineNum">      94 </span><span class="lineCov">          6 :             params.template get&lt;StartingProbabilitiesInfectedNoSymptoms&gt;().rows()) {</span></a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          2 :             log_error(</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          1 :             log_error(</span></a>
 <a name="96"><span class="lineNum">      96 </span>            :                 &quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for the &quot;</a>
 <a name="97"><span class="lineNum">      97 </span>            :                 &quot;InfectedNoSymptoms compartment.&quot;);</a>
 <a name="98"><span class="lineNum">      98 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="99"><span class="lineNum">      99 </span>            :         }</a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          5 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;() !=</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         10 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;() !=</span></a>
 <a name="101"><span class="lineNum">     101 </span><span class="lineCov">          5 :             params.template get&lt;StartingProbabilitiesInfectedSymptoms&gt;().rows()) {</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          2 :             log_error(</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          1 :             log_error(</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :                 &quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for the &quot;</a>
 <a name="104"><span class="lineNum">     104 </span>            :                 &quot;InfectedSymptoms compartment.&quot;);</a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="106"><span class="lineNum">     106 </span>            :         }</a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          4 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;() !=</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          8 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;() !=</span></a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">          4 :             params.template get&lt;StartingProbabilitiesInfectedSevere&gt;().rows()) {</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          2 :             log_error(&quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for &quot;</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          1 :             log_error(&quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for &quot;</span></a>
 <a name="110"><span class="lineNum">     110 </span>            :                       &quot;the InfectedSevere &quot;</a>
 <a name="111"><span class="lineNum">     111 </span>            :                       &quot;compartment.&quot;);</a>
 <a name="112"><span class="lineNum">     112 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :         }</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          3 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() !=</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          6 :         if ((Eigen::Index)LctState::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;() !=</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          3 :             params.template get&lt;StartingProbabilitiesInfectedCritical&gt;().rows()) {</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          2 :             log_error(</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          1 :             log_error(</span></a>
 <a name="117"><span class="lineNum">     117 </span>            :                 &quot;Constraint check: Dimension of the parameters does not match the number of subcompartments for the &quot;</a>
 <a name="118"><span class="lineNum">     118 </span>            :                 &quot;InfectedCritical compartment.&quot;);</a>
 <a name="119"><span class="lineNum">     119 </span><span class="lineCov">          1 :             return true;</span></a>
@@ -196,234 +196,236 @@
 <a name="134"><span class="lineNum">     134 </span>            :      * @param[in] t The current time.</a>
 <a name="135"><span class="lineNum">     135 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
 <a name="136"><span class="lineNum">     136 </span>            :      */</a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         85 :     void get_derivatives(Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;ScalarType&gt;&gt; y, ScalarType t,</span></a>
-<a name="138"><span class="lineNum">     138 </span>            :                          Eigen::Ref&lt;Vector&lt;ScalarType&gt;&gt; dydt) const override</a>
-<a name="139"><span class="lineNum">     139 </span>            :     {</a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         85 :         dydt.setZero();</span></a>
-<a name="141"><span class="lineNum">     141 </span>            : </a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         85 :         auto params           = this-&gt;parameters;</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         85 :         auto total_population = pop.sum() - pop[LctState::template get_first_index&lt;InfectionState::Dead&gt;()];</span></a>
-<a name="144"><span class="lineNum">     144 </span>            : </a>
-<a name="145"><span class="lineNum">     145 </span>            :         // Calculate sum of all subcompartments for InfectedNoSymptoms.</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         85 :         ScalarType InfectedNoSymptoms_sum =</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         85 :             pop.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         85 :                         LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         85 :                 .sum();</span></a>
-<a name="150"><span class="lineNum">     150 </span>            :         // Calculate sum of all subcompartments for InfectedSymptoms.</a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         85 :         ScalarType InfectedSymptoms_sum =</span></a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         85 :             pop.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         85 :                         LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         85 :                 .sum();</span></a>
-<a name="155"><span class="lineNum">     155 </span>            : </a>
-<a name="156"><span class="lineNum">     156 </span>            :         // --- Susceptibles. ---</a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         85 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         85 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        170 :         dydt[0] = -y[0] / total_population * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;() *</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        170 :                   params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(0, 0) *</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">         85 :                   (params.template get&lt;RelativeTransmissionNoSymptoms&gt;() * InfectedNoSymptoms_sum +</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         85 :                    params.template get&lt;RiskOfInfectionFromSymptomatic&gt;() * InfectedSymptoms_sum);</span></a>
-<a name="163"><span class="lineNum">     163 </span>            : </a>
-<a name="164"><span class="lineNum">     164 </span>            :         // --- Exposed. ---</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">        170 :                      LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) -=</span></a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         85 :             dydt[0] * params.template get&lt;StartingProbabilitiesExposed&gt;();</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">        425 :                      LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) +=</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixExposedToInfectedNoSymptoms&gt;().transpose() *</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">         85 :                       LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;());</span></a>
-<a name="173"><span class="lineNum">     173 </span>            : </a>
-<a name="174"><span class="lineNum">     174 </span>            :         // --- InfectedNoSymptoms. ---</a>
-<a name="175"><span class="lineNum">     175 </span>            :         // Flow from Exposed To InfectedNoSymptoms.</a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">        425 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;()) =</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixExposedToInfectedNoSymptoms&gt;() *</span></a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         85 :               Vector&lt;ScalarType&gt;::Ones(LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()))</span></a>
-<a name="180"><span class="lineNum">     180 </span>            :                  .transpose() *</a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         85 :                       LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) *</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         85 :             params.template get&lt;StartingProbabilitiesInfectedNoSymptoms&gt;();</span></a>
-<a name="184"><span class="lineNum">     184 </span>            :         // Flow from InfectedNoSymptoms To InfectedSymptoms.</a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         85 :         size_t dimensionInfectedNoSymptomsToInfectedSymptoms =</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;().rows();</span></a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        425 :                      dimensionInfectedNoSymptomsToInfectedSymptoms) +=</span></a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;().transpose() *</span></a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="191"><span class="lineNum">     191 </span>            :                       dimensionInfectedNoSymptomsToInfectedSymptoms);</a>
-<a name="192"><span class="lineNum">     192 </span>            :         // Flow from InfectedNoSymptoms To Recovered.</a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">         85 :         size_t dimensionInfectedNoSymptomsToRecovered =</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;().rows();</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
-<a name="196"><span class="lineNum">     196 </span>            :                          dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">        425 :                      dimensionInfectedNoSymptomsToRecovered) +=</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;().transpose() *</span></a>
-<a name="199"><span class="lineNum">     199 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
-<a name="200"><span class="lineNum">     200 </span>            :                           dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
-<a name="201"><span class="lineNum">     201 </span>            :                       dimensionInfectedNoSymptomsToRecovered);</a>
-<a name="202"><span class="lineNum">     202 </span>            :         // Add flow directly to Recovered compartment.</a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
-<a name="204"><span class="lineNum">     204 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;() *</span></a>
-<a name="205"><span class="lineNum">     205 </span>            :               Vector&lt;ScalarType&gt;::Ones(dimensionInfectedNoSymptomsToRecovered))</a>
-<a name="206"><span class="lineNum">     206 </span>            :                  .transpose() *</a>
-<a name="207"><span class="lineNum">     207 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
-<a name="208"><span class="lineNum">     208 </span>            :                           dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
-<a name="209"><span class="lineNum">     209 </span>            :                       dimensionInfectedNoSymptomsToRecovered);</a>
-<a name="210"><span class="lineNum">     210 </span>            : </a>
-<a name="211"><span class="lineNum">     211 </span>            :         // --- InfectedSymptoms. ---</a>
-<a name="212"><span class="lineNum">     212 </span>            :         // Flow from InfectedNoSymptoms To InfectedSymptoms.</a>
-<a name="213"><span class="lineNum">     213 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">        425 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;()) =</span></a>
-<a name="215"><span class="lineNum">     215 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedSymptoms&gt;() *</span></a>
-<a name="216"><span class="lineNum">     216 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;() *</span></a>
-<a name="217"><span class="lineNum">     217 </span>            :              Vector&lt;ScalarType&gt;::Ones(dimensionInfectedNoSymptomsToInfectedSymptoms))</a>
-<a name="218"><span class="lineNum">     218 </span>            :                 .transpose() *</a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
-<a name="220"><span class="lineNum">     220 </span>            :                       dimensionInfectedNoSymptomsToInfectedSymptoms);</a>
-<a name="221"><span class="lineNum">     221 </span>            :         // Flow from InfectedSymptoms To InfectedSevere.</a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">         85 :         size_t dimensionInfectedSymptomsToInfectedSevere =</span></a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;().rows();</span></a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="225"><span class="lineNum">     225 </span><span class="lineCov">        425 :                      dimensionInfectedSymptomsToInfectedSevere) +=</span></a>
-<a name="226"><span class="lineNum">     226 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;().transpose() *</span></a>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="228"><span class="lineNum">     228 </span>            :                       dimensionInfectedSymptomsToInfectedSevere);</a>
-<a name="229"><span class="lineNum">     229 </span>            :         // Flow from InfectedSymptoms To Recovered.</a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">         85 :         size_t dimensionInfectedSymptomsToRecovered =</span></a>
-<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;().rows();</span></a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
-<a name="233"><span class="lineNum">     233 </span>            :                          dimensionInfectedSymptomsToInfectedSevere,</a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        425 :                      dimensionInfectedSymptomsToRecovered) +=</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;().transpose() *</span></a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
-<a name="237"><span class="lineNum">     237 </span>            :                           dimensionInfectedSymptomsToInfectedSevere,</a>
-<a name="238"><span class="lineNum">     238 </span>            :                       dimensionInfectedSymptomsToRecovered);</a>
-<a name="239"><span class="lineNum">     239 </span>            :         // Add flow directly to Recovered compartment.</a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;() *</span></a>
-<a name="242"><span class="lineNum">     242 </span>            :               Vector&lt;ScalarType&gt;::Ones(dimensionInfectedSymptomsToRecovered))</a>
-<a name="243"><span class="lineNum">     243 </span>            :                  .transpose() *</a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
-<a name="245"><span class="lineNum">     245 </span>            :                           dimensionInfectedSymptomsToInfectedSevere,</a>
-<a name="246"><span class="lineNum">     246 </span>            :                       dimensionInfectedSymptomsToRecovered);</a>
-<a name="247"><span class="lineNum">     247 </span>            : </a>
-<a name="248"><span class="lineNum">     248 </span>            :         // --- InfectedSevere. ---</a>
-<a name="249"><span class="lineNum">     249 </span>            :         // Flow from InfectedSymptoms To InfectedSevere.</a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="251"><span class="lineNum">     251 </span><span class="lineCov">        425 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;()) =</span></a>
-<a name="252"><span class="lineNum">     252 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedSevere&gt;() *</span></a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;() *</span></a>
-<a name="254"><span class="lineNum">     254 </span>            :              Vector&lt;ScalarType&gt;::Ones(dimensionInfectedSymptomsToInfectedSevere))</a>
-<a name="255"><span class="lineNum">     255 </span>            :                 .transpose() *</a>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
-<a name="257"><span class="lineNum">     257 </span>            :                       dimensionInfectedSymptomsToInfectedSevere);</a>
-<a name="258"><span class="lineNum">     258 </span>            :         // Flow from InfectedSevere To InfectedCritical.</a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         85 :         size_t dimensionInfectedSevereToInfectedCritical =</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;().rows();</span></a>
-<a name="261"><span class="lineNum">     261 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        425 :                      dimensionInfectedSevereToInfectedCritical) +=</span></a>
-<a name="263"><span class="lineNum">     263 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;().transpose() *</span></a>
-<a name="264"><span class="lineNum">     264 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="265"><span class="lineNum">     265 </span>            :                       dimensionInfectedSevereToInfectedCritical);</a>
-<a name="266"><span class="lineNum">     266 </span>            :         // Flow from InfectedSevere To Recovered.</a>
-<a name="267"><span class="lineNum">     267 </span><span class="lineCov">         85 :         size_t dimensionInfectedSevereToRecovered =</span></a>
-<a name="268"><span class="lineNum">     268 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;().rows();</span></a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
-<a name="270"><span class="lineNum">     270 </span>            :                          dimensionInfectedSevereToInfectedCritical,</a>
-<a name="271"><span class="lineNum">     271 </span><span class="lineCov">        425 :                      dimensionInfectedSevereToRecovered) +=</span></a>
-<a name="272"><span class="lineNum">     272 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;().transpose() *</span></a>
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
-<a name="274"><span class="lineNum">     274 </span>            :                           dimensionInfectedSevereToInfectedCritical,</a>
-<a name="275"><span class="lineNum">     275 </span>            :                       dimensionInfectedSevereToRecovered);</a>
-<a name="276"><span class="lineNum">     276 </span>            :         // Add flow directly to Recovered compartment.</a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;() *</span></a>
-<a name="279"><span class="lineNum">     279 </span>            :               Vector&lt;ScalarType&gt;::Ones(dimensionInfectedSevereToRecovered))</a>
-<a name="280"><span class="lineNum">     280 </span>            :                  .transpose() *</a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
-<a name="282"><span class="lineNum">     282 </span>            :                           dimensionInfectedSevereToInfectedCritical,</a>
-<a name="283"><span class="lineNum">     283 </span>            :                       dimensionInfectedSevereToRecovered);</a>
-<a name="284"><span class="lineNum">     284 </span>            : </a>
-<a name="285"><span class="lineNum">     285 </span>            :         // --- InfectedCritical. ---</a>
-<a name="286"><span class="lineNum">     286 </span>            :         // Flow from InfectedSevere To InfectedCritical.</a>
-<a name="287"><span class="lineNum">     287 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineCov">        425 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;()) =</span></a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedCritical&gt;() *</span></a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;() *</span></a>
-<a name="291"><span class="lineNum">     291 </span>            :              Vector&lt;ScalarType&gt;::Ones(dimensionInfectedSevereToInfectedCritical))</a>
-<a name="292"><span class="lineNum">     292 </span>            :                 .transpose() *</a>
-<a name="293"><span class="lineNum">     293 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
-<a name="294"><span class="lineNum">     294 </span>            :                       dimensionInfectedSevereToInfectedCritical);</a>
-<a name="295"><span class="lineNum">     295 </span>            :         // Flow from InfectedCritical To Dead.</a>
-<a name="296"><span class="lineNum">     296 </span><span class="lineCov">         85 :         size_t dimensionInfectedCriticalToDead = params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;().rows();</span></a>
-<a name="297"><span class="lineNum">     297 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="298"><span class="lineNum">     298 </span><span class="lineCov">        425 :                      dimensionInfectedCriticalToDead) +=</span></a>
-<a name="299"><span class="lineNum">     299 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;().transpose() *</span></a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="301"><span class="lineNum">     301 </span>            :                       dimensionInfectedCriticalToDead);</a>
-<a name="302"><span class="lineNum">     302 </span>            :         // Flow from InfectedCritical To Recovered.</a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">         85 :         size_t dimensionInfectedCriticalToRecovered =</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;().rows();</span></a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">        170 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
-<a name="306"><span class="lineNum">     306 </span>            :                          dimensionInfectedCriticalToDead,</a>
-<a name="307"><span class="lineNum">     307 </span><span class="lineCov">        425 :                      dimensionInfectedCriticalToRecovered) +=</span></a>
-<a name="308"><span class="lineNum">     308 </span><span class="lineCov">        170 :             params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;().transpose() *</span></a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
-<a name="310"><span class="lineNum">     310 </span>            :                           dimensionInfectedCriticalToDead,</a>
-<a name="311"><span class="lineNum">     311 </span>            :                       dimensionInfectedCriticalToRecovered);</a>
-<a name="312"><span class="lineNum">     312 </span>            :         // Add flow directly to Recovered compartment.</a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
-<a name="314"><span class="lineNum">     314 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;() *</span></a>
-<a name="315"><span class="lineNum">     315 </span>            :               Vector&lt;ScalarType&gt;::Ones(dimensionInfectedCriticalToRecovered))</a>
-<a name="316"><span class="lineNum">     316 </span>            :                  .transpose() *</a>
-<a name="317"><span class="lineNum">     317 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
-<a name="318"><span class="lineNum">     318 </span>            :                           dimensionInfectedCriticalToDead,</a>
-<a name="319"><span class="lineNum">     319 </span>            :                       dimensionInfectedCriticalToRecovered);</a>
-<a name="320"><span class="lineNum">     320 </span>            : </a>
-<a name="321"><span class="lineNum">     321 </span>            :         // --- Dead. ---</a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Dead&gt;()] =</span></a>
-<a name="323"><span class="lineNum">     323 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;() *</span></a>
-<a name="324"><span class="lineNum">     324 </span>            :               Vector&lt;ScalarType&gt;::Ones(dimensionInfectedCriticalToDead))</a>
-<a name="325"><span class="lineNum">     325 </span>            :                  .transpose() *</a>
-<a name="326"><span class="lineNum">     326 </span><span class="lineCov">         85 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
-<a name="327"><span class="lineNum">     327 </span>            :                       dimensionInfectedCriticalToDead);</a>
-<a name="328"><span class="lineNum">     328 </span><span class="lineCov">        170 :     }</span></a>
-<a name="329"><span class="lineNum">     329 </span>            : </a>
-<a name="330"><span class="lineNum">     330 </span>            :     /**</a>
-<a name="331"><span class="lineNum">     331 </span>            :      * @brief Cumulates a simulation result with subcompartments to produce a result that divides the population only</a>
-<a name="332"><span class="lineNum">     332 </span>            :      *   into the infection states defined in InfectionState.</a>
-<a name="333"><span class="lineNum">     333 </span>            :      *</a>
-<a name="334"><span class="lineNum">     334 </span>            :      * If the model is used for simulation, we will get a result in form of a TimeSeries with infection states divided </a>
-<a name="335"><span class="lineNum">     335 </span>            :      * in subcompartments.</a>
-<a name="336"><span class="lineNum">     336 </span>            :      * The function calculates a TimeSeries without subcompartments from another TimeSeries with subcompartments. </a>
-<a name="337"><span class="lineNum">     337 </span>            :      * This is done by summing up the corresponding subcompartments.</a>
-<a name="338"><span class="lineNum">     338 </span>            :      * @param[in] subcompartments_ts Result of a simulation with the model.</a>
-<a name="339"><span class="lineNum">     339 </span>            :      * @return Result of the simulation divided in infection states without subcompartments. </a>
-<a name="340"><span class="lineNum">     340 </span>            :      *  Returns TimeSeries with values -1 if calculation is not possible.</a>
-<a name="341"><span class="lineNum">     341 </span>            :      */</a>
-<a name="342"><span class="lineNum">     342 </span><span class="lineCov">          2 :     TimeSeries&lt;ScalarType&gt; calculate_compartments(const TimeSeries&lt;ScalarType&gt;&amp; subcompartments_ts) const</span></a>
-<a name="343"><span class="lineNum">     343 </span>            :     {</a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">          2 :         TimeSeries&lt;ScalarType&gt; compartments_ts((Eigen::Index)InfectionState::Count);</span></a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">          2 :         if (!(LctState::Count == subcompartments_ts.get_num_elements())) {</span></a>
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">          2 :             log_error(&quot;Result does not match InfectionStates of the model.&quot;);</span></a>
-<a name="347"><span class="lineNum">     347 </span>            :             // Return a TimeSeries with values -1.</a>
-<a name="348"><span class="lineNum">     348 </span><span class="lineCov">          1 :             Vector&lt;ScalarType&gt; error_output = Vector&lt;ScalarType&gt;::Constant((Eigen::Index)InfectionState::Count, -1);</span></a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">          1 :             compartments_ts.add_time_point(-1, error_output);</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">          1 :             return compartments_ts;</span></a>
-<a name="351"><span class="lineNum">     351 </span><span class="lineCov">          1 :         }</span></a>
-<a name="352"><span class="lineNum">     352 </span><span class="lineCov">          1 :         Vector&lt;ScalarType&gt; compartments((Eigen::Index)InfectionState::Count);</span></a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">         14 :         for (Eigen::Index i = 0; i &lt; subcompartments_ts.get_num_time_points(); ++i) {</span></a>
-<a name="354"><span class="lineNum">     354 </span><span class="lineCov">         13 :             compartments_ts.add_time_point(subcompartments_ts.get_time(i),</span></a>
-<a name="355"><span class="lineNum">     355 </span>            :                                            LctState::calculate_compartments(subcompartments_ts[i]));</a>
-<a name="356"><span class="lineNum">     356 </span>            :         }</a>
-<a name="357"><span class="lineNum">     357 </span><span class="lineCov">          1 :         return compartments_ts;</span></a>
-<a name="358"><span class="lineNum">     358 </span><span class="lineCov">          2 :     }</span></a>
-<a name="359"><span class="lineNum">     359 </span>            : };</a>
-<a name="360"><span class="lineNum">     360 </span>            : </a>
-<a name="361"><span class="lineNum">     361 </span>            : } // namespace glsecir</a>
-<a name="362"><span class="lineNum">     362 </span>            : } // namespace mio</a>
-<a name="363"><span class="lineNum">     363 </span>            : </a>
-<a name="364"><span class="lineNum">     364 </span>            : #endif // MIO_GLCT_SECIR_MODEL_H</a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         85 :     void get_derivatives(Eigen::Ref&lt;const Eigen::VectorX&lt;ScalarType&gt;&gt; pop,</span></a>
+<a name="138"><span class="lineNum">     138 </span>            :                          Eigen::Ref&lt;const Eigen::VectorX&lt;ScalarType&gt;&gt; y, ScalarType t,</a>
+<a name="139"><span class="lineNum">     139 </span>            :                          Eigen::Ref&lt;Eigen::VectorX&lt;ScalarType&gt;&gt; dydt) const override</a>
+<a name="140"><span class="lineNum">     140 </span>            :     {</a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         85 :         dydt.setZero();</span></a>
+<a name="142"><span class="lineNum">     142 </span>            : </a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         85 :         auto params           = this-&gt;parameters;</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">         85 :         auto total_population = pop.sum() - pop[LctState::template get_first_index&lt;InfectionState::Dead&gt;()];</span></a>
+<a name="145"><span class="lineNum">     145 </span>            : </a>
+<a name="146"><span class="lineNum">     146 </span>            :         // Calculate sum of all subcompartments for InfectedNoSymptoms.</a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         85 :         ScalarType InfectedNoSymptoms_sum =</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         85 :             pop.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="149"><span class="lineNum">     149 </span>            :                         LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;())</a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">         85 :                 .sum();</span></a>
+<a name="151"><span class="lineNum">     151 </span>            :         // Calculate sum of all subcompartments for InfectedSymptoms.</a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         85 :         ScalarType InfectedSymptoms_sum =</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         85 :             pop.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="154"><span class="lineNum">     154 </span>            :                         LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;())</a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         85 :                 .sum();</span></a>
+<a name="156"><span class="lineNum">     156 </span>            : </a>
+<a name="157"><span class="lineNum">     157 </span>            :         // --- Susceptibles. ---</a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         85 :         ScalarType season_val = 1 + params.template get&lt;Seasonality&gt;() *</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         85 :                                         sin(3.141592653589793 * ((params.template get&lt;StartDay&gt;() + t) / 182.5 + 0.5));</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        170 :         dydt[0] = -y[0] / total_population * season_val * params.template get&lt;TransmissionProbabilityOnContact&gt;() *</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">        170 :                   params.template get&lt;ContactPatterns&gt;().get_cont_freq_mat().get_matrix_at(t)(0, 0) *</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         85 :                   (params.template get&lt;RelativeTransmissionNoSymptoms&gt;() * InfectedNoSymptoms_sum +</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">         85 :                    params.template get&lt;RiskOfInfectionFromSymptomatic&gt;() * InfectedSymptoms_sum);</span></a>
+<a name="164"><span class="lineNum">     164 </span>            : </a>
+<a name="165"><span class="lineNum">     165 </span>            :         // --- Exposed. ---</a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">        255 :                      LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) -=</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         85 :             dydt[0] * params.template get&lt;StartingProbabilitiesExposed&gt;();</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">         85 :                      LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) +=</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixExposedToInfectedNoSymptoms&gt;().transpose() *</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
+<a name="173"><span class="lineNum">     173 </span>            :                       LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;());</a>
+<a name="174"><span class="lineNum">     174 </span>            : </a>
+<a name="175"><span class="lineNum">     175 </span>            :         // --- InfectedNoSymptoms. ---</a>
+<a name="176"><span class="lineNum">     176 </span>            :         // Flow from Exposed To InfectedNoSymptoms.</a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        510 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedNoSymptoms&gt;()) =</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixExposedToInfectedNoSymptoms&gt;() *</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">         85 :               Eigen::VectorX&lt;ScalarType&gt;::Ones(LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()))</span></a>
+<a name="181"><span class="lineNum">     181 </span>            :                  .transpose() *</a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::Exposed&gt;(),</span></a>
+<a name="183"><span class="lineNum">     183 </span>            :                       LctState::template get_num_subcompartments&lt;InfectionState::Exposed&gt;()) *</a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineCov">         85 :             params.template get&lt;StartingProbabilitiesInfectedNoSymptoms&gt;();</span></a>
+<a name="185"><span class="lineNum">     185 </span>            :         // Flow from InfectedNoSymptoms To InfectedSymptoms.</a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">         85 :         size_t dimensionInfectedNoSymptomsToInfectedSymptoms =</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;().rows();</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         85 :                      dimensionInfectedNoSymptomsToInfectedSymptoms) +=</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;().transpose() *</span></a>
+<a name="191"><span class="lineNum">     191 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="192"><span class="lineNum">     192 </span>            :                       dimensionInfectedNoSymptomsToInfectedSymptoms);</a>
+<a name="193"><span class="lineNum">     193 </span>            :         // Flow from InfectedNoSymptoms To Recovered.</a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         85 :         size_t dimensionInfectedNoSymptomsToRecovered =</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;().rows();</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
+<a name="197"><span class="lineNum">     197 </span>            :                          dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">         85 :                      dimensionInfectedNoSymptomsToRecovered) +=</span></a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;().transpose() *</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
+<a name="201"><span class="lineNum">     201 </span>            :                           dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
+<a name="202"><span class="lineNum">     202 </span>            :                       dimensionInfectedNoSymptomsToRecovered);</a>
+<a name="203"><span class="lineNum">     203 </span>            :         // Add flow directly to Recovered compartment.</a>
+<a name="204"><span class="lineNum">     204 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedNoSymptomsToRecovered&gt;() *</span></a>
+<a name="206"><span class="lineNum">     206 </span>            :               Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedNoSymptomsToRecovered))</a>
+<a name="207"><span class="lineNum">     207 </span>            :                  .transpose() *</a>
+<a name="208"><span class="lineNum">     208 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;() +</span></a>
+<a name="209"><span class="lineNum">     209 </span>            :                           dimensionInfectedNoSymptomsToInfectedSymptoms,</a>
+<a name="210"><span class="lineNum">     210 </span>            :                       dimensionInfectedNoSymptomsToRecovered);</a>
+<a name="211"><span class="lineNum">     211 </span>            : </a>
+<a name="212"><span class="lineNum">     212 </span>            :         // --- InfectedSymptoms. ---</a>
+<a name="213"><span class="lineNum">     213 </span>            :         // Flow from InfectedNoSymptoms To InfectedSymptoms.</a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="215"><span class="lineNum">     215 </span><span class="lineCov">        510 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;()) =</span></a>
+<a name="216"><span class="lineNum">     216 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedSymptoms&gt;() *</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedNoSymptomsToInfectedSymptoms&gt;() *</span></a>
+<a name="218"><span class="lineNum">     218 </span>            :              Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedNoSymptomsToInfectedSymptoms))</a>
+<a name="219"><span class="lineNum">     219 </span>            :                 .transpose() *</a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedNoSymptoms&gt;(),</span></a>
+<a name="221"><span class="lineNum">     221 </span>            :                       dimensionInfectedNoSymptomsToInfectedSymptoms);</a>
+<a name="222"><span class="lineNum">     222 </span>            :         // Flow from InfectedSymptoms To InfectedSevere.</a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         85 :         size_t dimensionInfectedSymptomsToInfectedSevere =</span></a>
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;().rows();</span></a>
+<a name="225"><span class="lineNum">     225 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineCov">         85 :                      dimensionInfectedSymptomsToInfectedSevere) +=</span></a>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;().transpose() *</span></a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="229"><span class="lineNum">     229 </span>            :                       dimensionInfectedSymptomsToInfectedSevere);</a>
+<a name="230"><span class="lineNum">     230 </span>            :         // Flow from InfectedSymptoms To Recovered.</a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         85 :         size_t dimensionInfectedSymptomsToRecovered =</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;().rows();</span></a>
+<a name="233"><span class="lineNum">     233 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
+<a name="234"><span class="lineNum">     234 </span>            :                          dimensionInfectedSymptomsToInfectedSevere,</a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         85 :                      dimensionInfectedSymptomsToRecovered) +=</span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;().transpose() *</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
+<a name="238"><span class="lineNum">     238 </span>            :                           dimensionInfectedSymptomsToInfectedSevere,</a>
+<a name="239"><span class="lineNum">     239 </span>            :                       dimensionInfectedSymptomsToRecovered);</a>
+<a name="240"><span class="lineNum">     240 </span>            :         // Add flow directly to Recovered compartment.</a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedSymptomsToRecovered&gt;() *</span></a>
+<a name="243"><span class="lineNum">     243 </span>            :               Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedSymptomsToRecovered))</a>
+<a name="244"><span class="lineNum">     244 </span>            :                  .transpose() *</a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
+<a name="246"><span class="lineNum">     246 </span>            :                           dimensionInfectedSymptomsToInfectedSevere,</a>
+<a name="247"><span class="lineNum">     247 </span>            :                       dimensionInfectedSymptomsToRecovered);</a>
+<a name="248"><span class="lineNum">     248 </span>            : </a>
+<a name="249"><span class="lineNum">     249 </span>            :         // --- InfectedSevere. ---</a>
+<a name="250"><span class="lineNum">     250 </span>            :         // Flow from InfectedSymptoms To InfectedSevere.</a>
+<a name="251"><span class="lineNum">     251 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">        510 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;()) =</span></a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedSevere&gt;() *</span></a>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedSymptomsToInfectedSevere&gt;() *</span></a>
+<a name="255"><span class="lineNum">     255 </span>            :              Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedSymptomsToInfectedSevere))</a>
+<a name="256"><span class="lineNum">     256 </span>            :                 .transpose() *</a>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="258"><span class="lineNum">     258 </span>            :                       dimensionInfectedSymptomsToInfectedSevere);</a>
+<a name="259"><span class="lineNum">     259 </span>            :         // Flow from InfectedSevere To InfectedCritical.</a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">         85 :         size_t dimensionInfectedSevereToInfectedCritical =</span></a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;().rows();</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
+<a name="263"><span class="lineNum">     263 </span><span class="lineCov">         85 :                      dimensionInfectedSevereToInfectedCritical) +=</span></a>
+<a name="264"><span class="lineNum">     264 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;().transpose() *</span></a>
+<a name="265"><span class="lineNum">     265 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
+<a name="266"><span class="lineNum">     266 </span>            :                       dimensionInfectedSevereToInfectedCritical);</a>
+<a name="267"><span class="lineNum">     267 </span>            :         // Flow from InfectedSevere To Recovered.</a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">         85 :         size_t dimensionInfectedSevereToRecovered =</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;().rows();</span></a>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
+<a name="271"><span class="lineNum">     271 </span>            :                          dimensionInfectedSevereToInfectedCritical,</a>
+<a name="272"><span class="lineNum">     272 </span><span class="lineCov">         85 :                      dimensionInfectedSevereToRecovered) +=</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;().transpose() *</span></a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
+<a name="275"><span class="lineNum">     275 </span>            :                           dimensionInfectedSevereToInfectedCritical,</a>
+<a name="276"><span class="lineNum">     276 </span>            :                       dimensionInfectedSevereToRecovered);</a>
+<a name="277"><span class="lineNum">     277 </span>            :         // Add flow directly to Recovered compartment.</a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedSevereToRecovered&gt;() *</span></a>
+<a name="280"><span class="lineNum">     280 </span>            :               Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedSevereToRecovered))</a>
+<a name="281"><span class="lineNum">     281 </span>            :                  .transpose() *</a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;() +</span></a>
+<a name="283"><span class="lineNum">     283 </span>            :                           dimensionInfectedSevereToInfectedCritical,</a>
+<a name="284"><span class="lineNum">     284 </span>            :                       dimensionInfectedSevereToRecovered);</a>
+<a name="285"><span class="lineNum">     285 </span>            : </a>
+<a name="286"><span class="lineNum">     286 </span>            :         // --- InfectedCritical. ---</a>
+<a name="287"><span class="lineNum">     287 </span>            :         // Flow from InfectedSevere To InfectedCritical.</a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
+<a name="289"><span class="lineNum">     289 </span><span class="lineCov">        510 :                      LctState::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;()) =</span></a>
+<a name="290"><span class="lineNum">     290 </span><span class="lineCov">         85 :             -params.template get&lt;StartingProbabilitiesInfectedCritical&gt;() *</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">         85 :             (params.template get&lt;TransitionMatrixInfectedSevereToInfectedCritical&gt;() *</span></a>
+<a name="292"><span class="lineNum">     292 </span>            :              Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedSevereToInfectedCritical))</a>
+<a name="293"><span class="lineNum">     293 </span>            :                 .transpose() *</a>
+<a name="294"><span class="lineNum">     294 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedSevere&gt;(),</span></a>
+<a name="295"><span class="lineNum">     295 </span>            :                       dimensionInfectedSevereToInfectedCritical);</a>
+<a name="296"><span class="lineNum">     296 </span>            :         // Flow from InfectedCritical To Dead.</a>
+<a name="297"><span class="lineNum">     297 </span><span class="lineCov">         85 :         size_t dimensionInfectedCriticalToDead = params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;().rows();</span></a>
+<a name="298"><span class="lineNum">     298 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
+<a name="299"><span class="lineNum">     299 </span><span class="lineCov">         85 :                      dimensionInfectedCriticalToDead) +=</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;().transpose() *</span></a>
+<a name="301"><span class="lineNum">     301 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
+<a name="302"><span class="lineNum">     302 </span>            :                       dimensionInfectedCriticalToDead);</a>
+<a name="303"><span class="lineNum">     303 </span>            :         // Flow from InfectedCritical To Recovered.</a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">         85 :         size_t dimensionInfectedCriticalToRecovered =</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">         85 :             params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;().rows();</span></a>
+<a name="306"><span class="lineNum">     306 </span><span class="lineCov">        255 :         dydt.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
+<a name="307"><span class="lineNum">     307 </span>            :                          dimensionInfectedCriticalToDead,</a>
+<a name="308"><span class="lineNum">     308 </span><span class="lineCov">         85 :                      dimensionInfectedCriticalToRecovered) +=</span></a>
+<a name="309"><span class="lineNum">     309 </span><span class="lineCov">        255 :             params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;().transpose() *</span></a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
+<a name="311"><span class="lineNum">     311 </span>            :                           dimensionInfectedCriticalToDead,</a>
+<a name="312"><span class="lineNum">     312 </span>            :                       dimensionInfectedCriticalToRecovered);</a>
+<a name="313"><span class="lineNum">     313 </span>            :         // Add flow directly to Recovered compartment.</a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Recovered&gt;()] +=</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedCriticalToRecovered&gt;() *</span></a>
+<a name="316"><span class="lineNum">     316 </span>            :               Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedCriticalToRecovered))</a>
+<a name="317"><span class="lineNum">     317 </span>            :                  .transpose() *</a>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;() +</span></a>
+<a name="319"><span class="lineNum">     319 </span>            :                           dimensionInfectedCriticalToDead,</a>
+<a name="320"><span class="lineNum">     320 </span>            :                       dimensionInfectedCriticalToRecovered);</a>
+<a name="321"><span class="lineNum">     321 </span>            : </a>
+<a name="322"><span class="lineNum">     322 </span>            :         // --- Dead. ---</a>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">        255 :         dydt[LctState::template get_first_index&lt;InfectionState::Dead&gt;()] =</span></a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">         85 :             -(params.template get&lt;TransitionMatrixInfectedCriticalToDead&gt;() *</span></a>
+<a name="325"><span class="lineNum">     325 </span>            :               Eigen::VectorX&lt;ScalarType&gt;::Ones(dimensionInfectedCriticalToDead))</a>
+<a name="326"><span class="lineNum">     326 </span>            :                  .transpose() *</a>
+<a name="327"><span class="lineNum">     327 </span><span class="lineCov">        170 :             y.segment(LctState::template get_first_index&lt;InfectionState::InfectedCritical&gt;(),</span></a>
+<a name="328"><span class="lineNum">     328 </span>            :                       dimensionInfectedCriticalToDead);</a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        170 :     }</span></a>
+<a name="330"><span class="lineNum">     330 </span>            : </a>
+<a name="331"><span class="lineNum">     331 </span>            :     /**</a>
+<a name="332"><span class="lineNum">     332 </span>            :      * @brief Cumulates a simulation result with subcompartments to produce a result that divides the population only</a>
+<a name="333"><span class="lineNum">     333 </span>            :      *   into the infection states defined in InfectionState.</a>
+<a name="334"><span class="lineNum">     334 </span>            :      *</a>
+<a name="335"><span class="lineNum">     335 </span>            :      * If the model is used for simulation, we will get a result in form of a TimeSeries with infection states divided </a>
+<a name="336"><span class="lineNum">     336 </span>            :      * in subcompartments.</a>
+<a name="337"><span class="lineNum">     337 </span>            :      * The function calculates a TimeSeries without subcompartments from another TimeSeries with subcompartments. </a>
+<a name="338"><span class="lineNum">     338 </span>            :      * This is done by summing up the corresponding subcompartments.</a>
+<a name="339"><span class="lineNum">     339 </span>            :      * @param[in] subcompartments_ts Result of a simulation with the model.</a>
+<a name="340"><span class="lineNum">     340 </span>            :      * @return Result of the simulation divided in infection states without subcompartments. </a>
+<a name="341"><span class="lineNum">     341 </span>            :      *  Returns TimeSeries with values -1 if calculation is not possible.</a>
+<a name="342"><span class="lineNum">     342 </span>            :      */</a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">          2 :     TimeSeries&lt;ScalarType&gt; calculate_compartments(const TimeSeries&lt;ScalarType&gt;&amp; subcompartments_ts) const</span></a>
+<a name="344"><span class="lineNum">     344 </span>            :     {</a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">          2 :         TimeSeries&lt;ScalarType&gt; compartments_ts((Eigen::Index)InfectionState::Count);</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">          2 :         if (!(LctState::Count == subcompartments_ts.get_num_elements())) {</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineCov">          1 :             log_error(&quot;Result does not match InfectionStates of the model.&quot;);</span></a>
+<a name="348"><span class="lineNum">     348 </span>            :             // Return a TimeSeries with values -1.</a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">          1 :             Eigen::VectorX&lt;ScalarType&gt; error_output =</span></a>
+<a name="350"><span class="lineNum">     350 </span>            :                 Eigen::VectorX&lt;ScalarType&gt;::Constant((Eigen::Index)InfectionState::Count, -1);</a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineCov">          1 :             compartments_ts.add_time_point(-1, error_output);</span></a>
+<a name="352"><span class="lineNum">     352 </span><span class="lineCov">          1 :             return compartments_ts;</span></a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">          1 :         }</span></a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineCov">          1 :         Eigen::VectorX&lt;ScalarType&gt; compartments((Eigen::Index)InfectionState::Count);</span></a>
+<a name="355"><span class="lineNum">     355 </span><span class="lineCov">         14 :         for (Eigen::Index i = 0; i &lt; subcompartments_ts.get_num_time_points(); ++i) {</span></a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">         13 :             compartments_ts.add_time_point(subcompartments_ts.get_time(i),</span></a>
+<a name="357"><span class="lineNum">     357 </span>            :                                            LctState::calculate_compartments(subcompartments_ts[i]));</a>
+<a name="358"><span class="lineNum">     358 </span>            :         }</a>
+<a name="359"><span class="lineNum">     359 </span><span class="lineCov">          1 :         return compartments_ts;</span></a>
+<a name="360"><span class="lineNum">     360 </span><span class="lineCov">          2 :     }</span></a>
+<a name="361"><span class="lineNum">     361 </span>            : };</a>
+<a name="362"><span class="lineNum">     362 </span>            : </a>
+<a name="363"><span class="lineNum">     363 </span>            : } // namespace glsecir</a>
+<a name="364"><span class="lineNum">     364 </span>            : } // namespace mio</a>
+<a name="365"><span class="lineNum">     365 </span>            : </a>
+<a name="366"><span class="lineNum">     366 </span>            : #endif // MIO_GLCT_SECIR_MODEL_H</a>
 </pre>
       </td>
     </tr>

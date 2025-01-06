@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -168,8 +168,8 @@
 <a name="106"><span class="lineNum">     106 </span>            :     {</a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineCov">        265 :     }</span></a>
 <a name="108"><span class="lineNum">     108 </span>            : </a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       6921 :     void get_flows(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; y, FP t,</span></a>
-<a name="110"><span class="lineNum">     110 </span>            :                    Eigen::Ref&lt;Vector&lt;FP&gt;&gt; flows) const override</a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       6921 :     void get_flows(Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; y, FP t,</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :                    Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; flows) const override</a>
 <a name="111"><span class="lineNum">     111 </span>            :     {</a>
 <a name="112"><span class="lineNum">     112 </span><span class="lineCov">       6921 :         auto const&amp; params   = this-&gt;parameters;</span></a>
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">       6921 :         AgeGroup n_agegroups = params.get_num_groups();</span></a>
@@ -616,7 +616,7 @@
 <a name="554"><span class="lineNum">     554 </span>            : * @tparam Base simulation type that uses a secir compartment model. see Simulation.</a>
 <a name="555"><span class="lineNum">     555 </span>            : */</a>
 <a name="556"><span class="lineNum">     556 </span>            : template &lt;typename FP = ScalarType, class Base = mio::Simulation&lt;FP, Model&lt;FP&gt;&gt;&gt;</a>
-<a name="557"><span class="lineNum">     557 </span>            : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; model, FP t, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y);</a>
+<a name="557"><span class="lineNum">     557 </span>            : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; model, FP t, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y);</a>
 <a name="558"><span class="lineNum">     558 </span>            : </a>
 <a name="559"><span class="lineNum">     559 </span>            : /**</a>
 <a name="560"><span class="lineNum">     560 </span>            :  * specialization of compartment model simulation for the SECIRVVS model.</a>
@@ -727,7 +727,7 @@
 <a name="665"><span class="lineNum">     665 </span>            :      * @param tmax next stopping point of simulation</a>
 <a name="666"><span class="lineNum">     666 </span>            :      * @return value at tmax</a>
 <a name="667"><span class="lineNum">     667 </span>            :      */</a>
-<a name="668"><span class="lineNum">     668 </span><span class="lineCov">         71 :     Eigen::Ref&lt;Vector&lt;FP&gt;&gt; advance(FP tmax)</span></a>
+<a name="668"><span class="lineNum">     668 </span><span class="lineCov">         71 :     Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; advance(FP tmax)</span></a>
 <a name="669"><span class="lineNum">     669 </span>            :     {</a>
 <a name="670"><span class="lineNum">     670 </span><span class="lineCov">         71 :         auto&amp; t_end_dyn_npis   = this-&gt;get_model().parameters.get_end_dynamic_npis();</span></a>
 <a name="671"><span class="lineNum">     671 </span><span class="lineCov">         71 :         auto&amp; dyn_npis         = this-&gt;get_model().parameters.template get&lt;DynamicNPIsInfectedSymptoms&lt;FP&gt;&gt;();</span></a>
@@ -848,7 +848,7 @@
 <a name="786"><span class="lineNum">     786 </span>            : </a>
 <a name="787"><span class="lineNum">     787 </span>            : //see declaration above.</a>
 <a name="788"><span class="lineNum">     788 </span>            : template &lt;typename FP, class Base&gt;</a>
-<a name="789"><span class="lineNum">     789 </span><span class="lineCov">         98 : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y)</span></a>
+<a name="789"><span class="lineNum">     789 </span><span class="lineCov">         98 : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y)</span></a>
 <a name="790"><span class="lineNum">     790 </span>            : {</a>
 <a name="791"><span class="lineNum">     791 </span><span class="lineCov">         98 :     FP sum_inf = 0;</span></a>
 <a name="792"><span class="lineNum">     792 </span><span class="lineCov">        286 :     for (auto i = AgeGroup(0); i &lt; sim.get_model().parameters.get_num_groups(); ++i) {</span></a>
@@ -877,7 +877,7 @@
 <a name="815"><span class="lineNum">     815 </span>            :  * @tparam Base simulation type that uses a secir compartment model. see Simulation.</a>
 <a name="816"><span class="lineNum">     816 </span>            :  */</a>
 <a name="817"><span class="lineNum">     817 </span>            : template &lt;typename FP = double, class Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</a>
-<a name="818"><span class="lineNum">     818 </span><span class="lineCov">          9 : auto get_mobility_factors(const Simulation&lt;Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y)</span></a>
+<a name="818"><span class="lineNum">     818 </span><span class="lineCov">          9 : auto get_mobility_factors(const Simulation&lt;Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y)</span></a>
 <a name="819"><span class="lineNum">     819 </span>            : </a>
 <a name="820"><span class="lineNum">     820 </span>            : {</a>
 <a name="821"><span class="lineNum">     821 </span><span class="lineCov">          9 :     auto&amp; params = sim.get_model().parameters;</span></a>
@@ -919,7 +919,7 @@
 <a name="857"><span class="lineNum">     857 </span><span class="lineCov">          9 : }</span></a>
 <a name="858"><span class="lineNum">     858 </span>            : </a>
 <a name="859"><span class="lineNum">     859 </span>            : template &lt;typename FP = double, class Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</a>
-<a name="860"><span class="lineNum">     860 </span><span class="lineCov">          9 : auto test_commuters(Simulation&lt;FP, Base&gt;&amp; sim, Eigen::Ref&lt;Vector&lt;FP&gt;&gt; mobile_population, FP time)</span></a>
+<a name="860"><span class="lineNum">     860 </span><span class="lineCov">          9 : auto test_commuters(Simulation&lt;FP, Base&gt;&amp; sim, Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; mobile_population, FP time)</span></a>
 <a name="861"><span class="lineNum">     861 </span>            : {</a>
 <a name="862"><span class="lineNum">     862 </span><span class="lineCov">          9 :     auto&amp; model       = sim.get_model();</span></a>
 <a name="863"><span class="lineNum">     863 </span><span class="lineCov">          9 :     auto nondetection = 1.0;</span></a>

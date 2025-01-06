@@ -110,12 +110,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6545836509156cba6f949e9e5b4577fd"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a6545836509156cba6f949e9e5b4577fd">FlowModel</a> (Args... args)</td></tr>
 <tr class="memdesc:a6545836509156cba6f949e9e5b4577fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, forwarding args to Base constructor.  <a href="classmio_1_1FlowModel.html#a6545836509156cba6f949e9e5b4577fd">More...</a><br /></td></tr>
 <tr class="separator:a6545836509156cba6f949e9e5b4577fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd86d828980d49e176746f778e58ad36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#afd86d828980d49e176746f778e58ad36">get_derivatives</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; flows, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; dydt) const</td></tr>
-<tr class="memdesc:afd86d828980d49e176746f778e58ad36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the right-hand-side of the ODE dydt = f(y, t) from flow values.  <a href="classmio_1_1FlowModel.html#afd86d828980d49e176746f778e58ad36">More...</a><br /></td></tr>
-<tr class="separator:afd86d828980d49e176746f778e58ad36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d7b6793ff690aa8724c925850440d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a96d7b6793ff690aa8724c925850440d3">get_derivatives</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; y, FP t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; dydt) const override final</td></tr>
-<tr class="memdesc:a96d7b6793ff690aa8724c925850440d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the right-hand-side f(y, t) of the ODE and store it in dydt.  <a href="classmio_1_1FlowModel.html#a96d7b6793ff690aa8724c925850440d3">More...</a><br /></td></tr>
-<tr class="separator:a96d7b6793ff690aa8724c925850440d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49eddfebfa93635db4d868d83a5fde1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a49eddfebfa93635db4d868d83a5fde1b">get_derivatives</a> (Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; flows, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt; dydt) const</td></tr>
+<tr class="memdesc:a49eddfebfa93635db4d868d83a5fde1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the right-hand-side of the ODE dydt = f(y, t) from flow values.  <a href="classmio_1_1FlowModel.html#a49eddfebfa93635db4d868d83a5fde1b">More...</a><br /></td></tr>
+<tr class="separator:a49eddfebfa93635db4d868d83a5fde1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf1db0dd55c07c913bbc5e6d8afd754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#aedf1db0dd55c07c913bbc5e6d8afd754">get_derivatives</a> (Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; pop, Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; y, FP t, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt; dydt) const override final</td></tr>
+<tr class="memdesc:aedf1db0dd55c07c913bbc5e6d8afd754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the right-hand-side f(y, t) of the ODE and store it in dydt.  <a href="classmio_1_1FlowModel.html#aedf1db0dd55c07c913bbc5e6d8afd754">More...</a><br /></td></tr>
+<tr class="separator:aedf1db0dd55c07c913bbc5e6d8afd754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6100a9b3eb296ab1e43fd52ee4ae5c22"><td class="memTemplParams" colspan="2">template&lt;Comp Source, Comp Target&gt; </td></tr>
 <tr class="memitem:a6100a9b3eb296ab1e43fd52ee4ae5c22"><td class="memTemplItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a6100a9b3eb296ab1e43fd52ee4ae5c22">get_flat_flow_index</a> () const</td></tr>
 <tr class="memdesc:a6100a9b3eb296ab1e43fd52ee4ae5c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flat index into an array of flows (as computed by get_flows), if the only used category in Pop is Comp.  <a href="classmio_1_1FlowModel.html#a6100a9b3eb296ab1e43fd52ee4ae5c22">More...</a><br /></td></tr>
@@ -124,11 +124,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ef70f16732bf3dd1eb54bd46084fe7f"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a6ef70f16732bf3dd1eb54bd46084fe7f">get_flat_flow_index</a> (const <a class="el" href="classmio_1_1FlowModel.html#ae5f2cc2375769f9f91ac8263be0884d9">FlowIndex</a> &amp;indices) const</td></tr>
 <tr class="memdesc:a6ef70f16732bf3dd1eb54bd46084fe7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flat index into an array of flows (as computed by get_flows), given the indices of each category.  <a href="classmio_1_1FlowModel.html#a6ef70f16732bf3dd1eb54bd46084fe7f">More...</a><br /></td></tr>
 <tr class="separator:a6ef70f16732bf3dd1eb54bd46084fe7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa42c62e5acc9d9863ac575f03c66311a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#aa42c62e5acc9d9863ac575f03c66311a">get_flows</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;, FP, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;) const =0</td></tr>
-<tr class="separator:aa42c62e5acc9d9863ac575f03c66311a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58fea9467ad0f50c4d1cb32de71765df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a58fea9467ad0f50c4d1cb32de71765df">get_initial_flows</a> () const</td></tr>
-<tr class="memdesc:a58fea9467ad0f50c4d1cb32de71765df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial values for flows.  <a href="classmio_1_1FlowModel.html#a58fea9467ad0f50c4d1cb32de71765df">More...</a><br /></td></tr>
-<tr class="separator:a58fea9467ad0f50c4d1cb32de71765df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad408bbcff5fabb057668df7f6a06a718"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#ad408bbcff5fabb057668df7f6a06a718">get_flows</a> (Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;, Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;, FP, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;) const =0</td></tr>
+<tr class="separator:ad408bbcff5fabb057668df7f6a06a718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d6a193f494fd4a7198464a136ed045"><td class="memItemLeft" align="right" valign="top">Eigen::VectorX&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a67d6a193f494fd4a7198464a136ed045">get_initial_flows</a> () const</td></tr>
+<tr class="memdesc:a67d6a193f494fd4a7198464a136ed045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial values for flows.  <a href="classmio_1_1FlowModel.html#a67d6a193f494fd4a7198464a136ed045">More...</a><br /></td></tr>
+<tr class="separator:a67d6a193f494fd4a7198464a136ed045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structmio_1_1CompartmentalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structmio_1_1CompartmentalModel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structmio_1_1CompartmentalModel.html">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a></td></tr>
 <tr class="memitem:a17bf61095e82eab7b45653472a8fb936 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a17bf61095e82eab7b45653472a8fb936">apply_constraints</a> ()</td></tr>
 <tr class="memdesc:a17bf61095e82eab7b45653472a8fb936 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the model satisfies all constraints.  <a href="structmio_1_1CompartmentalModel.html#a17bf61095e82eab7b45653472a8fb936">More...</a><br /></td></tr>
@@ -143,12 +143,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d4aa09703feae3927c4655b0cfbbe62 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a2d4aa09703feae3927c4655b0cfbbe62">CompartmentalModel</a> (<a class="el" href="structmio_1_1CompartmentalModel.html#a3243f778e26359da601d1ac84b81732d">Populations</a> const &amp;po, <a class="el" href="structmio_1_1CompartmentalModel.html#a3b6bb5f689311e58dabc1fa6ffce0da4">ParameterSet</a> const &amp;pa)</td></tr>
 <tr class="memdesc:a2d4aa09703feae3927c4655b0cfbbe62 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structmio_1_1CompartmentalModel.html" title="CompartmentalModel is a template for a compartmental model for an array of initial populations and a ...">CompartmentalModel</a> default constructor.  <a href="structmio_1_1CompartmentalModel.html#a2d4aa09703feae3927c4655b0cfbbe62">More...</a><br /></td></tr>
 <tr class="separator:a2d4aa09703feae3927c4655b0cfbbe62 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#aa07d380d2202e3a4f069d2471043a5b8">eval_right_hand_side</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; pop, Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; y, FP t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; dydt) const</td></tr>
-<tr class="memdesc:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function evaluates the right-hand-side f of the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#aa07d380d2202e3a4f069d2471043a5b8">More...</a><br /></td></tr>
-<tr class="separator:aa07d380d2202e3a4f069d2471043a5b8 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#ac7a04c5b2c7b6e2c61b25f3eefdb24eb">get_initial_values</a> () const</td></tr>
-<tr class="memdesc:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the initial conditions for the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#ac7a04c5b2c7b6e2c61b25f3eefdb24eb">More...</a><br /></td></tr>
-<tr class="separator:ac7a04c5b2c7b6e2c61b25f3eefdb24eb inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96727bb4b1ccd83cd3b0997de98cc87 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#aa96727bb4b1ccd83cd3b0997de98cc87">eval_right_hand_side</a> (Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; pop, Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; y, FP t, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt; dydt) const</td></tr>
+<tr class="memdesc:aa96727bb4b1ccd83cd3b0997de98cc87 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function evaluates the right-hand-side f of the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#aa96727bb4b1ccd83cd3b0997de98cc87">More...</a><br /></td></tr>
+<tr class="separator:aa96727bb4b1ccd83cd3b0997de98cc87 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781c0f048569e2ab114cbd0c5be38334 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top">Eigen::VectorX&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#a781c0f048569e2ab114cbd0c5be38334">get_initial_values</a> () const</td></tr>
+<tr class="memdesc:a781c0f048569e2ab114cbd0c5be38334 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the initial conditions for the ODE dydt = f(y, t).  <a href="structmio_1_1CompartmentalModel.html#a781c0f048569e2ab114cbd0c5be38334">More...</a><br /></td></tr>
+<tr class="separator:a781c0f048569e2ab114cbd0c5be38334 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd71f212dd8f17c6cc928462e73db482 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#acd71f212dd8f17c6cc928462e73db482">operator=</a> (<a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:acd71f212dd8f17c6cc928462e73db482 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af803f224e2919aedf3b8bf3aa89cb175 inherit pub_methods_structmio_1_1CompartmentalModel"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmio_1_1CompartmentalModel.html#af803f224e2919aedf3b8bf3aa89cb175">operator=</a> (const <a class="el" href="structmio_1_1CompartmentalModel.html">CompartmentalModel</a> &amp;)=default</td></tr>
@@ -165,16 +165,16 @@ Private Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:adcd81e107036c5e6306eb0c6c0da59bd"><td class="memTemplParams" colspan="2">template&lt;size_t I = 0&gt; </td></tr>
-<tr class="memitem:adcd81e107036c5e6306eb0c6c0da59bd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#adcd81e107036c5e6306eb0c6c0da59bd">get_rhs_impl</a> (Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; flows, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; rhs, const <a class="el" href="classmio_1_1FlowModel.html#ae5f2cc2375769f9f91ac8263be0884d9">FlowIndex</a> &amp;index) const</td></tr>
-<tr class="memdesc:adcd81e107036c5e6306eb0c6c0da59bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivatives of the compartments.  <a href="classmio_1_1FlowModel.html#adcd81e107036c5e6306eb0c6c0da59bd">More...</a><br /></td></tr>
-<tr class="separator:adcd81e107036c5e6306eb0c6c0da59bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6e93d6a5d9a136b66f2b27c82ca876"><td class="memTemplParams" colspan="2">template&lt;size_t I = 0&gt; </td></tr>
+<tr class="memitem:a0c6e93d6a5d9a136b66f2b27c82ca876"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a0c6e93d6a5d9a136b66f2b27c82ca876">get_rhs_impl</a> (Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; flows, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt; rhs, const <a class="el" href="classmio_1_1FlowModel.html#ae5f2cc2375769f9f91ac8263be0884d9">FlowIndex</a> &amp;index) const</td></tr>
+<tr class="memdesc:a0c6e93d6a5d9a136b66f2b27c82ca876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the derivatives of the compartments.  <a href="classmio_1_1FlowModel.html#a0c6e93d6a5d9a136b66f2b27c82ca876">More...</a><br /></td></tr>
+<tr class="separator:a0c6e93d6a5d9a136b66f2b27c82ca876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a09ceee52c9d92b9b4f9b33a958f45d56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a09ceee52c9d92b9b4f9b33a958f45d56">m_flow_values</a></td></tr>
-<tr class="memdesc:a09ceee52c9d92b9b4f9b33a958f45d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache to avoid allocation in get_derivatives (using get_flows).  <a href="classmio_1_1FlowModel.html#a09ceee52c9d92b9b4f9b33a958f45d56">More...</a><br /></td></tr>
-<tr class="separator:a09ceee52c9d92b9b4f9b33a958f45d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e55fd67192ea9e28339995a6438a79"><td class="memItemLeft" align="right" valign="top">Eigen::VectorX&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1FlowModel.html#a88e55fd67192ea9e28339995a6438a79">m_flow_values</a></td></tr>
+<tr class="memdesc:a88e55fd67192ea9e28339995a6438a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache to avoid allocation in get_derivatives (using get_flows).  <a href="classmio_1_1FlowModel.html#a88e55fd67192ea9e28339995a6438a79">More...</a><br /></td></tr>
+<tr class="separator:a88e55fd67192ea9e28339995a6438a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -189,7 +189,7 @@ Additional Inherited Members</h2></td></tr>
 class mio::FlowModel&lt; FP, Comp, Pop, Params, Flows &gt;</h3>
 
 <p>A <a class="el" href="classmio_1_1FlowModel.html" title="A FlowModel is a CompartmentalModel defined by the flows between compartments.">FlowModel</a> is a <a class="el" href="structmio_1_1CompartmentalModel.html" title="CompartmentalModel is a template for a compartmental model for an array of initial populations and a ...">CompartmentalModel</a> defined by the flows between compartments. </p>
-<p>Inherits from </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structmio_1_1CompartmentalModel.html" title="CompartmentalModel is a template for a compartmental model for an array of initial populations and a ...">CompartmentalModel</a>, and defines the derivatives depending on the flows. Hence, a model implementing <a class="el" href="classmio_1_1FlowModel.html" title="A FlowModel is a CompartmentalModel defined by the flows between compartments.">FlowModel</a> has to define the function <a class="el" href="classmio_1_1FlowModel.html#aa42c62e5acc9d9863ac575f03c66311a">get_flows</a>, instead of <a class="el" href="classmio_1_1FlowModel.html#afd86d828980d49e176746f778e58ad36" title="Compute the right-hand-side of the ODE dydt = f(y, t) from flow values.">get_derivatives</a>.</dd></dl>
+<p>Inherits from </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structmio_1_1CompartmentalModel.html" title="CompartmentalModel is a template for a compartmental model for an array of initial populations and a ...">CompartmentalModel</a>, and defines the derivatives depending on the flows. Hence, a model implementing <a class="el" href="classmio_1_1FlowModel.html" title="A FlowModel is a CompartmentalModel defined by the flows between compartments.">FlowModel</a> has to define the function <a class="el" href="classmio_1_1FlowModel.html#ad408bbcff5fabb057668df7f6a06a718">get_flows</a>, instead of <a class="el" href="classmio_1_1FlowModel.html#a49eddfebfa93635db4d868d83a5fde1b" title="Compute the right-hand-side of the ODE dydt = f(y, t) from flow values.">get_derivatives</a>.</dd></dl>
 <p>Flows is expected to be a <a class="el" href="structmio_1_1TypeList.html" title="Collection of types. Each type is mapped to an index of type size_t.">TypeList</a> containing types Flow&lt;A,B&gt;, where A and B are compartments from the enum Comp. Some examples can be found in the cpp/models/ directory, within the model.h files. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4137e76ac1f04dd1c3cf19077b2820a0"></a>
@@ -282,8 +282,8 @@ template&lt;class... Args&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afd86d828980d49e176746f778e58ad36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd86d828980d49e176746f778e58ad36">&#9670;&nbsp;</a></span>get_derivatives() <span class="overload">[1/2]</span></h2>
+<a id="a49eddfebfa93635db4d868d83a5fde1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49eddfebfa93635db4d868d83a5fde1b">&#9670;&nbsp;</a></span>get_derivatives() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,13 +293,13 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
         <tr>
           <td class="memname">void <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_derivatives </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>flows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>dydt</em>&#160;</td>
         </tr>
         <tr>
@@ -322,8 +322,8 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
 
 </div>
 </div>
-<a id="a96d7b6793ff690aa8724c925850440d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96d7b6793ff690aa8724c925850440d3">&#9670;&nbsp;</a></span>get_derivatives() <span class="overload">[2/2]</span></h2>
+<a id="aedf1db0dd55c07c913bbc5e6d8afd754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedf1db0dd55c07c913bbc5e6d8afd754">&#9670;&nbsp;</a></span>get_derivatives() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,13 +336,13 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
         <tr>
           <td class="memname">void <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_derivatives </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
@@ -354,7 +354,7 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>dydt</em>&#160;</td>
         </tr>
         <tr>
@@ -382,7 +382,7 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="structmio_1_1CompartmentalModel.html#a5780b6b980eac58267ab333632d4256b">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="structmio_1_1CompartmentalModel.html#ad5b7dfc39a1c1d0350bf789f09e948cc">mio::CompartmentalModel&lt; FP, Comp, Pop, Params &gt;</a>.</p>
 
 </div>
 </div>
@@ -466,8 +466,8 @@ template&lt;Comp Source, Comp Target&gt; </div>
 
 </div>
 </div>
-<a id="aa42c62e5acc9d9863ac575f03c66311a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa42c62e5acc9d9863ac575f03c66311a">&#9670;&nbsp;</a></span>get_flows()</h2>
+<a id="ad408bbcff5fabb057668df7f6a06a718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad408bbcff5fabb057668df7f6a06a718">&#9670;&nbsp;</a></span>get_flows()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,13 +480,13 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
         <tr>
           <td class="memname">virtual void <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_flows </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -498,7 +498,7 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -514,12 +514,12 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classmio_1_1sseirvv_1_1Model.html#ac828e77bc8a1a5107c4b80ed3fc78fda">mio::sseirvv::Model</a>.</p>
+<p>Implemented in <a class="el" href="classmio_1_1ssirs_1_1Model.html#a139897da6b4f08fce9feb04bd3710ead">mio::ssirs::Model</a>, <a class="el" href="classmio_1_1ssir_1_1Model.html#a0f20f1ab1813cf0c7ca14675ece921f2">mio::ssir::Model</a>, and <a class="el" href="classmio_1_1sseirvv_1_1Model.html#a71ae462e46214ec21df4453ef6482036">mio::sseirvv::Model</a>.</p>
 
 </div>
 </div>
-<a id="a58fea9467ad0f50c4d1cb32de71765df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58fea9467ad0f50c4d1cb32de71765df">&#9670;&nbsp;</a></span>get_initial_flows()</h2>
+<a id="a67d6a193f494fd4a7198464a136ed045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d6a193f494fd4a7198464a136ed045">&#9670;&nbsp;</a></span>get_initial_flows()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,7 +527,7 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
 template&lt;typename FP , class Comp , class Pop , class Params , class Flows &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_initial_flows </td>
+          <td class="memname">Eigen::VectorX&lt;FP&gt; <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_initial_flows </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -540,8 +540,8 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
 
 </div>
 </div>
-<a id="adcd81e107036c5e6306eb0c6c0da59bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcd81e107036c5e6306eb0c6c0da59bd">&#9670;&nbsp;</a></span>get_rhs_impl()</h2>
+<a id="a0c6e93d6a5d9a136b66f2b27c82ca876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6e93d6a5d9a136b66f2b27c82ca876">&#9670;&nbsp;</a></span>get_rhs_impl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,13 +556,13 @@ template&lt;size_t I = 0&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::get_rhs_impl </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>flows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>rhs</em>, </td>
         </tr>
         <tr>
@@ -603,8 +603,8 @@ template&lt;size_t I = 0&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a09ceee52c9d92b9b4f9b33a958f45d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09ceee52c9d92b9b4f9b33a958f45d56">&#9670;&nbsp;</a></span>m_flow_values</h2>
+<a id="a88e55fd67192ea9e28339995a6438a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e55fd67192ea9e28339995a6438a79">&#9670;&nbsp;</a></span>m_flow_values</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -615,7 +615,7 @@ template&lt;typename FP , class Comp , class Pop , class Params , class Flows &g
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::m_flow_values</td>
+          <td class="memname">Eigen::VectorX&lt;FP&gt; <a class="el" href="classmio_1_1FlowModel.html">mio::FlowModel</a>&lt; FP, Comp, Pop, Params, Flows &gt;::m_flow_values</td>
         </tr>
       </table>
   </td>

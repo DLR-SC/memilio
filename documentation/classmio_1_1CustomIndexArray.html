@@ -155,11 +155,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2a772a9db443e7ef4403723f18ec91c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the entry of the array given a flat index index  <a href="classmio_1_1CustomIndexArray.html#a2a772a9db443e7ef4403723f18ec91c4">More...</a><br /></td></tr>
 <tr class="separator:a2a772a9db443e7ef4403723f18ec91c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc93f7ca210dce1048fc07e4a0869d29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">resize</a> (<a class="el" href="classmio_1_1CustomIndexArray.html#abd7df97abfc73fff6ab38b53d1fddc10">Index</a> new_dims)</td></tr>
-<tr class="memdesc:abc93f7ca210dce1048fc07e4a0869d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize all dimensions.  <a href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">More...</a><br /></td></tr>
+<tr class="memdesc:abc93f7ca210dce1048fc07e4a0869d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize all dimensions, invalidating entries.  <a href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">More...</a><br /></td></tr>
 <tr class="separator:abc93f7ca210dce1048fc07e4a0869d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849773a9e5c974861d0eb42aca473632"><td class="memTemplParams" colspan="2">template&lt;class Tag &gt; </td></tr>
 <tr class="memitem:a849773a9e5c974861d0eb42aca473632"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">resize</a> (<a class="el" href="classmio_1_1Index.html">mio::Index</a>&lt; <a class="el" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">Tag</a> &gt; new_dim)</td></tr>
-<tr class="memdesc:a849773a9e5c974861d0eb42aca473632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a single dimension.  <a href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">More...</a><br /></td></tr>
+<tr class="memdesc:a849773a9e5c974861d0eb42aca473632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a single dimension, invalidating entries.  <a href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">More...</a><br /></td></tr>
 <tr class="separator:a849773a9e5c974861d0eb42aca473632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e93d1acee334d2cf613ba6bf7b1767"><td class="memTemplParams" colspan="2">template&lt;class IOContext &gt; </td></tr>
 <tr class="memitem:ab4e93d1acee334d2cf613ba6bf7b1767"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#ab4e93d1acee334d2cf613ba6bf7b1767">serialize</a> (IOContext &amp;io) const</td></tr>
@@ -911,10 +911,10 @@ template&lt;class Typ , class... Tags&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Resize all dimensions. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Resize all dimensions, invalidating entries. </p>
+<p>All entries of the <a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a> should be reassigned a new value after a resize, as it may delete or reorder entries in an unexpected way. Newly added entries are default constructed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_dims</td><td>new dimensions. </td></tr>
+    <tr><td class="paramname">new_dims</td><td>New dimensions. </td></tr>
   </table>
   </dd>
 </dl>
@@ -941,10 +941,16 @@ template&lt;class Tag &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Resize a single dimension. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Resize a single dimension, invalidating entries. </p>
+<p>All entries of the <a class="el" href="classmio_1_1CustomIndexArray.html" title="A class template for an array with custom indices.">CustomIndexArray</a> should be reassigned a new value after a resize, as it may delete or reorder entries in an unexpected way. Newly added entries are default constructed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new</td><td>dimension. </td></tr>
+    <tr><td class="paramname">new_dim</td><td>New dimension size. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tag</td><td>The dimension to resize. </td></tr>
   </table>
   </dd>
 </dl>

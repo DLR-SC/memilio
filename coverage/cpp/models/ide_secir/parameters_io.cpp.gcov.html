@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -113,12 +113,12 @@
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">       2204 :         return a.date &lt; b.date;</span></a>
 <a name="52"><span class="lineNum">      52 </span>            :     });</a>
 <a name="53"><span class="lineNum">      53 </span><span class="lineCov">          5 :     if (max_date_entry == rki_data.end()) {</span></a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">          2 :         log_error(&quot;RKI data file is empty.&quot;);</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">          1 :         log_error(&quot;RKI data file is empty.&quot;);</span></a>
 <a name="55"><span class="lineNum">      55 </span><span class="lineCov">          1 :         return failure(StatusCode::InvalidFileFormat, path + &quot;, file is empty.&quot;);</span></a>
 <a name="56"><span class="lineNum">      56 </span>            :     }</a>
 <a name="57"><span class="lineNum">      57 </span><span class="lineCov">          4 :     auto max_date = max_date_entry-&gt;date;</span></a>
 <a name="58"><span class="lineNum">      58 </span><span class="lineCov">          4 :     if (max_date &lt; date) {</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          2 :         log_error(&quot;Specified date does not exist in RKI data.&quot;);</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          1 :         log_error(&quot;Specified date does not exist in RKI data.&quot;);</span></a>
 <a name="60"><span class="lineNum">      60 </span><span class="lineCov">          1 :         return failure(StatusCode::OutOfRange, path + &quot;, specified date does not exist in RKI data.&quot;);</span></a>
 <a name="61"><span class="lineNum">      61 </span>            :     }</a>
 <a name="62"><span class="lineNum">      62 </span><span class="lineCov">          3 :     auto min_date_entry = std::min_element(rki_data.begin(), rki_data.end(), [](auto&amp;&amp; a, auto&amp;&amp; b) {</span></a>
@@ -293,7 +293,7 @@
 <a name="231"><span class="lineNum">     231 </span>            :     }</a>
 <a name="232"><span class="lineNum">     232 </span>            : </a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">          3 :     if (!max_offset_needed_avail) {</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          2 :         log_error(&quot;Necessary range of dates needed to compute initial values does not exist in RKI data.&quot;);</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          1 :         log_error(&quot;Necessary range of dates needed to compute initial values does not exist in RKI data.&quot;);</span></a>
 <a name="235"><span class="lineNum">     235 </span><span class="lineCov">          1 :         return failure(StatusCode::OutOfRange, path + &quot;, necessary range of dates does not exist in RKI data.&quot;);</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :     }</a>
 <a name="237"><span class="lineNum">     237 </span><span class="lineCov">          2 :     if (!min_offset_needed_avail) {</span></a>

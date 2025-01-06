@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -173,7 +173,7 @@
 <a name="111"><span class="lineNum">     111 </span>            : </a>
 <a name="112"><span class="lineNum">     112 </span><span class="lineCov">         27 :         int corrected = false;</span></a>
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">         27 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="116"><span class="lineNum">     116 </span>            :                         &quot;and reset parameters.&quot;,</a>
 <a name="117"><span class="lineNum">     117 </span><span class="lineCov">          9 :                         this-&gt;get&lt;TimeInfected&gt;(), tol_times);</span></a>
@@ -182,7 +182,7 @@
 <a name="120"><span class="lineNum">     120 </span>            :         }</a>
 <a name="121"><span class="lineNum">     121 </span><span class="lineCov">         54 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">         27 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">         18 :                         this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0);</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">          9 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() = 0.0;</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">          9 :             corrected                                     = true;</span></a>
@@ -200,7 +200,7 @@
 <a name="138"><span class="lineNum">     138 </span><span class="lineCov">         27 :         ScalarType tol_times = 1e-1;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span><span class="lineCov">         27 :         if (this-&gt;get&lt;TimeInfected&gt;() &lt; tol_times) {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="143"><span class="lineNum">     143 </span>            :                       &quot;and reset parameters.&quot;,</a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeInfected&gt;(), 0.0);</span></a>
@@ -208,7 +208,7 @@
 <a name="146"><span class="lineNum">     146 </span>            :         }</a>
 <a name="147"><span class="lineNum">     147 </span><span class="lineCov">         36 :         if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &lt; 0.0 ||</span></a>
 <a name="148"><span class="lineNum">     148 </span><span class="lineCov">         18 :             this-&gt;get&lt;TransmissionProbabilityOnContact&gt;() &gt; 1.0) {</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         18 :             log_error(</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">          9 :             log_error(</span></a>
 <a name="150"><span class="lineNum">     150 </span>            :                 &quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or greater {:.4f}&quot;,</a>
 <a name="151"><span class="lineNum">     151 </span><span class="lineCov">         18 :                 this-&gt;get&lt;TransmissionProbabilityOnContact&gt;(), 0.0, 1.0);</span></a>
 <a name="152"><span class="lineNum">     152 </span><span class="lineCov">          9 :             return true;</span></a>

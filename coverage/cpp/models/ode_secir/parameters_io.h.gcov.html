@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -372,7 +372,7 @@
 <a name="310"><span class="lineNum">     310 </span><span class="lineCov">         29 :             BOOST_OUTCOME_TRY(details::set_divi_data(models, divi_data_path, region, offset_day, scaling_factor_icu));</span></a>
 <a name="311"><span class="lineNum">     311 </span><span class="lineCov">         29 :         }</span></a>
 <a name="312"><span class="lineNum">     312 </span>            :         else {</a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">         18 :             log_warning(&quot;No DIVI data available for date: {}-{}-{}&quot;, offset_day.day, offset_day.month, offset_day.year);</span></a>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">          9 :             log_warning(&quot;No DIVI data available for date: {}-{}-{}&quot;, offset_day.day, offset_day.month, offset_day.year);</span></a>
 <a name="314"><span class="lineNum">     314 </span>            :         }</a>
 <a name="315"><span class="lineNum">     315 </span>            : </a>
 <a name="316"><span class="lineNum">     316 </span><span class="lineCov">         38 :         BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(models, case_data, region, offset_day, scaling_factor_inf));</span></a>
@@ -479,7 +479,7 @@
 <a name="417"><span class="lineNum">     417 </span>            :                                                  county, date, scaling_factor_icu));</a>
 <a name="418"><span class="lineNum">     418 </span><span class="lineCov">         19 :     }</span></a>
 <a name="419"><span class="lineNum">     419 </span>            :     else {</a>
-<a name="420"><span class="lineNum">     420 </span><span class="lineCov">         18 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
+<a name="420"><span class="lineNum">     420 </span><span class="lineCov">          9 :         log_warning(&quot;No DIVI data available for this date&quot;);</span></a>
 <a name="421"><span class="lineNum">     421 </span>            :     }</a>
 <a name="422"><span class="lineNum">     422 </span><span class="lineCov">         56 :     BOOST_OUTCOME_TRY(details::set_confirmed_cases_data(</span></a>
 <a name="423"><span class="lineNum">     423 </span>            :         model, path_join(dir, &quot;pydata/Germany&quot;, &quot;cases_all_county_age_ma7.json&quot;), county, date, scaling_factor_inf));</a>

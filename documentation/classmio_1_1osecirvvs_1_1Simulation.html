@@ -88,9 +88,9 @@ Inheritance diagram for mio::osecirvvs::Simulation&lt; FP, BaseT &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af269604da19882533a5dee7adcc1341b"><td class="memItemLeft" align="right" valign="top">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">advance</a> (FP tmax)</td></tr>
-<tr class="memdesc:af269604da19882533a5dee7adcc1341b"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance simulation to tmax.  <a href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b">More...</a><br /></td></tr>
-<tr class="separator:af269604da19882533a5dee7adcc1341b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c813f2348873f216867bf4d0c914258"><td class="memItemLeft" align="right" valign="top">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#a3c813f2348873f216867bf4d0c914258">advance</a> (FP tmax)</td></tr>
+<tr class="memdesc:a3c813f2348873f216867bf4d0c914258"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance simulation to tmax.  <a href="classmio_1_1osecirvvs_1_1Simulation.html#a3c813f2348873f216867bf4d0c914258">More...</a><br /></td></tr>
+<tr class="separator:a3c813f2348873f216867bf4d0c914258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ea41d6a3f66aa36957d8ad0569e5b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#a29ea41d6a3f66aa36957d8ad0569e5b0">apply_vaccination</a> (double t)</td></tr>
 <tr class="separator:a29ea41d6a3f66aa36957d8ad0569e5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9126764ae05b69325253cfe5743d1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#a8c9126764ae05b69325253cfe5743d1e">apply_variant</a> (const double t, const <a class="el" href="classmio_1_1CustomIndexArray.html">CustomIndexArray</a>&lt; <a class="el" href="classmio_1_1UncertainValue.html">UncertainValue</a>&lt; FP &gt;, <a class="el" href="structmio_1_1AgeGroup.html">AgeGroup</a> &gt; base_infectiousness)</td></tr>
@@ -167,8 +167,8 @@ template&lt;typename FP , class BaseT &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af269604da19882533a5dee7adcc1341b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af269604da19882533a5dee7adcc1341b">&#9670;&nbsp;</a></span>advance()</h2>
+<a id="a3c813f2348873f216867bf4d0c914258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c813f2348873f216867bf4d0c914258">&#9670;&nbsp;</a></span>advance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +176,7 @@ template&lt;typename FP , class BaseT &gt; </div>
 template&lt;typename FP , class BaseT &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt; <a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html">mio::osecirvvs::Simulation</a>&lt; FP, BaseT &gt;::advance </td>
+          <td class="memname">Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt; <a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html">mio::osecirvvs::Simulation</a>&lt; FP, BaseT &gt;::advance </td>
           <td>(</td>
           <td class="paramtype">FP&#160;</td>
           <td class="paramname"><em>tmax</em></td><td>)</td>
@@ -186,7 +186,7 @@ template&lt;typename FP , class BaseT &gt; </div>
 </div><div class="memdoc">
 
 <p>advance simulation to tmax. </p>
-<p>Overwrites <a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b" title="advance simulation to tmax.">Simulation::advance</a> and includes a check for dynamic NPIs in regular intervals. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#af269604da19882533a5dee7adcc1341b" title="advance simulation to tmax.">Simulation::advance</a> </dd></dl>
+<p>Overwrites <a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#a3c813f2348873f216867bf4d0c914258" title="advance simulation to tmax.">Simulation::advance</a> and includes a check for dynamic NPIs in regular intervals. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classmio_1_1osecirvvs_1_1Simulation.html#a3c813f2348873f216867bf4d0c914258" title="advance simulation to tmax.">Simulation::advance</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tmax</td><td>next stopping point of simulation </td></tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -177,8 +177,8 @@
 <a name="115"><span class="lineNum">     115 </span>            :     {</a>
 <a name="116"><span class="lineNum">     116 </span><span class="lineCov">        208 :     }</span></a>
 <a name="117"><span class="lineNum">     117 </span>            : </a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       3933 :     void get_flows(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; y, FP t,</span></a>
-<a name="119"><span class="lineNum">     119 </span>            :                    Eigen::Ref&lt;Vector&lt;FP&gt;&gt; flows) const override</a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       3933 :     void get_flows(Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; y, FP t,</span></a>
+<a name="119"><span class="lineNum">     119 </span>            :                    Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; flows) const override</a>
 <a name="120"><span class="lineNum">     120 </span>            :     {</a>
 <a name="121"><span class="lineNum">     121 </span><span class="lineCov">       3933 :         auto const&amp; params   = this-&gt;parameters;</span></a>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">       3933 :         AgeGroup n_agegroups = params.get_num_groups();</span></a>
@@ -327,7 +327,7 @@
 <a name="265"><span class="lineNum">     265 </span>            :                 // effective contact rate by contact rate between groups i and j and damping j</a>
 <a name="266"><span class="lineNum">     266 </span><span class="lineCov">      14463 :                 FP season_val    = (1 + params.template get&lt;Seasonality&lt;FP&gt;&gt;() *</span></a>
 <a name="267"><span class="lineNum">     267 </span><span class="lineCov">      14463 :                                          sin(3.141592653589793 *</span></a>
-<a name="268"><span class="lineNum">     268 </span><span class="lineCov">      14463 :                                              (std::fmod((params.template get&lt;StartDay&gt;() + t), 365.0) / 182.5 + 0.5)));</span></a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">      14463 :                                                 (std::fmod((params.template get&lt;StartDay&gt;() + t), 365.0) / 182.5 + 0.5)));</span></a>
 <a name="269"><span class="lineNum">     269 </span><span class="lineCov">      28926 :                 FP cont_freq_eff = season_val * contact_matrix.get_matrix_at(t)(static_cast&lt;Eigen::Index&gt;((size_t)i),</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">      14463 :                                                                                 static_cast&lt;Eigen::Index&gt;((size_t)j));</span></a>
 <a name="271"><span class="lineNum">     271 </span>            :                 // without died people</a>
@@ -668,7 +668,7 @@
 <a name="606"><span class="lineNum">     606 </span>            : </a>
 <a name="607"><span class="lineNum">     607 </span>            :         // if daily_vaccinations is not available for the current time point, we return zero vaccinations.</a>
 <a name="608"><span class="lineNum">     608 </span><span class="lineCov">      11898 :         if (max_time &lt;= (size_t)t) {</span></a>
-<a name="609"><span class="lineNum">     609 </span><span class="lineCov">         18 :             mio::log_warning(&quot;Vaccination data not available for time point &quot;, t, &quot;. Returning zero vaccinations.&quot;);</span></a>
+<a name="609"><span class="lineNum">     609 </span><span class="lineCov">          9 :             mio::log_warning(&quot;Vaccination data not available for time point &quot;, t, &quot;. Returning zero vaccinations.&quot;);</span></a>
 <a name="610"><span class="lineNum">     610 </span><span class="lineCov">          9 :             return smoothed_vaccinations;</span></a>
 <a name="611"><span class="lineNum">     611 </span>            :         }</a>
 <a name="612"><span class="lineNum">     612 </span><span class="lineCov">      11889 :         if (t &gt;= lb) {</span></a>
@@ -738,7 +738,7 @@
 <a name="676"><span class="lineNum">     676 </span>            : * @tparam Base simulation type that uses the SECIRS-type compartment model. see Simulation.</a>
 <a name="677"><span class="lineNum">     677 </span>            : */</a>
 <a name="678"><span class="lineNum">     678 </span>            : template &lt;typename FP = ScalarType, class Base = mio::Simulation&lt;FP, Model&lt;FP&gt;&gt;&gt;</a>
-<a name="679"><span class="lineNum">     679 </span>            : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; model, FP t, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y);</a>
+<a name="679"><span class="lineNum">     679 </span>            : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; model, FP t, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y);</a>
 <a name="680"><span class="lineNum">     680 </span>            : </a>
 <a name="681"><span class="lineNum">     681 </span>            : /**</a>
 <a name="682"><span class="lineNum">     682 </span>            :  * specialization of compartment model simulation for the SECIRTS model.</a>
@@ -914,7 +914,7 @@
 <a name="852"><span class="lineNum">     852 </span>            : </a>
 <a name="853"><span class="lineNum">     853 </span>            : //see declaration above.</a>
 <a name="854"><span class="lineNum">     854 </span>            : template &lt;typename FP, class Base&gt;</a>
-<a name="855"><span class="lineNum">     855 </span><span class="lineCov">         36 : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y)</span></a>
+<a name="855"><span class="lineNum">     855 </span><span class="lineCov">         36 : FP get_infections_relative(const Simulation&lt;FP, Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y)</span></a>
 <a name="856"><span class="lineNum">     856 </span>            : {</a>
 <a name="857"><span class="lineNum">     857 </span><span class="lineCov">         36 :     FP sum_inf = 0;</span></a>
 <a name="858"><span class="lineNum">     858 </span><span class="lineCov">        108 :     for (auto i = AgeGroup(0); i &lt; sim.get_model().parameters.get_num_groups(); ++i) {</span></a>
@@ -943,7 +943,7 @@
 <a name="881"><span class="lineNum">     881 </span>            :  * @tparam Base simulation type that uses a SECIRS-type compartment model. see Simulation.</a>
 <a name="882"><span class="lineNum">     882 </span>            :  */</a>
 <a name="883"><span class="lineNum">     883 </span>            : template &lt;typename FP = double, class Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</a>
-<a name="884"><span class="lineNum">     884 </span><span class="lineCov">          9 : auto get_migration_factors(const Simulation&lt;Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&amp; y)</span></a>
+<a name="884"><span class="lineNum">     884 </span><span class="lineCov">          9 : auto get_migration_factors(const Simulation&lt;Base&gt;&amp; sim, FP /*t*/, const Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&amp; y)</span></a>
 <a name="885"><span class="lineNum">     885 </span>            : {</a>
 <a name="886"><span class="lineNum">     886 </span><span class="lineCov">          9 :     auto&amp; params = sim.get_model().parameters;</span></a>
 <a name="887"><span class="lineNum">     887 </span>            :     //parameters as arrays</a>
@@ -991,7 +991,7 @@
 <a name="929"><span class="lineNum">     929 </span>            :  * @param[in] time Current simulation time, used to determine the commuter detection period.</a>
 <a name="930"><span class="lineNum">     930 </span>            :  */</a>
 <a name="931"><span class="lineNum">     931 </span>            : template &lt;typename FP = double, class Base = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt;</a>
-<a name="932"><span class="lineNum">     932 </span><span class="lineCov">          9 : auto test_commuters(Simulation&lt;FP, Base&gt;&amp; sim, Eigen::Ref&lt;Vector&lt;FP&gt;&gt; migrated, FP time)</span></a>
+<a name="932"><span class="lineNum">     932 </span><span class="lineCov">          9 : auto test_commuters(Simulation&lt;FP, Base&gt;&amp; sim, Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; migrated, FP time)</span></a>
 <a name="933"><span class="lineNum">     933 </span>            : {</a>
 <a name="934"><span class="lineNum">     934 </span><span class="lineCov">          9 :     auto&amp; model       = sim.get_model();</span></a>
 <a name="935"><span class="lineNum">     935 </span><span class="lineCov">          9 :     auto nondetection = 1.0;</span></a>

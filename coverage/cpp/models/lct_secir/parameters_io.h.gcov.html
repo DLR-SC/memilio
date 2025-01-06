@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">32</td>
@@ -479,11 +479,11 @@
 <a name="417"><span class="lineNum">     417 </span>            :     // Compute Recovered.</a>
 <a name="418"><span class="lineNum">     418 </span><span class="lineCov">         18 :     populations[first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Recovered&gt;()] -=</span></a>
 <a name="419"><span class="lineNum">     419 </span>            :         populations.get_compartments()</a>
-<a name="420"><span class="lineNum">     420 </span><span class="lineCov">         36 :             .segment(first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
+<a name="420"><span class="lineNum">     420 </span><span class="lineCov">         54 :             .segment(first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::InfectedSymptoms&gt;(),</span></a>
 <a name="421"><span class="lineNum">     421 </span><span class="lineCov">         18 :                      LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSymptoms&gt;() +</span></a>
 <a name="422"><span class="lineNum">     422 </span><span class="lineCov">         18 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedSevere&gt;() +</span></a>
 <a name="423"><span class="lineNum">     423 </span><span class="lineCov">         18 :                          LctStateGroup::template get_num_subcompartments&lt;InfectionState::InfectedCritical&gt;())</span></a>
-<a name="424"><span class="lineNum">     424 </span><span class="lineCov">         54 :             .sum();</span></a>
+<a name="424"><span class="lineNum">     424 </span><span class="lineCov">         36 :             .sum();</span></a>
 <a name="425"><span class="lineNum">     425 </span><span class="lineCov">         18 :     populations[first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Recovered&gt;()] -=</span></a>
 <a name="426"><span class="lineNum">     426 </span><span class="lineCov">         18 :         populations[first_index_group + LctStateGroup::template get_first_index&lt;InfectionState::Dead&gt;()];</span></a>
 <a name="427"><span class="lineNum">     427 </span>            : </a>
@@ -494,7 +494,7 @@
 <a name="432"><span class="lineNum">     432 </span>            : </a>
 <a name="433"><span class="lineNum">     433 </span>            :     // Check whether all necessary dates are available.</a>
 <a name="434"><span class="lineNum">     434 </span><span class="lineCov">         18 :     if (!max_offset_needed_avail || !min_offset_needed_avail) {</span></a>
-<a name="435"><span class="lineNum">     435 </span><span class="lineCov">          4 :         log_error(</span></a>
+<a name="435"><span class="lineNum">     435 </span><span class="lineCov">          2 :         log_error(</span></a>
 <a name="436"><span class="lineNum">     436 </span>            :             &quot;Necessary range of dates needed to compute initial values does not exist in RKI data for group {:d}.&quot;,</a>
 <a name="437"><span class="lineNum">     437 </span>            :             Group);</a>
 <a name="438"><span class="lineNum">     438 </span>            :         return failure(StatusCode::OutOfRange,</a>
@@ -504,7 +504,7 @@
 <a name="442"><span class="lineNum">     442 </span>            :     // Check if all values for populations are valid.</a>
 <a name="443"><span class="lineNum">     443 </span><span class="lineCov">         70 :     for (size_t i = first_index_group; i &lt; LctStateGroup::Count; i++) {</span></a>
 <a name="444"><span class="lineNum">     444 </span><span class="lineCov">         56 :         if (floating_point_less((ScalarType)populations[i], 0., 1e-14)) {</span></a>
-<a name="445"><span class="lineNum">     445 </span><span class="lineCov">          4 :             log_error(&quot;Something went wrong in the initialization of group {:d}. At least one entry is negative.&quot;,</span></a>
+<a name="445"><span class="lineNum">     445 </span><span class="lineCov">          2 :             log_error(&quot;Something went wrong in the initialization of group {:d}. At least one entry is negative.&quot;,</span></a>
 <a name="446"><span class="lineNum">     446 </span>            :                       Group);</a>
 <a name="447"><span class="lineNum">     447 </span>            :             return failure(StatusCode::InvalidValue,</a>
 <a name="448"><span class="lineNum">     448 </span><span class="lineCov">          2 :                            &quot;Something went wrong in the initialization as at least one entry is negative.&quot;);</span></a>
@@ -575,12 +575,12 @@
 <a name="513"><span class="lineNum">     513 </span><span class="lineCov">        375 :         return a.date &lt; b.date;</span></a>
 <a name="514"><span class="lineNum">     514 </span>            :     });</a>
 <a name="515"><span class="lineNum">     515 </span><span class="lineCov">         12 :     if (max_date_entry == rki_data.end()) {</span></a>
-<a name="516"><span class="lineNum">     516 </span><span class="lineCov">          4 :         log_error(&quot;RKI data file is empty.&quot;);</span></a>
+<a name="516"><span class="lineNum">     516 </span><span class="lineCov">          2 :         log_error(&quot;RKI data file is empty.&quot;);</span></a>
 <a name="517"><span class="lineNum">     517 </span><span class="lineCov">          2 :         return failure(StatusCode::InvalidFileFormat, &quot;RKI data is empty.&quot;);</span></a>
 <a name="518"><span class="lineNum">     518 </span>            :     }</a>
 <a name="519"><span class="lineNum">     519 </span><span class="lineCov">         10 :     auto max_date = max_date_entry-&gt;date;</span></a>
 <a name="520"><span class="lineNum">     520 </span><span class="lineCov">         10 :     if (max_date &lt; date) {</span></a>
-<a name="521"><span class="lineNum">     521 </span><span class="lineCov">          4 :         log_error(&quot;Specified date does not exist in RKI data.&quot;);</span></a>
+<a name="521"><span class="lineNum">     521 </span><span class="lineCov">          2 :         log_error(&quot;Specified date does not exist in RKI data.&quot;);</span></a>
 <a name="522"><span class="lineNum">     522 </span><span class="lineCov">          2 :         return failure(StatusCode::OutOfRange, &quot;Specified date does not exist in RKI data.&quot;);</span></a>
 <a name="523"><span class="lineNum">     523 </span>            :     }</a>
 <a name="524"><span class="lineNum">     524 </span>            :     // Initially set populations to zero.</a>

@@ -92,40 +92,12 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef MIO_UTILS_EIGEN_H</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define MIO_UTILS_EIGEN_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memilio_2config_8h.html">memilio/config.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="compiler__diagnostics_8h.html">memilio/utils/compiler_diagnostics.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// this file wraps includes from eigen3 library to disable warnings</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Eigen is treated as a system library through cmake since #1168, so ALL warnings within the library are disabled</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* this file wraps includes from eigen3 library to disable warnings. */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;Eigen/Core&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//C4996: some std functions that have been deprecated in c++17; maybe fixed in new eigen versions?</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="random__number__generator_8h.html#abb688b1bca227842d634ac4ef9dbfe3f">MSVC_WARNING_DISABLE_PUSH</a>(4996)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="compiler__diagnostics_8h.html#adbe015fd400c68971ee59ab01d441cb2">GCC_CLANG_DIAGNOSTIC</a>(push)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="compiler__diagnostics_8h.html#adbe015fd400c68971ee59ab01d441cb2">GCC_CLANG_DIAGNOSTIC</a>(ignored &quot;-Wint-in-<span class="keywordtype">bool</span>-context&quot;)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="compiler__diagnostics_8h.html#adbe015fd400c68971ee59ab01d441cb2">GCC_CLANG_DIAGNOSTIC</a>(ignored &quot;-Wshadow&quot;)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;Eigen/Core&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="compiler__diagnostics_8h.html#adbe015fd400c68971ee59ab01d441cb2">GCC_CLANG_DIAGNOSTIC</a>(pop)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<a class="code" href="compiler__diagnostics_8h.html#ab1a582833b695bfecd10965e3b52e733">MSVC_WARNING_POP</a>()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;namespace <a class="code" href="namespacemio.html">mio</a></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> FP = ScalarType&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">   46</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> = Eigen::Matrix&lt;FP, Eigen::Dynamic, 1&gt;;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace mio</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MIO_UTILS_EIGEN_H</span></div>
-<div class="ttc" id="acompiler__diagnostics_8h_html"><div class="ttname"><a href="compiler__diagnostics_8h.html">compiler_diagnostics.h</a></div></div>
-<div class="ttc" id="acompiler__diagnostics_8h_html_ab1a582833b695bfecd10965e3b52e733"><div class="ttname"><a href="compiler__diagnostics_8h.html#ab1a582833b695bfecd10965e3b52e733">MSVC_WARNING_POP</a></div><div class="ttdeci">#define MSVC_WARNING_POP()</div><div class="ttdef"><b>Definition:</b> compiler_diagnostics.h:44</div></div>
-<div class="ttc" id="acompiler__diagnostics_8h_html_adbe015fd400c68971ee59ab01d441cb2"><div class="ttname"><a href="compiler__diagnostics_8h.html#adbe015fd400c68971ee59ab01d441cb2">GCC_CLANG_DIAGNOSTIC</a></div><div class="ttdeci">#define GCC_CLANG_DIAGNOSTIC(...)</div><div class="ttdef"><b>Definition:</b> compiler_diagnostics.h:62</div></div>
-<div class="ttc" id="amemilio_2config_8h_html"><div class="ttname"><a href="memilio_2config_8h.html">config.h</a></div></div>
-<div class="ttc" id="anamespacemio_html"><div class="ttname"><a href="namespacemio.html">mio</a></div><div class="ttdoc">A collection of classes to simplify handling of matrix shapes in meta programming.</div><div class="ttdef"><b>Definition:</b> compartmentalmodel.h:33</div></div>
-<div class="ttc" id="anamespacemio_html_a4980272f784bde5ee00a3385538950de"><div class="ttname"><a href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a></div><div class="ttdeci">Eigen::Matrix&lt; FP, Eigen::Dynamic, 1 &gt; Vector</div><div class="ttdoc">A vector of type FP from the Eigen library.</div><div class="ttdef"><b>Definition:</b> eigen.h:46</div></div>
-<div class="ttc" id="arandom__number__generator_8h_html_abb688b1bca227842d634ac4ef9dbfe3f"><div class="ttname"><a href="random__number__generator_8h.html#abb688b1bca227842d634ac4ef9dbfe3f">MSVC_WARNING_DISABLE_PUSH</a></div><div class="ttdeci">MSVC_WARNING_DISABLE_PUSH(4127) GCC_CLANG_DIAGNOSTIC(ignored &quot;-Wexpansion-to-defined&quot;) namespace mio</div><div class="ttdef"><b>Definition:</b> random_number_generator.h:31</div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MIO_UTILS_EIGEN_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

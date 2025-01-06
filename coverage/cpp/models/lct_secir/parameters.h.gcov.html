@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -103,7 +103,7 @@
 <a name="41"><span class="lineNum">      41 </span>            :  * @brief Average time spent in the Exposed compartment for each group.</a>
 <a name="42"><span class="lineNum">      42 </span>            :  */</a>
 <a name="43"><span class="lineNum">      43 </span>            : struct TimeExposed {</a>
-<a name="44"><span class="lineNum">      44 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="44"><span class="lineNum">      44 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     {</a>
 <a name="47"><span class="lineNum">      47 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -119,7 +119,7 @@
 <a name="57"><span class="lineNum">      57 </span>            :  *  symptoms or recover for each group in the SECIR model in day unit.</a>
 <a name="58"><span class="lineNum">      58 </span>            :  */</a>
 <a name="59"><span class="lineNum">      59 </span>            : struct TimeInfectedNoSymptoms {</a>
-<a name="60"><span class="lineNum">      60 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="60"><span class="lineNum">      60 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -135,7 +135,7 @@
 <a name="73"><span class="lineNum">      73 </span>            :  *  or recover for each group in the SECIR model in day unit.</a>
 <a name="74"><span class="lineNum">      74 </span>            :  */</a>
 <a name="75"><span class="lineNum">      75 </span>            : struct TimeInfectedSymptoms {</a>
-<a name="76"><span class="lineNum">      76 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="76"><span class="lineNum">      76 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :     {</a>
 <a name="79"><span class="lineNum">      79 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -151,7 +151,7 @@
 <a name="89"><span class="lineNum">      89 </span>            :  *  SECIR model in day unit.</a>
 <a name="90"><span class="lineNum">      90 </span>            :  */</a>
 <a name="91"><span class="lineNum">      91 </span>            : struct TimeInfectedSevere {</a>
-<a name="92"><span class="lineNum">      92 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="92"><span class="lineNum">      92 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="93"><span class="lineNum">      93 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :     {</a>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -166,7 +166,7 @@
 <a name="104"><span class="lineNum">     104 </span>            :  * @brief Average time treated by ICU before dead or recover for each group in the SECIR model in day unit.</a>
 <a name="105"><span class="lineNum">     105 </span>            :  */</a>
 <a name="106"><span class="lineNum">     106 </span>            : struct TimeInfectedCritical {</a>
-<a name="107"><span class="lineNum">     107 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="107"><span class="lineNum">     107 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="109"><span class="lineNum">     109 </span>            :     {</a>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -181,7 +181,7 @@
 <a name="119"><span class="lineNum">     119 </span>            :  * @brief Probability of getting infected from a contact for each group.</a>
 <a name="120"><span class="lineNum">     120 </span>            :  */</a>
 <a name="121"><span class="lineNum">     121 </span>            : struct TransmissionProbabilityOnContact {</a>
-<a name="122"><span class="lineNum">     122 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="122"><span class="lineNum">     122 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="123"><span class="lineNum">     123 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="124"><span class="lineNum">     124 </span>            :     {</a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -214,7 +214,7 @@
 <a name="152"><span class="lineNum">     152 </span>            :  * @brief The relative InfectedNoSymptoms infectability for each group.</a>
 <a name="153"><span class="lineNum">     153 </span>            :  */</a>
 <a name="154"><span class="lineNum">     154 </span>            : struct RelativeTransmissionNoSymptoms {</a>
-<a name="155"><span class="lineNum">     155 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="155"><span class="lineNum">     155 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="156"><span class="lineNum">     156 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="157"><span class="lineNum">     157 </span>            :     {</a>
 <a name="158"><span class="lineNum">     158 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -229,7 +229,7 @@
 <a name="167"><span class="lineNum">     167 </span>            :  * @brief The risk of infection from symptomatic cases for each group in the SECIR model.</a>
 <a name="168"><span class="lineNum">     168 </span>            :  */</a>
 <a name="169"><span class="lineNum">     169 </span>            : struct RiskOfInfectionFromSymptomatic {</a>
-<a name="170"><span class="lineNum">     170 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="170"><span class="lineNum">     170 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="171"><span class="lineNum">     171 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="172"><span class="lineNum">     172 </span>            :     {</a>
 <a name="173"><span class="lineNum">     173 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 1.);</span></a>
@@ -244,7 +244,7 @@
 <a name="182"><span class="lineNum">     182 </span>            :  * @brief The percentage of asymptomatic cases for each group in the SECIR model.</a>
 <a name="183"><span class="lineNum">     183 </span>            :  */</a>
 <a name="184"><span class="lineNum">     184 </span>            : struct RecoveredPerInfectedNoSymptoms {</a>
-<a name="185"><span class="lineNum">     185 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="185"><span class="lineNum">     185 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="186"><span class="lineNum">     186 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="187"><span class="lineNum">     187 </span>            :     {</a>
 <a name="188"><span class="lineNum">     188 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 0.5);</span></a>
@@ -259,7 +259,7 @@
 <a name="197"><span class="lineNum">     197 </span>            :  * @brief The percentage of hospitalized patients per infected patients for each group in the SECIR model.</a>
 <a name="198"><span class="lineNum">     198 </span>            :  */</a>
 <a name="199"><span class="lineNum">     199 </span>            : struct SeverePerInfectedSymptoms {</a>
-<a name="200"><span class="lineNum">     200 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="200"><span class="lineNum">     200 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="201"><span class="lineNum">     201 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="202"><span class="lineNum">     202 </span>            :     {</a>
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 0.5);</span></a>
@@ -274,7 +274,7 @@
 <a name="212"><span class="lineNum">     212 </span>            :  * @brief The percentage of ICU patients per hospitalized patients for each group in the SECIR model.</a>
 <a name="213"><span class="lineNum">     213 </span>            :  */</a>
 <a name="214"><span class="lineNum">     214 </span>            : struct CriticalPerSevere {</a>
-<a name="215"><span class="lineNum">     215 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="215"><span class="lineNum">     215 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="217"><span class="lineNum">     217 </span>            :     {</a>
 <a name="218"><span class="lineNum">     218 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 0.5);</span></a>
@@ -289,7 +289,7 @@
 <a name="227"><span class="lineNum">     227 </span>            :  * @brief The percentage of dead patients per ICU patients for each group in the SECIR model.</a>
 <a name="228"><span class="lineNum">     228 </span>            :  */</a>
 <a name="229"><span class="lineNum">     229 </span>            : struct DeathsPerCritical {</a>
-<a name="230"><span class="lineNum">     230 </span>            :     using Type = Vector&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
+<a name="230"><span class="lineNum">     230 </span>            :     using Type = Eigen::VectorX&lt;UncertainValue&lt;ScalarType&gt;&gt;;</a>
 <a name="231"><span class="lineNum">     231 </span><span class="lineCov">         20 :     static Type get_default(size_t size)</span></a>
 <a name="232"><span class="lineNum">     232 </span>            :     {</a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">         40 :         return Type::Constant(size, 1, 0.1);</span></a>
@@ -369,76 +369,76 @@
 <a name="307"><span class="lineNum">     307 </span><span class="lineCov">         23 :     bool check_constraints() const</span></a>
 <a name="308"><span class="lineNum">     308 </span>            :     {</a>
 <a name="309"><span class="lineNum">     309 </span><span class="lineCov">         23 :         if (this-&gt;get&lt;Seasonality&gt;() &lt; 0.0 || this-&gt;get&lt;Seasonality&gt;() &gt; 0.5) {</span></a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: Parameter Seasonality should lie between {:0.4f} and {:.4f}&quot;, 0.0, 0.5);</span></a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          1 :             log_warning(&quot;Constraint check: Parameter Seasonality should lie between {:0.4f} and {:.4f}&quot;, 0.0, 0.5);</span></a>
 <a name="311"><span class="lineNum">     311 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="312"><span class="lineNum">     312 </span>            :         }</a>
 <a name="313"><span class="lineNum">     313 </span>            : </a>
 <a name="314"><span class="lineNum">     314 </span><span class="lineCov">         39 :         for (size_t i = 0; i &lt; m_num_groups; ++i) {</span></a>
 <a name="315"><span class="lineNum">     315 </span><span class="lineCov">         29 :             if (this-&gt;get&lt;TimeExposed&gt;()[i] &lt; 1.0) {</span></a>
-<a name="316"><span class="lineNum">     316 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TimeExposed is smaller than {:.4f}&quot;, 1.0);</span></a>
+<a name="316"><span class="lineNum">     316 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TimeExposed is smaller than {:.4f}&quot;, 1.0);</span></a>
 <a name="317"><span class="lineNum">     317 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="318"><span class="lineNum">     318 </span>            :             }</a>
 <a name="319"><span class="lineNum">     319 </span>            : </a>
 <a name="320"><span class="lineNum">     320 </span><span class="lineCov">         28 :             if (this-&gt;get&lt;TimeInfectedNoSymptoms&gt;()[i] &lt; 1.0) {</span></a>
-<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TimeInfectedNoSymptoms is smaller than {:.4f}&quot;, 1.0);</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TimeInfectedNoSymptoms is smaller than {:.4f}&quot;, 1.0);</span></a>
 <a name="322"><span class="lineNum">     322 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="323"><span class="lineNum">     323 </span>            :             }</a>
 <a name="324"><span class="lineNum">     324 </span>            : </a>
 <a name="325"><span class="lineNum">     325 </span><span class="lineCov">         27 :             if (this-&gt;get&lt;TimeInfectedSymptoms&gt;()[i] &lt; 1.0) {</span></a>
-<a name="326"><span class="lineNum">     326 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSymptoms is smaller than {:.4f}&quot;, 1.0);</span></a>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSymptoms is smaller than {:.4f}&quot;, 1.0);</span></a>
 <a name="327"><span class="lineNum">     327 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="328"><span class="lineNum">     328 </span>            :             }</a>
 <a name="329"><span class="lineNum">     329 </span>            : </a>
 <a name="330"><span class="lineNum">     330 </span><span class="lineCov">         26 :             if (this-&gt;get&lt;TimeInfectedSevere&gt;()[i] &lt; 1.0) {</span></a>
-<a name="331"><span class="lineNum">     331 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSevere is smaller than {:.4f}&quot;, 1.0);</span></a>
+<a name="331"><span class="lineNum">     331 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSevere is smaller than {:.4f}&quot;, 1.0);</span></a>
 <a name="332"><span class="lineNum">     332 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="333"><span class="lineNum">     333 </span>            :             }</a>
 <a name="334"><span class="lineNum">     334 </span>            : </a>
 <a name="335"><span class="lineNum">     335 </span><span class="lineCov">         25 :             if (this-&gt;get&lt;TimeInfectedCritical&gt;()[i] &lt; 1.0) {</span></a>
-<a name="336"><span class="lineNum">     336 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TimeInfectedCritical is smaller than {:.4f}&quot;, 1.0);</span></a>
+<a name="336"><span class="lineNum">     336 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TimeInfectedCritical is smaller than {:.4f}&quot;, 1.0);</span></a>
 <a name="337"><span class="lineNum">     337 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="338"><span class="lineNum">     338 </span>            :             }</a>
 <a name="339"><span class="lineNum">     339 </span>            : </a>
 <a name="340"><span class="lineNum">     340 </span><span class="lineCov">         47 :             if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="341"><span class="lineNum">     341 </span><span class="lineCov">         23 :                 this-&gt;get&lt;TransmissionProbabilityOnContact&gt;()[i] &gt; 1.0) {</span></a>
-<a name="342"><span class="lineNum">     342 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="342"><span class="lineNum">     342 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="343"><span class="lineNum">     343 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="344"><span class="lineNum">     344 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="345"><span class="lineNum">     345 </span>            :             }</a>
 <a name="346"><span class="lineNum">     346 </span>            : </a>
 <a name="347"><span class="lineNum">     347 </span><span class="lineCov">         46 :             if (this-&gt;get&lt;RelativeTransmissionNoSymptoms&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="348"><span class="lineNum">     348 </span><span class="lineCov">         23 :                 this-&gt;get&lt;RelativeTransmissionNoSymptoms&gt;()[i] &gt; 1.0) {</span></a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="350"><span class="lineNum">     350 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="351"><span class="lineNum">     351 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="352"><span class="lineNum">     352 </span>            :             }</a>
 <a name="353"><span class="lineNum">     353 </span>            : </a>
 <a name="354"><span class="lineNum">     354 </span><span class="lineCov">         44 :             if (this-&gt;get&lt;RiskOfInfectionFromSymptomatic&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="355"><span class="lineNum">     355 </span><span class="lineCov">         22 :                 this-&gt;get&lt;RiskOfInfectionFromSymptomatic&gt;()[i] &gt; 1.0) {</span></a>
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter  RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter  RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="357"><span class="lineNum">     357 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="358"><span class="lineNum">     358 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="359"><span class="lineNum">     359 </span>            :             }</a>
 <a name="360"><span class="lineNum">     360 </span>            : </a>
 <a name="361"><span class="lineNum">     361 </span><span class="lineCov">         42 :             if (this-&gt;get&lt;RecoveredPerInfectedNoSymptoms&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="362"><span class="lineNum">     362 </span><span class="lineCov">         21 :                 this-&gt;get&lt;RecoveredPerInfectedNoSymptoms&gt;()[i] &gt; 1.0) {</span></a>
-<a name="363"><span class="lineNum">     363 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="363"><span class="lineNum">     363 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="364"><span class="lineNum">     364 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="365"><span class="lineNum">     365 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="366"><span class="lineNum">     366 </span>            :             }</a>
 <a name="367"><span class="lineNum">     367 </span>            : </a>
 <a name="368"><span class="lineNum">     368 </span><span class="lineCov">         20 :             if (this-&gt;get&lt;SeverePerInfectedSymptoms&gt;()[i] &lt; 0.0 || this-&gt;get&lt;SeverePerInfectedSymptoms&gt;()[i] &gt; 1.0) {</span></a>
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter SeverePerInfectedSymptoms smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter SeverePerInfectedSymptoms smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="370"><span class="lineNum">     370 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="371"><span class="lineNum">     371 </span>            :             }</a>
 <a name="372"><span class="lineNum">     372 </span>            : </a>
 <a name="373"><span class="lineNum">     373 </span><span class="lineCov">         19 :             if (this-&gt;get&lt;CriticalPerSevere&gt;()[i] &lt; 0.0 || this-&gt;get&lt;CriticalPerSevere&gt;()[i] &gt; 1.0) {</span></a>
-<a name="374"><span class="lineNum">     374 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter CriticalPerSevere smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="374"><span class="lineNum">     374 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter CriticalPerSevere smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="375"><span class="lineNum">     375 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="376"><span class="lineNum">     376 </span>            :             }</a>
 <a name="377"><span class="lineNum">     377 </span>            : </a>
 <a name="378"><span class="lineNum">     378 </span><span class="lineCov">         18 :             if (this-&gt;get&lt;DeathsPerCritical&gt;()[i] &lt; 0.0 || this-&gt;get&lt;DeathsPerCritical&gt;()[i] &gt; 1.0) {</span></a>
-<a name="379"><span class="lineNum">     379 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter DeathsPerCritical smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="379"><span class="lineNum">     379 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter DeathsPerCritical smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="380"><span class="lineNum">     380 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="381"><span class="lineNum">     381 </span>            :             }</a>
 <a name="382"><span class="lineNum">     382 </span>            :         }</a>

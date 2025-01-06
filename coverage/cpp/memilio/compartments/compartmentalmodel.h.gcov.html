@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">119</td>
@@ -150,15 +150,15 @@
 <a name="88"><span class="lineNum">      88 </span>            :     {</a>
 <a name="89"><span class="lineNum">      89 </span><span class="lineCov">       1169 :     }</span></a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       2267 :     CompartmentalModel(const CompartmentalModel&amp;) = default;</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        685 :     CompartmentalModel(CompartmentalModel&amp;&amp;)      = default;</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       2267 :     CompartmentalModel(const CompartmentalModel&amp;)            = default;</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        685 :     CompartmentalModel(CompartmentalModel&amp;&amp;)                 = default;</span></a>
 <a name="93"><span class="lineNum">      93 </span><span class="lineNoCov">          0 :     CompartmentalModel&amp; operator=(const CompartmentalModel&amp;) = default;</span></a>
-<a name="94"><span class="lineNum">      94 </span>            :     CompartmentalModel&amp; operator=(CompartmentalModel&amp;&amp;) = default;</a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">       4089 :     virtual ~CompartmentalModel()                       = default;</span></a>
+<a name="94"><span class="lineNum">      94 </span>            :     CompartmentalModel&amp; operator=(CompartmentalModel&amp;&amp;)      = default;</a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">       4089 :     virtual ~CompartmentalModel()                            = default;</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
 <a name="97"><span class="lineNum">      97 </span>            :     // REMARK: Not pure virtual for easier java/python bindings.</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 :     virtual void get_derivatives(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; /*y*/, FP /*t*/,</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineNoCov">          0 :                                  Eigen::Ref&lt;Vector&lt;FP&gt;&gt; /*dydt*/) const {};</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 :     virtual void get_derivatives(Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;, Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; /*y*/,</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineNoCov">          0 :                                  FP /*t*/, Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; /*dydt*/) const {};</span></a>
 <a name="100"><span class="lineNum">     100 </span>            : </a>
 <a name="101"><span class="lineNum">     101 </span>            :     /**</a>
 <a name="102"><span class="lineNum">     102 </span>            :      * @brief This function evaluates the right-hand-side f of the ODE dydt = f(y, t).</a>
@@ -180,19 +180,19 @@
 <a name="118"><span class="lineNum">     118 </span>            :      * @param[in] t The current time.</a>
 <a name="119"><span class="lineNum">     119 </span>            :      * @param[out] dydt A reference to the calculated output.</a>
 <a name="120"><span class="lineNum">     120 </span>            :      */</a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">     598086 :     void eval_right_hand_side(Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Vector&lt;FP&gt;&gt; y, FP t,</span></a>
-<a name="122"><span class="lineNum">     122 </span>            :                               Eigen::Ref&lt;Vector&lt;FP&gt;&gt; dydt) const</a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">     574380 :     void eval_right_hand_side(Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; pop, Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt; y, FP t,</span></a>
+<a name="122"><span class="lineNum">     122 </span>            :                               Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; dydt) const</a>
 <a name="123"><span class="lineNum">     123 </span>            :     {</a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">     598086 :         dydt.setZero();</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">     598086 :         this-&gt;get_derivatives(pop, y, t, dydt);</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">     598086 :     }</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">     574380 :         dydt.setZero();</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">     574380 :         this-&gt;get_derivatives(pop, y, t, dydt);</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">     574380 :     }</span></a>
 <a name="127"><span class="lineNum">     127 </span>            : </a>
 <a name="128"><span class="lineNum">     128 </span>            :     /**</a>
 <a name="129"><span class="lineNum">     129 </span>            :      * @brief Get the initial conditions for the ODE dydt = f(y, t).</a>
 <a name="130"><span class="lineNum">     130 </span>            :      * See eval_right_hand_side for more detail.</a>
 <a name="131"><span class="lineNum">     131 </span>            :      * @return Current value of model populations as a flat vector.</a>
 <a name="132"><span class="lineNum">     132 </span>            :      */</a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       1295 :     Vector&lt;FP&gt; get_initial_values() const</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       1295 :     Eigen::VectorX&lt;FP&gt; get_initial_values() const</span></a>
 <a name="134"><span class="lineNum">     134 </span>            :     {</a>
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">       1295 :         return populations.get_compartments();</span></a>
 <a name="136"><span class="lineNum">     136 </span>            :     }</a>
@@ -245,21 +245,21 @@
 <a name="183"><span class="lineNum">     183 </span>            :  * @tparam M a type that has a eval_right_hand_side member function, e.g. a compartment model type.</a>
 <a name="184"><span class="lineNum">     184 </span>            :  */</a>
 <a name="185"><span class="lineNum">     185 </span>            : template &lt;typename FP, class M&gt;</a>
-<a name="186"><span class="lineNum">     186 </span>            : using eval_right_hand_side_expr_t =</a>
-<a name="187"><span class="lineNum">     187 </span>            :     decltype(std::declval&lt;const M&amp;&gt;().eval_right_hand_side(std::declval&lt;Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&gt;(),</a>
-<a name="188"><span class="lineNum">     188 </span>            :                                                            std::declval&lt;Eigen::Ref&lt;const Vector&lt;FP&gt;&gt;&gt;(),</a>
-<a name="189"><span class="lineNum">     189 </span>            :                                                            std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;Vector&lt;FP&gt;&gt;&gt;()));</a>
-<a name="190"><span class="lineNum">     190 </span>            : </a>
-<a name="191"><span class="lineNum">     191 </span>            : /**</a>
-<a name="192"><span class="lineNum">     192 </span>            :  * Detect the get_initial_values member function of a compartment model.</a>
-<a name="193"><span class="lineNum">     193 </span>            :  * If the detect_initial_values member function exists in the type M, this template when instatiated</a>
-<a name="194"><span class="lineNum">     194 </span>            :  * will be equal to the return type of the function.</a>
-<a name="195"><span class="lineNum">     195 </span>            :  * Otherwise the template is invalid.</a>
-<a name="196"><span class="lineNum">     196 </span>            :  * @tparam FP, floating point type, e.g., double.</a>
-<a name="197"><span class="lineNum">     197 </span>            :  * @tparam M a type that has a get_initial_values member function, e.g. a compartment model type.</a>
-<a name="198"><span class="lineNum">     198 </span>            :  */</a>
-<a name="199"><span class="lineNum">     199 </span>            : template &lt;typename FP, class M&gt;</a>
-<a name="200"><span class="lineNum">     200 </span>            : using get_initial_values_expr_t = decltype(std::declval&lt;Vector&lt;FP&gt;&amp;&gt;() = std::declval&lt;const M&amp;&gt;().get_initial_values());</a>
+<a name="186"><span class="lineNum">     186 </span>            : using eval_right_hand_side_expr_t = decltype(std::declval&lt;const M&amp;&gt;().eval_right_hand_side(</a>
+<a name="187"><span class="lineNum">     187 </span>            :     std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&gt;(), std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt;&gt;&gt;(),</a>
+<a name="188"><span class="lineNum">     188 </span>            :     std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt;&gt;()));</a>
+<a name="189"><span class="lineNum">     189 </span>            : </a>
+<a name="190"><span class="lineNum">     190 </span>            : /**</a>
+<a name="191"><span class="lineNum">     191 </span>            :  * Detect the get_initial_values member function of a compartment model.</a>
+<a name="192"><span class="lineNum">     192 </span>            :  * If the detect_initial_values member function exists in the type M, this template when instatiated</a>
+<a name="193"><span class="lineNum">     193 </span>            :  * will be equal to the return type of the function.</a>
+<a name="194"><span class="lineNum">     194 </span>            :  * Otherwise the template is invalid.</a>
+<a name="195"><span class="lineNum">     195 </span>            :  * @tparam FP, floating point type, e.g., double.</a>
+<a name="196"><span class="lineNum">     196 </span>            :  * @tparam M a type that has a get_initial_values member function, e.g. a compartment model type.</a>
+<a name="197"><span class="lineNum">     197 </span>            :  */</a>
+<a name="198"><span class="lineNum">     198 </span>            : template &lt;typename FP, class M&gt;</a>
+<a name="199"><span class="lineNum">     199 </span>            : using get_initial_values_expr_t =</a>
+<a name="200"><span class="lineNum">     200 </span>            :     decltype(std::declval&lt;Eigen::VectorX&lt;FP&gt;&amp;&gt;() = std::declval&lt;const M&amp;&gt;().get_initial_values());</a>
 <a name="201"><span class="lineNum">     201 </span>            : </a>
 <a name="202"><span class="lineNum">     202 </span>            : /**</a>
 <a name="203"><span class="lineNum">     203 </span>            :  * Template meta function to check if a type is a valid compartment model. </a>

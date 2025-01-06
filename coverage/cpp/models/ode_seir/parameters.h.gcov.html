@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -205,7 +205,7 @@
 <a name="143"><span class="lineNum">     143 </span>            : </a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">        108 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); ++i) {</span></a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">         54 :             if (this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         18 :                 log_warning(</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">          9 :                 log_warning(</span></a>
 <a name="147"><span class="lineNum">     147 </span>            :                     &quot;Constraint check: Parameter TimeExposed changed from {:.4f} to {:.4f}. Please note that &quot;</a>
 <a name="148"><span class="lineNum">     148 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="149"><span class="lineNum">     149 </span>            :                     &quot;and reset parameters.&quot;,</a>
@@ -214,7 +214,7 @@
 <a name="152"><span class="lineNum">     152 </span><span class="lineCov">          9 :                 corrected                                = true;</span></a>
 <a name="153"><span class="lineNum">     153 </span>            :             }</a>
 <a name="154"><span class="lineNum">     154 </span><span class="lineCov">         54 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         18 :                 log_warning(</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">          9 :                 log_warning(</span></a>
 <a name="156"><span class="lineNum">     156 </span>            :                     &quot;Constraint check: Parameter TimeInfected changed from {:.4f} to {:.4f}. Please note that &quot;</a>
 <a name="157"><span class="lineNum">     157 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="158"><span class="lineNum">     158 </span>            :                     &quot;and reset parameters.&quot;,</a>
@@ -224,7 +224,7 @@
 <a name="162"><span class="lineNum">     162 </span>            :             }</a>
 <a name="163"><span class="lineNum">     163 </span><span class="lineCov">        108 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="164"><span class="lineNum">     164 </span><span class="lineCov">         54 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">         18 :                 log_warning(</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">          9 :                 log_warning(</span></a>
 <a name="166"><span class="lineNum">     166 </span>            :                     &quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</a>
 <a name="167"><span class="lineNum">     167 </span><span class="lineCov">         18 :                     this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0);</span></a>
 <a name="168"><span class="lineNum">     168 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] = 0.0;</span></a>
@@ -245,7 +245,7 @@
 <a name="183"><span class="lineNum">     183 </span>            : </a>
 <a name="184"><span class="lineNum">     184 </span><span class="lineCov">        259 :         for (auto i = AgeGroup(0); i &lt; m_num_groups; i++) {</span></a>
 <a name="185"><span class="lineNum">     185 </span><span class="lineCov">        143 :             if (this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">         18 :                 log_error(</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">          9 :                 log_error(</span></a>
 <a name="187"><span class="lineNum">     187 </span>            :                     &quot;Constraint check: Parameter TimeExposed {:.4f} smaller or equal {:.4f}. Please note that &quot;</a>
 <a name="188"><span class="lineNum">     188 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="189"><span class="lineNum">     189 </span>            :                     &quot;and reset parameters.&quot;,</a>
@@ -253,7 +253,7 @@
 <a name="191"><span class="lineNum">     191 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="192"><span class="lineNum">     192 </span>            :             }</a>
 <a name="193"><span class="lineNum">     193 </span><span class="lineCov">        134 :             if (this-&gt;template get&lt;TimeInfected&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">         18 :                 log_error(</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">          9 :                 log_error(</span></a>
 <a name="195"><span class="lineNum">     195 </span>            :                     &quot;Constraint check: Parameter TimeInfected {:.4f} smaller or equal {:.4f}. Please note that &quot;</a>
 <a name="196"><span class="lineNum">     196 </span>            :                     &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="197"><span class="lineNum">     197 </span>            :                     &quot;and reset parameters.&quot;,</a>
@@ -262,7 +262,7 @@
 <a name="200"><span class="lineNum">     200 </span>            :             }</a>
 <a name="201"><span class="lineNum">     201 </span><span class="lineCov">        250 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="202"><span class="lineNum">     202 </span><span class="lineCov">        125 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or &quot;</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact {:.4f} smaller {:.4f} or &quot;</span></a>
 <a name="204"><span class="lineNum">     204 </span>            :                           &quot;greater {:.4f}&quot;,</a>
 <a name="205"><span class="lineNum">     205 </span><span class="lineCov">         18 :                           this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0, 1.0);</span></a>
 <a name="206"><span class="lineNum">     206 </span><span class="lineCov">          9 :                 return true;</span></a>

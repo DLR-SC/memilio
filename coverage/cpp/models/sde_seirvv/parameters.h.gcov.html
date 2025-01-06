@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -236,7 +236,7 @@
 <a name="174"><span class="lineNum">     174 </span>            : </a>
 <a name="175"><span class="lineNum">     175 </span><span class="lineCov">         72 :         int corrected = false;</span></a>
 <a name="176"><span class="lineNum">     176 </span><span class="lineCov">         72 :         if (this-&gt;get&lt;TimeExposedV1&gt;() &lt; tol_times) {</span></a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeExposedV1 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TimeExposedV1 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="178"><span class="lineNum">     178 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="179"><span class="lineNum">     179 </span>            :                         &quot;and reset parameters.&quot;,</a>
 <a name="180"><span class="lineNum">     180 </span><span class="lineCov">          9 :                         this-&gt;get&lt;TimeExposedV1&gt;(), tol_times);</span></a>
@@ -244,7 +244,7 @@
 <a name="182"><span class="lineNum">     182 </span><span class="lineCov">          9 :             corrected                  = true;</span></a>
 <a name="183"><span class="lineNum">     183 </span>            :         }</a>
 <a name="184"><span class="lineNum">     184 </span><span class="lineCov">         72 :         if (this-&gt;get&lt;TimeExposedV2&gt;() &lt; tol_times) {</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         36 :             log_warning(&quot;Constraint check: Parameter TimeExposedV2 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeExposedV2 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="186"><span class="lineNum">     186 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="187"><span class="lineNum">     187 </span>            :                         &quot;and reset parameters.&quot;,</a>
 <a name="188"><span class="lineNum">     188 </span><span class="lineCov">         18 :                         this-&gt;get&lt;TimeExposedV2&gt;(), tol_times);</span></a>
@@ -252,7 +252,7 @@
 <a name="190"><span class="lineNum">     190 </span><span class="lineCov">         18 :             corrected                  = true;</span></a>
 <a name="191"><span class="lineNum">     191 </span>            :         }</a>
 <a name="192"><span class="lineNum">     192 </span><span class="lineCov">         72 :         if (this-&gt;get&lt;TimeInfectedV1&gt;() &lt; tol_times) {</span></a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeInfectedV1 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TimeInfectedV1 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="194"><span class="lineNum">     194 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="195"><span class="lineNum">     195 </span>            :                         &quot;and reset parameters.&quot;,</a>
 <a name="196"><span class="lineNum">     196 </span><span class="lineCov">          9 :                         this-&gt;get&lt;TimeInfectedV1&gt;(), tol_times);</span></a>
@@ -260,7 +260,7 @@
 <a name="198"><span class="lineNum">     198 </span><span class="lineCov">          9 :             corrected                   = true;</span></a>
 <a name="199"><span class="lineNum">     199 </span>            :         }</a>
 <a name="200"><span class="lineNum">     200 </span><span class="lineCov">         72 :         if (this-&gt;get&lt;TimeInfectedV2&gt;() &lt; tol_times) {</span></a>
-<a name="201"><span class="lineNum">     201 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TimeInfectedV2 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TimeInfectedV2 changed from {:.4f} to {:.4f}. Please note that &quot;</span></a>
 <a name="202"><span class="lineNum">     202 </span>            :                         &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="203"><span class="lineNum">     203 </span>            :                         &quot;and reset parameters.&quot;,</a>
 <a name="204"><span class="lineNum">     204 </span><span class="lineCov">          9 :                         this-&gt;get&lt;TimeInfectedV2&gt;(), tol_times);</span></a>
@@ -269,14 +269,14 @@
 <a name="207"><span class="lineNum">     207 </span>            :         }</a>
 <a name="208"><span class="lineNum">     208 </span><span class="lineCov">        144 :         if (this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;() &lt; 0.0 ||</span></a>
 <a name="209"><span class="lineNum">     209 </span><span class="lineCov">         72 :             this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;() &gt; 1.0) {</span></a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContactV1 changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContactV1 changed from {:0.4f} to {:d} &quot;,</span></a>
 <a name="211"><span class="lineNum">     211 </span><span class="lineCov">         18 :                         this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;(), 0.0);</span></a>
 <a name="212"><span class="lineNum">     212 </span><span class="lineCov">          9 :             this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;() = 0.0;</span></a>
 <a name="213"><span class="lineNum">     213 </span><span class="lineCov">          9 :             corrected                                       = true;</span></a>
 <a name="214"><span class="lineNum">     214 </span>            :         }</a>
 <a name="215"><span class="lineNum">     215 </span><span class="lineCov">        144 :         if (this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;() &lt; 0.0 ||</span></a>
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">         72 :             this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;() &gt; 1.0) {</span></a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContactV2 changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TransmissionProbabilityOnContactV2 changed from {:0.4f} to {:d} &quot;,</span></a>
 <a name="218"><span class="lineNum">     218 </span><span class="lineCov">         18 :                         this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;(), 0.0);</span></a>
 <a name="219"><span class="lineNum">     219 </span><span class="lineCov">          9 :             this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;() = 0.0;</span></a>
 <a name="220"><span class="lineNum">     220 </span><span class="lineCov">          9 :             corrected                                       = true;</span></a>
@@ -294,28 +294,28 @@
 <a name="232"><span class="lineNum">     232 </span><span class="lineCov">         63 :         ScalarType tol_times = 1e-1;</span></a>
 <a name="233"><span class="lineNum">     233 </span>            : </a>
 <a name="234"><span class="lineNum">     234 </span><span class="lineCov">         63 :         if (this-&gt;get&lt;TimeExposedV1&gt;() &lt; tol_times) {</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeExposedV1 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TimeExposedV1 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="237"><span class="lineNum">     237 </span>            :                       &quot;and reset parameters.&quot;,</a>
 <a name="238"><span class="lineNum">     238 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeExposedV1&gt;(), 0.0);</span></a>
 <a name="239"><span class="lineNum">     239 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="240"><span class="lineNum">     240 </span>            :         }</a>
 <a name="241"><span class="lineNum">     241 </span><span class="lineCov">         54 :         if (this-&gt;get&lt;TimeExposedV2&gt;() &lt; tol_times) {</span></a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeExposedV2 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TimeExposedV2 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="243"><span class="lineNum">     243 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="244"><span class="lineNum">     244 </span>            :                       &quot;and reset parameters.&quot;,</a>
 <a name="245"><span class="lineNum">     245 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeExposedV2&gt;(), 0.0);</span></a>
 <a name="246"><span class="lineNum">     246 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="247"><span class="lineNum">     247 </span>            :         }</a>
 <a name="248"><span class="lineNum">     248 </span><span class="lineCov">         45 :         if (this-&gt;get&lt;TimeInfectedV1&gt;() &lt; tol_times) {</span></a>
-<a name="249"><span class="lineNum">     249 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeInfectedV1 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="249"><span class="lineNum">     249 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TimeInfectedV1 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="250"><span class="lineNum">     250 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="251"><span class="lineNum">     251 </span>            :                       &quot;and reset parameters.&quot;,</a>
 <a name="252"><span class="lineNum">     252 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeInfectedV1&gt;(), 0.0);</span></a>
 <a name="253"><span class="lineNum">     253 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="254"><span class="lineNum">     254 </span>            :         }</a>
 <a name="255"><span class="lineNum">     255 </span><span class="lineCov">         36 :         if (this-&gt;get&lt;TimeInfectedV2&gt;() &lt; tol_times) {</span></a>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TimeInfectedV2 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TimeInfectedV2 {:.4f} smaller or equal {:.4f}. Please note that &quot;</span></a>
 <a name="257"><span class="lineNum">     257 </span>            :                       &quot;unreasonably small compartment stays lead to massively increased run time. Consider to cancel &quot;</a>
 <a name="258"><span class="lineNum">     258 </span>            :                       &quot;and reset parameters.&quot;,</a>
 <a name="259"><span class="lineNum">     259 </span><span class="lineCov">         18 :                       this-&gt;get&lt;TimeInfectedV2&gt;(), 0.0);</span></a>
@@ -323,14 +323,14 @@
 <a name="261"><span class="lineNum">     261 </span>            :         }</a>
 <a name="262"><span class="lineNum">     262 </span><span class="lineCov">         54 :         if (this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;() &lt; 0.0 ||</span></a>
 <a name="263"><span class="lineNum">     263 </span><span class="lineCov">         27 :             this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;() &gt; 1.0) {</span></a>
-<a name="264"><span class="lineNum">     264 </span><span class="lineCov">         18 :             log_error(</span></a>
+<a name="264"><span class="lineNum">     264 </span><span class="lineCov">          9 :             log_error(</span></a>
 <a name="265"><span class="lineNum">     265 </span>            :                 &quot;Constraint check: Parameter TransmissionProbabilityOnContactV1 {:.4f} smaller {:.4f} or greater {:.4f}&quot;,</a>
 <a name="266"><span class="lineNum">     266 </span><span class="lineCov">         18 :                 this-&gt;get&lt;TransmissionProbabilityOnContactV1&gt;(), 0.0, 1.0);</span></a>
 <a name="267"><span class="lineNum">     267 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="268"><span class="lineNum">     268 </span>            :         }</a>
 <a name="269"><span class="lineNum">     269 </span><span class="lineCov">         36 :         if (this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;() &lt; 0.0 ||</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">         18 :             this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;() &gt; 1.0) {</span></a>
-<a name="271"><span class="lineNum">     271 </span><span class="lineCov">         18 :             log_error(</span></a>
+<a name="271"><span class="lineNum">     271 </span><span class="lineCov">          9 :             log_error(</span></a>
 <a name="272"><span class="lineNum">     272 </span>            :                 &quot;Constraint check: Parameter TransmissionProbabilityOnContactV2 {:.4f} smaller {:.4f} or greater {:.4f}&quot;,</a>
 <a name="273"><span class="lineNum">     273 </span><span class="lineCov">         18 :                 this-&gt;get&lt;TransmissionProbabilityOnContactV2&gt;(), 0.0, 1.0);</span></a>
 <a name="274"><span class="lineNum">     274 </span><span class="lineCov">          9 :             return true;</span></a>

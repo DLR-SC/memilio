@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">53</td>
@@ -466,9 +466,9 @@
 <a name="404"><span class="lineNum">     404 </span>            :     {</a>
 <a name="405"><span class="lineNum">     405 </span><span class="lineCov">        371 :     }</span></a>
 <a name="406"><span class="lineNum">     406 </span>            : </a>
-<a name="407"><span class="lineNum">     407 </span><span class="lineCov">     412037 :     AgeGroup get_num_groups() const</span></a>
+<a name="407"><span class="lineNum">     407 </span><span class="lineCov">     387881 :     AgeGroup get_num_groups() const</span></a>
 <a name="408"><span class="lineNum">     408 </span>            :     {</a>
-<a name="409"><span class="lineNum">     409 </span><span class="lineCov">     412037 :         return m_num_groups;</span></a>
+<a name="409"><span class="lineNum">     409 </span><span class="lineCov">     387881 :         return m_num_groups;</span></a>
 <a name="410"><span class="lineNum">     410 </span>            :     }</a>
 <a name="411"><span class="lineNum">     411 </span>            : </a>
 <a name="412"><span class="lineNum">     412 </span>            :     /**</a>
@@ -540,35 +540,35 @@
 <a name="478"><span class="lineNum">     478 </span>            : </a>
 <a name="479"><span class="lineNum">     479 </span><span class="lineCov">        450 :         int corrected = false;</span></a>
 <a name="480"><span class="lineNum">     480 </span><span class="lineCov">        450 :         if (this-&gt;template get&lt;Seasonality&lt;FP&gt;&gt;() &lt; 0.0 || this-&gt;template get&lt;Seasonality&lt;FP&gt;&gt;() &gt; 0.5) {</span></a>
-<a name="481"><span class="lineNum">     481 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter Seasonality changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="481"><span class="lineNum">     481 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter Seasonality changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="482"><span class="lineNum">     482 </span><span class="lineCov">         18 :                         this-&gt;template get&lt;Seasonality&lt;FP&gt;&gt;(), 0);</span></a>
 <a name="483"><span class="lineNum">     483 </span><span class="lineCov">          9 :             this-&gt;template set&lt;Seasonality&lt;FP&gt;&gt;(0);</span></a>
 <a name="484"><span class="lineNum">     484 </span><span class="lineCov">          9 :             corrected = true;</span></a>
 <a name="485"><span class="lineNum">     485 </span>            :         }</a>
 <a name="486"><span class="lineNum">     486 </span>            : </a>
 <a name="487"><span class="lineNum">     487 </span><span class="lineCov">        450 :         if (this-&gt;template get&lt;ICUCapacity&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="488"><span class="lineNum">     488 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter ICUCapacity changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter ICUCapacity changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="489"><span class="lineNum">     489 </span><span class="lineCov">         18 :                         this-&gt;template get&lt;ICUCapacity&lt;FP&gt;&gt;(), 0);</span></a>
 <a name="490"><span class="lineNum">     490 </span><span class="lineCov">          9 :             this-&gt;template set&lt;ICUCapacity&lt;FP&gt;&gt;(0);</span></a>
 <a name="491"><span class="lineNum">     491 </span><span class="lineCov">          9 :             corrected = true;</span></a>
 <a name="492"><span class="lineNum">     492 </span>            :         }</a>
 <a name="493"><span class="lineNum">     493 </span>            : </a>
 <a name="494"><span class="lineNum">     494 </span><span class="lineCov">        450 :         if (this-&gt;template get&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="495"><span class="lineNum">     495 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter DynamicNPIsImplementationDelay changed from {} to {}&quot;,</span></a>
+<a name="495"><span class="lineNum">     495 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter DynamicNPIsImplementationDelay changed from {} to {}&quot;,</span></a>
 <a name="496"><span class="lineNum">     496 </span><span class="lineCov">         18 :                         this-&gt;template get&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;(), 0);</span></a>
 <a name="497"><span class="lineNum">     497 </span><span class="lineCov">          9 :             this-&gt;template set&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;(0);</span></a>
 <a name="498"><span class="lineNum">     498 </span><span class="lineCov">          9 :             corrected = true;</span></a>
 <a name="499"><span class="lineNum">     499 </span>            :         }</a>
 <a name="500"><span class="lineNum">     500 </span>            : </a>
 <a name="501"><span class="lineNum">     501 </span><span class="lineCov">        450 :         if (this-&gt;template get&lt;TestAndTraceCapacity&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="502"><span class="lineNum">     502 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TestAndTraceCapacity changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="502"><span class="lineNum">     502 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TestAndTraceCapacity changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="503"><span class="lineNum">     503 </span><span class="lineCov">         18 :                         this-&gt;template get&lt;TestAndTraceCapacity&lt;FP&gt;&gt;(), 0);</span></a>
 <a name="504"><span class="lineNum">     504 </span><span class="lineCov">          9 :             this-&gt;template get&lt;TestAndTraceCapacity&lt;FP&gt;&gt;() = 0;</span></a>
 <a name="505"><span class="lineNum">     505 </span><span class="lineCov">          9 :             corrected                                      = true;</span></a>
 <a name="506"><span class="lineNum">     506 </span>            :         }</a>
 <a name="507"><span class="lineNum">     507 </span>            : </a>
 <a name="508"><span class="lineNum">     508 </span><span class="lineCov">        450 :         if (this-&gt;template get&lt;TestAndTraceCapacityMaxRisk&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="509"><span class="lineNum">     509 </span><span class="lineCov">         18 :             log_warning(&quot;Constraint check: Parameter TestAndTraceCapacityMaxRisk changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="509"><span class="lineNum">     509 </span><span class="lineCov">          9 :             log_warning(&quot;Constraint check: Parameter TestAndTraceCapacityMaxRisk changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="510"><span class="lineNum">     510 </span><span class="lineCov">         18 :                         this-&gt;template get&lt;TestAndTraceCapacityMaxRisk&lt;FP&gt;&gt;(), 0);</span></a>
 <a name="511"><span class="lineNum">     511 </span><span class="lineCov">          9 :             this-&gt;template get&lt;TestAndTraceCapacityMaxRisk&lt;FP&gt;&gt;() = 0;</span></a>
 <a name="512"><span class="lineNum">     512 </span><span class="lineCov">          9 :             corrected                                             = true;</span></a>
@@ -576,7 +576,7 @@
 <a name="514"><span class="lineNum">     514 </span>            : </a>
 <a name="515"><span class="lineNum">     515 </span><span class="lineCov">       1287 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); ++i) {</span></a>
 <a name="516"><span class="lineNum">     516 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="517"><span class="lineNum">     517 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter TimeExposed changed from {:.4f} to {:.4f}. Please &quot;</span></a>
+<a name="517"><span class="lineNum">     517 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter TimeExposed changed from {:.4f} to {:.4f}. Please &quot;</span></a>
 <a name="518"><span class="lineNum">     518 </span>            :                             &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="519"><span class="lineNum">     519 </span>            :                             &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="520"><span class="lineNum">     520 </span><span class="lineCov">          9 :                             this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -585,7 +585,7 @@
 <a name="523"><span class="lineNum">     523 </span>            :             }</a>
 <a name="524"><span class="lineNum">     524 </span>            : </a>
 <a name="525"><span class="lineNum">     525 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;TimeInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="526"><span class="lineNum">     526 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedNoSymptoms changed from {:.4f} to {:.4f}. Please &quot;</span></a>
+<a name="526"><span class="lineNum">     526 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedNoSymptoms changed from {:.4f} to {:.4f}. Please &quot;</span></a>
 <a name="527"><span class="lineNum">     527 </span>            :                             &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="528"><span class="lineNum">     528 </span>            :                             &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="529"><span class="lineNum">     529 </span><span class="lineCov">          9 :                             this-&gt;template get&lt;TimeInfectedNoSymptoms&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -594,7 +594,7 @@
 <a name="532"><span class="lineNum">     532 </span>            :             }</a>
 <a name="533"><span class="lineNum">     533 </span>            : </a>
 <a name="534"><span class="lineNum">     534 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;TimeInfectedSymptoms&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="535"><span class="lineNum">     535 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedSymptoms changed from {:.4f} to {:.4f}. Please &quot;</span></a>
+<a name="535"><span class="lineNum">     535 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedSymptoms changed from {:.4f} to {:.4f}. Please &quot;</span></a>
 <a name="536"><span class="lineNum">     536 </span>            :                             &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="537"><span class="lineNum">     537 </span>            :                             &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="538"><span class="lineNum">     538 </span><span class="lineCov">          9 :                             this-&gt;template get&lt;TimeInfectedSymptoms&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -603,7 +603,7 @@
 <a name="541"><span class="lineNum">     541 </span>            :             }</a>
 <a name="542"><span class="lineNum">     542 </span>            : </a>
 <a name="543"><span class="lineNum">     543 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;TimeInfectedSevere&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="544"><span class="lineNum">     544 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedSevere changed from {:.4f} to {:.4f}. Please note &quot;</span></a>
+<a name="544"><span class="lineNum">     544 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedSevere changed from {:.4f} to {:.4f}. Please note &quot;</span></a>
 <a name="545"><span class="lineNum">     545 </span>            :                             &quot;that unreasonably small compartment stays lead to massively increased run time. Consider &quot;</a>
 <a name="546"><span class="lineNum">     546 </span>            :                             &quot;to cancel and reset parameters.&quot;,</a>
 <a name="547"><span class="lineNum">     547 </span><span class="lineCov">          9 :                             this-&gt;template get&lt;TimeInfectedSevere&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -612,7 +612,7 @@
 <a name="550"><span class="lineNum">     550 </span>            :             }</a>
 <a name="551"><span class="lineNum">     551 </span>            : </a>
 <a name="552"><span class="lineNum">     552 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;TimeInfectedCritical&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="553"><span class="lineNum">     553 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedCritical changed from {:.4f} to {:.4f}. Please &quot;</span></a>
+<a name="553"><span class="lineNum">     553 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter TimeInfectedCritical changed from {:.4f} to {:.4f}. Please &quot;</span></a>
 <a name="554"><span class="lineNum">     554 </span>            :                             &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="555"><span class="lineNum">     555 </span>            :                             &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="556"><span class="lineNum">     556 </span><span class="lineCov">          9 :                             this-&gt;template get&lt;TimeInfectedCritical&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -622,7 +622,7 @@
 <a name="560"><span class="lineNum">     560 </span>            : </a>
 <a name="561"><span class="lineNum">     561 </span><span class="lineCov">       1674 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="562"><span class="lineNum">     562 </span><span class="lineCov">        837 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="563"><span class="lineNum">     563 </span><span class="lineCov">         18 :                 log_warning(</span></a>
+<a name="563"><span class="lineNum">     563 </span><span class="lineCov">          9 :                 log_warning(</span></a>
 <a name="564"><span class="lineNum">     564 </span>            :                     &quot;Constraint check: Parameter TransmissionProbabilityOnContact changed from {:0.4f} to {:d} &quot;,</a>
 <a name="565"><span class="lineNum">     565 </span><span class="lineCov">         18 :                     this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i], 0.0);</span></a>
 <a name="566"><span class="lineNum">     566 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] = 0.0;</span></a>
@@ -630,7 +630,7 @@
 <a name="568"><span class="lineNum">     568 </span>            :             }</a>
 <a name="569"><span class="lineNum">     569 </span>            : </a>
 <a name="570"><span class="lineNum">     570 </span><span class="lineCov">        837 :             if (this-&gt;template get&lt;RelativeTransmissionNoSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0) {</span></a>
-<a name="571"><span class="lineNum">     571 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="571"><span class="lineNum">     571 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms changed from {:0.4f} to {:d} &quot;,</span></a>
 <a name="572"><span class="lineNum">     572 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;RelativeTransmissionNoSymptoms&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="573"><span class="lineNum">     573 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;RelativeTransmissionNoSymptoms&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="574"><span class="lineNum">     574 </span><span class="lineCov">          9 :                 corrected                                                   = true;</span></a>
@@ -638,7 +638,7 @@
 <a name="576"><span class="lineNum">     576 </span>            : </a>
 <a name="577"><span class="lineNum">     577 </span><span class="lineCov">       1674 :             if (this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="578"><span class="lineNum">     578 </span><span class="lineCov">        837 :                 this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="579"><span class="lineNum">     579 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms changed from {:0.4f} to {:d} &quot;,</span></a>
+<a name="579"><span class="lineNum">     579 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms changed from {:0.4f} to {:d} &quot;,</span></a>
 <a name="580"><span class="lineNum">     580 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="581"><span class="lineNum">     581 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="582"><span class="lineNum">     582 </span><span class="lineCov">          9 :                 corrected                                                   = true;</span></a>
@@ -646,7 +646,7 @@
 <a name="584"><span class="lineNum">     584 </span>            : </a>
 <a name="585"><span class="lineNum">     585 </span><span class="lineCov">       1665 :             if (this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="586"><span class="lineNum">     586 </span><span class="lineCov">        828 :                 this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="587"><span class="lineNum">     587 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter RiskOfInfectionFromSymptomatic changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="587"><span class="lineNum">     587 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter RiskOfInfectionFromSymptomatic changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="588"><span class="lineNum">     588 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="589"><span class="lineNum">     589 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="590"><span class="lineNum">     590 </span><span class="lineCov">          9 :                 corrected                                                   = true;</span></a>
@@ -654,7 +654,7 @@
 <a name="592"><span class="lineNum">     592 </span>            : </a>
 <a name="593"><span class="lineNum">     593 </span><span class="lineCov">       1665 :             if (this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="594"><span class="lineNum">     594 </span><span class="lineCov">        828 :                 this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="595"><span class="lineNum">     595 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter SeverePerInfectedSymptoms changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="595"><span class="lineNum">     595 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter SeverePerInfectedSymptoms changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="596"><span class="lineNum">     596 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="597"><span class="lineNum">     597 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="598"><span class="lineNum">     598 </span><span class="lineCov">          9 :                 corrected                                              = true;</span></a>
@@ -662,7 +662,7 @@
 <a name="600"><span class="lineNum">     600 </span>            : </a>
 <a name="601"><span class="lineNum">     601 </span><span class="lineCov">       1665 :             if (this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="602"><span class="lineNum">     602 </span><span class="lineCov">        828 :                 this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="603"><span class="lineNum">     603 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter CriticalPerSevere changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="603"><span class="lineNum">     603 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter CriticalPerSevere changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="604"><span class="lineNum">     604 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="605"><span class="lineNum">     605 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="606"><span class="lineNum">     606 </span><span class="lineCov">          9 :                 corrected                                      = true;</span></a>
@@ -670,7 +670,7 @@
 <a name="608"><span class="lineNum">     608 </span>            : </a>
 <a name="609"><span class="lineNum">     609 </span><span class="lineCov">       1674 :             if (this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="610"><span class="lineNum">     610 </span><span class="lineCov">        837 :                 this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="611"><span class="lineNum">     611 </span><span class="lineCov">         18 :                 log_warning(&quot;Constraint check: Parameter DeathsPerCritical changed from {:0.4f} to {:d}&quot;,</span></a>
+<a name="611"><span class="lineNum">     611 </span><span class="lineCov">          9 :                 log_warning(&quot;Constraint check: Parameter DeathsPerCritical changed from {:0.4f} to {:d}&quot;,</span></a>
 <a name="612"><span class="lineNum">     612 </span><span class="lineCov">         18 :                             this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i], 0);</span></a>
 <a name="613"><span class="lineNum">     613 </span><span class="lineCov">          9 :                 this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i] = 0;</span></a>
 <a name="614"><span class="lineNum">     614 </span><span class="lineCov">          9 :                 corrected                                      = true;</span></a>
@@ -687,27 +687,27 @@
 <a name="625"><span class="lineNum">     625 </span><span class="lineCov">        371 :     bool check_constraints() const</span></a>
 <a name="626"><span class="lineNum">     626 </span>            :     {</a>
 <a name="627"><span class="lineNum">     627 </span><span class="lineCov">        371 :         if (this-&gt;template get&lt;Seasonality&lt;FP&gt;&gt;() &lt; 0.0 || this-&gt;template get&lt;Seasonality&lt;FP&gt;&gt;() &gt; 0.5) {</span></a>
-<a name="628"><span class="lineNum">     628 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter Seasonality smaller {:d} or larger {:d}&quot;, 0, 0.5);</span></a>
+<a name="628"><span class="lineNum">     628 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter Seasonality smaller {:d} or larger {:d}&quot;, 0, 0.5);</span></a>
 <a name="629"><span class="lineNum">     629 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="630"><span class="lineNum">     630 </span>            :         }</a>
 <a name="631"><span class="lineNum">     631 </span>            : </a>
 <a name="632"><span class="lineNum">     632 </span><span class="lineCov">        362 :         if (this-&gt;template get&lt;ICUCapacity&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="633"><span class="lineNum">     633 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter ICUCapacity smaller {:d}&quot;, 0);</span></a>
+<a name="633"><span class="lineNum">     633 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter ICUCapacity smaller {:d}&quot;, 0);</span></a>
 <a name="634"><span class="lineNum">     634 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="635"><span class="lineNum">     635 </span>            :         }</a>
 <a name="636"><span class="lineNum">     636 </span>            : </a>
 <a name="637"><span class="lineNum">     637 </span><span class="lineCov">        353 :         if (this-&gt;template get&lt;TestAndTraceCapacity&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="638"><span class="lineNum">     638 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TestAndTraceCapacity smaller {:d}&quot;, 0);</span></a>
+<a name="638"><span class="lineNum">     638 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TestAndTraceCapacity smaller {:d}&quot;, 0);</span></a>
 <a name="639"><span class="lineNum">     639 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="640"><span class="lineNum">     640 </span>            :         }</a>
 <a name="641"><span class="lineNum">     641 </span>            : </a>
 <a name="642"><span class="lineNum">     642 </span><span class="lineCov">        344 :         if (this-&gt;template get&lt;TestAndTraceCapacityMaxRisk&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="643"><span class="lineNum">     643 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter TestAndTraceCapacityMaxRisk smaller {:d}&quot;, 0);</span></a>
+<a name="643"><span class="lineNum">     643 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter TestAndTraceCapacityMaxRisk smaller {:d}&quot;, 0);</span></a>
 <a name="644"><span class="lineNum">     644 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="645"><span class="lineNum">     645 </span>            :         }</a>
 <a name="646"><span class="lineNum">     646 </span>            : </a>
 <a name="647"><span class="lineNum">     647 </span><span class="lineCov">        335 :         if (this-&gt;template get&lt;DynamicNPIsImplementationDelay&lt;FP&gt;&gt;() &lt; 0.0) {</span></a>
-<a name="648"><span class="lineNum">     648 </span><span class="lineCov">         18 :             log_error(&quot;Constraint check: Parameter DynamicNPIsImplementationDelay smaller {:d}&quot;, 0);</span></a>
+<a name="648"><span class="lineNum">     648 </span><span class="lineCov">          9 :             log_error(&quot;Constraint check: Parameter DynamicNPIsImplementationDelay smaller {:d}&quot;, 0);</span></a>
 <a name="649"><span class="lineNum">     649 </span><span class="lineCov">          9 :             return true;</span></a>
 <a name="650"><span class="lineNum">     650 </span>            :         }</a>
 <a name="651"><span class="lineNum">     651 </span>            : </a>
@@ -715,7 +715,7 @@
 <a name="653"><span class="lineNum">     653 </span>            : </a>
 <a name="654"><span class="lineNum">     654 </span><span class="lineCov">        580 :         for (auto i = AgeGroup(0); i &lt; AgeGroup(m_num_groups); ++i) {</span></a>
 <a name="655"><span class="lineNum">     655 </span><span class="lineCov">        362 :             if (this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="656"><span class="lineNum">     656 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TimeExposed {:.4f} smaller {:.4f}. Please &quot;</span></a>
+<a name="656"><span class="lineNum">     656 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TimeExposed {:.4f} smaller {:.4f}. Please &quot;</span></a>
 <a name="657"><span class="lineNum">     657 </span>            :                           &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="658"><span class="lineNum">     658 </span>            :                           &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="659"><span class="lineNum">     659 </span><span class="lineCov">          9 :                           this-&gt;template get&lt;TimeExposed&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -723,7 +723,7 @@
 <a name="661"><span class="lineNum">     661 </span>            :             }</a>
 <a name="662"><span class="lineNum">     662 </span>            : </a>
 <a name="663"><span class="lineNum">     663 </span><span class="lineCov">        353 :             if (this-&gt;template get&lt;TimeInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="664"><span class="lineNum">     664 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TimeInfectedNoSymptoms {:.4f} smaller {:.4f}. Please &quot;</span></a>
+<a name="664"><span class="lineNum">     664 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TimeInfectedNoSymptoms {:.4f} smaller {:.4f}. Please &quot;</span></a>
 <a name="665"><span class="lineNum">     665 </span>            :                           &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="666"><span class="lineNum">     666 </span>            :                           &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="667"><span class="lineNum">     667 </span><span class="lineCov">          9 :                           this-&gt;template get&lt;TimeInfectedNoSymptoms&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -731,7 +731,7 @@
 <a name="669"><span class="lineNum">     669 </span>            :             }</a>
 <a name="670"><span class="lineNum">     670 </span>            : </a>
 <a name="671"><span class="lineNum">     671 </span><span class="lineCov">        344 :             if (this-&gt;template get&lt;TimeInfectedSymptoms&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="672"><span class="lineNum">     672 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSymptoms {:.4f} smaller {:.4f}. Please &quot;</span></a>
+<a name="672"><span class="lineNum">     672 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSymptoms {:.4f} smaller {:.4f}. Please &quot;</span></a>
 <a name="673"><span class="lineNum">     673 </span>            :                           &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="674"><span class="lineNum">     674 </span>            :                           &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="675"><span class="lineNum">     675 </span><span class="lineCov">          9 :                           this-&gt;template get&lt;TimeInfectedSymptoms&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -739,7 +739,7 @@
 <a name="677"><span class="lineNum">     677 </span>            :             }</a>
 <a name="678"><span class="lineNum">     678 </span>            : </a>
 <a name="679"><span class="lineNum">     679 </span><span class="lineCov">        335 :             if (this-&gt;template get&lt;TimeInfectedSevere&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="680"><span class="lineNum">     680 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSevere {:.4f} smaller {:.4f}. Please &quot;</span></a>
+<a name="680"><span class="lineNum">     680 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TimeInfectedSevere {:.4f} smaller {:.4f}. Please &quot;</span></a>
 <a name="681"><span class="lineNum">     681 </span>            :                           &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="682"><span class="lineNum">     682 </span>            :                           &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="683"><span class="lineNum">     683 </span><span class="lineCov">          9 :                           this-&gt;template get&lt;TimeInfectedSevere&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -747,7 +747,7 @@
 <a name="685"><span class="lineNum">     685 </span>            :             }</a>
 <a name="686"><span class="lineNum">     686 </span>            : </a>
 <a name="687"><span class="lineNum">     687 </span><span class="lineCov">        326 :             if (this-&gt;template get&lt;TimeInfectedCritical&lt;FP&gt;&gt;()[i] &lt; tol_times) {</span></a>
-<a name="688"><span class="lineNum">     688 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TimeInfectedCritical {:.4f} smaller {:.4f}. Please &quot;</span></a>
+<a name="688"><span class="lineNum">     688 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TimeInfectedCritical {:.4f} smaller {:.4f}. Please &quot;</span></a>
 <a name="689"><span class="lineNum">     689 </span>            :                           &quot;note that unreasonably small compartment stays lead to massively increased run time. &quot;</a>
 <a name="690"><span class="lineNum">     690 </span>            :                           &quot;Consider to cancel and reset parameters.&quot;,</a>
 <a name="691"><span class="lineNum">     691 </span><span class="lineCov">          9 :                           this-&gt;template get&lt;TimeInfectedCritical&lt;FP&gt;&gt;()[i], tol_times);</span></a>
@@ -756,45 +756,45 @@
 <a name="694"><span class="lineNum">     694 </span>            : </a>
 <a name="695"><span class="lineNum">     695 </span><span class="lineCov">        634 :             if (this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="696"><span class="lineNum">     696 </span><span class="lineCov">        317 :                 this-&gt;template get&lt;TransmissionProbabilityOnContact&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="697"><span class="lineNum">     697 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="697"><span class="lineNum">     697 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter TransmissionProbabilityOnContact smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="698"><span class="lineNum">     698 </span><span class="lineCov">         18 :                           1);</span></a>
 <a name="699"><span class="lineNum">     699 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="700"><span class="lineNum">     700 </span>            :             }</a>
 <a name="701"><span class="lineNum">     701 </span>            : </a>
 <a name="702"><span class="lineNum">     702 </span><span class="lineCov">        308 :             if (this-&gt;template get&lt;RelativeTransmissionNoSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0) {</span></a>
-<a name="703"><span class="lineNum">     703 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms smaller {:d}&quot;, 0);</span></a>
+<a name="703"><span class="lineNum">     703 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter RelativeTransmissionNoSymptoms smaller {:d}&quot;, 0);</span></a>
 <a name="704"><span class="lineNum">     704 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="705"><span class="lineNum">     705 </span>            :             }</a>
 <a name="706"><span class="lineNum">     706 </span>            : </a>
 <a name="707"><span class="lineNum">     707 </span><span class="lineCov">        598 :             if (this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="708"><span class="lineNum">     708 </span><span class="lineCov">        299 :                 this-&gt;template get&lt;RecoveredPerInfectedNoSymptoms&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="709"><span class="lineNum">     709 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="709"><span class="lineNum">     709 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter RecoveredPerInfectedNoSymptoms smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="710"><span class="lineNum">     710 </span><span class="lineCov">         18 :                           1);</span></a>
 <a name="711"><span class="lineNum">     711 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="712"><span class="lineNum">     712 </span>            :             }</a>
 <a name="713"><span class="lineNum">     713 </span>            : </a>
 <a name="714"><span class="lineNum">     714 </span><span class="lineCov">        571 :             if (this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="715"><span class="lineNum">     715 </span><span class="lineCov">        281 :                 this-&gt;template get&lt;RiskOfInfectionFromSymptomatic&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="716"><span class="lineNum">     716 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d}&quot;, 0,</span></a>
+<a name="716"><span class="lineNum">     716 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d}&quot;, 0,</span></a>
 <a name="717"><span class="lineNum">     717 </span><span class="lineCov">         18 :                           1);</span></a>
 <a name="718"><span class="lineNum">     718 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="719"><span class="lineNum">     719 </span>            :             }</a>
 <a name="720"><span class="lineNum">     720 </span>            : </a>
 <a name="721"><span class="lineNum">     721 </span><span class="lineCov">        553 :             if (this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="722"><span class="lineNum">     722 </span><span class="lineCov">        272 :                 this-&gt;template get&lt;SeverePerInfectedSymptoms&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="723"><span class="lineNum">     723 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter SeverePerInfectedSymptoms smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="723"><span class="lineNum">     723 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter SeverePerInfectedSymptoms smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="724"><span class="lineNum">     724 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="725"><span class="lineNum">     725 </span>            :             }</a>
 <a name="726"><span class="lineNum">     726 </span>            : </a>
 <a name="727"><span class="lineNum">     727 </span><span class="lineCov">        535 :             if (this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="728"><span class="lineNum">     728 </span><span class="lineCov">        263 :                 this-&gt;template get&lt;CriticalPerSevere&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="729"><span class="lineNum">     729 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter CriticalPerSevere smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="729"><span class="lineNum">     729 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter CriticalPerSevere smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="730"><span class="lineNum">     730 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="731"><span class="lineNum">     731 </span>            :             }</a>
 <a name="732"><span class="lineNum">     732 </span>            : </a>
 <a name="733"><span class="lineNum">     733 </span><span class="lineCov">        526 :             if (this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i] &lt; 0.0 ||</span></a>
 <a name="734"><span class="lineNum">     734 </span><span class="lineCov">        263 :                 this-&gt;template get&lt;DeathsPerCritical&lt;FP&gt;&gt;()[i] &gt; 1.0) {</span></a>
-<a name="735"><span class="lineNum">     735 </span><span class="lineCov">         18 :                 log_error(&quot;Constraint check: Parameter DeathsPerCritical smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
+<a name="735"><span class="lineNum">     735 </span><span class="lineCov">          9 :                 log_error(&quot;Constraint check: Parameter DeathsPerCritical smaller {:d} or larger {:d}&quot;, 0, 1);</span></a>
 <a name="736"><span class="lineNum">     736 </span><span class="lineCov">          9 :                 return true;</span></a>
 <a name="737"><span class="lineNum">     737 </span>            :             }</a>
 <a name="738"><span class="lineNum">     738 </span>            :         }</a>

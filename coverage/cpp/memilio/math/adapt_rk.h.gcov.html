@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -276,7 +276,7 @@
 <a name="214"><span class="lineNum">     214 </span><span class="lineCov">       1125 :         assert(this-&gt;get_dt_min() &lt;= this-&gt;get_dt_max());</span></a>
 <a name="215"><span class="lineNum">     215 </span>            : </a>
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">       1125 :         if (dt &lt; this-&gt;get_dt_min() || dt &gt; this-&gt;get_dt_max()) {</span></a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         72 :             mio::log_warning(&quot;IntegratorCore: Restricting given step size dt = {} to [{}, {}].&quot;, dt, this-&gt;get_dt_min(),</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         36 :             mio::log_warning(&quot;IntegratorCore: Restricting given step size dt = {} to [{}, {}].&quot;, dt, this-&gt;get_dt_min(),</span></a>
 <a name="218"><span class="lineNum">     218 </span><span class="lineCov">         36 :                              this-&gt;get_dt_max());</span></a>
 <a name="219"><span class="lineNum">     219 </span>            :         }</a>
 <a name="220"><span class="lineNum">     220 </span>            : </a>
@@ -354,7 +354,7 @@
 <a name="292"><span class="lineNum">     292 </span>            :     TableauFinal m_tab_final;</a>
 <a name="293"><span class="lineNum">     293 </span>            :     FP m_abs_tol, m_rel_tol;</a>
 <a name="294"><span class="lineNum">     294 </span>            :     mutable Eigen::Matrix&lt;FP, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor&gt; m_kt_values;</a>
-<a name="295"><span class="lineNum">     295 </span>            :     mutable Vector&lt;FP&gt; m_yt_eval;</a>
+<a name="295"><span class="lineNum">     295 </span>            :     mutable Eigen::VectorX&lt;FP&gt; m_yt_eval;</a>
 <a name="296"><span class="lineNum">     296 </span>            : </a>
 <a name="297"><span class="lineNum">     297 </span>            : private:</a>
 <a name="298"><span class="lineNum">     298 </span>            :     mutable Eigen::Array&lt;FP, Eigen::Dynamic, Eigen::Dynamic&gt; m_eps,</a>

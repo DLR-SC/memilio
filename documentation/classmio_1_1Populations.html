@@ -120,9 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a378a0eab85dd803f1d2b22e113294095"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Populations.html#a378a0eab85dd803f1d2b22e113294095">check_constraints</a> () const</td></tr>
 <tr class="memdesc:a378a0eab85dd803f1d2b22e113294095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether all compartments have non-negative values and logs an error if constraint is not satisfied.  <a href="classmio_1_1Populations.html#a378a0eab85dd803f1d2b22e113294095">More...</a><br /></td></tr>
 <tr class="separator:a378a0eab85dd803f1d2b22e113294095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb71c87802e5438d66e50f92427aad6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Populations.html#abb71c87802e5438d66e50f92427aad6c">get_compartments</a> () const</td></tr>
-<tr class="memdesc:abb71c87802e5438d66e50f92427aad6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_compartments returns an Eigen copy of the vector of populations.  <a href="classmio_1_1Populations.html#abb71c87802e5438d66e50f92427aad6c">More...</a><br /></td></tr>
-<tr class="separator:abb71c87802e5438d66e50f92427aad6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740465f2eb18644b0c37641d182516a8"><td class="memItemLeft" align="right" valign="top">Eigen::VectorX&lt; FP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Populations.html#a740465f2eb18644b0c37641d182516a8">get_compartments</a> () const</td></tr>
+<tr class="memdesc:a740465f2eb18644b0c37641d182516a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_compartments returns an Eigen copy of the vector of populations.  <a href="classmio_1_1Populations.html#a740465f2eb18644b0c37641d182516a8">More...</a><br /></td></tr>
+<tr class="separator:a740465f2eb18644b0c37641d182516a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b8e186899a592d43f9c6c8b393f01df"><td class="memTemplParams" colspan="2">template&lt;class Arr &gt; </td></tr>
 <tr class="memitem:a2b8e186899a592d43f9c6c8b393f01df"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmio_1_1Populations.html#a2b8e186899a592d43f9c6c8b393f01df">get_from</a> (Arr &amp;&amp;y, <a class="el" href="classmio_1_1Populations.html#a60eae6958e3b7af484b2eb2e4b9073c2">Index</a> const &amp;cats) const</td></tr>
 <tr class="memdesc:a2b8e186899a592d43f9c6c8b393f01df"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_from returns the value of a flat container at the flat index corresponding to set of enum values.  <a href="classmio_1_1Populations.html#a2b8e186899a592d43f9c6c8b393f01df">More...</a><br /></td></tr>
@@ -197,10 +197,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2a772a9db443e7ef4403723f18ec91c4 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the entry of the array given a flat index index  <a href="classmio_1_1CustomIndexArray.html#a2a772a9db443e7ef4403723f18ec91c4">More...</a><br /></td></tr>
 <tr class="separator:a2a772a9db443e7ef4403723f18ec91c4 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc93f7ca210dce1048fc07e4a0869d29 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">resize</a> (<a class="el" href="classmio_1_1CustomIndexArray.html#abd7df97abfc73fff6ab38b53d1fddc10">Index</a> new_dims)</td></tr>
-<tr class="memdesc:abc93f7ca210dce1048fc07e4a0869d29 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize all dimensions.  <a href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">More...</a><br /></td></tr>
+<tr class="memdesc:abc93f7ca210dce1048fc07e4a0869d29 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize all dimensions, invalidating entries.  <a href="classmio_1_1CustomIndexArray.html#abc93f7ca210dce1048fc07e4a0869d29">More...</a><br /></td></tr>
 <tr class="separator:abc93f7ca210dce1048fc07e4a0869d29 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849773a9e5c974861d0eb42aca473632 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">resize</a> (<a class="el" href="classmio_1_1Index.html">mio::Index</a>&lt; <a class="el" href="namespacemio.html#a2f858e287c3935240954cf75cf53cfeb">Tag</a> &gt; new_dim)</td></tr>
-<tr class="memdesc:a849773a9e5c974861d0eb42aca473632 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a single dimension.  <a href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">More...</a><br /></td></tr>
+<tr class="memdesc:a849773a9e5c974861d0eb42aca473632 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a single dimension, invalidating entries.  <a href="classmio_1_1CustomIndexArray.html#a849773a9e5c974861d0eb42aca473632">More...</a><br /></td></tr>
 <tr class="separator:a849773a9e5c974861d0eb42aca473632 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e93d1acee334d2cf613ba6bf7b1767 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1CustomIndexArray.html#ab4e93d1acee334d2cf613ba6bf7b1767">serialize</a> (IOContext &amp;io) const</td></tr>
 <tr class="memdesc:ab4e93d1acee334d2cf613ba6bf7b1767 inherit pub_methods_classmio_1_1CustomIndexArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialize this.  <a href="classmio_1_1CustomIndexArray.html#ab4e93d1acee334d2cf613ba6bf7b1767">More...</a><br /></td></tr>
@@ -419,8 +419,8 @@ template&lt;class IOContext &gt; </div>
 
 </div>
 </div>
-<a id="abb71c87802e5438d66e50f92427aad6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb71c87802e5438d66e50f92427aad6c">&#9670;&nbsp;</a></span>get_compartments()</h2>
+<a id="a740465f2eb18644b0c37641d182516a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740465f2eb18644b0c37641d182516a8">&#9670;&nbsp;</a></span>get_compartments()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,7 +428,7 @@ template&lt;class IOContext &gt; </div>
 template&lt;typename FP  = ScalarType, class... Categories&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; <a class="el" href="classmio_1_1Populations.html">mio::Populations</a>&lt; FP, Categories &gt;::get_compartments </td>
+          <td class="memname">Eigen::VectorX&lt;FP&gt; <a class="el" href="classmio_1_1Populations.html">mio::Populations</a>&lt; FP, Categories &gt;::get_compartments </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

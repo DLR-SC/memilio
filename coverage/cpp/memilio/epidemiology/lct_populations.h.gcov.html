@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">141</td>
@@ -185,7 +185,7 @@
 <a name="123"><span class="lineNum">     123 </span>            :      * This can be used as initial conditions for the ODE solver.</a>
 <a name="124"><span class="lineNum">     124 </span>            :      * @return Eigen::VectorXd of populations.</a>
 <a name="125"><span class="lineNum">     125 </span>            :      */</a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">        135 :     inline Vector&lt;FP&gt; get_compartments() const</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">        135 :     inline Eigen::VectorX&lt;FP&gt; get_compartments() const</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :     {</a>
 <a name="128"><span class="lineNum">     128 </span><span class="lineCov">        135 :         return m_y.array().template cast&lt;FP&gt;();</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :     }</a>
@@ -246,7 +246,7 @@
 <a name="184"><span class="lineNum">     184 </span><span class="lineCov">          9 :     bool check_constraints() const</span></a>
 <a name="185"><span class="lineNum">     185 </span>            :     {</a>
 <a name="186"><span class="lineNum">     186 </span><span class="lineCov">          9 :         if ((m_y.array() &lt; 0.).any()) {</span></a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">          2 :             log_error(&quot;Constraint check: At least one compartment size is smaller {}.&quot;, 0);</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">          1 :             log_error(&quot;Constraint check: At least one compartment size is smaller {}.&quot;, 0);</span></a>
 <a name="188"><span class="lineNum">     188 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="189"><span class="lineNum">     189 </span>            :         }</a>
 <a name="190"><span class="lineNum">     190 </span><span class="lineCov">          8 :         return false;</span></a>

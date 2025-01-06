@@ -285,14 +285,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a6c50743372d14825704bbf9fb5336898"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classmio_1_1osecirts_1_1Model.html">Model</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a6c50743372d14825704bbf9fb5336898">ensemble_params_percentile</a> (const std::vector&lt; std::vector&lt; <a class="el" href="classmio_1_1osecirts_1_1Model.html">Model</a> &gt;&gt; &amp;ensemble_params, double p)</td></tr>
 <tr class="memdesc:a6c50743372d14825704bbf9fb5336898"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the p percentile of the parameters for each node.  <a href="namespacemio_1_1osecirts.html#a6c50743372d14825704bbf9fb5336898">More...</a><br /></td></tr>
 <tr class="separator:a6c50743372d14825704bbf9fb5336898"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a279ef0f1e3b07e63c4ce6c79cffec811"><td class="memTemplParams" colspan="2">template&lt;typename FP  = ScalarType, class Base  = mio::Simulation&lt;FP, Model&lt;FP&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a279ef0f1e3b07e63c4ce6c79cffec811"><td class="memTemplItemLeft" align="right" valign="top">FP&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a279ef0f1e3b07e63c4ce6c79cffec811">get_infections_relative</a> (const <a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; FP, Base &gt; &amp;model, FP t, const Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; &amp;y)</td></tr>
-<tr class="memdesc:a279ef0f1e3b07e63c4ce6c79cffec811"><td class="mdescLeft">&#160;</td><td class="mdescRight">get percentage of infections per total population.  <a href="namespacemio_1_1osecirts.html#a279ef0f1e3b07e63c4ce6c79cffec811">More...</a><br /></td></tr>
-<tr class="separator:a279ef0f1e3b07e63c4ce6c79cffec811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ca3b9684e4e8483f9a8db06cf665017"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt; </td></tr>
-<tr class="memitem:a2ca3b9684e4e8483f9a8db06cf665017"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a2ca3b9684e4e8483f9a8db06cf665017">get_migration_factors</a> (const <a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; Base &gt; &amp;sim, FP, const Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; &amp;y)</td></tr>
-<tr class="memdesc:a2ca3b9684e4e8483f9a8db06cf665017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get migration factors.  <a href="namespacemio_1_1osecirts.html#a2ca3b9684e4e8483f9a8db06cf665017">More...</a><br /></td></tr>
-<tr class="separator:a2ca3b9684e4e8483f9a8db06cf665017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcacbc1e5937177599d1b9a93db685ca"><td class="memTemplParams" colspan="2">template&lt;typename FP  = ScalarType, class Base  = mio::Simulation&lt;FP, Model&lt;FP&gt;&gt;&gt; </td></tr>
+<tr class="memitem:afcacbc1e5937177599d1b9a93db685ca"><td class="memTemplItemLeft" align="right" valign="top">FP&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#afcacbc1e5937177599d1b9a93db685ca">get_infections_relative</a> (const <a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; FP, Base &gt; &amp;model, FP t, const Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; &amp;y)</td></tr>
+<tr class="memdesc:afcacbc1e5937177599d1b9a93db685ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">get percentage of infections per total population.  <a href="namespacemio_1_1osecirts.html#afcacbc1e5937177599d1b9a93db685ca">More...</a><br /></td></tr>
+<tr class="separator:afcacbc1e5937177599d1b9a93db685ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89eb463761d02337183e64eb1338e8ac"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt; </td></tr>
+<tr class="memitem:a89eb463761d02337183e64eb1338e8ac"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a89eb463761d02337183e64eb1338e8ac">get_migration_factors</a> (const <a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; Base &gt; &amp;sim, FP, const Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; &amp;y)</td></tr>
+<tr class="memdesc:a89eb463761d02337183e64eb1338e8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get migration factors.  <a href="namespacemio_1_1osecirts.html#a89eb463761d02337183e64eb1338e8ac">More...</a><br /></td></tr>
+<tr class="separator:a89eb463761d02337183e64eb1338e8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a308b0d42311303c8200f3391a7ca4d80"><td class="memTemplParams" colspan="2">template&lt;typename FP  = ScalarType&gt; </td></tr>
 <tr class="memitem:a308b0d42311303c8200f3391a7ca4d80"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a308b0d42311303c8200f3391a7ca4d80">simulate</a> (FP t0, FP tmax, FP dt, const <a class="el" href="classmio_1_1osecirts_1_1Model.html">Model</a>&lt; FP &gt; &amp;model, std::shared_ptr&lt; <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>&lt; FP &gt;&gt; integrator=nullptr)</td></tr>
 <tr class="memdesc:a308b0d42311303c8200f3391a7ca4d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of simulate for SECIRS-type models using <a class="el" href="classmio_1_1osecirts_1_1Simulation.html" title="specialization of compartment model simulation for the SECIRTS model.">Simulation</a>.  <a href="namespacemio_1_1osecirts.html#a308b0d42311303c8200f3391a7ca4d80">More...</a><br /></td></tr>
@@ -301,10 +301,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ab5b98194bb90a321b21323feee9267ec"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#ab5b98194bb90a321b21323feee9267ec">simulate_flows</a> (FP t0, FP tmax, FP dt, const <a class="el" href="classmio_1_1osecirts_1_1Model.html">Model</a>&lt; FP &gt; &amp;model, std::shared_ptr&lt; <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>&lt; FP &gt;&gt; integrator=nullptr)</td></tr>
 <tr class="memdesc:ab5b98194bb90a321b21323feee9267ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of simulate for SECIRS-type models using the <a class="el" href="classmio_1_1FlowSimulation.html" title="A class for the simulation of a flow model.">FlowSimulation</a>.  <a href="namespacemio_1_1osecirts.html#ab5b98194bb90a321b21323feee9267ec">More...</a><br /></td></tr>
 <tr class="separator:ab5b98194bb90a321b21323feee9267ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5af4f22c06ad86910f88835c9185db47"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt; </td></tr>
-<tr class="memitem:a5af4f22c06ad86910f88835c9185db47"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a5af4f22c06ad86910f88835c9185db47">test_commuters</a> (<a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; FP, Base &gt; &amp;sim, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; migrated, FP time)</td></tr>
-<tr class="memdesc:a5af4f22c06ad86910f88835c9185db47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the state of commuters in a model, accounting for detection and mobility effects.  <a href="namespacemio_1_1osecirts.html#a5af4f22c06ad86910f88835c9185db47">More...</a><br /></td></tr>
-<tr class="separator:a5af4f22c06ad86910f88835c9185db47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a820b0bf8e4557090f9b77447cc497f14"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&gt;, FP&gt;&gt; </td></tr>
+<tr class="memitem:a820b0bf8e4557090f9b77447cc497f14"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio_1_1osecirts.html#a820b0bf8e4557090f9b77447cc497f14">test_commuters</a> (<a class="el" href="classmio_1_1osecirts_1_1Simulation.html">Simulation</a>&lt; FP, Base &gt; &amp;sim, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt; migrated, FP time)</td></tr>
+<tr class="memdesc:a820b0bf8e4557090f9b77447cc497f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the state of commuters in a model, accounting for detection and mobility effects.  <a href="namespacemio_1_1osecirts.html#a820b0bf8e4557090f9b77447cc497f14">More...</a><br /></td></tr>
+<tr class="separator:a820b0bf8e4557090f9b77447cc497f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="acf0373003c10e9798c32b0af3ab72d44"></a>
@@ -575,8 +575,8 @@ template&lt;class Model &gt; </div>
 
 </div>
 </div>
-<a id="a279ef0f1e3b07e63c4ce6c79cffec811"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a279ef0f1e3b07e63c4ce6c79cffec811">&#9670;&nbsp;</a></span>get_infections_relative()</h2>
+<a id="afcacbc1e5937177599d1b9a93db685ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcacbc1e5937177599d1b9a93db685ca">&#9670;&nbsp;</a></span>get_infections_relative()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -598,7 +598,7 @@ template&lt;typename FP  = ScalarType, class Base  = mio::Simulation&lt;FP, Mode
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">const Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -627,8 +627,8 @@ template&lt;typename FP  = ScalarType, class Base  = mio::Simulation&lt;FP, Mode
 
 </div>
 </div>
-<a id="a2ca3b9684e4e8483f9a8db06cf665017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ca3b9684e4e8483f9a8db06cf665017">&#9670;&nbsp;</a></span>get_migration_factors()</h2>
+<a id="a89eb463761d02337183e64eb1338e8ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89eb463761d02337183e64eb1338e8ac">&#9670;&nbsp;</a></span>get_migration_factors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -650,7 +650,7 @@ template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">const Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -802,8 +802,8 @@ template&lt;typename FP  = ScalarType&gt; </div>
 
 </div>
 </div>
-<a id="a5af4f22c06ad86910f88835c9185db47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5af4f22c06ad86910f88835c9185db47">&#9670;&nbsp;</a></span>test_commuters()</h2>
+<a id="a820b0bf8e4557090f9b77447cc497f14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820b0bf8e4557090f9b77447cc497f14">&#9670;&nbsp;</a></span>test_commuters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -819,7 +819,7 @@ template&lt;typename FP  = double, class Base  = mio::Simulation&lt;Model&lt;FP&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt;&gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt;&gt;&#160;</td>
           <td class="paramname"><em>migrated</em>, </td>
         </tr>
         <tr>

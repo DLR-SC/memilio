@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -120,7 +120,7 @@
 <a name="58"><span class="lineNum">      58 </span>            :      * tmax must be greater than get_result().get_last_time_point().</a>
 <a name="59"><span class="lineNum">      59 </span>            :      * @param[in] tmax Next stopping time of the simulation.</a>
 <a name="60"><span class="lineNum">      60 </span>            :      */</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      27077 :     Eigen::Ref&lt;Vector&lt;FP&gt;&gt; advance(FP tmax)</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      27077 :     Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt;&gt; advance(FP tmax)</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     {</a>
 <a name="63"><span class="lineNum">      63 </span>            :         // the derivfunktion (i.e. the lambda passed to m_integrator.advance below) requires that there are at least</a>
 <a name="64"><span class="lineNum">      64 </span>            :         // as many entries in m_flow_result as in Base::m_result</a>
@@ -194,7 +194,7 @@
 <a name="132"><span class="lineNum">     132 </span>            :         }</a>
 <a name="133"><span class="lineNum">     133 </span><span class="lineCov">      27131 :     }</span></a>
 <a name="134"><span class="lineNum">     134 </span>            : </a>
-<a name="135"><span class="lineNum">     135 </span>            :     Vector&lt;FP&gt; m_pop; ///&lt; pre-allocated temporary, used in right_hand_side()</a>
+<a name="135"><span class="lineNum">     135 </span>            :     Eigen::VectorX&lt;FP&gt; m_pop; ///&lt; pre-allocated temporary, used in right_hand_side()</a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
 <a name="137"><span class="lineNum">     137 </span>            : private:</a>
 <a name="138"><span class="lineNum">     138 </span>            :     mio::TimeSeries&lt;FP&gt; m_flow_result; ///&lt; flow result of the simulation</a>

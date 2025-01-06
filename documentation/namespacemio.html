@@ -496,10 +496,10 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a005277de1321a8a63b38ca22abb13721"><td class="memTemplParams" colspan="2">template&lt;typename FP  = ScalarType&gt; </td></tr>
 <tr class="memitem:a005277de1321a8a63b38ca22abb13721"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a005277de1321a8a63b38ca22abb13721">DefaultIntegratorCore</a> = <a class="el" href="classmio_1_1ControlledStepperWrapper.html">mio::ControlledStepperWrapper</a>&lt; FP, boost::numeric::odeint::runge_kutta_cash_karp54 &gt;</td></tr>
 <tr class="separator:a005277de1321a8a63b38ca22abb13721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d7d0d1b2caddc5ad68e40935ef477a"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double&gt; </td></tr>
-<tr class="memitem:a79d7d0d1b2caddc5ad68e40935ef477a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a79d7d0d1b2caddc5ad68e40935ef477a">DerivFunction</a> = std::function&lt; void(Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a>&lt; FP &gt; &gt; y, FP t, Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a>&lt; FP &gt; &gt; dydt)&gt;</td></tr>
-<tr class="memdesc:a79d7d0d1b2caddc5ad68e40935ef477a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function template to be integrated.  <a href="namespacemio.html#a79d7d0d1b2caddc5ad68e40935ef477a">More...</a><br /></td></tr>
-<tr class="separator:a79d7d0d1b2caddc5ad68e40935ef477a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c28e38185582f4381993f7de71ea6a"><td class="memTemplParams" colspan="2">template&lt;typename FP  = double&gt; </td></tr>
+<tr class="memitem:af3c28e38185582f4381993f7de71ea6a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#af3c28e38185582f4381993f7de71ea6a">DerivFunction</a> = std::function&lt; void(Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt; y, FP t, Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt; dydt)&gt;</td></tr>
+<tr class="memdesc:af3c28e38185582f4381993f7de71ea6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function template to be integrated.  <a href="namespacemio.html#af3c28e38185582f4381993f7de71ea6a">More...</a><br /></td></tr>
+<tr class="separator:af3c28e38185582f4381993f7de71ea6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc3cbccffee821ee8b3d10fceb36d1e"><td class="memTemplParams" colspan="2">template&lt;class IOContext , class T &gt; </td></tr>
 <tr class="memitem:a8bc3cbccffee821ee8b3d10fceb36d1e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a8bc3cbccffee821ee8b3d10fceb36d1e">deserialize_t</a> = decltype(T::deserialize(std::declval&lt; IOContext &amp; &gt;()))</td></tr>
 <tr class="separator:a8bc3cbccffee821ee8b3d10fceb36d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -507,18 +507,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a628e7270083870520c65318b8c5f2efd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a628e7270083870520c65318b8c5f2efd">eq_op_t</a> = decltype(std::declval&lt; T &gt;()==std::declval&lt; T &gt;())</td></tr>
 <tr class="memdesc:a628e7270083870520c65318b8c5f2efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">meta function to check type T for an existing equality comparison operator  <a href="namespacemio.html#a628e7270083870520c65318b8c5f2efd">More...</a><br /></td></tr>
 <tr class="separator:a628e7270083870520c65318b8c5f2efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a045ca6f4db7b107b26221502aa3bbb25"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:a045ca6f4db7b107b26221502aa3bbb25"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a045ca6f4db7b107b26221502aa3bbb25">eval_right_hand_side_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().eval_right_hand_side(std::declval&lt; Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;(), std::declval&lt; FP &gt;(), std::declval&lt; Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;()))</td></tr>
-<tr class="memdesc:a045ca6f4db7b107b26221502aa3bbb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the eval_right_hand_side member function of a compartment model.  <a href="namespacemio.html#a045ca6f4db7b107b26221502aa3bbb25">More...</a><br /></td></tr>
-<tr class="separator:a045ca6f4db7b107b26221502aa3bbb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95490f3708b41997a34047f48592da90"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
+<tr class="memitem:a95490f3708b41997a34047f48592da90"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a95490f3708b41997a34047f48592da90">eval_right_hand_side_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().eval_right_hand_side(std::declval&lt; Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt;&gt;(), std::declval&lt; FP &gt;(), std::declval&lt; Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt;&gt;()))</td></tr>
+<tr class="memdesc:a95490f3708b41997a34047f48592da90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the eval_right_hand_side member function of a compartment model.  <a href="namespacemio.html#a95490f3708b41997a34047f48592da90">More...</a><br /></td></tr>
+<tr class="separator:a95490f3708b41997a34047f48592da90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97757b3eaa1d1cd6fe1550f26c291bc5"><td class="memTemplParams" colspan="2">template&lt;class Sim &gt; </td></tr>
 <tr class="memitem:a97757b3eaa1d1cd6fe1550f26c291bc5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a97757b3eaa1d1cd6fe1550f26c291bc5">get_infections_relative_expr_t</a> = decltype(<a class="el" href="namespacemio.html#a85ab6b99636fa04a3d21cb8d08fc4c08">get_infections_relative</a>(std::declval&lt; const Sim &amp; &gt;(), std::declval&lt; double &gt;(), std::declval&lt; const Eigen::Ref&lt; const Eigen::VectorXd &gt; &amp; &gt;()))</td></tr>
 <tr class="memdesc:a97757b3eaa1d1cd6fe1550f26c291bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">detect a get_infections_relative function for the Model type.  <a href="namespacemio.html#a97757b3eaa1d1cd6fe1550f26c291bc5">More...</a><br /></td></tr>
 <tr class="separator:a97757b3eaa1d1cd6fe1550f26c291bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f36c00858aa9e417d85e64389a12a6d"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:a1f36c00858aa9e417d85e64389a12a6d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a1f36c00858aa9e417d85e64389a12a6d">get_initial_values_expr_t</a> = decltype(std::declval&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &amp; &gt;()=std::declval&lt; const M &amp; &gt;().get_initial_values())</td></tr>
-<tr class="memdesc:a1f36c00858aa9e417d85e64389a12a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the get_initial_values member function of a compartment model.  <a href="namespacemio.html#a1f36c00858aa9e417d85e64389a12a6d">More...</a><br /></td></tr>
-<tr class="separator:a1f36c00858aa9e417d85e64389a12a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e9d989f58a954b3409d0d6e0760913"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
+<tr class="memitem:a18e9d989f58a954b3409d0d6e0760913"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a18e9d989f58a954b3409d0d6e0760913">get_initial_values_expr_t</a> = decltype(std::declval&lt; Eigen::VectorX&lt; FP &gt; &amp; &gt;()=std::declval&lt; const M &amp; &gt;().get_initial_values())</td></tr>
+<tr class="memdesc:a18e9d989f58a954b3409d0d6e0760913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the get_initial_values member function of a compartment model.  <a href="namespacemio.html#a18e9d989f58a954b3409d0d6e0760913">More...</a><br /></td></tr>
+<tr class="separator:a18e9d989f58a954b3409d0d6e0760913"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68931e7025be1c444c0d167aadd40618"><td class="memTemplParams" colspan="2">template&lt;class Sim &gt; </td></tr>
 <tr class="memitem:a68931e7025be1c444c0d167aadd40618"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a68931e7025be1c444c0d167aadd40618">get_mobility_factors_expr_t</a> = decltype(<a class="el" href="namespacemio.html#a0552f6c325d456213e7b779e65773159">get_mobility_factors</a>(std::declval&lt; const Sim &amp; &gt;(), std::declval&lt; double &gt;(), std::declval&lt; const Eigen::Ref&lt; const Eigen::VectorXd &gt; &amp; &gt;()))</td></tr>
 <tr class="memdesc:a68931e7025be1c444c0d167aadd40618"><td class="mdescLeft">&#160;</td><td class="mdescRight">detect a get_mobility_factors function for the Model type.  <a href="namespacemio.html#a68931e7025be1c444c0d167aadd40618">More...</a><br /></td></tr>
@@ -563,19 +563,19 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:ae556a666d14183eb2bf3a3efc11551ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value-or-error type for operations that return a value but can fail.  <a href="namespacemio.html#ae556a666d14183eb2bf3a3efc11551ec">More...</a><br /></td></tr>
 <tr class="separator:ae556a666d14183eb2bf3a3efc11551ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa77289cb9025f32de474165e897655e"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:aaa77289cb9025f32de474165e897655e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a> = std::integral_constant&lt; bool,(<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a045ca6f4db7b107b26221502aa3bbb25">eval_right_hand_side_expr_t</a>, FP, M &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a1f36c00858aa9e417d85e64389a12a6d">get_initial_values_expr_t</a>, FP, M &gt;::value)&gt;</td></tr>
+<tr class="memitem:aaa77289cb9025f32de474165e897655e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a> = std::integral_constant&lt; bool,(<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a95490f3708b41997a34047f48592da90">eval_right_hand_side_expr_t</a>, FP, M &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a18e9d989f58a954b3409d0d6e0760913">get_initial_values_expr_t</a>, FP, M &gt;::value)&gt;</td></tr>
 <tr class="memdesc:aaa77289cb9025f32de474165e897655e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template meta function to check if a type is a valid compartment model.  <a href="namespacemio.html#aaa77289cb9025f32de474165e897655e">More...</a><br /></td></tr>
 <tr class="separator:aaa77289cb9025f32de474165e897655e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e6473506517dc4ad32963f8838995b"><td class="memTemplParams" colspan="2">template&lt;typename FP , class Sim &gt; </td></tr>
 <tr class="memitem:a44e6473506517dc4ad32963f8838995b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a44e6473506517dc4ad32963f8838995b">is_compartment_model_simulation</a> = std::integral_constant&lt; bool,(<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a066be257395cd081eb6e1e6e161b9351">advance_expr_t</a>, FP, Sim &gt;::value &amp;&amp;<a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a>&lt; FP, typename Sim::Model &gt;::value)&gt;</td></tr>
 <tr class="memdesc:a44e6473506517dc4ad32963f8838995b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template meta function to check if a type is a compartment model simulation.  <a href="namespacemio.html#a44e6473506517dc4ad32963f8838995b">More...</a><br /></td></tr>
 <tr class="separator:a44e6473506517dc4ad32963f8838995b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0752d0ad90c7c7789098b08021da4418"><td class="memTemplParams" colspan="2">template&lt;class C &gt; </td></tr>
-<tr class="memitem:a0752d0ad90c7c7789098b08021da4418"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a0752d0ad90c7c7789098b08021da4418">is_container</a> = <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio_1_1details.html#aa2c4bf335b2dc1bff2495bf91e60e182">details::compare_iterators_t</a>, C &gt;</td></tr>
-<tr class="memdesc:a0752d0ad90c7c7789098b08021da4418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is std::true_type if C is a STL compatible container.  <a href="namespacemio.html#a0752d0ad90c7c7789098b08021da4418">More...</a><br /></td></tr>
-<tr class="separator:a0752d0ad90c7c7789098b08021da4418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80210db6ffedf10320c0d446a1742894"><td class="memTemplParams" colspan="2">template&lt;class C &gt; </td></tr>
+<tr class="memitem:a80210db6ffedf10320c0d446a1742894"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a80210db6ffedf10320c0d446a1742894">is_container</a> = <a class="el" href="structmio_1_1conjunction.html">conjunction</a>&lt; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio_1_1details.html#aa2c4bf335b2dc1bff2495bf91e60e182">details::compare_iterators_t</a>, C &gt;, std::is_constructible&lt; C, decltype(std::declval&lt; C &gt;().<a class="el" href="namespacemio.html#aa6c974748a742fac0093de2634750791">begin</a>()), decltype(std::declval&lt; C &gt;().<a class="el" href="namespacemio.html#a81e603f62801572c7afdf910bc057681">end</a>())&gt;, <a class="el" href="structmio_1_1negation.html">negation</a>&lt; std::is_base_of&lt; Eigen::EigenBase&lt; C &gt;, C &gt; &gt;&gt;</td></tr>
+<tr class="memdesc:a80210db6ffedf10320c0d446a1742894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is std::true_type if C is a STL compatible container.  <a href="namespacemio.html#a80210db6ffedf10320c0d446a1742894">More...</a><br /></td></tr>
+<tr class="separator:a80210db6ffedf10320c0d446a1742894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af918281e925e421849516633eb4c40b2"><td class="memTemplParams" colspan="2">template&lt;typename FP , class Model &gt; </td></tr>
-<tr class="memitem:af918281e925e421849516633eb4c40b2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#af918281e925e421849516633eb4c40b2">is_flow_model</a> = std::integral_constant&lt; bool,(<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a25c214f202c43f4126a849e56fcd3335">get_derivatives_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a461496371b9b9b23cd4b40d9b02822cb">get_flows_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a47449ed475e7bbfc041c7623b87bd12b">get_initial_flows_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a>&lt; FP, Model &gt;::value)&gt;</td></tr>
+<tr class="memitem:af918281e925e421849516633eb4c40b2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#af918281e925e421849516633eb4c40b2">is_flow_model</a> = std::integral_constant&lt; bool,(<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#aeaed6bffc432c06ce2821efa997c7fd8">get_derivatives_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a2c10d2b1417d39deb9f4f441a028ea1f">get_flows_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt; <a class="el" href="namespacemio.html#a50a9f43414f52d9d662060c7ff5890b5">get_initial_flows_expr_t</a>, FP, Model &gt;::value &amp;&amp;<a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a>&lt; FP, Model &gt;::value)&gt;</td></tr>
 <tr class="memdesc:af918281e925e421849516633eb4c40b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template meta function to check if a type is a valid flow model.  <a href="namespacemio.html#af918281e925e421849516633eb4c40b2">More...</a><br /></td></tr>
 <tr class="separator:af918281e925e421849516633eb4c40b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a13de5a1cf9acb4db85042f9bc948ea"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
@@ -640,10 +640,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a49caa280ba5357645388c8cb56d4da17"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a49caa280ba5357645388c8cb56d4da17">type_at_index_t</a> = typename <a class="el" href="structmio_1_1type__at__index.html">type_at_index</a>&lt; <a class="el" href="classmio_1_1Index.html">Index</a>, Types... &gt;::type</td></tr>
 <tr class="memdesc:a49caa280ba5357645388c8cb56d4da17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type at the Index-th position in the list Types.  <a href="namespacemio.html#a49caa280ba5357645388c8cb56d4da17">More...</a><br /></td></tr>
 <tr class="separator:a49caa280ba5357645388c8cb56d4da17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4980272f784bde5ee00a3385538950de"><td class="memTemplParams" colspan="2">template&lt;class FP  = ScalarType&gt; </td></tr>
-<tr class="memitem:a4980272f784bde5ee00a3385538950de"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> = Eigen::Matrix&lt; FP, Eigen::Dynamic, 1 &gt;</td></tr>
-<tr class="memdesc:a4980272f784bde5ee00a3385538950de"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of type FP from the Eigen library.  <a href="namespacemio.html#a4980272f784bde5ee00a3385538950de">More...</a><br /></td></tr>
-<tr class="separator:a4980272f784bde5ee00a3385538950de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a852855378d297141c058aa4d561b90e9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio.html#a852855378d297141c058aa4d561b90e9">VectorDamping</a> = <a class="el" href="classmio_1_1Damping.html">Damping</a>&lt; <a class="el" href="classmio_1_1ColumnVectorShape.html">ColumnVectorShape</a> &gt;</td></tr>
 <tr class="separator:a852855378d297141c058aa4d561b90e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70fa1b55f14e56241f910c68e9ff75bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio.html#a70fa1b55f14e56241f910c68e9ff75bc">VectorDampings</a> = <a class="el" href="classmio_1_1Dampings.html">Dampings</a>&lt; <a class="el" href="namespacemio.html#a852855378d297141c058aa4d561b90e9">VectorDamping</a> &gt;</td></tr>
@@ -656,18 +652,18 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:af11f796ce6022b2a47e39adc29c89fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">utility for meta programming that produces void for any valid type.  <a href="namespacemio.html#af11f796ce6022b2a47e39adc29c89fcb">More...</a><br /></td></tr>
 <tr class="separator:af11f796ce6022b2a47e39adc29c89fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a25c214f202c43f4126a849e56fcd3335"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:a25c214f202c43f4126a849e56fcd3335"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a25c214f202c43f4126a849e56fcd3335">get_derivatives_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().get_derivatives(std::declval&lt; Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;()))</td></tr>
-<tr class="memdesc:a25c214f202c43f4126a849e56fcd3335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#a25c214f202c43f4126a849e56fcd3335">More...</a><br /></td></tr>
-<tr class="separator:a25c214f202c43f4126a849e56fcd3335"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a461496371b9b9b23cd4b40d9b02822cb"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:a461496371b9b9b23cd4b40d9b02822cb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a461496371b9b9b23cd4b40d9b02822cb">get_flows_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().get_flows(std::declval&lt; Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;(), std::declval&lt; FP &gt;(), std::declval&lt; Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&gt;()))</td></tr>
-<tr class="memdesc:a461496371b9b9b23cd4b40d9b02822cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#a461496371b9b9b23cd4b40d9b02822cb">More...</a><br /></td></tr>
-<tr class="separator:a461496371b9b9b23cd4b40d9b02822cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47449ed475e7bbfc041c7623b87bd12b"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
-<tr class="memitem:a47449ed475e7bbfc041c7623b87bd12b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a47449ed475e7bbfc041c7623b87bd12b">get_initial_flows_expr_t</a> = decltype(std::declval&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;()=std::declval&lt; const M &amp; &gt;().get_initial_flows())</td></tr>
-<tr class="memdesc:a47449ed475e7bbfc041c7623b87bd12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#a47449ed475e7bbfc041c7623b87bd12b">More...</a><br /></td></tr>
-<tr class="separator:a47449ed475e7bbfc041c7623b87bd12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaed6bffc432c06ce2821efa997c7fd8"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
+<tr class="memitem:aeaed6bffc432c06ce2821efa997c7fd8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#aeaed6bffc432c06ce2821efa997c7fd8">get_derivatives_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().get_derivatives(std::declval&lt; Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt;&gt;()))</td></tr>
+<tr class="memdesc:aeaed6bffc432c06ce2821efa997c7fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#aeaed6bffc432c06ce2821efa997c7fd8">More...</a><br /></td></tr>
+<tr class="separator:aeaed6bffc432c06ce2821efa997c7fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c10d2b1417d39deb9f4f441a028ea1f"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
+<tr class="memitem:a2c10d2b1417d39deb9f4f441a028ea1f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a2c10d2b1417d39deb9f4f441a028ea1f">get_flows_expr_t</a> = decltype(std::declval&lt; const M &amp; &gt;().get_flows(std::declval&lt; Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt;&gt;(), std::declval&lt; Eigen::Ref&lt; const Eigen::VectorX&lt; FP &gt; &gt;&gt;(), std::declval&lt; FP &gt;(), std::declval&lt; Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt;&gt;()))</td></tr>
+<tr class="memdesc:a2c10d2b1417d39deb9f4f441a028ea1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#a2c10d2b1417d39deb9f4f441a028ea1f">More...</a><br /></td></tr>
+<tr class="separator:a2c10d2b1417d39deb9f4f441a028ea1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50a9f43414f52d9d662060c7ff5890b5"><td class="memTemplParams" colspan="2">template&lt;typename FP , class M &gt; </td></tr>
+<tr class="memitem:a50a9f43414f52d9d662060c7ff5890b5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a50a9f43414f52d9d662060c7ff5890b5">get_initial_flows_expr_t</a> = decltype(std::declval&lt; Eigen::VectorX&lt; FP &gt; &gt;()=std::declval&lt; const M &amp; &gt;().get_initial_flows())</td></tr>
+<tr class="memdesc:a50a9f43414f52d9d662060c7ff5890b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether certain member functions (the name before '_expr_t') exist.  <a href="namespacemio.html#a50a9f43414f52d9d662060c7ff5890b5">More...</a><br /></td></tr>
+<tr class="separator:a50a9f43414f52d9d662060c7ff5890b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -736,7 +732,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa6c974748a742fac0093de2634750791"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a non-const iterator to first element of the matrix m.  <a href="namespacemio.html#aa6c974748a742fac0093de2634750791">More...</a><br /></td></tr>
 <tr class="separator:aa6c974748a742fac0093de2634750791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bec9e4f26b979f937b6c579be338290"><td class="memTemplParams" colspan="2">template&lt;typename FP , class Sim , class  = std::enable_if_t&lt;is_compartment_model_simulation&lt;FP, Sim&gt;::value&gt;&gt; </td></tr>
-<tr class="memitem:a3bec9e4f26b979f937b6c579be338290"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a3bec9e4f26b979f937b6c579be338290">calculate_mobility_returns</a> (Eigen::Ref&lt; typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> &gt; mobile_population, const Sim &amp;sim, Eigen::Ref&lt; const typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> &gt; total, FP t, FP dt)</td></tr>
+<tr class="memitem:a3bec9e4f26b979f937b6c579be338290"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a3bec9e4f26b979f937b6c579be338290">calculate_mobility_returns</a> (Eigen::Ref&lt; typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::Vector &gt; mobile_population, const Sim &amp;sim, Eigen::Ref&lt; const typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::Vector &gt; total, FP t, FP dt)</td></tr>
 <tr class="memdesc:a3bec9e4f26b979f937b6c579be338290"><td class="mdescLeft">&#160;</td><td class="mdescRight">adjust number of people that changed node when they return according to the model.  <a href="namespacemio.html#a3bec9e4f26b979f937b6c579be338290">More...</a><br /></td></tr>
 <tr class="separator:a3bec9e4f26b979f937b6c579be338290"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab02eb7f4efb5cb5a374a7ad79497784"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 12 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemio.html#aab02eb7f4efb5cb5a374a7ad79497784">calculate_partial_sum_of_months</a> (const <a class="el" href="structmio_1_1Date.html">Date</a> &amp;date)</td></tr>
@@ -891,6 +887,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a39bb377d592d615e42466404fabe9c88"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a39bb377d592d615e42466404fabe9c88">foreach_tag</a> (F f)</td></tr>
 <tr class="memdesc:a39bb377d592d615e42466404fabe9c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">call f(t) for all parameters in a <a class="el" href="classmio_1_1ParameterSet.html" title="a set of parameters defined at compile time">ParameterSet</a> with t a default constructed parameter tag  <a href="namespacemio.html#a39bb377d592d615e42466404fabe9c88">More...</a><br /></td></tr>
 <tr class="separator:a39bb377d592d615e42466404fabe9c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809384e3e712298c7af0f69287958352"><td class="memTemplParams" colspan="2">template&lt;class FP &gt; </td></tr>
+<tr class="memitem:a809384e3e712298c7af0f69287958352"><td class="memTemplItemLeft" align="right" valign="top">const FP &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a809384e3e712298c7af0f69287958352">format_as</a> (const <a class="el" href="classmio_1_1UncertainValue.html">UncertainValue</a>&lt; FP &gt; &amp;uv)</td></tr>
+<tr class="memdesc:a809384e3e712298c7af0f69287958352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format UncertainValues using their value for logging with spdlog.  <a href="namespacemio.html#a809384e3e712298c7af0f69287958352">More...</a><br /></td></tr>
+<tr class="separator:a809384e3e712298c7af0f69287958352"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bfe99028c36206c267431a3549f3c6e"><td class="memTemplParams" colspan="2">template&lt;size_t I, typename... CategoryTags, std::enable_if_t&lt;(sizeof...(CategoryTags) &gt; 1), void &gt; *  = nullptr&gt; </td></tr>
 <tr class="memitem:a6bfe99028c36206c267431a3549f3c6e"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple_element&lt; I, std::tuple&lt; <a class="el" href="classmio_1_1Index.html">Index</a>&lt; CategoryTags &gt;... &gt; &gt;::type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a6bfe99028c36206c267431a3549f3c6e">get</a> (<a class="el" href="classmio_1_1Index.html">Index</a>&lt; CategoryTags... &gt; &amp;i) noexcept</td></tr>
 <tr class="separator:a6bfe99028c36206c267431a3549f3c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -964,7 +964,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a46a8c32ccd44e57584abc88bf22eee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation between two data values.  <a href="namespacemio.html#a46a8c32ccd44e57584abc88bf22eee11">More...</a><br /></td></tr>
 <tr class="separator:a46a8c32ccd44e57584abc88bf22eee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memTemplParams" colspan="2">template&lt;class FP &gt; </td></tr>
-<tr class="memitem:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a5d1b824e74e65d53b7d3ae4f19ce0fef">linear_interpolation</a> (FP time, const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt; &amp;data)</td></tr>
+<tr class="memitem:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::Vector&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemio.html#a5d1b824e74e65d53b7d3ae4f19ce0fef">linear_interpolation</a> (FP time, const <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt; &amp;data)</td></tr>
 <tr class="memdesc:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation of a <a class="el" href="classmio_1_1TimeSeries.html" title="stores vectors of values at time points (or some other abstract variable) the value at each time poin...">TimeSeries</a>.  <a href="namespacemio.html#a5d1b824e74e65d53b7d3ae4f19ce0fef">More...</a><br /></td></tr>
 <tr class="separator:a5d1b824e74e65d53b7d3ae4f19ce0fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f961972292a81681062a6c8fdc03041"><td class="memTemplParams" colspan="2">template&lt;typename X , typename Y &gt; </td></tr>
@@ -1346,8 +1346,8 @@ template&lt;typename FP  = ScalarType&gt; </div>
 
 </div>
 </div>
-<a id="a79d7d0d1b2caddc5ad68e40935ef477a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79d7d0d1b2caddc5ad68e40935ef477a">&#9670;&nbsp;</a></span>DerivFunction</h2>
+<a id="af3c28e38185582f4381993f7de71ea6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c28e38185582f4381993f7de71ea6a">&#9670;&nbsp;</a></span>DerivFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1355,7 +1355,7 @@ template&lt;typename FP  = ScalarType&gt; </div>
 template&lt;typename FP  = double&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a79d7d0d1b2caddc5ad68e40935ef477a">mio::DerivFunction</a> = typedef std::function&lt;void(Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a>&lt;FP&gt; &gt; y, FP t, Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a>&lt;FP&gt; &gt; dydt)&gt;</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#af3c28e38185582f4381993f7de71ea6a">mio::DerivFunction</a> = typedef std::function&lt;void(Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt; y, FP t, Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt; dydt)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1398,8 +1398,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a045ca6f4db7b107b26221502aa3bbb25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a045ca6f4db7b107b26221502aa3bbb25">&#9670;&nbsp;</a></span>eval_right_hand_side_expr_t</h2>
+<a id="a95490f3708b41997a34047f48592da90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95490f3708b41997a34047f48592da90">&#9670;&nbsp;</a></span>eval_right_hand_side_expr_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1407,7 +1407,7 @@ template&lt;class T &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a045ca6f4db7b107b26221502aa3bbb25">mio::eval_right_hand_side_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().eval_right_hand_side(std::declval&lt;Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;(), std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;()))</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#a95490f3708b41997a34047f48592da90">mio::eval_right_hand_side_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().eval_right_hand_side( std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt;&gt;(), std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt;&gt;()))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1423,8 +1423,8 @@ template&lt;typename FP , class M &gt; </div>
 
 </div>
 </div>
-<a id="a25c214f202c43f4126a849e56fcd3335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25c214f202c43f4126a849e56fcd3335">&#9670;&nbsp;</a></span>get_derivatives_expr_t</h2>
+<a id="aeaed6bffc432c06ce2821efa997c7fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaed6bffc432c06ce2821efa997c7fd8">&#9670;&nbsp;</a></span>get_derivatives_expr_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1432,7 +1432,7 @@ template&lt;typename FP , class M &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a25c214f202c43f4126a849e56fcd3335">mio::get_derivatives_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().get_derivatives( std::declval&lt;Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;()))</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#aeaed6bffc432c06ce2821efa997c7fd8">mio::get_derivatives_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().get_derivatives( std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt;&gt;()))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1448,8 +1448,8 @@ template&lt;typename FP , class M &gt; </div>
 
 </div>
 </div>
-<a id="a461496371b9b9b23cd4b40d9b02822cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a461496371b9b9b23cd4b40d9b02822cb">&#9670;&nbsp;</a></span>get_flows_expr_t</h2>
+<a id="a2c10d2b1417d39deb9f4f441a028ea1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c10d2b1417d39deb9f4f441a028ea1f">&#9670;&nbsp;</a></span>get_flows_expr_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1457,7 +1457,7 @@ template&lt;typename FP , class M &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a461496371b9b9b23cd4b40d9b02822cb">mio::get_flows_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().get_flows(std::declval&lt;Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;const <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;(), std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;&gt;()))</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#a2c10d2b1417d39deb9f4f441a028ea1f">mio::get_flows_expr_t</a> = typedef decltype(std::declval&lt;const M&amp;&gt;().get_flows(std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt;&gt;(), std::declval&lt;Eigen::Ref&lt;const Eigen::VectorX&lt;FP&gt; &gt;&gt;(), std::declval&lt;FP&gt;(), std::declval&lt;Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt;&gt;()))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1491,8 +1491,8 @@ template&lt;class Sim &gt; </div>
 
 </div>
 </div>
-<a id="a47449ed475e7bbfc041c7623b87bd12b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47449ed475e7bbfc041c7623b87bd12b">&#9670;&nbsp;</a></span>get_initial_flows_expr_t</h2>
+<a id="a50a9f43414f52d9d662060c7ff5890b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50a9f43414f52d9d662060c7ff5890b5">&#9670;&nbsp;</a></span>get_initial_flows_expr_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1500,7 +1500,7 @@ template&lt;class Sim &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a47449ed475e7bbfc041c7623b87bd12b">mio::get_initial_flows_expr_t</a> = typedef decltype(std::declval&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt;() = std::declval&lt;const M&amp;&gt;().get_initial_flows())</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#a50a9f43414f52d9d662060c7ff5890b5">mio::get_initial_flows_expr_t</a> = typedef decltype(std::declval&lt;Eigen::VectorX&lt;FP&gt; &gt;() = std::declval&lt;const M&amp;&gt;().get_initial_flows())</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1516,8 +1516,8 @@ template&lt;typename FP , class M &gt; </div>
 
 </div>
 </div>
-<a id="a1f36c00858aa9e417d85e64389a12a6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f36c00858aa9e417d85e64389a12a6d">&#9670;&nbsp;</a></span>get_initial_values_expr_t</h2>
+<a id="a18e9d989f58a954b3409d0d6e0760913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e9d989f58a954b3409d0d6e0760913">&#9670;&nbsp;</a></span>get_initial_values_expr_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1525,7 +1525,7 @@ template&lt;typename FP , class M &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a1f36c00858aa9e417d85e64389a12a6d">mio::get_initial_values_expr_t</a> = typedef decltype(std::declval&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt;&amp;&gt;() = std::declval&lt;const M&amp;&gt;().get_initial_values())</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#a18e9d989f58a954b3409d0d6e0760913">mio::get_initial_values_expr_t</a> = typedef decltype(std::declval&lt;Eigen::VectorX&lt;FP&gt;&amp;&gt;() = std::declval&lt;const M&amp;&gt;().get_initial_values())</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1811,7 +1811,7 @@ template&lt;class T &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">mio::is_compartment_model</a> = typedef std::integral_constant&lt;bool, (<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a045ca6f4db7b107b26221502aa3bbb25">eval_right_hand_side_expr_t</a>, FP, M&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a1f36c00858aa9e417d85e64389a12a6d">get_initial_values_expr_t</a>, FP, M&gt;::value)&gt;</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">mio::is_compartment_model</a> = typedef std::integral_constant&lt;bool, (<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a95490f3708b41997a34047f48592da90">eval_right_hand_side_expr_t</a>, FP, M&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a18e9d989f58a954b3409d0d6e0760913">get_initial_values_expr_t</a>, FP, M&gt;::value)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1852,8 +1852,8 @@ template&lt;typename FP , class Sim &gt; </div>
 
 </div>
 </div>
-<a id="a0752d0ad90c7c7789098b08021da4418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0752d0ad90c7c7789098b08021da4418">&#9670;&nbsp;</a></span>is_container</h2>
+<a id="a80210db6ffedf10320c0d446a1742894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80210db6ffedf10320c0d446a1742894">&#9670;&nbsp;</a></span>is_container</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1861,7 +1861,7 @@ template&lt;typename FP , class Sim &gt; </div>
 template&lt;class C &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a0752d0ad90c7c7789098b08021da4418">mio::is_container</a> = typedef <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio_1_1details.html#aa2c4bf335b2dc1bff2495bf91e60e182">details::compare_iterators_t</a>, C&gt;</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#a80210db6ffedf10320c0d446a1742894">mio::is_container</a> = typedef <a class="el" href="structmio_1_1conjunction.html">conjunction</a>&lt;<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio_1_1details.html#aa2c4bf335b2dc1bff2495bf91e60e182">details::compare_iterators_t</a>, C&gt;, std::is_constructible&lt;C, decltype(std::declval&lt;C&gt;().<a class="el" href="namespacemio.html#aa6c974748a742fac0093de2634750791">begin</a>()), decltype(std::declval&lt;C&gt;().<a class="el" href="namespacemio.html#a81e603f62801572c7afdf910bc057681">end</a>())&gt;, <a class="el" href="structmio_1_1negation.html">negation</a>&lt;std::is_base_of&lt;Eigen::EigenBase&lt;C&gt;, C&gt; &gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1885,7 +1885,7 @@ template&lt;class C &gt; </div>
 template&lt;typename FP , class Model &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#af918281e925e421849516633eb4c40b2">mio::is_flow_model</a> = typedef std::integral_constant&lt;bool, (<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a25c214f202c43f4126a849e56fcd3335">get_derivatives_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a461496371b9b9b23cd4b40d9b02822cb">get_flows_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a47449ed475e7bbfc041c7623b87bd12b">get_initial_flows_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a>&lt;FP, Model&gt;::value)&gt;</td>
+          <td class="memname">using <a class="el" href="namespacemio.html#af918281e925e421849516633eb4c40b2">mio::is_flow_model</a> = typedef std::integral_constant&lt;bool, (<a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#aeaed6bffc432c06ce2821efa997c7fd8">get_derivatives_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a2c10d2b1417d39deb9f4f441a028ea1f">get_flows_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="structmio_1_1is__expression__valid.html">is_expression_valid</a>&lt;<a class="el" href="namespacemio.html#a50a9f43414f52d9d662060c7ff5890b5">get_initial_flows_expr_t</a>, FP, Model&gt;::value &amp;&amp; <a class="el" href="namespacemio.html#aaa77289cb9025f32de474165e897655e">is_compartment_model</a>&lt;FP, Model&gt;::value)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2211,24 +2211,6 @@ template&lt;std::size_t Index, class... Types&gt; </div>
 
 <p>The type at the Index-th position in the list Types. </p>
 <p>Equivalent to type_at&lt;Index, Types...&gt;::type. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structmio_1_1type__at__index.html" title="Finds the type at the Index-th position in the list Types.">type_at_index</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a4980272f784bde5ee00a3385538950de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4980272f784bde5ee00a3385538950de">&#9670;&nbsp;</a></span>Vector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class FP  = ScalarType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">mio::Vector</a> = typedef Eigen::Matrix&lt;FP, Eigen::Dynamic, 1&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A vector of type FP from the Eigen library. </p>
 
 </div>
 </div>
@@ -2775,7 +2757,7 @@ template&lt;typename FP , class Sim , class  = std::enable_if_t&lt;is_compartmen
         <tr>
           <td class="memname">void mio::calculate_mobility_returns </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Ref&lt; typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> &gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::Vector &gt;&#160;</td>
           <td class="paramname"><em>mobile_population</em>, </td>
         </tr>
         <tr>
@@ -2787,7 +2769,7 @@ template&lt;typename FP , class Sim , class  = std::enable_if_t&lt;is_compartmen
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::Ref&lt; const typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> &gt;&#160;</td>
+          <td class="paramtype">Eigen::Ref&lt; const typename <a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt; FP &gt;::Vector &gt;&#160;</td>
           <td class="paramname"><em>total</em>, </td>
         </tr>
         <tr>
@@ -4429,6 +4411,28 @@ template&lt;class Params , class F &gt; </div>
 
 </div>
 </div>
+<a id="a809384e3e712298c7af0f69287958352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809384e3e712298c7af0f69287958352">&#9670;&nbsp;</a></span>format_as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class FP &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const FP&amp; mio::format_as </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmio_1_1UncertainValue.html">UncertainValue</a>&lt; FP &gt; &amp;&#160;</td>
+          <td class="paramname"><em>uv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format UncertainValues using their value for logging with spdlog. </p>
+
+</div>
+</div>
 <a id="a6bfe99028c36206c267431a3549f3c6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bfe99028c36206c267431a3549f3c6e">&#9670;&nbsp;</a></span>get() <span class="overload">[1/4]</span></h2>
 
@@ -5231,7 +5235,7 @@ template&lt;typename X , typename V &gt; </div>
 template&lt;class FP &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt;FP&gt;::<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a> mio::linear_interpolation </td>
+          <td class="memname"><a class="el" href="classmio_1_1TimeSeries.html">TimeSeries</a>&lt;FP&gt;::Vector mio::linear_interpolation </td>
           <td>(</td>
           <td class="paramtype">FP&#160;</td>
           <td class="paramname"><em>time</em>, </td>

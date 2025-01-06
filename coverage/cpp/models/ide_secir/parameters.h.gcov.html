@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -289,7 +289,7 @@
 <a name="227"><span class="lineNum">     227 </span><span class="lineCov">        919 :             for (size_t i = 0; i &lt; infectious_window_check; i++) {</span></a>
 <a name="228"><span class="lineNum">     228 </span><span class="lineCov">       1801 :                 if (this-&gt;get&lt;TransmissionProbabilityOnContact&gt;()[group].eval((ScalarType)i) &lt; 0.0 ||</span></a>
 <a name="229"><span class="lineNum">     229 </span><span class="lineCov">        900 :                     this-&gt;get&lt;TransmissionProbabilityOnContact&gt;()[group].eval((ScalarType)i) &gt; 1.0) {</span></a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">          2 :                     log_error(&quot;Constraint check: TransmissionProbabilityOnContact smaller {:d} or larger {:d} at some &quot;</span></a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">          1 :                     log_error(&quot;Constraint check: TransmissionProbabilityOnContact smaller {:d} or larger {:d} at some &quot;</span></a>
 <a name="231"><span class="lineNum">     231 </span>            :                               &quot;time {:d}&quot;,</a>
 <a name="232"><span class="lineNum">     232 </span><span class="lineCov">          2 :                               0, 1, i);</span></a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">          1 :                     return true;</span></a>
@@ -299,7 +299,7 @@
 <a name="237"><span class="lineNum">     237 </span><span class="lineCov">        868 :             for (size_t i = 0; i &lt; infectious_window_check; i++) {</span></a>
 <a name="238"><span class="lineNum">     238 </span><span class="lineCov">       1701 :                 if (this-&gt;get&lt;RelativeTransmissionNoSymptoms&gt;()[group].eval((ScalarType)i) &lt; 0.0 ||</span></a>
 <a name="239"><span class="lineNum">     239 </span><span class="lineCov">        850 :                     this-&gt;get&lt;RelativeTransmissionNoSymptoms&gt;()[group].eval((ScalarType)i) &gt; 1.0) {</span></a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">          2 :                     log_error(&quot;Constraint check: RelativeTransmissionNoSymptoms smaller {:d} or larger {:d} at some &quot;</span></a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">          1 :                     log_error(&quot;Constraint check: RelativeTransmissionNoSymptoms smaller {:d} or larger {:d} at some &quot;</span></a>
 <a name="241"><span class="lineNum">     241 </span>            :                               &quot;time {:d}&quot;,</a>
 <a name="242"><span class="lineNum">     242 </span><span class="lineCov">          2 :                               0, 1, i);</span></a>
 <a name="243"><span class="lineNum">     243 </span><span class="lineCov">          1 :                     return true;</span></a>
@@ -309,7 +309,7 @@
 <a name="247"><span class="lineNum">     247 </span><span class="lineCov">        817 :             for (size_t i = 0; i &lt; infectious_window_check; i++) {</span></a>
 <a name="248"><span class="lineNum">     248 </span><span class="lineCov">       1601 :                 if (this-&gt;get&lt;RiskOfInfectionFromSymptomatic&gt;()[group].eval((ScalarType)i) &lt; 0.0 ||</span></a>
 <a name="249"><span class="lineNum">     249 </span><span class="lineCov">        800 :                     this-&gt;get&lt;RiskOfInfectionFromSymptomatic&gt;()[group].eval((ScalarType)i) &gt; 1.0) {</span></a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          2 :                     log_error(&quot;Constraint check: RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d} at some &quot;</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          1 :                     log_error(&quot;Constraint check: RiskOfInfectionFromSymptomatic smaller {:d} or larger {:d} at some &quot;</span></a>
 <a name="251"><span class="lineNum">     251 </span>            :                               &quot;time {:d}&quot;,</a>
 <a name="252"><span class="lineNum">     252 </span><span class="lineCov">          2 :                               0, 1, i);</span></a>
 <a name="253"><span class="lineNum">     253 </span><span class="lineCov">          1 :                     return true;</span></a>
@@ -319,7 +319,7 @@
 <a name="257"><span class="lineNum">     257 </span><span class="lineCov">        174 :             for (size_t i = 0; i &lt; (int)InfectionTransition::Count; i++) {</span></a>
 <a name="258"><span class="lineNum">     258 </span><span class="lineCov">        317 :                 if (this-&gt;get&lt;TransitionProbabilities&gt;()[group][i] &lt; 0.0 ||</span></a>
 <a name="259"><span class="lineNum">     259 </span><span class="lineCov">        158 :                     this-&gt;get&lt;TransitionProbabilities&gt;()[group][i] &gt; 1.0) {</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">          2 :                     log_error(&quot;Constraint check: One parameter in TransitionProbabilities smaller {:d} or larger {:d}&quot;,</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">          1 :                     log_error(&quot;Constraint check: One parameter in TransitionProbabilities smaller {:d} or larger {:d}&quot;,</span></a>
 <a name="261"><span class="lineNum">     261 </span><span class="lineCov">          2 :                               0, 1);</span></a>
 <a name="262"><span class="lineNum">     262 </span><span class="lineCov">          1 :                     return true;</span></a>
 <a name="263"><span class="lineNum">     263 </span>            :                 }</a>
@@ -328,7 +328,7 @@
 <a name="266"><span class="lineNum">     266 </span><span class="lineCov">         30 :             if (!floating_point_equal(</span></a>
 <a name="267"><span class="lineNum">     267 </span><span class="lineCov">         15 :                     this-&gt;get&lt;TransitionProbabilities&gt;()[group][(int)InfectionTransition::SusceptibleToExposed], 1.0,</span></a>
 <a name="268"><span class="lineNum">     268 </span>            :                     1e-14)) {</a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter transition probability for SusceptibleToExposed unequal to {:d}&quot;,</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter transition probability for SusceptibleToExposed unequal to {:d}&quot;,</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="271"><span class="lineNum">     271 </span><span class="lineCov">          1 :                 return true;</span></a>
 <a name="272"><span class="lineNum">     272 </span>            :             }</a>
@@ -336,7 +336,7 @@
 <a name="274"><span class="lineNum">     274 </span><span class="lineCov">         28 :             if (!floating_point_equal(</span></a>
 <a name="275"><span class="lineNum">     275 </span><span class="lineCov">         14 :                     this-&gt;get&lt;TransitionProbabilities&gt;()[group][(int)InfectionTransition::ExposedToInfectedNoSymptoms],</span></a>
 <a name="276"><span class="lineNum">     276 </span>            :                     1.0, 1e-14)) {</a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Parameter transition probability for ExposedToInfectedNoSymptoms unequal &quot;</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Parameter transition probability for ExposedToInfectedNoSymptoms unequal &quot;</span></a>
 <a name="278"><span class="lineNum">     278 </span>            :                           &quot;to {:d}&quot;,</a>
 <a name="279"><span class="lineNum">     279 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="280"><span class="lineNum">     280 </span><span class="lineCov">          1 :                 return true;</span></a>
@@ -347,7 +347,7 @@
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">         13 :                                           this-&gt;get&lt;TransitionProbabilities&gt;()[group][(</span></a>
 <a name="286"><span class="lineNum">     286 </span><span class="lineCov">         13 :                                               int)InfectionTransition::InfectedNoSymptomsToRecovered],</span></a>
 <a name="287"><span class="lineNum">     287 </span>            :                                       1.0, 1e-14)) {</a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineCov">          2 :                 log_error(</span></a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">          1 :                 log_error(</span></a>
 <a name="289"><span class="lineNum">     289 </span>            :                     &quot;Constraint check: Sum of transition probability for InfectedNoSymptomsToInfectedSymptoms and &quot;</a>
 <a name="290"><span class="lineNum">     290 </span>            :                     &quot;InfectedNoSymptomsToRecovered not equal to {:d}&quot;,</a>
 <a name="291"><span class="lineNum">     291 </span><span class="lineCov">          2 :                     1);</span></a>
@@ -359,7 +359,7 @@
 <a name="297"><span class="lineNum">     297 </span><span class="lineCov">         12 :                                           this-&gt;get&lt;TransitionProbabilities&gt;()[group][(</span></a>
 <a name="298"><span class="lineNum">     298 </span><span class="lineCov">         12 :                                               int)InfectionTransition::InfectedSymptomsToRecovered],</span></a>
 <a name="299"><span class="lineNum">     299 </span>            :                                       1.0, 1e-14)) {</a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedSymptomsToInfectedSevere and &quot;</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedSymptomsToInfectedSevere and &quot;</span></a>
 <a name="301"><span class="lineNum">     301 </span>            :                           &quot;InfectedSymptomsToRecovered not equal to {:d}&quot;,</a>
 <a name="302"><span class="lineNum">     302 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="303"><span class="lineNum">     303 </span><span class="lineCov">          1 :                 return true;</span></a>
@@ -370,7 +370,7 @@
 <a name="308"><span class="lineNum">     308 </span><span class="lineCov">         11 :                                           this-&gt;get&lt;TransitionProbabilities&gt;()[group][(</span></a>
 <a name="309"><span class="lineNum">     309 </span><span class="lineCov">         11 :                                               int)InfectionTransition::InfectedSevereToRecovered],</span></a>
 <a name="310"><span class="lineNum">     310 </span>            :                                       1.0, 1e-14)) {</a>
-<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedSevereToInfectedCritical and &quot;</span></a>
+<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedSevereToInfectedCritical and &quot;</span></a>
 <a name="312"><span class="lineNum">     312 </span>            :                           &quot;InfectedSevereToRecovered not equal to {:d}&quot;,</a>
 <a name="313"><span class="lineNum">     313 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="314"><span class="lineNum">     314 </span><span class="lineCov">          1 :                 return true;</span></a>
@@ -381,7 +381,7 @@
 <a name="319"><span class="lineNum">     319 </span><span class="lineCov">         10 :                         this-&gt;get&lt;TransitionProbabilities&gt;()[group]</span></a>
 <a name="320"><span class="lineNum">     320 </span><span class="lineCov">         10 :                                                             [(int)InfectionTransition::InfectedCriticalToRecovered],</span></a>
 <a name="321"><span class="lineNum">     321 </span>            :                     1.0, 1e-14)) {</a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">          2 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedCriticalToDead and &quot;</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">          1 :                 log_error(&quot;Constraint check: Sum of transition probability for InfectedCriticalToDead and &quot;</span></a>
 <a name="323"><span class="lineNum">     323 </span>            :                           &quot;InfectedCriticalToRecovered not equal to {:d}&quot;,</a>
 <a name="324"><span class="lineNum">     324 </span><span class="lineCov">          2 :                           1);</span></a>
 <a name="325"><span class="lineNum">     325 </span><span class="lineCov">          1 :                 return true;</span></a>
@@ -392,14 +392,14 @@
 <a name="330"><span class="lineNum">     330 </span><span class="lineCov">         81 :             for (size_t i = 1; i &lt; (int)InfectionTransition::Count; i++) {</span></a>
 <a name="331"><span class="lineNum">     331 </span><span class="lineCov">         73 :                 if (floating_point_less(this-&gt;get&lt;TransitionDistributions&gt;()[group][i].get_support_max(10), 0.0,</span></a>
 <a name="332"><span class="lineNum">     332 </span>            :                                         1e-14)) {</a>
-<a name="333"><span class="lineNum">     333 </span><span class="lineCov">          2 :                     log_error(&quot;Constraint check: One function in TransitionDistributions has invalid support.&quot;);</span></a>
+<a name="333"><span class="lineNum">     333 </span><span class="lineCov">          1 :                     log_error(&quot;Constraint check: One function in TransitionDistributions has invalid support.&quot;);</span></a>
 <a name="334"><span class="lineNum">     334 </span><span class="lineCov">          1 :                     return true;</span></a>
 <a name="335"><span class="lineNum">     335 </span>            :                 }</a>
 <a name="336"><span class="lineNum">     336 </span>            :             }</a>
 <a name="337"><span class="lineNum">     337 </span>            :         }</a>
 <a name="338"><span class="lineNum">     338 </span>            : </a>
 <a name="339"><span class="lineNum">     339 </span><span class="lineCov">          6 :         if (this-&gt;get&lt;Seasonality&gt;() &lt; 0.0 || this-&gt;get&lt;Seasonality&gt;() &gt; 0.5) {</span></a>
-<a name="340"><span class="lineNum">     340 </span><span class="lineCov">          2 :             log_warning(&quot;Constraint check: Parameter Seasonality should lie between {:0.4f} and {:.4f}&quot;, 0.0, 0.5);</span></a>
+<a name="340"><span class="lineNum">     340 </span><span class="lineCov">          1 :             log_warning(&quot;Constraint check: Parameter Seasonality should lie between {:0.4f} and {:.4f}&quot;, 0.0, 0.5);</span></a>
 <a name="341"><span class="lineNum">     341 </span><span class="lineCov">          1 :             return true;</span></a>
 <a name="342"><span class="lineNum">     342 </span>            :         }</a>
 <a name="343"><span class="lineNum">     343 </span>            : </a>

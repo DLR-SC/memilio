@@ -98,9 +98,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3f013015e3594ec2669927c31a01fda"><td class="memItemLeft" align="right" valign="top">Eigen::Ref&lt; <a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt; FP &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#ac3f013015e3594ec2669927c31a01fda">advance</a> (FP tmax)</td></tr>
-<tr class="memdesc:ac3f013015e3594ec2669927c31a01fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance simulation to tmax tmax must be greater than <a class="el" href="classmio_1_1Simulation.html#a80ae1f5090ca4eff06c4d5f8607931e1" title="Returns the simulation result describing the model population in each time step.">get_result()</a>.get_last_time_point()  <a href="classmio_1_1Simulation.html#ac3f013015e3594ec2669927c31a01fda">More...</a><br /></td></tr>
-<tr class="separator:ac3f013015e3594ec2669927c31a01fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0ea7a171a7d511893ed1561c6a1e7e"><td class="memItemLeft" align="right" valign="top">Eigen::Ref&lt; Eigen::VectorX&lt; FP &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#a0f0ea7a171a7d511893ed1561c6a1e7e">advance</a> (FP tmax)</td></tr>
+<tr class="memdesc:a0f0ea7a171a7d511893ed1561c6a1e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance simulation to tmax tmax must be greater than <a class="el" href="classmio_1_1Simulation.html#a80ae1f5090ca4eff06c4d5f8607931e1" title="Returns the simulation result describing the model population in each time step.">get_result()</a>.get_last_time_point()  <a href="classmio_1_1Simulation.html#a0f0ea7a171a7d511893ed1561c6a1e7e">More...</a><br /></td></tr>
+<tr class="separator:a0f0ea7a171a7d511893ed1561c6a1e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e4bb59a62bc56f6da50978fd3597af5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmio_1_1Simulation.html#a0e4bb59a62bc56f6da50978fd3597af5">set_integrator</a> (std::shared_ptr&lt; <a class="el" href="classmio_1_1IntegratorCore.html">IntegratorCore</a>&lt; FP &gt;&gt; integrator)</td></tr>
 <tr class="memdesc:a0e4bb59a62bc56f6da50978fd3597af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the integrator core used in the simulation.  <a href="classmio_1_1Simulation.html#a0e4bb59a62bc56f6da50978fd3597af5">More...</a><br /></td></tr>
 <tr class="separator:a0e4bb59a62bc56f6da50978fd3597af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,8 +237,8 @@ template&lt;typename FP , class M &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac3f013015e3594ec2669927c31a01fda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3f013015e3594ec2669927c31a01fda">&#9670;&nbsp;</a></span>advance()</h2>
+<a id="a0f0ea7a171a7d511893ed1561c6a1e7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0ea7a171a7d511893ed1561c6a1e7e">&#9670;&nbsp;</a></span>advance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +246,7 @@ template&lt;typename FP , class M &gt; </div>
 template&lt;typename FP , class M &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Ref&lt;<a class="el" href="namespacemio.html#a4980272f784bde5ee00a3385538950de">Vector</a>&lt;FP&gt; &gt; <a class="el" href="classmio_1_1Simulation.html">mio::Simulation</a>&lt; FP, M &gt;::advance </td>
+          <td class="memname">Eigen::Ref&lt;Eigen::VectorX&lt;FP&gt; &gt; <a class="el" href="classmio_1_1Simulation.html">mio::Simulation</a>&lt; FP, M &gt;::advance </td>
           <td>(</td>
           <td class="paramtype">FP&#160;</td>
           <td class="paramname"><em>tmax</em></td><td>)</td>

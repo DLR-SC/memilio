@@ -504,6 +504,10 @@ Functions</h2></td></tr>
 <tr class="memitem:adbd0b3e4abf0587d9a4171b5b39b28ba"><td class="memTemplParams" colspan="2">template&lt;class AD_TAPE_REAL , class A1_T , class A1_OP &gt; </td></tr>
 <tr class="memitem:adbd0b3e4abf0587d9a4171b5b39b28ba"><td class="memTemplItemLeft" align="right" valign="top">static double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacead_1_1internal.html#adbd0b3e4abf0587d9a4171b5b39b28ba">floor</a> (const <a class="el" href="structad_1_1internal_1_1unary__intermediate.html">ad::internal::unary_intermediate</a>&lt; AD_TAPE_REAL, A1_T, A1_OP &gt; &amp;x)</td></tr>
 <tr class="separator:adbd0b3e4abf0587d9a4171b5b39b28ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060c9319f77c19e0ca68e0b66caead74"><td class="memTemplParams" colspan="2">template&lt;class FP , class DataHandler &gt; </td></tr>
+<tr class="memitem:a060c9319f77c19e0ca68e0b66caead74"><td class="memTemplItemLeft" align="right" valign="top">const FP &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacead_1_1internal.html#a060c9319f77c19e0ca68e0b66caead74">format_as</a> (const <a class="el" href="structad_1_1internal_1_1active__type.html">active_type</a>&lt; FP, DataHandler &gt; &amp;ad_type)</td></tr>
+<tr class="memdesc:a060c9319f77c19e0ca68e0b66caead74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format AD types (like <a class="el" href="classad_1_1gt1s.html#ae229a934d69ae2ca71b3f30ff501a924">ad::gt1s&lt;double&gt;::type</a>) using their value for logging with spdlog.  <a href="namespacead_1_1internal.html#a060c9319f77c19e0ca68e0b66caead74">More...</a><br /></td></tr>
+<tr class="separator:a060c9319f77c19e0ca68e0b66caead74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d6e6737956257064bd7b0e41c6605aa"><td class="memTemplParams" colspan="2">template&lt;class AD_TAPE_REAL , class DATA_HANDLER_1 &gt; </td></tr>
 <tr class="memitem:a1d6e6737956257064bd7b0e41c6605aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structad_1_1internal_1_1binary__intermediate__aa.html">ad::internal::binary_intermediate_aa</a>&lt; AD_TAPE_REAL, <a class="el" href="structad_1_1internal_1_1active__type.html">ad::internal::active_type</a>&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt;, <a class="el" href="structad_1_1internal_1_1active__type.html">ad::internal::active_type</a>&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt;, <a class="el" href="structad_1_1operations_1_1ad__hypot__aa.html">ad::operations::ad_hypot_aa</a>&lt; AD_TAPE_REAL &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacead_1_1internal.html#a1d6e6737956257064bd7b0e41c6605aa">hypot</a> (const <a class="el" href="structad_1_1internal_1_1active__type.html">ad::internal::active_type</a>&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt; &amp;x1, const <a class="el" href="structad_1_1internal_1_1active__type.html">ad::internal::active_type</a>&lt; AD_TAPE_REAL, DATA_HANDLER_1 &gt; &amp;x2)</td></tr>
 <tr class="separator:a1d6e6737956257064bd7b0e41c6605aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5399,6 +5403,29 @@ template&lt;class AD_TAPE_REAL , class A1_T , class A1_OP &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a060c9319f77c19e0ca68e0b66caead74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a060c9319f77c19e0ca68e0b66caead74">&#9670;&nbsp;</a></span>format_as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class FP , class DataHandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const FP&amp; ad::internal::format_as </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structad_1_1internal_1_1active__type.html">active_type</a>&lt; FP, DataHandler &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ad_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format AD types (like <a class="el" href="classad_1_1gt1s.html#ae229a934d69ae2ca71b3f30ff501a924">ad::gt1s&lt;double&gt;::type</a>) using their value for logging with spdlog. </p>
+<p>If derivative information is needed as well, use <code>ad::derivative(...)</code> or define a <code>fmt::formatter&lt;...&gt;</code>. </p>
 
 </div>
 </div>

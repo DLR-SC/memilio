@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">59</td>
@@ -155,7 +155,7 @@
 <a name="93"><span class="lineNum">      93 </span><span class="lineCov">        914 :         , m_support_max{-1.} // Initialize support maximum as not set.</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :     {</a>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">        457 :         if (m_scale &lt;= 0) {</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">          2 :             log_error(&quot;The scale parameter of a StateAgeFunction has to be positive. Set scale to 1.&quot;);</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">          1 :             log_error(&quot;The scale parameter of a StateAgeFunction has to be positive. Set scale to 1.&quot;);</span></a>
 <a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 :             m_scale = 1.;</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :         }</a>
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">        457 :     }</span></a>
@@ -163,12 +163,12 @@
 <a name="101"><span class="lineNum">     101 </span>            :     /**</a>
 <a name="102"><span class="lineNum">     102 </span>            :      * @brief Virtual destructor.</a>
 <a name="103"><span class="lineNum">     103 </span>            :      */</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">       3664 :     virtual ~StateAgeFunction() = default;</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">       3212 :     virtual ~StateAgeFunction() = default;</span></a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
 <a name="106"><span class="lineNum">     106 </span>            :     /**</a>
 <a name="107"><span class="lineNum">     107 </span>            :      * @brief Copy constructor.</a>
 <a name="108"><span class="lineNum">     108 </span>            :      */</a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       3205 :     StateAgeFunction(const StateAgeFunction&amp; other) = default;</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       2753 :     StateAgeFunction(const StateAgeFunction&amp; other) = default;</span></a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
 <a name="111"><span class="lineNum">     111 </span>            :     /**</a>
 <a name="112"><span class="lineNum">     112 </span>            :      * @brief Move constructor.</a>
@@ -293,7 +293,7 @@
 <a name="231"><span class="lineNum">     231 </span><span class="lineCov">         13 :     void set_scale(ScalarType new_scale)</span></a>
 <a name="232"><span class="lineNum">     232 </span>            :     {</a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">         13 :         if (new_scale &lt;= 0) {</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          2 :             log_error(&quot;The scale parameter of a StateAgeFunction has to be positive. Set scale to 1.&quot;);</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          1 :             log_error(&quot;The scale parameter of a StateAgeFunction has to be positive. Set scale to 1.&quot;);</span></a>
 <a name="235"><span class="lineNum">     235 </span><span class="lineCov">          1 :             new_scale = 1;</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :         }</a>
 <a name="237"><span class="lineNum">     237 </span><span class="lineCov">         13 :         m_scale       = new_scale;</span></a>
@@ -379,9 +379,9 @@
 <a name="317"><span class="lineNum">     317 </span>            :      * </a>
 <a name="318"><span class="lineNum">     318 </span>            :      * @return std::unique_ptr&lt;StateAgeFunction&gt; unique pointer to a StateAgeFunction</a>
 <a name="319"><span class="lineNum">     319 </span>            :      */</a>
-<a name="320"><span class="lineNum">     320 </span><span class="lineCov">       3203 :     std::unique_ptr&lt;StateAgeFunction&gt; clone() const</span></a>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">       2751 :     std::unique_ptr&lt;StateAgeFunction&gt; clone() const</span></a>
 <a name="321"><span class="lineNum">     321 </span>            :     {</a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">       3203 :         return std::unique_ptr&lt;StateAgeFunction&gt;(clone_impl());</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">       2751 :         return std::unique_ptr&lt;StateAgeFunction&gt;(clone_impl());</span></a>
 <a name="323"><span class="lineNum">     323 </span>            :     }</a>
 <a name="324"><span class="lineNum">     324 </span>            : </a>
 <a name="325"><span class="lineNum">     325 </span>            : protected:</a>
@@ -459,9 +459,9 @@
 <a name="397"><span class="lineNum">     397 </span>            :      * </a>
 <a name="398"><span class="lineNum">     398 </span>            :      * @return Pointer to StateAgeFunction.</a>
 <a name="399"><span class="lineNum">     399 </span>            :      */</a>
-<a name="400"><span class="lineNum">     400 </span><span class="lineCov">        174 :     StateAgeFunction* clone_impl() const override</span></a>
+<a name="400"><span class="lineNum">     400 </span><span class="lineCov">        164 :     StateAgeFunction* clone_impl() const override</span></a>
 <a name="401"><span class="lineNum">     401 </span>            :     {</a>
-<a name="402"><span class="lineNum">     402 </span><span class="lineCov">        174 :         return new ExponentialSurvivalFunction(*this);</span></a>
+<a name="402"><span class="lineNum">     402 </span><span class="lineCov">        164 :         return new ExponentialSurvivalFunction(*this);</span></a>
 <a name="403"><span class="lineNum">     403 </span>            :     }</a>
 <a name="404"><span class="lineNum">     404 </span>            : };</a>
 <a name="405"><span class="lineNum">     405 </span>            : </a>
@@ -542,9 +542,9 @@
 <a name="480"><span class="lineNum">     480 </span>            :      * </a>
 <a name="481"><span class="lineNum">     481 </span>            :      * @return std::unique_ptr&lt;StateAgeFunction&gt; unique pointer to a StateAgeFunction.</a>
 <a name="482"><span class="lineNum">     482 </span>            :      */</a>
-<a name="483"><span class="lineNum">     483 </span><span class="lineCov">       2461 :     StateAgeFunction* clone_impl() const override</span></a>
+<a name="483"><span class="lineNum">     483 </span><span class="lineCov">       2121 :     StateAgeFunction* clone_impl() const override</span></a>
 <a name="484"><span class="lineNum">     484 </span>            :     {</a>
-<a name="485"><span class="lineNum">     485 </span><span class="lineCov">       2461 :         return new SmootherCosine(*this);</span></a>
+<a name="485"><span class="lineNum">     485 </span><span class="lineCov">       2121 :         return new SmootherCosine(*this);</span></a>
 <a name="486"><span class="lineNum">     486 </span>            :     }</a>
 <a name="487"><span class="lineNum">     487 </span>            : };</a>
 <a name="488"><span class="lineNum">     488 </span>            : </a>
@@ -721,7 +721,7 @@
 <a name="659"><span class="lineNum">     659 </span><span class="lineCov">          6 :         unused(tol);</span></a>
 <a name="660"><span class="lineNum">     660 </span><span class="lineCov">          6 :         m_support_max = -2.;</span></a>
 <a name="661"><span class="lineNum">     661 </span>            : </a>
-<a name="662"><span class="lineNum">     662 </span><span class="lineCov">         12 :         log_error(&quot;This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
+<a name="662"><span class="lineNum">     662 </span><span class="lineCov">          6 :         log_error(&quot;This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
 <a name="663"><span class="lineNum">     663 </span>            :                   &quot;StateAgeFunctions of type b); see documentation of StateAgeFunction Base class.&quot;);</a>
 <a name="664"><span class="lineNum">     664 </span>            : </a>
 <a name="665"><span class="lineNum">     665 </span><span class="lineCov">          6 :         return m_support_max;</span></a>
@@ -740,7 +740,7 @@
 <a name="678"><span class="lineNum">     678 </span>            :     {</a>
 <a name="679"><span class="lineNum">     679 </span><span class="lineCov">          1 :         unused(dt);</span></a>
 <a name="680"><span class="lineNum">     680 </span><span class="lineCov">          1 :         unused(tol);</span></a>
-<a name="681"><span class="lineNum">     681 </span><span class="lineCov">          2 :         log_warning(&quot;Attention: This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
+<a name="681"><span class="lineNum">     681 </span><span class="lineCov">          1 :         log_warning(&quot;Attention: This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
 <a name="682"><span class="lineNum">     682 </span>            :                     &quot;StateAgeFunctions of type b); see documentation of StateAgeFunction Base class.&quot;);</a>
 <a name="683"><span class="lineNum">     683 </span><span class="lineCov">          1 :         return m_distribution_parameter;</span></a>
 <a name="684"><span class="lineNum">     684 </span>            :     }</a>
@@ -751,9 +751,9 @@
 <a name="689"><span class="lineNum">     689 </span>            :      * </a>
 <a name="690"><span class="lineNum">     690 </span>            :      * @return std::unique_ptr&lt;StateAgeFunction&gt; unique pointer to a StateAgeFunction</a>
 <a name="691"><span class="lineNum">     691 </span>            :      */</a>
-<a name="692"><span class="lineNum">     692 </span><span class="lineCov">        556 :     StateAgeFunction* clone_impl() const override</span></a>
+<a name="692"><span class="lineNum">     692 </span><span class="lineCov">        454 :     StateAgeFunction* clone_impl() const override</span></a>
 <a name="693"><span class="lineNum">     693 </span>            :     {</a>
-<a name="694"><span class="lineNum">     694 </span><span class="lineCov">        556 :         return new ConstantFunction(*this);</span></a>
+<a name="694"><span class="lineNum">     694 </span><span class="lineCov">        454 :         return new ConstantFunction(*this);</span></a>
 <a name="695"><span class="lineNum">     695 </span>            :     }</a>
 <a name="696"><span class="lineNum">     696 </span>            : };</a>
 <a name="697"><span class="lineNum">     697 </span>            : </a>
@@ -838,7 +838,7 @@
 <a name="776"><span class="lineNum">     776 </span>            :     {</a>
 <a name="777"><span class="lineNum">     777 </span><span class="lineCov">          1 :         unused(dt);</span></a>
 <a name="778"><span class="lineNum">     778 </span><span class="lineCov">          1 :         unused(tol);</span></a>
-<a name="779"><span class="lineNum">     779 </span><span class="lineCov">          2 :         log_warning(&quot;Attention: This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
+<a name="779"><span class="lineNum">     779 </span><span class="lineCov">          1 :         log_warning(&quot;Attention: This function is not suited to be a TransitionDistribution. Do not call in case of &quot;</span></a>
 <a name="780"><span class="lineNum">     780 </span>            :                     &quot;StateAgeFunctions of type b); see documentation of StateAgeFunction Base class.&quot;);</a>
 <a name="781"><span class="lineNum">     781 </span><span class="lineCov">          1 :         return m_distribution_parameter * m_scale;</span></a>
 <a name="782"><span class="lineNum">     782 </span>            :     }</a>
@@ -891,10 +891,10 @@
 <a name="829"><span class="lineNum">     829 </span>            :     /**</a>
 <a name="830"><span class="lineNum">     830 </span>            :      * @brief Copy constructor. </a>
 <a name="831"><span class="lineNum">     831 </span>            :      */</a>
-<a name="832"><span class="lineNum">     832 </span><span class="lineCov">       2492 :     StateAgeFunctionWrapper(StateAgeFunctionWrapper const&amp; other)</span></a>
-<a name="833"><span class="lineNum">     833 </span><span class="lineCov">       2492 :         : m_function(other.m_function-&gt;clone())</span></a>
+<a name="832"><span class="lineNum">     832 </span><span class="lineCov">       2040 :     StateAgeFunctionWrapper(StateAgeFunctionWrapper const&amp; other)</span></a>
+<a name="833"><span class="lineNum">     833 </span><span class="lineCov">       2040 :         : m_function(other.m_function-&gt;clone())</span></a>
 <a name="834"><span class="lineNum">     834 </span>            :     {</a>
-<a name="835"><span class="lineNum">     835 </span><span class="lineCov">       2492 :     }</span></a>
+<a name="835"><span class="lineNum">     835 </span><span class="lineCov">       2040 :     }</span></a>
 <a name="836"><span class="lineNum">     836 </span>            : </a>
 <a name="837"><span class="lineNum">     837 </span>            :     /**</a>
 <a name="838"><span class="lineNum">     838 </span>            :      * @brief Move constructor. </a>
@@ -918,7 +918,7 @@
 <a name="856"><span class="lineNum">     856 </span>            :     /**</a>
 <a name="857"><span class="lineNum">     857 </span>            :      * @brief Destructor. </a>
 <a name="858"><span class="lineNum">     858 </span>            :      */</a>
-<a name="859"><span class="lineNum">     859 </span><span class="lineCov">       2789 :     ~StateAgeFunctionWrapper() = default;</span></a>
+<a name="859"><span class="lineNum">     859 </span><span class="lineCov">       2337 :     ~StateAgeFunctionWrapper() = default;</span></a>
 <a name="860"><span class="lineNum">     860 </span>            : </a>
 <a name="861"><span class="lineNum">     861 </span>            :     /**</a>
 <a name="862"><span class="lineNum">     862 </span>            :      * @brief Comparison operator. </a>

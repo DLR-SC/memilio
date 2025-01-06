@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">23</td>
@@ -168,12 +168,12 @@
 <a name="106"><span class="lineNum">     106 </span><span class="lineCov">     114057 :         return a.date &lt; b.date;</span></a>
 <a name="107"><span class="lineNum">     107 </span>            :     });</a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">        216 :     if (max_date_entry == case_data.end()) {</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         18 :         log_error(&quot;Case data file is empty.&quot;);</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          9 :         log_error(&quot;Case data file is empty.&quot;);</span></a>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">          9 :         return failure(StatusCode::InvalidValue, &quot;Case data is empty.&quot;);</span></a>
 <a name="111"><span class="lineNum">     111 </span>            :     }</a>
 <a name="112"><span class="lineNum">     112 </span><span class="lineCov">        207 :     auto max_date = max_date_entry-&gt;date;</span></a>
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">        207 :     if (max_date &lt; date) {</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         18 :         log_error(&quot;Specified date does not exist in case data&quot;);</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          9 :         log_error(&quot;Specified date does not exist in case data&quot;);</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          9 :         return failure(StatusCode::OutOfRange, &quot;Case data does not contain specified date.&quot;);</span></a>
 <a name="116"><span class="lineNum">     116 </span>            :     }</a>
 <a name="117"><span class="lineNum">     117 </span>            : </a>
@@ -902,7 +902,7 @@
 <a name="840"><span class="lineNum">     840 </span>            :     }</a>
 <a name="841"><span class="lineNum">     841 </span><span class="lineCov">         64 :     auto max_date = max_date_entry-&gt;date;</span></a>
 <a name="842"><span class="lineNum">     842 </span><span class="lineCov">         64 :     if (max_date &lt; offset_date_by_days(date, num_days)) {</span></a>
-<a name="843"><span class="lineNum">     843 </span><span class="lineCov">          2 :         log_error(&quot;Vaccination data does not contain all dates. After the last day the data, vaccinations per day are &quot;</span></a>
+<a name="843"><span class="lineNum">     843 </span><span class="lineCov">          1 :         log_error(&quot;Vaccination data does not contain all dates. After the last day the data, vaccinations per day are &quot;</span></a>
 <a name="844"><span class="lineNum">     844 </span>            :                   &quot;set to 0.&quot;);</a>
 <a name="845"><span class="lineNum">     845 </span>            :     }</a>
 <a name="846"><span class="lineNum">     846 </span>            : </a>

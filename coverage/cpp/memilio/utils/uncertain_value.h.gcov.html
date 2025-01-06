@@ -31,18 +31,18 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">62</td>
-            <td class="headerCovTableEntry">76</td>
-            <td class="headerCovTableEntryMed">81.6 %</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntryMed">82.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-12-13 10:12:58</td>
+            <td class="headerValue">2025-01-06 15:48:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntry">31</td>
-            <td class="headerCovTableEntryMed">83.9 %</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntryMed">84.4 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -123,13 +123,13 @@
 <a name="61"><span class="lineNum">      61 </span>            :     * @brief Create an UncertainValue by cloning scalar value </a>
 <a name="62"><span class="lineNum">      62 </span>            :     *        and distribution of another UncertainValue</a>
 <a name="63"><span class="lineNum">      63 </span>            :     */</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">   19860274 :     UncertainValue(const UncertainValue&amp; other)</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   19860274 :         : m_value(other.m_value)</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">   19634558 :     UncertainValue(const UncertainValue&amp; other)</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   19634558 :         : m_value(other.m_value)</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :     {</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   19860274 :         if (other.m_dist) {</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   19634558 :         if (other.m_dist) {</span></a>
 <a name="68"><span class="lineNum">      68 </span><span class="lineCov">   13758137 :             m_dist.reset(other.m_dist-&gt;clone());</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :         }</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   19860274 :     }</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   19634558 :     }</span></a>
 <a name="71"><span class="lineNum">      71 </span>            : </a>
 <a name="72"><span class="lineNum">      72 </span>            :     /**</a>
 <a name="73"><span class="lineNum">      73 </span>            :     * @brief Set an UncertainValue from another UncertainValue</a>
@@ -158,9 +158,9 @@
 <a name="96"><span class="lineNum">      96 </span>            :     {</a>
 <a name="97"><span class="lineNum">      97 </span><span class="lineCov">    1721090 :         return m_value;</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :     }</a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">   20890759 :     operator const FP&amp;() const</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">   19953913 :     operator const FP&amp;() const</span></a>
 <a name="100"><span class="lineNum">     100 </span>            :     {</a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">   20890759 :         return m_value;</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">   19953913 :         return m_value;</span></a>
 <a name="102"><span class="lineNum">     102 </span>            :     }</a>
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span>            :     /**</a>
@@ -289,17 +289,27 @@
 <a name="227"><span class="lineNum">     227 </span>            :     std::unique_ptr&lt;ParameterDistribution&gt; m_dist;</a>
 <a name="228"><span class="lineNum">     228 </span>            : };</a>
 <a name="229"><span class="lineNum">     229 </span>            : </a>
-<a name="230"><span class="lineNum">     230 </span>            : // gtest printer</a>
-<a name="231"><span class="lineNum">     231 </span>            : // TODO: should be extended when UncertainValue gets operator== that compares distributions as well</a>
-<a name="232"><span class="lineNum">     232 </span>            : template &lt;typename FP = double&gt;</a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineNoCov">          0 : inline void PrintTo(const UncertainValue&lt;FP&gt;&amp; uv, std::ostream* os)</span></a>
-<a name="234"><span class="lineNum">     234 </span>            : {</a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineNoCov">          0 :     (*os) &lt;&lt; uv.value();</span></a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineNoCov">          0 : }</span></a>
-<a name="237"><span class="lineNum">     237 </span>            : </a>
-<a name="238"><span class="lineNum">     238 </span>            : } // namespace mio</a>
+<a name="230"><span class="lineNum">     230 </span>            : /**</a>
+<a name="231"><span class="lineNum">     231 </span>            :  * @brief Format UncertainValues using their value for logging with spdlog.</a>
+<a name="232"><span class="lineNum">     232 </span>            :  */</a>
+<a name="233"><span class="lineNum">     233 </span>            : template &lt;class FP&gt;</a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">        270 : const FP&amp; format_as(const UncertainValue&lt;FP&gt;&amp; uv)</span></a>
+<a name="235"><span class="lineNum">     235 </span>            : {</a>
+<a name="236"><span class="lineNum">     236 </span>            :     // uses UncertainValue&lt;FP&gt;::operator const FP&amp;() const</a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        270 :     return uv;</span></a>
+<a name="238"><span class="lineNum">     238 </span>            : }</a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
-<a name="240"><span class="lineNum">     240 </span>            : #endif // UNCERTAINVALUE_H</a>
+<a name="240"><span class="lineNum">     240 </span>            : // gtest printer</a>
+<a name="241"><span class="lineNum">     241 </span>            : // TODO: should be extended when UncertainValue gets operator== that compares distributions as well</a>
+<a name="242"><span class="lineNum">     242 </span>            : template &lt;typename FP = double&gt;</a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineNoCov">          0 : inline void PrintTo(const UncertainValue&lt;FP&gt;&amp; uv, std::ostream* os)</span></a>
+<a name="244"><span class="lineNum">     244 </span>            : {</a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineNoCov">          0 :     (*os) &lt;&lt; uv.value();</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="247"><span class="lineNum">     247 </span>            : </a>
+<a name="248"><span class="lineNum">     248 </span>            : } // namespace mio</a>
+<a name="249"><span class="lineNum">     249 </span>            : </a>
+<a name="250"><span class="lineNum">     250 </span>            : #endif // UNCERTAINVALUE_H</a>
 </pre>
       </td>
     </tr>
