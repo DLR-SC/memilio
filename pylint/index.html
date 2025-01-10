@@ -7251,9 +7251,7 @@ import pandas as pd
 from memilio.epidata import defaultDict as dd
 from memilio.epidata import geoModificationGermany as geoger
 from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-# activate CoW for more predictable behaviour of pandas DataFrames</pre></td>
+from memilio.epidata import modifyDataframeSeries as mdfs</pre></td>
             </tr>
             
             <tr>
@@ -7266,12 +7264,12 @@ from memilio.epidata import modifyDataframeSeries as mdfs
                 <td><pre>Similar lines in 2 files
 ==memilio.epidata.getCaseData:[238:244]
 ==memilio.epidata.getDIVIData:[141:147]
-    try:
-        df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
-            df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
-    except ValueError:
         try:
-            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
+            df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(
+                df[dd.EngEng[&#39;date&#39;]], format=&#34;ISO8601&#34;)
+        except ValueError:
+            try:
+                df[dd.EngEng[&#39;date&#39;]] = pd.to_datetime(</pre></td>
             </tr>
             
             <tr>
@@ -7418,34 +7416,7 @@ import pandas as pd
 from memilio.epidata import defaultDict as dd
 from memilio.epidata import geoModificationGermany as geoger
 from memilio.epidata import getDataIntoPandasDataFrame as gd
-from memilio.epidata import modifyDataframeSeries as mdfs
-
-
-def fetch_divi_data(
-        directory: str,
-        filename: str,
-        conf_obj,
-        read_data: bool = dd.defaultDict[&#39;read_data&#39;],
-        file_format: str = dd.defaultDict[&#39;file_format&#39;],
-) -&gt; pd.DataFrame:
-    &#34;&#34;&#34;! Downloads or reads the DIVI ICU data and writes them in different files.
-
-    If it does not already exist, the folder Germany is generated in the given out_folder.
-    If read_data == True and the file &#34;FullData_DIVI.json&#34; exists, the data is read form this file
-    and stored in a pandas dataframe. If read_data = True and the file does not exist the program is stopped.
-    The downloaded dataframe is written to the file &#34;FullData_DIVI&#34;.
-
-    @param directory str
-        Path to the output directory
-    @param conf_obj
-        configuration object
-    @param filename str
-        File format which is used for writing the data. Default defined in defaultDict.
-    @param read_data bool. True or False. Defines if data is read from file or downloaded. Default defined in defaultDict.
-    @param file_format str. File format which is used for writing the data. Default defined in defaultDict.
-
-    @return Tuple[df_raw, start_date] Tuple. Contains the fetched data as well as the adjusted starting date
-    &#34;&#34;&#34;</pre></td>
+from memilio.epidata import modifyDataframeSeries as mdfs</pre></td>
             </tr>
             
             <tr>
@@ -7579,11 +7550,8 @@ from memilio.epidata import getDataIntoPandasDataFrame as gd</pre></td>
     def setUp(self):
         self.setUpPyfakefs()
 
-    @patch(&#39;memilio.epidata.getVaccinationData.download_vaccination_data&#39;,
-           return_value=df_vacc_data_altern)
-    @patch(&#39;memilio.epidata.getPopulationData.get_population_data&#39;, return_value=df_pop)
-    @patch(&#39;memilio.epidata.getDataIntoPandasDataFrame.user_choice&#39;, return_value=True)
-    def test_get_vaccination_data_alternative_ages(self, mockin, mockp, mockv):</pre></td>
+    @patch(&#39;builtins.print&#39;)
+    def test_verify_sorted(self, mock_print):</pre></td>
             </tr>
             
             <tr>
