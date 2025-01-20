@@ -176,14 +176,14 @@ int main()
 
     struct LogTimePoint : mio::LogAlways {
         using Type = double;
-        static Type log(const mio::abm::Simulation& sim)
+        static Type log(const mio::abm::Simulation<>& sim)
         {
             return sim.get_time().hours();
         }
     };
     struct LogLocationIds : mio::LogOnce {
         using Type = std::vector<std::tuple<mio::abm::LocationType, uint32_t>>;
-        static Type log(const mio::abm::Simulation& sim)
+        static Type log(const mio::abm::Simulation<>& sim)
         {
             Type location_ids{};
             for (auto& location : sim.get_model().get_locations()) {
